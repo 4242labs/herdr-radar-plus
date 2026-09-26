@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.3.18 — 2026-09-27
+
+- **A split pane draws as a plain row; the corner is a setting.** The other
+  panes of a split screen used to hang off the first with a `├─` corner, the
+  way a worktree hangs off its checkout. A split is two peers sharing one
+  tab, and the corner read as a hierarchy that is not there — and cost the
+  row two columns plus Herdr's separator, so a title that fit on a plain row
+  truncated on its split half. The corner is off now; the panes of a tab
+  still sit together. `split_corner = true`, in `config.toml` or the settings
+  popup, brings the tree back.
+
+  From [#17](https://github.com/hhdebb/herdr-radar/pull/17) by @sfroment.
+
 ## 1.3.17 — 2026-09-27
 
 - **A second workspace on the same checkout is a peer, not a worktree.** Open

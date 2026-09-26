@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.3.16 — 2026-09-27
+
+- **`herdr plugin install` works on Windows.** The install's build hook
+  runs inside Herdr's temporary checkout, which Herdr renames into place
+  once the hook is done — and the hook used to start the daemon from there.
+  A daemon started that way inherited the temporary checkout as its working
+  directory, and on Windows a directory that some process is sitting in
+  cannot be renamed, so every install on Windows ended with `os error 32`,
+  no plugin registered and empty `.tmp-install-*` folders left behind. The
+  build hook now only writes the managed blocks and installs the font; the
+  daemon starts from the startup hooks and the `state-start` action once the
+  plugin is where it will stay, which is also where it should have been
+  running from all along.
+
+  Reported in [#23](https://github.com/hhdebb/herdr-radar/issues/23) by
+  @tylyp, confirmed by @Pool1541.
+
 ## 1.3.15 — 2026-09-25
 
 - **A table you already have keeps only its block out.** The plugin writes

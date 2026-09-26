@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.3.17 — 2026-09-27
+
+- **A second workspace on the same checkout is a peer, not a worktree.** Open
+  one repository in two workspaces — a feature and a quick review, both on
+  the main checkout — and the second one hung under the first with a branch
+  corner, next to the real worktrees, and inherited its place in the
+  activity order. Only a linked worktree hangs under its checkout now; a
+  second workspace on the same folder stays top-level beside the first.
+
+  Fixed in [#24](https://github.com/hhdebb/herdr-radar/pull/24) by
+  @sleistner.
+
 ## 1.3.16 — 2026-09-27
 
 - **`herdr plugin install` works on Windows.** The install's build hook

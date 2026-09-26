@@ -467,6 +467,18 @@ for (const dir of ['lib', 'bin']) {
   }
 }
 
+// The build hook must not start a process. It runs inside Herdr's temporary
+// checkout, which Herdr renames into place afterwards; a daemon started from
+// there inherits that directory as its cwd, and on Windows a directory that
+// is some process's cwd cannot be renamed — every install failed with os
+// error 32 (#23). The daemon starts from the startup hooks instead.
+{
+  const text = fs.readFileSync(path.join(root, 'bin', 'setup.js'), 'utf8');
+  for (const name of ['detachedNode', 'child_process', 'spawn(']) {
+    if (text.includes(name)) problems.push(`bin/setup.js: starts a process (${name}) from the build hook (#23)`);
+  }
+}
+
 if (problems.length) {
   console.error(problems.join('\n'));
   process.exit(1);

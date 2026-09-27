@@ -67,14 +67,14 @@ command = ["node", "bin/agent-state.js", "--stop"]
 # command.
 [[actions]]
 id = "view-toggle"
-title = "Agents: cycle order (attention / active / recent / off)"
-description = "Cycle the Agents panel: by what needs you, grouped by activity, flat by activity, or the panel's own order."
+title = "Agents: cycle order (active / recent / off)"
+description = "Cycle the Agents panel: grouped by activity, flat by activity, or the panel's own order."
 command = ["node", "bin/agent-view.js"]
 
 [[actions]]
 id = "view-flip"
-title = "Agents: active -> attention -> recent"
-description = "Step through the plugin's three orders without leaving them."
+title = "Agents: active <-> recent"
+description = "Flip between grouped-by-activity and flat-by-activity without leaving the plugin's order."
 command = ["node", "bin/agent-view.js", "--flip"]
 
 # The other two-state door, cut across the cycle rather than along it: in and
@@ -82,7 +82,7 @@ command = ["node", "bin/agent-view.js", "--flip"]
 # `[ui.sidebar.*]` rows that paint the logos and state colours. The two live in
 # different places (socket API vs config.toml), so this one alone rewrites
 # Herdr's config and reloads the server; the actions above are pure socket
-# calls. Coming back in always lands on `attention` — no memory of which view you
+# calls. Coming back in always lands on `active` — no memory of which view you
 # left from, deliberately: view-flip is one key away, and a toggle that returns
 # somewhere different each time is worse than one you can predict. Pair the two
 # on separate keys and neither ever has to pass through a state you did not
@@ -94,12 +94,9 @@ description = "Toggle the whole Agents panel — order and row colours — betwe
 command = ["node", "bin/agent-view.js", "--native"]
 
 # Runs when Herdr installs the plugin from GitHub (shown in the install
-# preview): writes the managed blocks and installs the icon font. It must
-# not start the daemon: the hook runs inside Herdr's temporary checkout,
-# which is renamed into place afterwards, and a process whose cwd is in
-# there blocks that rename on Windows (#23). The startup hooks below start
-# the daemon once the plugin is in place; a checkout linked with `plugin
-# link` gets the same setup from the daemon launcher on its first start.
+# preview): writes the managed blocks, installs the icon font, starts the
+# daemon. A checkout linked with `plugin link` gets the same setup from the
+# daemon launcher on its first start instead.
 [[build]]
 command = ["node", "bin/setup.js"]
 
@@ -145,7 +142,7 @@ command = ["node", "bin/agent-state.js"]
 # It used to ride on pane.focused / agent_status_changed event hooks — a node
 # spawn per event — because nothing else survived long enough to own a timer.
 
-# Named agent groups for the attention view (lib/lanes.js).
+# local patch (2026-09-27): manual agent groups in the attention view.
 [[actions]]
 id = "lane-up"
 title = "Agents: move focused agent one group up"

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 
-// Move the focused agent one group up or down.
+// local patch (2026-09-27): move the focused agent one group up or down.
 require('../lib/node-version');
 const { execFileSync } = require('node:child_process');
 const lanes = require('../lib/lanes');

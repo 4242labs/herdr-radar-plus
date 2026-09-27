@@ -2,12 +2,12 @@
 
 ## 1.0.0 — 2026-09-27
 
-First release of herdr-radar-plus, built on herdr-radar 1.3.18. Plugin id
+First release of herdr-radar-plus, built on herdr-radar 1.3.15. Plugin id
 `4242labs.herdr-radar-plus`, so it installs beside nothing: remove herdr-radar first.
 
-- **Attention view, now the default order.** Blocked and done agents first, idle next,
+- **Attention view.** Blocked and done agents first, idle next,
   working last, newest first inside each tier. `view-flip` steps through active, attention
-  and recent. The settings popup offers it as `order = attention`.
+  and recent.
 - **Named groups.** `lane-up` and `lane-down` move the focused agent between the groups named
   in `lanes.json`. A divider names each group once two have members.
 - **Groups across machines.** A hub lists its `peers`, and `bin/lane-sync.js` keeps groups in
@@ -16,48 +16,6 @@ First release of herdr-radar-plus, built on herdr-radar 1.3.18. Plugin id
 - **Machine row.** A second line under each agent names its machine.
 
 Everything below is herdr-radar's history, kept as it was.
-
-## 1.3.18 — 2026-09-27
-
-- **A split pane draws as a plain row; the corner is a setting.** The other
-  panes of a split screen used to hang off the first with a `├─` corner, the
-  way a worktree hangs off its checkout. A split is two peers sharing one
-  tab, and the corner read as a hierarchy that is not there — and cost the
-  row two columns plus Herdr's separator, so a title that fit on a plain row
-  truncated on its split half. The corner is off now; the panes of a tab
-  still sit together. `split_corner = true`, in `config.toml` or the settings
-  popup, brings the tree back.
-
-  From [#17](https://github.com/hhdebb/herdr-radar/pull/17) by @sfroment.
-
-## 1.3.17 — 2026-09-27
-
-- **A second workspace on the same checkout is a peer, not a worktree.** Open
-  one repository in two workspaces — a feature and a quick review, both on
-  the main checkout — and the second one hung under the first with a branch
-  corner, next to the real worktrees, and inherited its place in the
-  activity order. Only a linked worktree hangs under its checkout now; a
-  second workspace on the same folder stays top-level beside the first.
-
-  Fixed in [#24](https://github.com/hhdebb/herdr-radar/pull/24) by
-  @sleistner.
-
-## 1.3.16 — 2026-09-27
-
-- **`herdr plugin install` works on Windows.** The install's build hook
-  runs inside Herdr's temporary checkout, which Herdr renames into place
-  once the hook is done — and the hook used to start the daemon from there.
-  A daemon started that way inherited the temporary checkout as its working
-  directory, and on Windows a directory that some process is sitting in
-  cannot be renamed, so every install on Windows ended with `os error 32`,
-  no plugin registered and empty `.tmp-install-*` folders left behind. The
-  build hook now only writes the managed blocks and installs the font; the
-  daemon starts from the startup hooks and the `state-start` action once the
-  plugin is where it will stay, which is also where it should have been
-  running from all along.
-
-  Reported in [#23](https://github.com/hhdebb/herdr-radar/issues/23) by
-  @tylyp, confirmed by @Pool1541.
 
 ## 1.3.15 — 2026-09-25
 

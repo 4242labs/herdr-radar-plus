@@ -230,7 +230,6 @@ exec claude "$@"
 | `activity_stale_minutes` | `120` | この時間ターンがなければ行が薄くなる |
 | `group_indent` | `2` | 見出しの下のメンバーの字下げ幅。`0` でフラット |
 | `group_gap` | `true` | グループ間の空行 |
-| `split_corner` | `false` | 分割画面の残りのペインを `├─` で最初のペインの下にぶら下げる |
 | `show_tab` | `false` | タイトルの前にタブ番号 |
 | `trim_group_prefix` | `true` | 見出しと同じ名前でタイトルが始まるとき、その部分を落とす |
 | `worktree_mark` | `U+F418` | worktree 見出しのマーク（Nerd Font が必要）。空で非表示 |

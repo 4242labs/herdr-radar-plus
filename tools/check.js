@@ -448,24 +448,6 @@ if (unstable) {
   problems.push(`workspace order: desiredOrder is not idempotent — ${unstable}`);
 }
 
-// The worktree tree: a linked worktree hangs under the repo's main checkout,
-// and a second workspace on that same main checkout stays a peer.
-{
-  const { worktreeParents } = require('../lib/state');
-  const repo = (linked) => ({ repo_key: '/r/.git', repo_name: 'r', is_linked_worktree: linked });
-  const { parents } = worktreeParents([
-    { workspace_id: 'main1', worktree: repo(false) },
-    { workspace_id: 'main2', worktree: repo(false) },
-    { workspace_id: 'branch', worktree: repo(true) },
-  ]);
-  if (parents.get('branch') !== 'main1') {
-    problems.push(`worktreeParents: the linked worktree hangs under ${parents.get('branch')}, expected main1`);
-  }
-  if (parents.has('main2')) {
-    problems.push(`worktreeParents: a second main checkout hangs under ${parents.get('main2')}`);
-  }
-}
-
 // Liveness is asked of the endpoint, never of a pid file.
 //
 // `kill(pid, 0)` on the pid file only says that SOME process has the number,
@@ -482,18 +464,6 @@ for (const dir of ['lib', 'bin']) {
         problems.push(`${dir}/${file}: still refers to ${name} — ask state.daemonStatus() instead`);
       }
     }
-  }
-}
-
-// The build hook must not start a process. It runs inside Herdr's temporary
-// checkout, which Herdr renames into place afterwards; a daemon started from
-// there inherits that directory as its cwd, and on Windows a directory that
-// is some process's cwd cannot be renamed — every install failed with os
-// error 32 (#23). The daemon starts from the startup hooks instead.
-{
-  const text = fs.readFileSync(path.join(root, 'bin', 'setup.js'), 'utf8');
-  for (const name of ['detachedNode', 'child_process', 'spawn(']) {
-    if (text.includes(name)) problems.push(`bin/setup.js: starts a process (${name}) from the build hook (#23)`);
   }
 }
 

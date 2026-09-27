@@ -209,7 +209,6 @@ exec claude "$@"
 | `activity_stale_minutes` | `120` | 多久没动算 stale，整行变暗 |
 | `group_indent` | `2` | 成员缩进几格，`0` 平铺 |
 | `group_gap` | `true` | 组之间留空行 |
-| `split_corner` | `false` | 分屏的其余面板用 `├─` 角标挂在第一个下面 |
 | `show_tab` | `false` | 标题前显示 tab 号 |
 | `trim_group_prefix` | `true` | 标题开头与分组表头同名时去掉那一截 |
 | `worktree_mark` | `U+F418` | worktree 表头的标记，需要 Nerd Font；置空不画 |

@@ -19,7 +19,7 @@ The plus features live in:
 | `bin/lane.js` | The `lane-up` / `lane-down` actions |
 | `bin/lane-sync.js` | Hub and spoke sync over SSH |
 | `lib/frame.js` | `laneLayout`, `laneJobs`: dividers, gaps, indents |
-| `lib/view.js` | The `attention` sort, the default order |
+| `lib/view.js` | The `attention` sort |
 | `lib/logos.js` | `modelFor`, the model families |
 | `lib/state.js`, `lib/managed-config.js` | Model and machine tokens and their sidebar cells |
 

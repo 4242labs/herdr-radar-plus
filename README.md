@@ -9,7 +9,7 @@
 
 A [Herdr](https://herdr.dev) plugin built on [herdr-radar](https://github.com/hhdebb/herdr-radar).
 Everything herdr-radar does is here: vendor logos and colours, state marks that hold until you
-look, idle rows that fade. On top of it, the Agents panel gets a new default order. Agents that
+look, idle rows that fade. On top of it, the Agents panel gets a new order. Agents that
 are waiting on you come first, idle ones next, busy ones last. You can sort them into named
 groups with one key, and those groups hold even when your agents run on more than one machine.
 
@@ -17,14 +17,11 @@ groups with one key, and those groups hold even when your agents run on more tha
 
 | Feature | What you see |
 |:--|:--|
-| **Attention view** | Blocked and done agents at the top, idle next, working last. Newest first inside each tier. The default order. |
+| **Attention view** | Blocked and done agents at the top, idle next, working last. Newest first inside each tier. |
 | **Named groups** | Move the focused agent up or down a group with a key. A divider names each group once two of them have members. |
 | **Groups across machines** | Herdr can show agents from other machines in one panel. Their groups stay in one list, with one divider per group. |
 | **Model mark** | A second logo beside the harness logo names the model family. Hermes running Claude shows both marks. |
 | **Machine row** | A grey line under each agent names the machine it runs on. |
-
-The other halves of a split screen draw as plain rows, which herdr-radar 1.3.18 also made the
-default.
 
 ## Install
 
@@ -136,8 +133,8 @@ The panel answers one question: who needs me now? Done and blocked agents share 
 because both wait on you. Idle agents come next, then the ones still working. Inside a tier the
 newest activity wins.
 
-It is the order a fresh install lands on. `prefix+a` steps through the plugin's three orders:
-`active`, then `attention`, then `recent`. The settings popup's `order` row sets it too.
+`prefix+a` steps through the plugin's three orders: `active`, then `attention`, then `recent`.
+The choice sticks across restarts.
 
 ## Groups
 
@@ -309,7 +306,7 @@ the config file and restarts the daemon.
 | Option | Default | Does |
 | --- | --- | --- |
 | `agents_panel` | `plugin` | this plugin's panel, or `herdr` for Herdr's own |
-| `order` | `attention` | `attention` by what needs you, in your groups / `active` grouped by activity / `recent` flat / `off` Herdr's order |
+| `order` | `active` | `active` grouped by activity / `recent` flat / `off` Herdr's order. `attention` is reached with `prefix+a` |
 | `variant` | `auto` | logos from the icon font (`font`), plain Unicode (`text`), or `none`; `auto` recognises the font the plugin installed |
 | `done_hold` | `until_seen` | keep the tick until the pane is focused, or a number of seconds |
 | `blocked_hold` | `true` | keep the question mark until the agent works again |
@@ -318,7 +315,6 @@ the config file and restarts the daemon.
 | `activity_stale_minutes` | `120` | how long without a turn before the row dims |
 | `group_indent` | `2` | member indent under a header; `0` for a flat list |
 | `group_gap` | `true` | a blank row between groups |
-| `split_corner` | `false` | hang the other panes of a split screen off the first with a `├─` corner |
 | `reorder_workspaces` | `false` | make Herdr's workspace indices follow the panel's activity order |
 | `show_tab` | `false` | tab number in front of the title |
 | `trim_group_prefix` | `true` | drop the workspace name from a title when the header above already shows it |
@@ -464,7 +460,7 @@ installing if that matters to you.
 
 ## Credits
 
-Built on [hhdebb/herdr-radar](https://github.com/hhdebb/herdr-radar) 1.3.18, MIT, with its full
+Built on [hhdebb/herdr-radar](https://github.com/hhdebb/herdr-radar) 1.3.15, MIT, with its full
 history kept here. herdr-radar was itself forked from
 [qintmb/herdr-icon-agent-ui](https://github.com/qintmb/herdr-icon-agent-ui), which contributed the
 icon font and the one-codepoint-per-logo idea. Vendor marks in the font belong to their owners;

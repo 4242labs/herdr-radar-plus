@@ -2,7 +2,7 @@
 #
 # Install: source this file from ~/.bashrc
 #
-#     source /path/to/herdr-radar-plus/shell/herdr-osc7.bash
+#     source /path/to/herdr-radar/shell/herdr-osc7.bash
 
 __herdr_osc7() {
   local win rest

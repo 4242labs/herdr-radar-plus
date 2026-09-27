@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 
-// Keep agent groups in step across machines. The hub (the box whose
+// local patch (2026-09-27): keep agent groups in step across machines. The hub (the box whose
 // lanes.json lists `peers`) holds one SSH pipe per peer running this script with --spoke. Each side
 // sends its files as one JSON line whenever they change, and takes from the other only what that
 // side owns: a machine owns its own `HOST/…` panes and presence entry, the hub owns group names.

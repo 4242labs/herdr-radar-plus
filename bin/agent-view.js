@@ -76,7 +76,7 @@ async function main() {
   const flag = process.argv.find((argument) => argument.startsWith('--')) ?? '--cycle';
   const current = view.mode();
   // Off is the one choice with nothing to restore. Never chosen counts as
-  // `attention` (lib/view.js DEFAULT_MODE), so a fresh install sorts by need
+  // `active` (lib/view.js DEFAULT_MODE), so a fresh install sorts by activity
   // from the first server start.
   if (flag === '--reapply' && !current) return;
 

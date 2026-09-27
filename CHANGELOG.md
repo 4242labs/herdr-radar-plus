@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.0 — 2026-09-27
+## 0.42.0 — 2026-09-27
 
 First release of herdr-radar-plus, built on herdr-radar 1.3.15. Plugin id
 `4242labs.herdr-radar-plus`, so it installs beside nothing: remove herdr-radar first.

@@ -1,6 +1,6 @@
 id = "4242labs.herdr-radar-plus"
 name = "Herdr Radar Plus"
-version = "1.0.0"
+version = "0.42.0"
 min_herdr_version = "0.9.0"
 description = "herdr-radar plus an attention view (blocked and done first), named agent groups that span machines, a model mark beside each harness logo, and a machine row."
 platforms = ["linux", "macos", "windows"]

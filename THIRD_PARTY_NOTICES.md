@@ -1,5 +1,9 @@
 # Third-party notices
 
+herdr-radar-plus is built on [hhdebb/herdr-radar](https://github.com/hhdebb/herdr-radar) (MIT),
+version 1.3.18, with its full history kept in this repository. Everything below is inherited
+from it.
+
 This project is a fork of [qintmb/herdr-icon-agent-ui](https://github.com/qintmb/herdr-icon-agent-ui)
 (MIT). The icon font, the SVG marks and the glyph design are inherited from it; the runtime was
 rewritten. See `LICENSE`.

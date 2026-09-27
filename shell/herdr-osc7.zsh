@@ -19,7 +19,7 @@
 #
 # Install: source this file from ~/.zshrc
 #
-#     source /path/to/herdr-radar/shell/herdr-osc7.zsh
+#     source /path/to/herdr-radar-plus/shell/herdr-osc7.zsh
 #
 # Harmless outside Herdr: OSC7 is a standard sequence that other terminals
 # either use for the same purpose or ignore.

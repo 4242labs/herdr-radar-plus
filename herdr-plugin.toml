@@ -1,8 +1,8 @@
-id = "hhdebb.herdr-radar"
-name = "Herdr Radar"
-version = "1.3.18"
+id = "4242labs.herdr-radar-plus"
+name = "Herdr Radar Plus"
+version = "1.0.0"
 min_herdr_version = "0.9.0"
-description = "Who's working, who's waiting on you — grouped by project, each agent in its vendor's logo and colour. Worktrees nest under their repo, rows order by activity, idle sessions fade. Light and dark."
+description = "herdr-radar plus an attention view (blocked and done first), named agent groups that span machines, a model mark beside each harness logo, and a machine row."
 platforms = ["linux", "macos", "windows"]
 
 # Node, not Python. Upstream is Python and needs >= 3.11 for tomllib, which is
@@ -67,14 +67,14 @@ command = ["node", "bin/agent-state.js", "--stop"]
 # command.
 [[actions]]
 id = "view-toggle"
-title = "Agents: cycle order (active / recent / off)"
-description = "Cycle the Agents panel: grouped by activity, flat by activity, or the panel's own order."
+title = "Agents: cycle order (attention / active / recent / off)"
+description = "Cycle the Agents panel: by what needs you, grouped by activity, flat by activity, or the panel's own order."
 command = ["node", "bin/agent-view.js"]
 
 [[actions]]
 id = "view-flip"
-title = "Agents: active <-> recent"
-description = "Flip between grouped-by-activity and flat-by-activity without leaving the plugin's order."
+title = "Agents: active -> attention -> recent"
+description = "Step through the plugin's three orders without leaving them."
 command = ["node", "bin/agent-view.js", "--flip"]
 
 # The other two-state door, cut across the cycle rather than along it: in and
@@ -82,7 +82,7 @@ command = ["node", "bin/agent-view.js", "--flip"]
 # `[ui.sidebar.*]` rows that paint the logos and state colours. The two live in
 # different places (socket API vs config.toml), so this one alone rewrites
 # Herdr's config and reloads the server; the actions above are pure socket
-# calls. Coming back in always lands on `active` — no memory of which view you
+# calls. Coming back in always lands on `attention` — no memory of which view you
 # left from, deliberately: view-flip is one key away, and a toggle that returns
 # somewhere different each time is worse than one you can predict. Pair the two
 # on separate keys and neither ever has to pass through a state you did not
@@ -108,7 +108,7 @@ command = ["node", "bin/setup.js"]
 # current pane and go away — nothing here is worth a permanent pane.
 [[panes]]
 id = "settings"
-title = "herdr-radar settings"
+title = "herdr-radar-plus settings"
 placement = "popup"
 command = ["node", "bin/settings.js"]
 width = 84
@@ -144,3 +144,16 @@ command = ["node", "bin/agent-state.js"]
 # (agent-state.js requires bin/theme-sync and calls sync() once a minute).
 # It used to ride on pane.focused / agent_status_changed event hooks — a node
 # spawn per event — because nothing else survived long enough to own a timer.
+
+# Named agent groups for the attention view (lib/lanes.js).
+[[actions]]
+id = "lane-up"
+title = "Agents: move focused agent one group up"
+description = "Move the focused agent to the group above."
+command = ["node", "bin/lane.js", "--up"]
+
+[[actions]]
+id = "lane-down"
+title = "Agents: move focused agent one group down"
+description = "Move the focused agent to the group below."
+command = ["node", "bin/lane.js", "--down"]

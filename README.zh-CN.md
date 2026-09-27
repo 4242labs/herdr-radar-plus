@@ -1,12 +1,9 @@
 <div align="center">
 
-# herdr-radar
+# herdr-radar-plus
 
 **一眼看清每个 agent 在干什么**
 
-<img src="assets/banner.webp" alt="herdr-radar — 一眼看清每个 agent 在干什么" width="100%">
-
-<a href="https://github.com/hhdebb/herdr-radar/releases"><img src="https://img.shields.io/github/v/release/hhdebb/herdr-radar?style=flat-square&color=0797ff" alt="最新版本"></a>
 <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%E2%89%A5%2018-0797ff?style=flat-square" alt="Node 18+"></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-0797ff?style=flat-square" alt="MIT"></a>
 
@@ -15,6 +12,9 @@
 </div>
 
 ---
+
+> [!NOTE]
+> herdr-radar-plus 基于 [herdr-radar](https://github.com/hhdebb/herdr-radar)。新增功能（attention 视图、跨机器的 agent 分组、模型标记、机器行）见[英文 README](README.md)。
 
 ## 这是什么
 
@@ -33,8 +33,6 @@ herdr-radar 把这些信息搬到侧边栏上：完工的勾一直亮到你看�
 
 ## 你会得到什么
 
-<img src="assets/sidebar.webp" alt="herdr-radar 侧边栏在亮色与暗色桌面下：分组、状态标记、按活跃度排序" width="100%">
-
 - **状态不会溜走。** 完工的勾保持到你聚焦那个面板，问号保持到 agent 重新干活，
   idle 按最后一轮距今多久分三档，放弃的会话整行变暗。
 - **列表有结构。** 工作区有表头，git worktree 挂在它的仓库下面成树，同一块分屏的面板挨在
@@ -45,7 +43,7 @@ herdr-radar 把这些信息搬到侧边栏上：完工的勾一直亮到你看�
 ## 快速开始
 
 ```sh
-herdr plugin install hhdebb/herdr-radar
+herdr plugin install 4242labs/herdr-radar-plus
 ```
 
 就这一句。插件第一次启动时自己完成剩下的事：把三个托管块写进 Herdr 的 `config.toml`
@@ -54,7 +52,7 @@ Ghostty / kitty 的配置存在的话写入码位映射。
 
 > [!IMPORTANT]
 > 插件由 Herdr 服务端在启动时拉起，装完侧边栏还没变化，就手动起一次：
-> `herdr plugin action invoke hhdebb.herdr-radar.state-start`。
+> `herdr plugin action invoke 4242labs.herdr-radar-plus.state-start`。
 > 重启 Herdr（`herdr server stop` 后再 `herdr`）也行，但它会结束所有面板里正在跑的进程。
 > 新开的终端窗口才会加载字体，有的终端要整个重启。
 
@@ -70,20 +68,20 @@ Ghostty / kitty 的配置存在的话写入码位映射。
 [[keys.command]]
 key = "prefix+a"
 type = "plugin_action"
-command = "hhdebb.herdr-radar.view-flip"       # 排序：active <-> recent
+command = "4242labs.herdr-radar-plus.view-flip"       # 排序：active <-> recent
 
 [[keys.command]]
 key = "prefix+comma"
 type = "plugin_action"
-command = "hhdebb.herdr-radar.settings"        # 设置弹窗
+command = "4242labs.herdr-radar-plus.settings"        # 设置弹窗
 ```
 
 不走 GitHub、从检出目录装：
 
 ```sh
-git clone https://github.com/hhdebb/herdr-radar.git
-herdr plugin link ./herdr-radar
-herdr plugin action invoke hhdebb.herdr-radar.state-start
+git clone https://github.com/4242labs/herdr-radar-plus.git
+herdr plugin link ./herdr-radar-plus
+herdr plugin action invoke 4242labs.herdr-radar-plus.state-start
 ```
 
 `plugin link` 不跑构建步骤，同样的初始化由守护进程首次启动时完成，第三行就是为此。
@@ -95,9 +93,9 @@ herdr plugin action invoke hhdebb.herdr-radar.state-start
 ```text
 在这台机器上安装 Herdr 的 herdr-radar 插件。
 
-1. herdr plugin install hhdebb/herdr-radar
-2. herdr plugin action invoke hhdebb.herdr-radar.state-start
-3. 确认装上了：`herdr plugin list` 里 hhdebb.herdr-radar 是 enabled，
+1. herdr plugin install 4242labs/herdr-radar-plus
+2. herdr plugin action invoke 4242labs.herdr-radar-plus.state-start
+3. 确认装上了：`herdr plugin list` 里 4242labs.herdr-radar-plus 是 enabled，
    并且 `herdr agent list` 里跑着 agent 的面板带上了 `sort_key` token
    （这个 token 与状态无关一直都在；徽标那个 token 的名字会随状态变）。
 
@@ -106,7 +104,7 @@ herdr plugin action invoke hhdebb.herdr-radar.state-start
 完成配置，新开的终端窗口会自己认到图标字体。
 
 需要 Herdr 0.9.0 以上和 Node 18 以上。如果标记显示成方框，是这个终端没有
-对应的码位映射 —— 这种情况和其余问题都在 https://github.com/hhdebb/herdr-radar
+对应的码位映射 —— 这种情况和其余问题都在 https://github.com/4242labs/herdr-radar-plus
 的 Troubleshooting 一节里。
 ```
 
@@ -219,13 +217,13 @@ exec claude "$@"
 | `colors.active_row_bg_light` | `#b9cdf2` | 浅色主题的选中行底色；置空用主题自己的 |
 | `colors.active_row_bg_dark` | `#414868` | 深色主题的选中行底色 |
 
-前两项是实时状态，其余存在 `$(herdr plugin config-dir hhdebb.herdr-radar)/config.toml`，
+前两项是实时状态，其余存在 `$(herdr plugin config-dir 4242labs.herdr-radar-plus)/config.toml`，
 手改也行，改完 `state-stop` 再 `state-start`。这个文件在弹窗第一次保存时才出现，之前要手改就按上表的键
 自己建一个（布尔值不加引号：`group_gap = false`）。
 
 ## 常见问题
 
-先看 `herdr plugin log list --plugin hhdebb.herdr-radar --limit 20`，插件的每条命令在那里都有输出和报错。
+先看 `herdr plugin log list --plugin 4242labs.herdr-radar-plus --limit 20`，插件的每条命令在那里都有输出和报错。
 
 <details>
 <summary><b>装了字体，logo 还是方块或问号</b></summary>
@@ -238,7 +236,7 @@ exec claude "$@"
 <summary><b>logo 画成了一个随机汉字</b></summary>
 
 这段私有区被别的字体抢了，CJK 字体尤其常见。终端必须按码位映射到 `Herdr Agent Icons Max`，
-只加进 fallback 家族不够。Ghostty / kitty 跑一次 `herdr plugin action invoke hhdebb.herdr-radar.install-font`
+只加进 fallback 家族不够。Ghostty / kitty 跑一次 `herdr plugin action invoke 4242labs.herdr-radar-plus.install-font`
 就写好了；其他终端手动映射 `U+E1A0–U+E1B7` 和 `U+E1C0–U+E1C5`。没有按码位映射能力的终端
 （Windows Terminal、iTerm）改用 `dist/JetBrainsMonoHerdr-Regular.ttf` 当主字体，它是打进了
 图标的 JetBrains Mono。
@@ -251,7 +249,7 @@ Ghostty 上只有 `ghostty +show-face` 能说明映射到底生没生效，`+sho
 <details>
 <summary><b>装完侧边栏一点变化都没有</b></summary>
 
-守护进程没起来，`herdr plugin action invoke hhdebb.herdr-radar.state-start`。还不行就看
+守护进程没起来，`herdr plugin action invoke 4242labs.herdr-radar-plus.state-start`。还不行就看
 插件日志里这条的输出。最常见的原因：Herdr 看到的 PATH 上没有 Node 18+，
 `config.toml` 里没有 `[ui]` 表让托管块落脚，或者你自己手写过 `[theme.custom]` / `[ui.sidebar.*]`
 表：插件会拒绝写入而不是让同一个表出现两次（那会让整个配置文件失效）。把你的挪开，或者留着它、
@@ -300,12 +298,12 @@ Windows 上手动 `herdr plugin pane open` 时要带 `--cwd <插件目录>`，�
 才调得到它：
 
 ```sh
-herdr plugin action invoke hhdebb.herdr-radar.unconfigure
-herdr plugin action invoke hhdebb.herdr-radar.uninstall-font
-herdr plugin uninstall hhdebb.herdr-radar
+herdr plugin action invoke 4242labs.herdr-radar-plus.unconfigure
+herdr plugin action invoke 4242labs.herdr-radar-plus.uninstall-font
+herdr plugin uninstall 4242labs.herdr-radar-plus
 ```
 
-留下的只有状态目录和里面的配置备份：`~/.local/state/herdr/plugins/hhdebb.herdr-radar`
+留下的只有状态目录和里面的配置备份：`~/.local/state/herdr/plugins/4242labs.herdr-radar-plus`
 （Windows 是 `%LOCALAPPDATA%\herdr\plugins\...`），想一点不剩就手动删掉。
 
 ## 工作方式

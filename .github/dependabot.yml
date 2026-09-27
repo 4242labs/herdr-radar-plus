@@ -1,0 +1,15 @@
+# A SHA-pinned action only stays safe while something watches for the tag it
+# names to move. That is this file's whole job. Drop the npm block on a repo
+# with no package.json; add the ecosystem the repo actually uses (pip, cargo,
+# gomod, docker).
+version: 2
+updates:
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'

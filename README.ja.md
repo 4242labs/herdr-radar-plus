@@ -1,12 +1,9 @@
 <div align="center">
 
-# herdr-radar
+# herdr-radar-plus
 
 **すべてのエージェントをひと目で**
 
-<img src="assets/banner.webp" alt="herdr-radar — すべてのエージェントをひと目で" width="100%">
-
-<a href="https://github.com/hhdebb/herdr-radar/releases"><img src="https://img.shields.io/github/v/release/hhdebb/herdr-radar?style=flat-square&color=0797ff" alt="最新リリース"></a>
 <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%E2%89%A5%2018-0797ff?style=flat-square" alt="Node 18+"></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-0797ff?style=flat-square" alt="MIT"></a>
 
@@ -15,6 +12,9 @@
 </div>
 
 ---
+
+> [!NOTE]
+> herdr-radar-plus は [herdr-radar](https://github.com/hhdebb/herdr-radar) をベースにしています。追加機能（attention ビュー、マシンをまたぐエージェントグループ、モデルマーク、マシン行）の説明は[英語版 README](README.md) にあります。
 
 ## これは何か
 
@@ -35,8 +35,6 @@ herdr-radar はその情報をサイドバーに載せます。完了したセ�
 
 ## 得られるもの
 
-<img src="assets/sidebar.webp" alt="ライトとダークのデスクトップでの herdr-radar のサイドバー：グループ、状態マーク、アクティビティ順" width="100%">
-
 - **状態が消えない。** チェックはペインにフォーカスするまで、クエスチョンマークはエージェントが
   再び動くまで残ります。idle は最後のターンからの経過時間で 3 段階に分かれ、放置された
   セッションは行ごと薄くなります。
@@ -49,7 +47,7 @@ herdr-radar はその情報をサイドバーに載せます。完了したセ�
 ## クイックスタート
 
 ```sh
-herdr plugin install hhdebb/herdr-radar
+herdr plugin install 4242labs/herdr-radar-plus
 ```
 
 インストールはこれだけです。初回起動時にプラグインが残りを自分で済ませます。Herdr の
@@ -60,7 +58,7 @@ herdr plugin install hhdebb/herdr-radar
 > [!IMPORTANT]
 > プラグインは Herdr サーバーが起動時に立ち上げます。インストール後にサイドバーが変わらなければ、
 > デーモンを一度手で起動してください：
-> `herdr plugin action invoke hhdebb.herdr-radar.state-start`。
+> `herdr plugin action invoke 4242labs.herdr-radar-plus.state-start`。
 > Herdr の再起動（`herdr server stop` の後に `herdr`）でも構いませんが、全ペインのプロセスが終了します。
 > フォントは新しいターミナルウィンドウから読み込まれます。ターミナルによっては完全な再起動が必要です。
 
@@ -76,20 +74,20 @@ herdr plugin install hhdebb/herdr-radar
 [[keys.command]]
 key = "prefix+a"
 type = "plugin_action"
-command = "hhdebb.herdr-radar.view-flip"       # 並び順：active <-> recent
+command = "4242labs.herdr-radar-plus.view-flip"       # 並び順：active <-> recent
 
 [[keys.command]]
 key = "prefix+comma"
 type = "plugin_action"
-command = "hhdebb.herdr-radar.settings"        # 設定ポップアップ
+command = "4242labs.herdr-radar-plus.settings"        # 設定ポップアップ
 ```
 
 GitHub ではなくチェックアウトから入れる場合：
 
 ```sh
-git clone https://github.com/hhdebb/herdr-radar.git
-herdr plugin link ./herdr-radar
-herdr plugin action invoke hhdebb.herdr-radar.state-start
+git clone https://github.com/4242labs/herdr-radar-plus.git
+herdr plugin link ./herdr-radar-plus
+herdr plugin action invoke 4242labs.herdr-radar-plus.state-start
 ```
 
 `plugin link` はビルド手順を実行しません。同じセットアップはデーモンの初回起動が行うので、
@@ -102,9 +100,9 @@ herdr plugin action invoke hhdebb.herdr-radar.state-start
 ```text
 このマシンに Herdr のプラグイン herdr-radar をインストールしてください。
 
-1. herdr plugin install hhdebb/herdr-radar
-2. herdr plugin action invoke hhdebb.herdr-radar.state-start
-3. 確認: `herdr plugin list` で hhdebb.herdr-radar が enabled になっていること、
+1. herdr plugin install 4242labs/herdr-radar-plus
+2. herdr plugin action invoke 4242labs.herdr-radar-plus.state-start
+3. 確認: `herdr plugin list` で 4242labs.herdr-radar-plus が enabled になっていること、
    `herdr agent list` でエージェントが動いているペインに `sort_key` トークンが
    付いていること（これは状態によらず必ず書かれます。ロゴのトークン名は
    状態によって変わります）。
@@ -117,7 +115,7 @@ herdr plugin action invoke hhdebb.herdr-radar.state-start
 
 Herdr 0.9.0 以降と Node 18 以降が必要です。マークが四角で表示される場合は、
 その端末にコードポイントマップがありません。この件を含め
-https://github.com/hhdebb/herdr-radar の Troubleshooting を参照してください。
+https://github.com/4242labs/herdr-radar-plus の Troubleshooting を参照してください。
 ```
 
 ## サイドバーの見え方
@@ -240,14 +238,14 @@ exec claude "$@"
 | `colors.active_row_bg_light` | `#b9cdf2` | ライトテーマの選択行の背景。空ならテーマ自身の値 |
 | `colors.active_row_bg_dark` | `#414868` | ダークテーマの選択行の背景 |
 
-最初の 2 つはライブの状態です。残りは `$(herdr plugin config-dir hhdebb.herdr-radar)/config.toml`
+最初の 2 つはライブの状態です。残りは `$(herdr plugin config-dir 4242labs.herdr-radar-plus)/config.toml`
 にあり、手で編集してもかまいません。編集後は `state-stop`、続けて `state-start`。このファイルは
 ポップアップが最初に保存したときに作られます。それより前に手で編集するなら、上の表のキーで自分で
 作ってください（真偽値は引用符なし：`group_gap = false`）。
 
 ## トラブルシューティング
 
-まず `herdr plugin log list --plugin hhdebb.herdr-radar --limit 20`。プラグインの各コマンドの出力と
+まず `herdr plugin log list --plugin 4242labs.herdr-radar-plus --limit 20`。プラグインの各コマンドの出力と
 エラーはそこにあります。
 
 <details>
@@ -262,7 +260,7 @@ exec claude "$@"
 
 別のフォントが同じ私用領域を主張しています（CJK フォントによくあります）。ターミナルは
 `Herdr Agent Icons Max` にコードポイント単位で割り当てる必要があり、フォールバックに加えるだけでは
-足りません。Ghostty / kitty：`herdr plugin action invoke hhdebb.herdr-radar.install-font` で書き込めます。
+足りません。Ghostty / kitty：`herdr plugin action invoke 4242labs.herdr-radar-plus.install-font` で書き込めます。
 それ以外：`U+E1A0–U+E1B7` と `U+E1C0–U+E1C5` を手で割り当ててください。コードポイント割り当ての
 ないターミナル（Windows Terminal、iTerm）は `dist/JetBrainsMonoHerdr-Regular.ttf` をターミナルの
 フォントに——アイコンを埋め込んだ JetBrains Mono です。
@@ -275,7 +273,7 @@ Ghostty では割り当てが解決したかを答えられるのは `ghostty +s
 <details>
 <summary><b>インストールしても何も変わらない</b></summary>
 
-デーモンが動いていません：`herdr plugin action invoke hhdebb.herdr-radar.state-start`。それでも
+デーモンが動いていません：`herdr plugin action invoke 4242labs.herdr-radar-plus.state-start`。それでも
 だめならプラグインのログでそのコマンドの出力を読んでください。よくある原因は、Herdr から
 見える PATH に Node 18 以上がないこと、`config.toml` に管理ブロックを置く `[ui]` テーブルがないこと、
 あるいは `[theme.custom]` / `[ui.sidebar.*]` テーブルを手で書いていることです。同じテーブルを 2 回
@@ -329,13 +327,13 @@ Windows で `herdr plugin pane open` を手で実行するときは `--cwd <プ�
 外します。プラグインが入っている間でないと呼び出せません。
 
 ```sh
-herdr plugin action invoke hhdebb.herdr-radar.unconfigure
-herdr plugin action invoke hhdebb.herdr-radar.uninstall-font
-herdr plugin uninstall hhdebb.herdr-radar
+herdr plugin action invoke 4242labs.herdr-radar-plus.unconfigure
+herdr plugin action invoke 4242labs.herdr-radar-plus.uninstall-font
+herdr plugin uninstall 4242labs.herdr-radar-plus
 ```
 
 残るのは設定のバックアップを含む状態ディレクトリ
-`~/.local/state/herdr/plugins/hhdebb.herdr-radar`（Windows は `%LOCALAPPDATA%\herdr\plugins\...`）
+`~/.local/state/herdr/plugins/4242labs.herdr-radar-plus`（Windows は `%LOCALAPPDATA%\herdr\plugins\...`）
 だけです。何も残したくなければ手で削除してください。
 
 ## 仕組み

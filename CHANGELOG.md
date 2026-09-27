@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.0.0 — 2026-09-27
+
+First release of herdr-radar-plus, built on herdr-radar 1.3.18. Plugin id
+`4242labs.herdr-radar-plus`, so it installs beside nothing: remove herdr-radar first.
+
+- **Attention view, now the default order.** Blocked and done agents first, idle next,
+  working last, newest first inside each tier. `view-flip` steps through active, attention
+  and recent. The settings popup offers it as `order = attention`.
+- **Named groups.** `lane-up` and `lane-down` move the focused agent between the groups named
+  in `lanes.json`. A divider names each group once two have members.
+- **Groups across machines.** A hub lists its `peers`, and `bin/lane-sync.js` keeps groups in
+  step over SSH. `presence.json` makes sure each group gets one divider across all machines.
+- **Model mark.** A model-family logo beside the harness logo, read from the pane title.
+- **Machine row.** A second line under each agent names its machine.
+
+Everything below is herdr-radar's history, kept as it was.
+
 ## 1.3.18 — 2026-09-27
 
 - **A split pane draws as a plain row; the corner is a setting.** The other

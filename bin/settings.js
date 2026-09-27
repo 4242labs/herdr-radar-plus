@@ -33,8 +33,8 @@ const identity = require('../lib/identity');
 
 // The order row's words, and the lib/view.js modes they stand for. `off` is
 // Herdr's own order — the plugin's rows stay, only the sort override goes.
-const ORDER_MODE = { active: 'grouped', recent: 'recent', off: null };
-const MODE_ORDER = { grouped: 'active', recent: 'recent', null: 'off' };
+const ORDER_MODE = { active: 'grouped', attention: 'attention', recent: 'recent', off: null };
+const MODE_ORDER = { grouped: 'active', attention: 'attention', recent: 'recent', null: 'off' };
 
 // Whether the plugin's sidebar rows are installed — the managed block's
 // presence in Herdr's config IS that state (lib/managed-config.js).
@@ -65,11 +65,11 @@ const FIELDS = [
   {
     key: 'order',
     kind: 'enum',
-    options: ['active', 'recent', 'off'],
-    fallback: 'active',
+    options: ['attention', 'active', 'recent', 'off'],
+    fallback: 'attention',
     virtual: true,
     read: orderValue,
-    help: "Agents panel order: active (grouped, busiest first, stale last), recent (flat, by activity) or off (Herdr's own order). Applies while agents_panel is plugin.",
+    help: "Agents panel order: active (grouped, busiest first, stale last), attention (blocked and done first, then idle, then working, in your named groups), recent (flat, by activity) or off (Herdr's own order). Applies while agents_panel is plugin.",
   },
   {
     key: 'reorder_workspaces',

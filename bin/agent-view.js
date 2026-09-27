@@ -40,6 +40,7 @@ const { detachedNode } = require('../lib/spawn');
 const SAID = {
   grouped: 'agent view: active (grouped, recent first)',
   recent: 'agent view: recent (flat)',
+  attention: 'agent view: attention (blocked/done, idle, working)',
   null: 'agent view: back to panel order',
 };
 
@@ -75,7 +76,7 @@ async function main() {
   const flag = process.argv.find((argument) => argument.startsWith('--')) ?? '--cycle';
   const current = view.mode();
   // Off is the one choice with nothing to restore. Never chosen counts as
-  // `active` (lib/view.js DEFAULT_MODE), so a fresh install sorts by activity
+  // `attention` (lib/view.js DEFAULT_MODE), so a fresh install sorts by need
   // from the first server start.
   if (flag === '--reapply' && !current) return;
 
@@ -86,13 +87,15 @@ async function main() {
         ? { cmd: 'view', op: 'native' }
         : flag === '--active'
           ? { cmd: 'view', set: 'grouped' }
-          : flag === '--recent'
-            ? { cmd: 'view', set: 'recent' }
-            : flag === '--off'
-              ? { cmd: 'view', set: 'off' }
-              : flag === '--reapply'
-                ? { cmd: 'view', set: current }
-                : { cmd: 'view', op: 'cycle' };
+          : flag === '--attention'
+            ? { cmd: 'view', set: 'attention' }
+            : flag === '--recent'
+              ? { cmd: 'view', set: 'recent' }
+              : flag === '--off'
+                ? { cmd: 'view', set: 'off' }
+                : flag === '--reapply'
+                  ? { cmd: 'view', set: current }
+                  : { cmd: 'view', op: 'cycle' };
 
   const reply = await control.request(message, 3000);
   if (reply?.ok && reply.applied) {

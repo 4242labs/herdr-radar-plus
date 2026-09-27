@@ -7,6 +7,8 @@
 
 > Your Herdr agents, sorted by what needs you, in groups you name, across every machine you run.
 
+<p align="center"><img src="assets/demo.gif" alt="The Agents panel: a finished agent and a blocked one rise to the top, then two agents move into a REVIEW group" width="348"></p>
+
 [herdr-radar](https://github.com/hhdebb/herdr-radar), plus:
 
 | Feature | What you see |

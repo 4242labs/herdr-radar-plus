@@ -11,7 +11,7 @@
       "id": "AM02",
       "rule": "Finding adjudication",
       "status": "attended",
-      "receipt": "Full review read; each F/U/T/A row individually restated and reconciled; disputes F5,F8,T3 retained with fresh code/API evidence."
+      "receipt": "Full review read; each F/U/T/A row individually restated and reconciled; disputes F5,F8,T3 retained with fresh code/API evidence. Round-2 BLOCKER/MAJOR (RR1, RR2) also individually restated and resolved with primary message IDs and official vendor docs."
     },
     {
       "id": "AM03",

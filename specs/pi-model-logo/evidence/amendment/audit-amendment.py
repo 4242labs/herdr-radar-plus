@@ -73,7 +73,7 @@ for field in ["findings", "unknowns", "taste"]:
 coverage = {x["id"] for row in review["coverage"] for x in row["subcriteria"]}
 assert coverage == {x["id"] for x in adj["coverage"]}
 assert all(set(x["requirements"]) <= requirements.keys() for x in adj["coverage"])
-expected_rows = set(adj["findings"] + adj["unknowns"] + adj["taste"] + adj["amendment_findings"])
+expected_rows = set(adj["findings"] + adj["unknowns"] + adj["taste"] + adj["amendment_findings"] + adj.get("round2_findings", []))
 assert expected_rows == {x["id"] for x in adj["rows"]}
 assert all(x["status"] in {"RESOLVED", "DISPUTED"} for x in adj["rows"])
 assert all(x["claim"] and x["change"] and x["evidence"] for x in adj["rows"])
@@ -81,6 +81,8 @@ assert sum(x["status"] == "RESOLVED" for x in adj["rows"]) == adj["counts"]["res
 assert sum(x["status"] == "DISPUTED" for x in adj["rows"]) == adj["counts"]["disputed"]
 assert len(coverage) == adj["counts"]["coverage_subcriteria"]
 assert adj["counts"]["escalated"] == 0
+assert adj["counts"].get("round2_findings", 0) == len(adj.get("round2_findings", []))
+assert "round2_review_verdict" in adj, "round-2 BLOCKER/MAJOR verdict must be recorded, not dropped"
 assert rules["count"] == len(rules["checks"])
 assert {r["id"] for r in rules["checks"]} == {f"AM{i:02}" for i in range(1, 16)}
 assert all(r["status"] == "attended" for r in rules["checks"])

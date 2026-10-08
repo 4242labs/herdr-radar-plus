@@ -33,6 +33,10 @@
     "A6",
     "A7"
   ],
+  "round2_findings": [
+    "RR1",
+    "RR2"
+  ],
   "rows": [
     {
       "id": "F1",
@@ -215,6 +219,20 @@
       "status": "RESOLVED",
       "change": "Record prior AM03 as failed; conduct a fresh source-first reissue/checklist; correct module/input-key descriptions without changing scope or acceptance",
       "evidence": "recheck/LEDGER.md; recheck/rules-before.json; recheck/SPEC-before.md; recheck/final-checks.json"
+    },
+    {
+      "id": "RR1",
+      "status": "RESOLVED",
+      "claim": "Round-2 BLOCKER: title-versus-metadata transport choice was not established by a demonstrated operator decision; SPEC silently fixes metadata",
+      "change": "Cited the actual authorizing exchange: operator message 192425 established the divergence needed resolution; the assistant's follow-up (192846) asked a direct binary (accept the 250ms title-rewrite defect, or investigate metadata); operator message 193040 answered \"investigate\"; operator message 193058 answered \"go ahead and do it\". O1/O25 updated to cite this chain instead of an unlabeled inherited control.",
+      "evidence": "session-handover/round-2/packet/operator-messages.json: messages 192425, 193040, 193058; session-handover/round-2/packet/decision-context.json: assistant 192846/193057 pairing confirms the binary question each operator reply answers; Pi official docs (piagent.fyi/guides/extensions-101, pi.dev/docs/latest/extensions, retrieved 2026-10-08) and Herdr official docs (herdr.dev/docs/socket-api/, retrieved 2026-10-08) independently confirm the metadata transport (session_start/model_select events, pane.report_metadata with arbitrary tokens) is a real, documented, working API, not a fabricated alternative"
+    },
+    {
+      "id": "RR2",
+      "status": "RESOLVED",
+      "claim": "Round-2 MAJOR: traceability.json O22\u2013O37 used an unlabeled \"inherited engineering control, not verbatim operator wording\" source_class with no message ID or named canonical clause, obscuring which rows are real operator authority versus canon versus author discretion",
+      "change": "Reclassified all 16 rows (O22\u2013O37) into one of: direct operator instruction (exact message ID), named canonical source (exact file + section, e.g. principles-base.md \u00a714, skill-write-specs.md rule N), discovered fact (official vendor doc + retrieval date), or author implementation choice inside approved scope. O26 specifically downgraded: message 191983 authorized a prior Opus review only, not the detailed F1\u2013F8/U1\u2013U7/T1\u2013T4 ledger format, which this authoring pass's own structuring choice.",
+      "evidence": "traceability.json O22\u2013O37 (current); tortuga/dead-mans-chest/skills/skill-write-specs.md (full file read, rules 1\u20138 and \u00a74/\u00a76 bullets cited by exact wording); tortuga/dead-mans-chest/principles-base.md \u00a714 \"Worktree path\" (lines 242-245, read directly); operator-messages.json 192429/192773/193329/193392 (exact wording confirmed)"
     }
   ],
   "coverage": [
@@ -414,11 +432,13 @@
     "report_unknowns": 7,
     "report_taste": 4,
     "amendment_findings": 7,
+    "round2_findings": 2,
     "coverage_subcriteria": 23,
-    "resolved": 23,
+    "resolved": 25,
     "disputed": 3,
     "escalated": 0
   },
   "prior_pass_compliance": "FAILED_AM03",
+  "round2_review_verdict": "CHANGES REQUIRED (1 BLOCKER, 1 MAJOR); both findings resolved in this amendment pass, see RR1/RR2 above",
   "current_pass_evidence": "amendment/recheck/final-checks.json"
 }

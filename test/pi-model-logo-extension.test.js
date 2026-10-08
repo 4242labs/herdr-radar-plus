@@ -5,18 +5,22 @@
 // validation, and the durable-counter guard. No socket, no live Pi/Herdr
 // process: this is NOT T1's full test:pi-title-protocol/test:pi-title-*
 // acceptance suite, only a red-green receipt for this PATCH.
+//
+// extensions/pi-model-logo.js is ESM (Pi requires `export default` per
+// docs/extensions.md), so it is loaded here with dynamic import() rather
+// than require().
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
 
-const ext = require('../extensions/pi-model-logo');
 const { resolvePiFamily, referenceDigest: consumerDigest } = require('../lib/pi-model');
-test('referenceDigest matches the consumer side exactly (producer/consumer parity)', () => {
+
+test('producer/consumer parity and end-to-end wire format', async () => {
+  const ext = await import('../extensions/pi-model-logo.js');
+
   assert.equal(ext.referenceDigest('id', 'sess-123'), consumerDigest('id', 'sess-123'));
   assert.equal(ext.referenceDigest('path', '/tmp/session.json'), consumerDigest('path', '/tmp/session.json'));
-});
 
-test('isValidSelectedId enforces the §3 shape contract', () => {
   assert.equal(ext.isValidSelectedId('claude-sonnet-4'), true);
   assert.equal(ext.isValidSelectedId(''), false);
   assert.equal(ext.isValidSelectedId(null), false);
@@ -25,14 +29,10 @@ test('isValidSelectedId enforces the §3 shape contract', () => {
   assert.equal(ext.isValidSelectedId('has\u0000null'), false);
   assert.equal(ext.isValidSelectedId(`x-${'y'.repeat(80)}`), false); // 82 chars, over 80
   assert.equal(ext.isValidSelectedId('x'.repeat(80)), true); // exactly 80 is fine
-});
 
-test('provisionZeroCounterWithEvidence refuses without evidence', () => {
-  const result = ext.provisionZeroCounterWithEvidence(false);
-  assert.equal(result.ok, false);
-});
+  const refused = ext.provisionZeroCounterWithEvidence(false);
+  assert.equal(refused.ok, false);
 
-test('an end-to-end producer snapshot resolves through the real consumer', () => {
   // Confirms the two modules' wire format actually interoperates: the
   // producer's digest and the consumer's acceptance check agree on the same
   // {kind, value} pair, independent of any socket.
@@ -42,10 +42,7 @@ test('an end-to-end producer snapshot resolves through the real consumer', () =>
     pi_model_ref: ext.referenceDigest(agentSession.kind, agentSession.value),
   };
   assert.equal(resolvePiFamily(agentSession, tokens), 'claude');
-});
 
-test('a tampered reference digest is rejected end-to-end', () => {
-  const agentSession = { agent: 'pi', source: 'herdr:pi', kind: 'id', value: 'sess-abc' };
-  const tokens = { pi_model_id: 'claude-sonnet-4', pi_model_ref: ext.referenceDigest('id', 'different-session') };
-  assert.equal(resolvePiFamily(agentSession, tokens), null);
+  const tamperedTokens = { pi_model_id: 'claude-sonnet-4', pi_model_ref: ext.referenceDigest('id', 'different-session') };
+  assert.equal(resolvePiFamily(agentSession, tamperedTokens), null);
 });

@@ -9,12 +9,10 @@
 //
 // Spec §3 "Serialization and sequence recovery": built-in node:net,
 // node:crypto, node:fs, node:path only, never a Radar import or subprocess.
-'use strict';
-
-const net = require('node:net');
-const crypto = require('node:crypto');
-const fs = require('node:fs');
-const path = require('node:path');
+import net from 'node:net';
+import crypto from 'node:crypto';
+import fs from 'node:fs';
+import path from 'node:path';
 
 const SOURCE = 'user:radar-pi-model';
 const REFRESH_MS = 30000; // spec §3 Lifecycle: "one unrefed 30000ms metadata-refresh timer"
@@ -403,7 +401,7 @@ function currentSnapshot(ctx) {
 // started here (spec §3 Lifecycle: "The factory registers handlers only").
 // ---------------------------------------------------------------------------
 
-module.exports = function piModelLogo(pi) {
+export default function piModelLogo(pi) {
   let publisher = null;
 
   function retireCurrent() {
@@ -435,8 +433,6 @@ module.exports = function piModelLogo(pi) {
     publisher = null;
     if (current) await current.shutdown();
   });
-};
+}
 
-module.exports.referenceDigest = referenceDigest;
-module.exports.isValidSelectedId = isValidSelectedId;
-module.exports.provisionZeroCounterWithEvidence = provisionZeroCounterWithEvidence;
+export { referenceDigest, isValidSelectedId, provisionZeroCounterWithEvidence };

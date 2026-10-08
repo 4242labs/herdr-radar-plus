@@ -37,7 +37,21 @@ test('spec table positive fixtures resolve to their family', () => {
 });
 
 test('spec table negative fixtures resolve to no family', () => {
-  const cases = ['my-claude', 'claudelike', 'notgpt', 'project-o3', 'o10', 'mygemini', 'notdeepseek', 'qwenish', 'project-qwen', 'groklike', 'glmlike', 'kimono', 'moonshotlike'];
+  const cases = [
+    'my-claude',
+    'claudelike',
+    'notgpt',
+    'project-o3',
+    'o10',
+    'mygemini',
+    'notdeepseek',
+    'qwenish',
+    'project-qwen',
+    'groklike',
+    'glmlike',
+    'kimono',
+    'moonshotlike',
+  ];
   for (const id of cases) assert.equal(familyForId(id), null, id);
 });
 

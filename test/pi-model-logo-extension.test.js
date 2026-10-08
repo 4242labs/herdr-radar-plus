@@ -54,6 +54,9 @@ test('producer/consumer parity and end-to-end wire format', async (t) => {
   };
   assert.equal(resolvePiFamily(agentSession, tokens), 'claude');
 
-  const tamperedTokens = { pi_model_id: 'claude-sonnet-4', pi_model_ref: ext.referenceDigest('id', 'different-session') };
+  const tamperedTokens = {
+    pi_model_id: 'claude-sonnet-4',
+    pi_model_ref: ext.referenceDigest('id', 'different-session'),
+  };
   assert.equal(resolvePiFamily(agentSession, tamperedTokens), null);
 });

@@ -1,0 +1,32 @@
+{
+  "host": "Darkseid.local",
+  "os": "Darwin",
+  "pi_version": "1.0.4",
+  "global_extension_directory": "/Users/42piratas/.pi/agent/extensions",
+  "extensions": [
+    {
+      "path": "/Users/42piratas/.pi/agent/extensions/hey-bridge.ts",
+      "title_writer_lines": []
+    },
+    {
+      "path": "/Users/42piratas/.pi/agent/extensions/clideck-bridge.ts",
+      "title_writer_lines": []
+    },
+    {
+      "path": "/Users/42piratas/.pi/agent/extensions/warp-42labs.ts",
+      "title_writer_lines": []
+    },
+    {
+      "path": "/Users/42piratas/.pi/agent/extensions/pi-agent-notify.ts",
+      "title_writer_lines": []
+    },
+    {
+      "path": "/Users/42piratas/.pi/agent/extensions/herdr-agent-state.ts",
+      "title_writer_lines": []
+    },
+    {
+      "path": "/Users/42piratas/.pi/agent/extensions/live-work-status.ts",
+      "title_writer_lines": []
+    }
+  ]
+}

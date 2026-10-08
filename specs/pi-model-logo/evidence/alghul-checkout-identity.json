@@ -1,0 +1,6 @@
+{
+  "command": "ssh -o BatchMode=yes -o ConnectTimeout=15 alghul 'python3 -c '''from pathlib import Path; import subprocess; ps=[Path(\"/home/42piratas/42labs/herdr-radar-plus\"),Path(\"/mnt/HC_Volume_106886629/workspace/herdr-radar-plus\")]; [(print(str(p)+\" -> \"+str(p.resolve())),print(subprocess.check_output([\"git\",\"-C\",str(p),\"rev-parse\",\"HEAD\"],text=True).strip())) for p in ps]''''",
+  "output": "/bin/bash: eval: line 4: syntax error near unexpected token `('\n/bin/bash: eval: line 4: `ssh -o BatchMode=yes -o ConnectTimeout=15 alghul 'python3 -c '''from pathlib import Path; import subprocess; ps=[Path(\"/home/42piratas/42labs/herdr-radar-plus\"),Path(\"/mnt/HC_Volume_106886629/workspace/herdr-radar-plus\")]; [(print(str(p)+\" -> \"+str(p.resolve())),print(subprocess.check_output([\"git\",\"-C\",str(p),\"rev-parse\",\"HEAD\"],text=True).strip())) for p in ps]'''''",
+  "exit_code": 1,
+  "error": null
+}

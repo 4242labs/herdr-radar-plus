@@ -1,0 +1,6 @@
+{
+  "url": "https://raw.githubusercontent.com/earendil-works/pi/main/packages/coding-agent/docs/extensions.md",
+  "retrieved_at": "2026-10-07T22:13:19.320314-03:00",
+  "sha256": "bd2ed1f728173c1defc035e90c3894c308ae153fa08575c12b4a9988e11f8108",
+  "lifecycle_excerpt": "Do not start processes, sockets, watchers, or timers in the factory because some invocations load extensions without starting a session."
+}

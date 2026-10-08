@@ -1,0 +1,857 @@
+## radar-logos: /Users/42piratas/42labs/herdr-radar-plus/lib/logos.js
+SHA256 7b375ace1e07e14e827d75779958716e63bd73ff568e6bc5f1ad1c82a938946f
+243: // local patch (2026-09-27): which model family a pane runs, for the model mark
+244: // beside the harness logo. Read off the title (Hermes and our statuslines put
+245: // the model id there); harnesses tied to one family fall back to it.
+246: // Keys are PUA names above. Add a family: one regex line + a glyph in PUA.
+247: const MODEL_FAMILIES = [
+248:   ['claude', /\b(claude|opus|sonnet|haiku|fable)\b/i],
+249:   ['gpt', /\b(gpt|o[1-9](-\w+)?|codex)\b/i],
+250:   ['gemini', /\bgemini\b/i],
+251:   ['deepseek', /\bdeepseek\b/i],
+252:   ['qwen', /\bqwen\b/i],
+253:   ['grok', /\bgrok\b/i],
+254:   ['glm', /\bglm\b/i],
+255:   ['kimi', /\b(kimi|moonshot)\b/i],
+256: ];
+257: const MODEL_FALLBACK = { claude: 'claude', codex: 'gpt', gemini: 'gemini' };
+258: 
+259: function modelFor(title, agent) {
+260:   for (const [family, re] of MODEL_FAMILIES) if (re.test(title ?? '')) return family;
+261:   return MODEL_FALLBACK[agent] ?? null;
+262: }
+263: 
+264: module.exports = {
+265:   modelFor,
+266:   logoFor,
+267:   nameFor,
+268:   blockedFrame,
+269:   PULSE_STEPS,
+270:   glyphs,
+271:   resolveVariant,
+272:   stateGlyph,
+273:   STATE_PUA,
+274:   PUA,
+275:   TEXT,
+276:   DISPLAY,
+277:   FONT_FAMILY,
+278:   fontAvailable,
+279: };
+
+## radar-state: /Users/42piratas/42labs/herdr-radar-plus/lib/state.js
+SHA256 3f3d8aa6cd174ec8314e51c6787f70ae5cb4aae675e609bd6333362eb8c1f2ea
+230: // The shell's default title is `<path>: <job>`. Only a FULL path is accepted
+231: // as that head: a real title that happens to open with the directory's bare
+232: // name (`herdr-radar: rewriting the parser`) is a title, and keeps its tail.
+233: function locationOnly(title, cwd) {
+234:   if (!title || !cwd) return false;
+235:   if (namesDirectory(title, cwd, true)) return true;
+236:   const separator = title.indexOf(': ');
+237:   return separator > 0 && namesDirectory(title.slice(0, separator), cwd, false);
+238: }
+239: 
+240: // The first of these that actually says something.
+241: //
+242: // `??` is not enough here: all three title fields are `string | null` in
+243: // Herdr's schema, and a pane whose title is empty sends an empty string, not
+244: // null — which `??` keeps, and the fallbacks never run.
+245: function said(...values) {
+246:   return values.find((value) => typeof value === 'string' && value.trim()) ?? '';
+247: }
+248: 
+249: function vendorTitle(agent, title, cwd) {
+250:   const clean = typeof title === 'string' ? title.trim() : '';
+251:   if (!clean || locationOnly(clean, cwd)) return nameFor(agent) ?? clean;
+252:   return clean;
+253: }
+254: 
+255: // The vendor a pane declares for itself, or '' when it declares nothing this
+256: // plugin recognises. Matching is case-insensitive: the label is written by
+257: // hand in a shell wrapper, and `GLM` should not miss `glm`.
+258: function declaredVendor(agent) {
+259:   const declared = typeof agent.display_agent === 'string' ? agent.display_agent.trim().toLowerCase() : '';
+260:   return declared && declared in PUA ? declared : '';
+261: }
+262: 
+265: async function snapshot() {
+266:   const agents = await herdr.agentsAsync();
+267:   if (agents === null) return null;
+268:   return agents.flatMap((a) => {
+269:     const pane = a.pane_id;
+270:     const status = a.agent_status;
+271:     if (typeof pane !== 'string' || typeof status !== 'string') return [];
+272:     const tokens = a.tokens && typeof a.tokens === 'object' ? a.tokens : {};
+273:     return [
+274:       {
+275:         pane,
+276:         status,
+277:         // `display_agent` is Herdr's channel for a pane to say what it is when
+278:         // the process name cannot: a GLM session runs the stock `claude` binary
+279:         // against an Anthropic-compatible endpoint, so detection reports
+280:         // `claude` and always will. Whoever launched it knows; this is where
+281:         // they say so (`pane.report_metadata --display-agent glm`).
+282:         //
+283:         // It is free text — Herdr's own example is "Claude: auth" — and every
+284:         // consumer of `name` treats it as a VENDOR KEY (logoFor, brandVendors,
+285:         // the activity key). So it only outranks detection when it names a
+286:         // vendor this plugin can actually draw; anything else falls through and
+287:         // the row keeps the mark it already had.
+288:         name: hook.apply('agent', declaredVendor(a) || (a.agent ?? ''), pane),
+289:         session: a.agent_session?.value ?? '',
+290:         // The hook runs on the resolved title, so a user hook still has the
+291:         // last word on what the row shows.
+292:         //
+293:         // Three sources, first one that says anything. A mirrored pane runs no
+294:         // program of its own, so it has no terminal title at all: the remote's
+295:         // task title arrives in the `title` metadata slot instead, and a row
+296:         // built from `terminal_title_stripped` alone comes out blank. The raw
+297:         // title is last because it still carries whatever mark the agent puts
+298:         // in front of its own title — a stray glyph beats an empty row, but
+299:         // only just.
+300:         title: hook.apply(
+301:           'title',
+302:           vendorTitle(
+303:             a.agent ?? '',
+304:             stripVendorPulse(said(a.terminal_title_stripped, a.title, a.terminal_title)),
+305:             a.foreground_cwd || a.cwd || '',
+306:           ),
+307:           pane,
+308:         ),
+309:         focused: Boolean(a.focused),
+310:         tab: a.tab_id ?? '',
+311:         workspace: a.workspace_id ?? '',
+312:         // What the sidebar is showing right now. A held "done" cannot live in
+313:         // this process — the animator exits as soon as nothing is animating —
+314:         // so the published token doubles as the record.
+315:         showing: Object.keys(tokens)
+316:           .find((key) => key.startsWith('state_'))
+317:           ?.slice('state_'.length),
+318:       },
+319:     ];
+320:   });
+470:   //
+471:   // The indent belongs to whichever cell comes first, because Herdr only
+472:   // hangs its own indent on an entry's continuation rows — and with one row
+473:   // per entry, a member pane's row IS the first row.
+474:   const logo = logoFor(entry.name);
+475:   const model = logoFor(modelFor(entry.title, entry.name)) ?? '';
+476: 
+477:   // Motion rides in front of the TITLE, not on the mark. A logo in a terminal
+478:   // cell can only move a few pixels, and a few pixels of moving leg or eye is
+479:   // a twitch you have to already be looking at; a spinner ahead of a sentence
+480:   // has the whole row to be noticed from. It is also where the agents that
+481:   // announce themselves put it — grok writes "- Thinking -" into its terminal
+482:   // title — except doing it here covers every agent instead of the ones whose
+483:   // CLI happens to.
+484:   // Which states earn a mark in front of the title. The three idle tiers do
+485:   // not: their colour already says how long ago, and a mark on every row is a
+486:   // column of marks, which is no signal at all. The rest are events — still
+580: // stuttered.
+581: function stateTokens(display, line, title) {
+582:   const tokens = {};
+583:   // One logo, under whichever name carries the style this frame needs. The
+584:   // other three are cleared: which name holds the glyph is the whole signal.
+585:   for (const name of LOGO_TOKENS) tokens[name] = null;
+586:   tokens[SPLIT_TOKEN] = line.split || null;
+587:   if (line.logo) {
+588:     const name = display === 'working' ? 'logo_working' : display === 'idle_stale' ? 'logo_stale' : 'logo';
+589:     tokens[name] = line.logo;
+590:   }
+591:   // local patch: model mark, greyed with the row when stale.
+592:   tokens.model = line.model && display !== 'idle_stale' ? line.model : null;
+593:   tokens.model_stale = line.model && display === 'idle_stale' ? line.model : null;
+594:   tokens.host = line.host;
+595:   for (const state of STATES) {
+596:     const current = state === display;
+597:     // The vendor's name is gone from the layout; keep nulling its old token
+598:     // so a pane that has one from a previous version loses it.
+599:     tokens[`name_${state}`] = null;
+600:     tokens[`state_${state}`] = current ? line.mark : null;
+
+## radar-sidebar: /Users/42piratas/42labs/herdr-radar-plus/lib/managed-config.js
+SHA256 46241e7d0d2678e7ab694bfd2975119d073190172b36275842bbccfdddff8c0b
+353: function logoCell(token, glyphs, ink, { bold = false, dim = false } = {}) {
+354:   const rules = Object.entries(palette.brand)
+355:     .filter(([vendor]) => vendor !== 'other' && glyphs[vendor])
+356:     .slice(0, RULE_LIMIT)
+357:     // `contains`, not `equals`: the value is the mark with its indent in front
+358:     // — a zero-width space and a couple of spaces for anything below a group
+359:     // header — so an exact match only ever caught the first row of a group and
+360:     // left every member wearing the fallback colour.
+361:     .map(([vendor, fg]) => `{ contains = "${glyphs[vendor]}", fg = "${fg}" }`);
+362:   // The cell's own `fg` is the ink, and every rule above overrides it. So a
+363:   // vendor with a hue wears it and everything else — a brand that signs in
+364:   // black, an agent we have no mark for — is drawn in plain ink rather than in
+365:   // a colour we made up for it. Leaving `fg` out instead, which is what this
+366:   // did first, hands the mark Herdr's contextual default: a second-rank grey
+367:   // that made those marks read as switched off (palette's `inkFor`).
+368:   const base = `token = "${token}", fg = "${ink}", bold = ${bold}, dim = ${dim}`;
+369:   return rules.length ? `{ ${base}, rules = [${rules.join(', ')}] }` : `{ ${base} }`;
+370: }
+371: 
+372: // Which glyph table the rules above were written against. The rules match
+373: // literal strings, so a block written for the icon font means nothing once the
+374: // variant flips to plain Unicode — the daemon compares this line with what it
+375: // resolves and rewrites the block when they disagree (lib/daemon.js).
+376: const VARIANT_TAG = '# logo glyphs: ';
+377: 
+378: function blockVariant(text) {
+379:   return new RegExp(`^${escapeRegExp(VARIANT_TAG)}(\\w+)$`, 'm').exec(text ?? '')?.[1] ?? null;
+380: }
+439:         cell('$split_mark', state.idleStale),
+440:         logoCell('$logo', glyphs, ink),
+441:         // Deliberately the same style as `$logo`, bold included. Working used
+442:         // to be the same glyph set bolder, which works for a letter and not
+443:         // for a mark: the icon font ships one weight, so bold is SYNTHESISED
+444:         // by dilating the outline — the glyph does not thicken, it grows. A
+445:         // logo that changes size the moment a session stops working reads as a
+446:         // rendering fault, and it is the first thing the eye catches in a
+447:         // column of thirty. Working is already said three ways beside it: the
+448:         // spinner in front of the title, the ring, and the title in the
+449:         // vendor's colour. The two tokens stay apart because which NAME holds
+450:         // the glyph is how a row's state is written (lib/state.js), not
+451:         // because they have to look different.
+452:         logoCell('$logo_working', glyphs, ink),
+453:         cell('$logo_stale', state.idleStale),
+454:         // local patch (2026-09-27): model family mark beside the harness logo.
+455:         logoCell('$model', glyphs, ink),
+456:         cell('$model_stale', state.idleStale),
+
+## pi-title: /opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/dist/modes/interactive/interactive-mode.js
+SHA256 89ad3129807c036820c746ef4e0e930292b4ea7ab8150c085e75148a581793c4
+780:         this.setupEditorSubmitHandler();
+781:         this.ui.requestRender();
+782:         // Initialize extensions first so resources are shown before messages
+783:         await this.rebindCurrentSession();
+784:         // Render initial messages AFTER showing loaded resources
+785:         this.renderInitialMessages();
+786:         // Set up theme file watcher
+787:         onThemeChange(() => {
+788:             this.ui.invalidate();
+789:             this.updateEditorBorderColor();
+790:             this.ui.requestRender();
+791:         });
+792:         // Set up git branch watcher (uses provider instead of footer)
+793:         this.footerDataProvider.onBranchChange(() => {
+794:             this.ui.requestRender();
+795:         });
+796:         // Initialize available provider count for footer display
+797:         await this.updateAvailableProviderCount();
+798:         // Flush the completed startup state before loading the remaining syntax grammars.
+799:         this.ui.renderNow();
+800:         void loadAllHighlightLanguages().then(() => {
+801:             if (!this.isInitialized)
+802:                 return;
+803:             this.ui.invalidate();
+804:             this.ui.requestRender();
+805:         });
+806:     }
+807:     /**
+808:      * Update terminal title with session name and cwd.
+809:      */
+810:     updateTerminalTitle() {
+811:         const cwdBasename = path.basename(this.sessionManager.getCwd());
+812:         const sessionName = this.sessionManager.getSessionName();
+813:         if (sessionName) {
+814:             this.ui.terminal.setTitle(`${APP_TITLE} - ${sessionName} - ${cwdBasename}`);
+815:         }
+816:         else {
+817:             this.ui.terminal.setTitle(`${APP_TITLE} - ${cwdBasename}`);
+818:         }
+819:     }
+841:         this.checkForPackageUpdates()
+842:             .then((updates) => {
+843:             if (updates.length > 0) {
+844:                 this.showPackageUpdateNotification(updates);
+845:             }
+846:         })
+847:             .finally(() => {
+848:             // On Windows, npm can overwrite the shared console title while checking
+849:             // extension package versions. Restore Pi's title after the startup check.
+850:             if (process.platform === "win32" && this.isInitialized) {
+851:                 this.updateTerminalTitle();
+852:             }
+853:         });
+854:         // Check tmux keyboard setup asynchronously
+855:         this.checkTmuxKeyboardSetup().then((warning) => {
+1584:     async rebindCurrentSession(options = {}) {
+1585:         const session = this.session;
+1586:         this.unsubscribe?.();
+1587:         this.unsubscribe = undefined;
+1588:         this.applyRuntimeSettings();
+1589:         if (options.renderBeforeBind) {
+1590:             this.renderCurrentSessionState();
+1591:             this.subscribeToAgent();
+1592:         }
+1593:         await this.bindCurrentSessionExtensions();
+1594:         if (this.session !== session) {
+1595:             return;
+1596:         }
+1597:         if (!options.renderBeforeBind) {
+1598:             this.subscribeToAgent();
+1599:         }
+1600:         await this.updateAvailableProviderCount();
+1601:         this.updateEditorBorderColor();
+1602:         this.updateTerminalTitle();
+1603:     }
+1893:     resetExtensionUI() {
+1894:         if (this.extensionSelector) {
+1895:             this.hideExtensionSelector();
+1896:         }
+1897:         if (this.extensionInput) {
+1898:             this.hideExtensionInput();
+1899:         }
+1900:         if (this.extensionEditor) {
+1901:             this.hideExtensionEditor();
+1902:         }
+1903:         this.ui.hideOverlay();
+1904:         this.clearExtensionTerminalInputListeners();
+1905:         this.setExtensionFooter(undefined);
+1906:         this.setExtensionHeader(undefined);
+1907:         this.clearExtensionWidgets();
+1908:         this.footerDataProvider.clearExtensionStatuses();
+1909:         this.footer.invalidate();
+1910:         this.autocompleteProviderWrappers = [];
+1911:         this.setCustomEditorComponent(undefined);
+1912:         this.setupAutocompleteProvider();
+1913:         this.defaultEditor.onExtensionShortcut = undefined;
+1914:         this.updateTerminalTitle();
+1915:         this.workingMessage = undefined;
+2050:             select: (title, options, opts) => this.showExtensionSelector(title, options, opts),
+2051:             confirm: (title, message, opts) => this.showExtensionConfirm(title, message, opts),
+2052:             input: (title, placeholder, opts) => this.showExtensionInput(title, placeholder, opts),
+2053:             notify: (message, type) => this.showExtensionNotify(message, type),
+2054:             onTerminalInput: (handler) => this.addExtensionTerminalInputListener(handler),
+2055:             setStatus: (key, text) => this.setExtensionStatus(key, text),
+2056:             setWorkingMessage: (message) => {
+2057:                 this.workingMessage = message;
+2058:                 if (this.activeStatusIndicator?.kind === "working") {
+2059:                     this.activeStatusIndicator.setMessage(message ?? this.defaultWorkingMessage);
+2060:                 }
+2061:             },
+2062:             setWorkingVisible: (visible) => this.setWorkingVisible(visible),
+2063:             setWorkingIndicator: (options) => this.setWorkingIndicator(options),
+2064:             setHiddenThinkingLabel: (label) => this.setHiddenThinkingLabel(label),
+2065:             setWidget: (key, content, options) => this.setExtensionWidget(key, content, options),
+2066:             setFooter: (factory) => this.setExtensionFooter(factory),
+2067:             setHeader: (factory) => this.setExtensionHeader(factory),
+2068:             setTitle: (title) => this.ui.terminal.setTitle(title),
+2069:             custom: (factory, options) => this.showExtensionCustom(factory, options),
+2070:             pasteToEditor: (text) => this.editor.handleInput(`\x1b[200~${text}\x1b[201~`),
+2790:                             usage: event.entry.usage,
+2791:                         });
+2792:                     }
+2793:                     this.renderSessionEntries(retainedEntries.filter((entry) => entriesAfterCompaction.has(entry.id)));
+2794:                     for (const entryId of entriesAfterCompaction)
+2795:                         this.entriesRenderedByBoundaryCompaction.add(entryId);
+2796:                     this.footer.invalidate();
+2797:                     this.ui.requestRender();
+2798:                 }
+2799:                 break;
+2800:             case "session_info_changed":
+2801:                 this.updateTerminalTitle();
+2802:                 this.footer.invalidate();
+2803:                 this.ui.requestRender();
+2804:                 break;
+2805:             case "thinking_level_changed":
+2806:                 this.footer.invalidate();
+2807:                 this.updateEditorBorderColor();
+2808:                 break;
+4348:     updateAvailableProviderCount() {
+4349:         const models = this.session.scopedModels.length > 0
+4350:             ? this.session.scopedModels.map((scoped) => scoped.model)
+4351:             : this.session.modelRuntime.getAvailableSnapshot();
+4352:         const uniqueProviders = new Set(models.map((model) => model.provider));
+4353:         this.footerDataProvider.setAvailableProviderCount(uniqueProviders.size);
+4354:     }
+5336:     async handleReloadCommand() {
+5337:         if (this.session.isStreaming) {
+5338:             this.showWarning("Wait for the current response to finish before reloading.");
+5339:             return;
+5340:         }
+5341:         if (this.session.isCompacting) {
+5342:             this.showWarning("Wait for compaction to finish before reloading.");
+5343:             return;
+5344:         }
+5345:         this.resetExtensionUI();
+5346:         const reloadBox = new Container();
+
+## pi-runtime: /opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/dist/core/agent-session.js
+SHA256 9898d8a44ba68d495b0f6e78f888116a6496d7c1b5d1bb568e3028c3b1413977
+1926:     async _emitModelSelect(nextModel, previousModel, source) {
+1927:         if (modelsAreEqual(previousModel, nextModel))
+1928:             return;
+1929:         await this._extensionRunner.emit({
+1930:             type: "model_select",
+1931:             model: nextModel,
+1932:             previousModel,
+1933:             source,
+1934:         });
+1935:     }
+1950:         if (options.persist) {
+1951:             this.settingsManager.setDefaultModelAndProvider(model.provider, model.id);
+1952:             this._addPersistedDefaultToNonEmptyScope(model);
+1953:         }
+1954:         // Apply thinking level for the new model.
+1955:         // Per-model thinking level overrides take priority over the global default.
+1956:         // Model persistence does not implicitly rewrite the global thinking default.
+1957:         this.setThinkingLevel(thinkingLevel);
+1958:         await this._emitModelSelect(model, previousModel, "set");
+1959:     }
+2008:         // - Per-model thinking level overrides take priority over the global default
+2009:         // setThinkingLevel clamps to model capabilities.
+2010:         // Model persistence does not implicitly rewrite the global thinking default.
+2011:         this.setThinkingLevel(thinkingLevel);
+2012:         await this._emitModelSelect(next.model, currentModel, "cycle");
+2013:         return { model: next.model, thinkingLevel: this.thinkingLevel, isScoped: true };
+2014:     }
+2015:     async _cycleAvailableModel(direction, options) {
+2032:         }
+2033:         // Apply thinking level for the new model.
+2034:         // Model persistence does not implicitly rewrite the global thinking default.
+2035:         this.setThinkingLevel(thinkingLevel);
+2036:         await this._emitModelSelect(nextModel, currentModel, "cycle");
+2037:         return { model: nextModel, thinkingLevel: this.thinkingLevel, isScoped: false };
+2038:     }
+2594:     async bindExtensions(bindings) {
+2595:         if (bindings.uiContext !== undefined) {
+2596:             this._extensionUIContext = bindings.uiContext;
+2597:         }
+2598:         if (bindings.mode !== undefined) {
+2599:             this._extensionMode = bindings.mode;
+2600:         }
+2601:         if (bindings.commandContextActions !== undefined) {
+2602:             this._extensionCommandContextActions = bindings.commandContextActions;
+2603:         }
+2604:         if (bindings.abortHandler !== undefined) {
+2605:             this._extensionAbortHandler = bindings.abortHandler;
+2606:         }
+2607:         if (bindings.shutdownHandler !== undefined) {
+2608:             this._extensionShutdownHandler = bindings.shutdownHandler;
+2609:         }
+2610:         if (bindings.onError !== undefined) {
+2611:             this._extensionErrorListener = bindings.onError;
+2612:         }
+2613:         this._applyExtensionBindings(this._extensionRunner);
+2614:         await this._extensionRunner.emit(this._sessionStartEvent);
+2615:         this._extensionRunner.reportUnhandledMcpServers();
+2616:         await this.extendResourcesFromExtensions(this._sessionStartEvent.reason === "reload" ? "reload" : "startup");
+2617:     }
+2932:     async reload(options) {
+2933:         const oldRunner = this._extensionRunner;
+2934:         const previousFlagValues = oldRunner.getFlagValues();
+2935:         await emitSessionShutdownEvent(oldRunner, { type: "session_shutdown", reason: "reload" });
+2936:         oldRunner.invalidate();
+2937:         const previousDefaultTools = new Set(this._usesDefaultTools ? (this.settingsManager.getDefaultTools() ?? DEFAULT_TOOL_NAMES) : []);
+2938:         await this.settingsManager.reload();
+2939:         this.syncQueueModesFromSettings();
+2940:         resetApiProviders();
+2941:         await this._resourceLoader.reload();
+2942:         // Activate tools newly added to defaultTools. Removed ones stay active, and tools disabled
+2943:         // during the session stay disabled unless the setting newly adds them.
+2944:         const addedDefaultTools = this._usesDefaultTools
+2945:             ? (this.settingsManager.getDefaultTools() ?? DEFAULT_TOOL_NAMES).filter((name) => !previousDefaultTools.has(name))
+2946:             : [];
+2947:         // Tools the new extensions register later, such as MCP tools, are pending until then.
+2948:         for (const name of this.getActiveToolNames())
+2949:             this._pendingToolNames.add(name);
+2950:         this._buildRuntime({
+2951:             activeToolNames: [...this.getActiveToolNames(), ...addedDefaultTools],
+2952:             flagValues: previousFlagValues,
+2953:             includeAllExtensionTools: true,
+2954:         });
+2955:         const hasBindings = this._extensionUIContext ||
+2956:             this._extensionCommandContextActions ||
+2957:             this._extensionShutdownHandler ||
+2958:             this._extensionErrorListener;
+2959:         if (hasBindings) {
+2960:             await options?.beforeSessionStart?.();
+2961:             await this._extensionRunner.emit({ type: "session_start", reason: "reload" });
+2962:             this._extensionRunner.reportUnhandledMcpServers();
+2963:             await this.extendResourcesFromExtensions("reload");
+2964:         }
+2965:     }
+3172:      * Set a display name for the current session.
+3173:      */
+3174:     setSessionName(name) {
+3175:         this.sessionManager.appendSessionInfo(name);
+3176:         const event = { type: "session_info_changed", name: this.sessionManager.getSessionName() };
+3177:         this._emit(event);
+3178:         void this._extensionRunner.emit(event);
+3179:     }
+
+## pi-runner: /opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/dist/core/extensions/runner.js
+SHA256 258f142bc56cc84d953ef6146222e5ff3a94cc908592a1b3d075d34bbcd68b36
+630:             get cwd() {
+631:                 runner.assertActive();
+632:                 return runner.cwd;
+633:             },
+634:             get sessionManager() {
+635:                 runner.assertActive();
+636:                 return runner.sessionManager;
+637:             },
+638:             get modelRegistry() {
+639:                 runner.assertActive();
+640:                 return runner.modelRegistry;
+641:             },
+642:             get model() {
+643:                 runner.assertActive();
+644:                 return getModel();
+645:             },
+646:             get scopedModels() {
+647:                 runner.assertActive();
+648:                 return getScopedModels();
+649:             },
+650:             get thinkingLevel() {
+808:         return (event.type === "session_before_switch" ||
+809:             event.type === "session_before_fork" ||
+810:             event.type === "session_before_compact" ||
+811:             event.type === "session_before_tree");
+812:     }
+813:     async emit(event) {
+814:         const ctx = this.createContext();
+815:         let result;
+816:         for (const { ext, handlers } of snapshotEventHandlers(this.extensions, event.type)) {
+817:             for (const handler of handlers) {
+818:                 try {
+819:                     const handlerResult = await handler(event, ctx);
+820:                     if (this.isSessionBeforeEvent(event) && handlerResult) {
+821:                         result = handlerResult;
+822:                         if (result.cancel) {
+823:                             return result;
+824:                         }
+825:                     }
+826:                 }
+827:                 catch (err) {
+828:                     const message = err instanceof Error ? err.message : String(err);
+829:                     const stack = err instanceof Error ? err.stack : undefined;
+830:                     this.emitError({
+831:                         extensionPath: ext.path,
+832:                         event: event.type,
+833:                         error: message,
+834:                         stack,
+835:                     });
+836:                 }
+837:             }
+838:         }
+839:         return result;
+
+## pi-types: /opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/dist/core/extensions/types.d.ts
+SHA256 5e43b8423ee2454959b987007292fd1514fe168dbe58a04d9b9d951b10bf2123
+115:     setHeader(factory: ((tui: TUI, theme: Theme) => Component & {
+116:         dispose?(): void;
+117:     }) | undefined): void;
+118:     /** Set the terminal window/tab title. */
+119:     setTitle(title: string): void;
+120:     /** Show a custom component with keyboard focus. */
+121:     custom<T>(factory: (tui: TUI, theme: Theme, keybindings: KeybindingsManager, done: (result: T) => void) => (Component & {
+122:         dispose?(): void;
+212: export type ExtensionMode = "tui" | "rpc" | "json" | "print";
+213: export interface ExtensionContext {
+214:     /** UI methods for user interaction */
+215:     ui: ExtensionUIContext;
+216:     /** Current run mode. Use "tui" to guard terminal-only UI such as custom components. */
+217:     mode: ExtensionMode;
+218:     /** Whether dialog-capable UI is available (true in TUI and RPC modes) */
+219:     hasUI: boolean;
+220:     /** Current working directory */
+221:     cwd: string;
+222:     /** Session manager (read-only) */
+223:     sessionManager: ReadonlySessionManager;
+224:     /** Model registry for API key resolution */
+225:     modelRegistry: ModelRegistry;
+226:     /** Current model (may be undefined) */
+227:     model: Model<any> | undefined;
+554: /** Fired when a session is started, loaded, or reloaded */
+555: export interface SessionStartEvent {
+556:     type: "session_start";
+557:     /** Why this session start happened. */
+558:     reason: "startup" | "reload" | "new" | "resume" | "fork";
+559:     /** Previously active session file. Present for "new", "resume", and "fork". */
+560:     previousSessionFile?: string;
+561: }
+562: /** Fired when the current session metadata changes. */
+563: export interface SessionInfoChangedEvent {
+564:     type: "session_info_changed";
+565:     /** Current normalized session name. Undefined when the name is cleared. */
+566:     name: string | undefined;
+567: }
+848: export type ModelSelectSource = "set" | "cycle" | "restore";
+849: /** Fired when a new model is selected */
+850: export interface ModelSelectEvent {
+851:     type: "model_select";
+852:     model: Model<any>;
+853:     previousModel: Model<any> | undefined;
+854:     source: ModelSelectSource;
+855: }
+1154:     on(event: "session_start", handler: ExtensionHandler<SessionStartEvent>): () => void;
+1155:     on(event: "session_info_changed", handler: ExtensionHandler<SessionInfoChangedEvent>): () => void;
+1156:     on(event: "session_before_switch", handler: ExtensionHandler<SessionBeforeSwitchEvent, SessionBeforeSwitchResult>): () => void;
+1157:     on(event: "session_before_fork", handler: ExtensionHandler<SessionBeforeForkEvent, SessionBeforeForkResult>): () => void;
+1158:     on(event: "session_before_compact", handler: ExtensionHandler<SessionBeforeCompactEvent, SessionBeforeCompactResult>): () => void;
+1159:     on(event: "session_compact", handler: ExtensionHandler<SessionCompactEvent>): () => void;
+1160:     on(event: "session_compact_failed", handler: ExtensionHandler<SessionCompactFailedEvent>): () => void;
+1161:     on(event: "session_shutdown", handler: ExtensionHandler<SessionShutdownEvent>): () => void;
+1162:     on(event: "mcp_servers_change", handler: ExtensionHandler<McpServersChangeEvent>): () => void;
+1187:     on(event: "model_select", handler: ExtensionHandler<ModelSelectEvent>): () => void;
+1188:     on(event: "thinking_level_select", handler: ExtensionHandler<ThinkingLevelSelectEvent>): () => void;
+
+## pi-loader: /opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/dist/core/extensions/loader.js
+SHA256 44a356da552c9cf2ea619c61944cfb28f81b45f09b325f152c91a914bfce1bc0
+623:  * Discover extensions in a directory.
+624:  *
+625:  * Discovery rules:
+626:  * 1. Direct files: `extensions/*.ts` or `*.js` → load
+627:  * 2. Subdirectory with index: `extensions/* /index.ts` or `index.js` → load
+628:  * 3. Subdirectory with package.json: `extensions/* /package.json` with "pi" field → load what it declares
+629:  *
+630:  * No recursion beyond one level. Complex packages must use package.json manifest.
+631:  */
+632: function discoverExtensionsInDir(dir) {
+633:     if (!fs.existsSync(dir)) {
+634:         return [];
+635:     }
+636:     const discovered = [];
+637:     try {
+638:         const entries = fs.readdirSync(dir, { withFileTypes: true });
+639:         for (const entry of entries) {
+640:             const entryPath = path.join(dir, entry.name);
+641:             // 1. Direct files: *.ts or *.js
+642:             if ((entry.isFile() || entry.isSymbolicLink()) && isExtensionFile(entry.name)) {
+643:                 discovered.push(entryPath);
+644:                 continue;
+645:             }
+646:             // 2 & 3. Subdirectories
+647:             if (entry.isDirectory() || entry.isSymbolicLink()) {
+648:                 const entries = resolveExtensionEntries(entryPath);
+649:                 if (entries) {
+650:                     discovered.push(...entries);
+651:                 }
+652:             }
+653:         }
+654:     }
+655:     catch {
+656:         return [];
+657:     }
+658:     return discovered;
+659: }
+660: /**
+661:  * Discover and load extensions from standard locations.
+662:  */
+663: export async function discoverAndLoadExtensions(configuredPaths, cwd, agentDir = getAgentDir(), eventBus) {
+664:     const resolvedCwd = resolvePath(cwd);
+665:     const resolvedAgentDir = resolvePath(agentDir);
+666:     const allPaths = [];
+667:     const seen = new Set();
+668:     const addPaths = (paths) => {
+669:         for (const p of paths) {
+670:             const resolved = path.resolve(p);
+671:             if (!seen.has(resolved)) {
+672:                 seen.add(resolved);
+673:                 allPaths.push(p);
+674:             }
+675:         }
+676:     };
+677:     // 1. Project-local extensions: cwd/${CONFIG_DIR_NAME}/extensions/
+678:     const localExtDir = path.join(resolvedCwd, CONFIG_DIR_NAME, "extensions");
+679:     addPaths(discoverExtensionsInDir(localExtDir));
+680:     // 2. Global extensions: agentDir/extensions/
+681:     const globalExtDir = path.join(resolvedAgentDir, "extensions");
+682:     addPaths(discoverExtensionsInDir(globalExtDir));
+683:     // 3. Explicitly configured paths
+684:     for (const p of configuredPaths) {
+685:         const resolved = resolvePath(p, resolvedCwd, { normalizeUnicodeSpaces: true });
+686:         if (fs.existsSync(resolved) && fs.statSync(resolved).isDirectory()) {
+687:             // Check for package.json with pi manifest or index.ts
+688:             const entries = resolveExtensionEntries(resolved);
+689:             if (entries) {
+690:                 addPaths(entries);
+691:                 continue;
+692:             }
+693:             // No explicit entries - discover individual files in directory
+694:             addPaths(discoverExtensionsInDir(resolved));
+
+## pi-config: /opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/dist/config.js
+SHA256 b53418ca3bc54b70e18ccb192eb471696f5211c5aa2e80d68fe6fe3851ff23ae
+469: const piConfigName = pkg.piConfig?.name;
+470: export const PACKAGE_NAME = pkg.name || "@earendil-works/pi-coding-agent";
+471: export const APP_NAME = piConfigName || "pi";
+472: export const APP_TITLE = piConfigName ? APP_NAME : "π";
+473: export const CONFIG_DIR_NAME = pkg.piConfig?.configDir || ".pi";
+474: export const VERSION = pkg.version || "0.0.0";
+
+## pi-switch: /opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/dist/core/agent-session-runtime.js
+SHA256 928b6528bb17d26273af8f7023a4f98e5f440d5896a4280d060b9b3e1f9a6882
+102:     async teardownCurrent(reason, targetSessionFile) {
+103:         // Settle any active response first so the aborted turn (including tool
+104:         // results) is persisted to the outgoing session before it is replaced.
+105:         await this.session.abort();
+106:         await emitSessionShutdownEvent(this.session.extensionRunner, {
+107:             type: "session_shutdown",
+108:             reason,
+109:             targetSessionFile,
+110:         });
+111:         this.beforeSessionInvalidate?.();
+112:         this.session.dispose();
+113:     }
+114:     apply(result) {
+115:         this._session = result.session;
+116:         this._services = result.services;
+117:         this._diagnostics = result.diagnostics;
+118:         this._modelFallbackMessage = result.modelFallbackMessage;
+119:     }
+120:     async finishSessionReplacement(withSession) {
+121:         if (this.rebindSession) {
+122:             await this.rebindSession(this.session);
+123:         }
+124:         if (withSession) {
+125:             await withSession(this.session.createReplacedSessionContext());
+126:         }
+127:     }
+128:     async switchSession(sessionPath, options) {
+129:         const beforeResult = await this.emitBeforeSwitch("resume", sessionPath);
+130:         if (beforeResult.cancelled) {
+131:             return beforeResult;
+132:         }
+133:         const previousSessionFile = this.session.sessionFile;
+134:         const sessionManager = SessionManager.open(sessionPath, undefined, options?.cwdOverride);
+135:         assertSessionCwdExists(sessionManager, this.cwd);
+136:         await this.teardownCurrent("resume", sessionManager.getSessionFile());
+137:         this.apply(await this.createRuntime({
+138:             cwd: sessionManager.getCwd(),
+139:             agentDir: this.services.agentDir,
+140:             sessionManager,
+141:             sessionStartEvent: { type: "session_start", reason: "resume", previousSessionFile },
+142:             projectTrustContext: options?.projectTrustContextFactory?.(sessionManager.getCwd()),
+143:         }));
+144:         await this.finishSessionReplacement(options?.withSession);
+145:         return { cancelled: false };
+
+## radar-palette: /Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec/lib/palette.js
+SHA256 2e603fd3106a4842e09c1817d35b8a05dcfd78d85aa2e13e1cc527fd839e620e
+78: const brand = {
+79:   claude: '#d97757', // Anthropic coral, as published
+80:   gemini: '#4285f4', // the blue out of Google's four
+81:   kimi: '#1783ff', // as published
+82:   deepseek: '#4d6bfe', // as published
+83:   qwen: '#615ced', // as published
+84:   kiro: '#9046ff', // as published
+85:   cline: '#586876', // #323b43 lightened: as published it dies on a dark panel
+86:   kilo: '#9a9808', // #f8f676 darkened: as published it dies on a light one
+87:   other: '#c78a1f', // a recognised harness with no hue of its own
+88: };
+89: 
+90: // The vendors with a colour of their own, in table order. The Agents row
+91: // colours a logo by rule and the Spaces row gives each of these a token, so
+92: // both lists have to name the same vendors or a mark is coloured in one panel
+93: // and grey in the other — which is how Antigravity and Kiro ended up branded
+94: // beside their titles and anonymous in Spaces.
+95: const brandVendors = Object.keys(brand).filter((vendor) => vendor !== 'other');
+96: 
+97: // The ink a hueless mark is drawn in: black on a light panel, white on a dark
+98: // one, which is how a monochrome brand signs itself.
+99: //
+100: // This used to be done by leaving the cell's `fg` out and letting Herdr keep
+101: // the contextual default. That reads well as a sentence and rendered as a
+102: // muted grey — the sidebar's default ink is second-rank text, not the ink a
+103: // logo wants, and it left the black-signing brands looking switched off beside
+104: // the coloured ones. Naming the value is the only way to get the two ends of
+105: // the scale, and the sidebar block is rebuilt per appearance anyway
+106: // (`sidebarBlock(variant)`), so a static hex here still follows the desktop.
+107: const inks = {
+108:   light: '#16161c',
+109:   dark: '#e9e9f0',
+110: };
+111: 
+112: function inkFor(variant) {
+113:   return inks[variant] ?? inks.light;
+
+## radar-configure: /Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec/bin/configure.js
+SHA256 aca41f14fb9bf25469f7da00c136de70982f76f2b9279047852b122c70c5158d
+55: async function main() {
+56:   const mode = process.argv.find((argument) => argument.startsWith('--')) ?? '--check';
+57:   if (mode === '--rows-on' || mode === '--rows-off') {
+58:     const result = managed.setSidebarRows(mode === '--rows-on');
+59:     console.log(result.message);
+60:     if (result.changed) console.log('run `herdr server reload-config` to pick up the change');
+61:     process.exit(result.ok ? 0 : 1);
+62:   }
+63:   if (mode === '--apply' || mode === '--uninstall') {
+64:     // Uninstall stops the daemon before the blocks go: a detached daemon
+65:     // outlives `plugin uninstall`, and Herdr has no uninstall hook to stop it
+66:     // from, so this action is the one place the whole teardown can happen.
+67:     // Every token goes too — with the blocks gone nothing renders them.
+68:     if (mode === '--uninstall') {
+69:       console.log(
+70:         (await stopAnimator({ purge: true }))
+71:           ? 'daemon: stopped, tokens cleared'
+72:           : 'daemon: still running, tokens cleared',
+73:       );
+74:     }
+75:     const result = mode === '--apply' ? managed.apply() : managed.remove();
+76:     console.log(result.message);
+77:     if (!result.ok || result.skipped?.length) notify(`${NAME}: configure`, result.message);
+78:     // `--reload` is what the manifest actions pass: a user who installed from
+79:     // GitHub never sees this directory, so the action has to finish the job.
+80:     if (process.argv.includes('--reload')) {
+81:       reloadConfig();
+82:       console.log('herdr: config reloaded');
+83:     } else {
+84:       console.log('run `herdr server reload-config` to pick up the change');
+85:     }
+86:     process.exit(result.ok || mode === '--uninstall' ? 0 : 1);
+87:   }
+88:   if (mode === '--keys') {
+89:     console.log(keybindings());
+90:     return;
+91:   }
+92:   const report = managed.inspect();
+93:   const has = (start) => (report.text?.includes(start) ? 'installed' : 'absent');
+94:   console.log(`herdr   ${report.state.padEnd(16)} ${report.file}`);
+95:   console.log(`theme   ${has(managed.THEME_START).padEnd(16)} [theme.custom]`);
+96:   console.log(`sidebar ${has(managed.SIDEBAR_START).padEnd(16)} [ui.sidebar.*]`);
+97:   console.log(`state   ${''.padEnd(16)} ${stateRoot}`);
+98: }
+
+## pi-terminal: /opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/node_modules/@earendil-works/pi-tui/dist/terminal.js
+SHA256 e3a594cb638d57da4e195bee6a4ad10e4ebeb3335dbf2bd9990d913ef03ee4fb
+421:     setTitle(title) {
+422:         // OSC 0;title BEL - set terminal window title
+423:         process.stdout.write(`\x1b]0;${title}\x07`);
+424:     }
+
+## pi-docs: /opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/docs/extensions.md
+SHA256 bd2ed1f728173c1defc035e90c3894c308ae153fa08575c12b4a9988e11f8108
+49: 
+50: Reload replaces the extension runtime, so code after `await ctx.reload()` must not reuse state from the old runtime. Only personal and explicit command-line extensions can participate in the `project_trust` event that runs before project extensions load.
+51: 
+52: <a id="understand-the-lifecycle"></a>
+53: 
+54: ## Respect the runtime lifecycle
+55: 
+56: The factory can be synchronous or asynchronous. Pi waits for an asynchronous factory before startup continues, allowing it to fetch configuration or register providers needed during startup.
+57: 
+58: Do not start processes, sockets, watchers, or timers in the factory because some invocations load extensions without starting a session.
+59: Start long-lived resources from `session_start` or from the command or tool that needs them.
+60: Close session-scoped resources from an idempotent `session_shutdown` handler.
+61: 
+62: A run proceeds from input and `before_agent_start`, through model, message, and tool events, to `agent_end`.
+63: Automatic retries, recovery, compaction, or queued work can continue afterward.
+64: <a id="agent_start--agent_end--agent_before_settle--agent_settled"></a>
+248: Extensions load in interactive, RPC, JSON, and print modes.
+249: Interactive mode provides the complete terminal UI.
+250: RPC can forward supported dialogs and notifications through the [RPC Extension UI protocol](rpc-extension-ui.md), but not custom terminal components; JSON and print modes have no UI.
+251: Guard terminal-only behavior with `ctx.mode === "tui"` and use `ctx.hasUI` for interactions supported by interactive and RPC clients.
+252: 
+253: Keep tool and event behavior independent from rendering so non-interactive modes remain functional.
+254: 
+255: <a id="error-handling"></a>
+256: <a id="handle-errors-and-shutdown"></a>
+257: 
+258: ### Errors and cleanup
+259: 
+260: Pi reports handler errors and continues where possible. A `tool_call` handler failure blocks the tool as a fail-safe; a tool execution failure becomes an error result for the model.
+261: 
+262: Release resources in `session_shutdown` even when normal operation attempted cleanup.
+263: Keep cleanup idempotent because cancellation, reload, session replacement, and process exit can converge on the same path.
+264: Use `ctx.shutdown()` to request an orderly process shutdown.

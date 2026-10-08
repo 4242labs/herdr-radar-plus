@@ -1,0 +1,331 @@
+{
+  "verdict": "CHANGES REQUIRED",
+  "verdict_basis": "Two demonstrated errors, each with file/line evidence, defeat named spec triggers rather than merely being unimplemented: (F1) Pi writes its own default title AFTER every `session_start` handler returns, at both startup and restoration, so the spec's 'refresh the title on session start, restoration' is deterministically clobbered by the obvious implementation; (F3) the Radar mapping the spec says to reuse matches its regexes against the whole terminal title, which already contains the session name and cwd basename, so a project or session name containing a family word yields a model logo not derived from the selected model \u2014 a guessed logo, which bullet 4 forbids. Absence of the extension itself is NOT counted as a defect.",
+  "coverage": [
+    {
+      "n": 1,
+      "bullet": "Add a Pi extension that includes the selected model in its terminal title, preserving the session/project name.",
+      "subcriteria": [
+        {
+          "id": "1a",
+          "text": "A Pi extension can set the terminal title at all",
+          "assessment": "FEASIBLE \u2014 verified executable API",
+          "evidence": "pi/dist/core/extensions/types.d.ts:118-119 `setTitle(title: string): void` on ExtensionUIContext; pi/dist/modes/interactive/interactive-mode.js:2068 `setTitle: (title) => this.ui.terminal.setTitle(title)` (direct passthrough, interactive mode); pi/dist/core/extensions/runner.js:146 `setTitle: () => { }` (no-op in the non-UI default context, so print/json modes silently drop it); pi/package.json:3 version 1.0.4 \u2014 no upgrade needed."
+        },
+        {
+          "id": "1b",
+          "text": "The selected model is reachable without a provider request",
+          "assessment": "FEASIBLE \u2014 verified",
+          "evidence": "pi/dist/core/extensions/runner.js:642-645 `get model() { return getModel(); }` resolved at call time; pi/dist/core/extensions/types.d.ts:226-227 `model: Model<any> | undefined`. Synchronous read; no LLM call."
+        },
+        {
+          "id": "1c",
+          "text": "The session/project name is preserved",
+          "assessment": "FEASIBLE \u2014 inputs verified, exact prefix unverified",
+          "evidence": "Pi's own title is `${APP_TITLE} - ${sessionName} - ${cwdBasename}` or `${APP_TITLE} - ${cwdBasename}` (pi/dist/modes/interactive/interactive-mode.js:810-819). Both inputs are exposed to extensions: pi/dist/core/session-manager.d.ts:178 `ReadonlySessionManager = Pick<SessionManager, \"getCwd\" | ... | \"getSessionName\">`, surfaced at types.d.ts:222-223. APP_TITLE's literal value is not in the snapshot (see U2/limitations)."
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "bullet": "Refresh the title on session start, restoration and model_select; reuse Radar's existing model-to-logo mapping.",
+      "subcriteria": [
+        {
+          "id": "2a",
+          "text": "session start refresh",
+          "assessment": "DEMONSTRATED ERROR (F1)",
+          "evidence": "pi/dist/core/agent-session.js:2614 `await this._extensionRunner.emit(this._sessionStartEvent)` inside `bindExtensions`; pi/dist/modes/interactive/interactive-mode.js:1593 `await this.bindCurrentSessionExtensions()` then :1602 `this.updateTerminalTitle()`. Startup path: interactive-mode.js:783 `await this.rebindCurrentSession()`. Pi's default title is therefore the last write after the handler."
+        },
+        {
+          "id": "2b",
+          "text": "restoration refresh",
+          "assessment": "DEMONSTRATED ERROR (F1) + F2",
+          "evidence": "Resume ordering: pi/dist/core/agent-session-runtime.js:128-146 \u2014 `teardownCurrent` \u2192 :111 `beforeSessionInvalidate()` \u2192 interactive-mode.js:363-365 `resetExtensionUI()` \u2192 :1914 `updateTerminalTitle()`; then :141 `sessionStartEvent: {reason:\"resume\"}`; then :144 `finishSessionReplacement` \u2192 :120-123 `rebindSession` \u2192 interactive-mode.js:366-367 \u2192 :1602 `updateTerminalTitle()`. Pi reclaims the title twice, the second time after session_start handlers. Reload path: agent-session.js:2961 emits session_start reason \"reload\"; interactive-mode.js:5345 `resetExtensionUI()`."
+        },
+        {
+          "id": "2c",
+          "text": "model_select refresh",
+          "assessment": "FEASIBLE \u2014 verified, and uncontested by Pi",
+          "evidence": "pi/dist/core/extensions/types.d.ts:849-855 ModelSelectEvent, :1187 `on(\"model_select\", ...)`; emitted at pi/dist/core/agent-session.js:1958 (\"set\"), :2012 and :2036 (\"cycle\"), each after `this.agent.state.model` is assigned. `updateTerminalTitle()` has exactly four call sites (interactive-mode.js:851, 1602, 1914, 2801) and none is a model event, so an extension title set here is not overwritten. Note agent-session.js:1927-1928 suppresses the event when the model is unchanged."
+        },
+        {
+          "id": "2d",
+          "text": "reuse Radar's existing model-to-logo mapping",
+          "assessment": "EXISTS AND IS EXECUTABLE; reuse direction ambiguous (U1); contains F3",
+          "evidence": "source/lib/logos.js:247-262 `MODEL_FAMILIES` (claude|gpt|gemini|deepseek|qwen|grok|glm|kimi), `MODEL_FALLBACK`, `modelFor(title, agent)`; exported :265. Consumed today at source/lib/state.js:475 `logoFor(modelFor(entry.title, entry.name)) ?? ''` and published as `model`/`model_stale` tokens (state.js:40, 592-593), rendered by source/lib/managed-config.js:455-456. Already-verified execution, not proposed: source/CHANGELOG.md:3,15 ships it in 0.42.0 (source/package.json:3 version \"0.42.0\")."
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "bullet": "Deploy on Darkseid and Alghul, without changing Hermes or hardcoding a provider.",
+      "subcriteria": [
+        {
+          "id": "3a",
+          "text": "Deployment mechanism exists",
+          "assessment": "FEASIBLE \u2014 verified; target choice unspecified (U6)",
+          "evidence": "pi/dist/core/extensions/loader.js:663-694 `discoverAndLoadExtensions`: :677-679 project-local `cwd/${CONFIG_DIR_NAME}/extensions/`, :680-682 global `agentDir/extensions/`; :623-658 `discoverExtensionsInDir` accepts a bare `*.ts`/`*.js` file, a subdir with `index.*`, or a `package.json` with a `pi` field. CONFIG_DIR_NAME is `.pi` per pi/package.json:6-8."
+        },
+        {
+          "id": "3b",
+          "text": "Both hosts actually receive it / live confirmation",
+          "assessment": "NOT VERIFIABLE IN THIS REVIEW",
+          "evidence": "Darkseid (local) and Alghul (SSH) are declared targets only; remote/live checks are unauthorized here and no host state was supplied. No file in either snapshot records host deployment state."
+        },
+        {
+          "id": "3c",
+          "text": "Hermes unchanged",
+          "assessment": "FEASIBLE \u2014 nothing in the reviewed sources requires a Hermes change",
+          "evidence": "Hermes is only a vendor key: source/lib/logos.js:28 (PUA), :111 (TEXT), :150 (DISPLAY). It is absent from `MODEL_FAMILIES` and from `MODEL_FALLBACK` (logos.js:247-257), so the model mark for a Hermes pane is title-derived exactly as before; source/README.md:19 documents that already-shipped behaviour. No Hermes code is in scope and no reviewed path writes to it."
+        },
+        {
+          "id": "3d",
+          "text": "No hardcoded provider",
+          "assessment": "FEASIBLE \u2014 and the existing mapping already contains the only hardcoding risk",
+          "evidence": "source/lib/logos.js:257 `MODEL_FALLBACK = { claude: 'claude', codex: 'gpt', gemini: 'gemini' }` is per-harness provider hardcoding; `pi` is deliberately absent, so `modelFor(title, 'pi')` returns null (logos.js:261) and nothing provider-specific is needed on the Pi side. The sidebar `$model` cell is vendor-agnostic (source/lib/managed-config.js:455 `logoCell('$model', glyphs, ink)` built from `palette.brand`)."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "bullet": "Unknown models show no model logo, never a guessed one.",
+      "subcriteria": [
+        {
+          "id": "4a",
+          "text": "An unrecognised model yields no glyph",
+          "assessment": "FEASIBLE \u2014 verified in existing code",
+          "evidence": "source/lib/logos.js:259-262 returns null when no family regex matches and the agent has no fallback; source/lib/logos.js:215-219 `logoFor` returns null for any agent not in `PUA` or when variant is 'none'; source/lib/state.js:475 coerces null to `''` and state.js:592-593 publishes null, which clears the token (source/lib/herdr.js:186-191, 206-210). All eight `MODEL_FAMILIES` keys exist in `PUA` (logos.js:17-42), so no family resolves to a missing glyph."
+        },
+        {
+          "id": "4b",
+          "text": "Never a guessed logo",
+          "assessment": "DEMONSTRATED ERROR (F3)",
+          "evidence": "source/lib/logos.js:260 tests each regex against the entire title string; pi/dist/modes/interactive/interactive-mode.js:811-818 puts `sessionName` and `path.basename(cwd)` into that title. A cwd basename or session name containing a family word therefore produces a model mark unrelated to the selected model."
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "bullet": "Acceptance: tests cover startup, restoration, model switching and unknown models; live checks confirm the correct logo beside Pi's logo on both hosts.",
+      "subcriteria": [
+        {
+          "id": "5a",
+          "text": "tests cover startup",
+          "assessment": "PROPOSED FUTURE ACCEPTANCE \u2014 testable, but blocked by F1 until the ordering is handled",
+          "evidence": "Existing harness: source/package.json:12 `\"test\": \"node --test\"`; source/test/*.test.js use `node:test` + `t.mock.method` against the real modules (e.g. source/test/labels.test.js:13-30, source/test/dead-targets.test.js:12-26). The Pi-side ordering under test is interactive-mode.js:783\u21921593\u21921602."
+        },
+        {
+          "id": "5b",
+          "text": "tests cover restoration",
+          "assessment": "PROPOSED FUTURE ACCEPTANCE \u2014 same blocker (F1/F2)",
+          "evidence": "agent-session-runtime.js:128-146; interactive-mode.js:1914 and :1602. `model_select` source \"restore\" is not emitted (F2), so a restoration test cannot assert through that event."
+        },
+        {
+          "id": "5c",
+          "text": "tests cover model switching",
+          "assessment": "PROPOSED FUTURE ACCEPTANCE \u2014 cleanly testable",
+          "evidence": "agent-session.js:1926-1934, 1958, 2012, 2036; types.d.ts:1187."
+        },
+        {
+          "id": "5d",
+          "text": "tests cover unknown models",
+          "assessment": "PROPOSED FUTURE ACCEPTANCE; existing mapping has zero coverage today (F4)",
+          "evidence": "Grep for `modelFor|MODEL_FAMILIES|MODEL_FALLBACK` across source/ matches only source/lib/logos.js:247-265, source/lib/state.js:26,475, source/lib/managed-config.js:455 and source/README.md:98 \u2014 no test file. source/test/ holds 7 files (dead-targets, labels, control, scheduler, daemon-status, checked-write, foreign-tables); none references the mapping."
+        },
+        {
+          "id": "5e",
+          "text": "live checks on both hosts",
+          "assessment": "NOT VERIFIABLE IN THIS REVIEW",
+          "evidence": "Unauthorized here; no host state supplied. Preconditions the live check silently depends on are also unverified: Radar's managed sidebar block carrying the `$model` cell must be installed (source/lib/managed-config.js:455, installed via `apply()`/`setSidebarRows()` at :578-643) and the glyph variant tag must agree (:376-380, 532)."
+        },
+        {
+          "id": "5f",
+          "text": "\"correct logo\" is unambiguous on inspection",
+          "assessment": "QUALIFIED (F5)",
+          "evidence": "source/lib/palette.js:78-88 `brand` has hues for claude, gemini, kimi, deepseek, qwen, kiro, cline, kilo \u2014 not for gpt, grok or glm, which are `MODEL_FAMILIES` keys (source/lib/logos.js:247-256). Those marks draw in plain ink by design (palette.js:59-64, managed-config.js:353-370)."
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "bullet": "Rollback: remove the extension and restore Pi's normal title; no upgrades or paid model requests required.",
+      "subcriteria": [
+        {
+          "id": "6a",
+          "text": "Removing the extension restores Pi's title",
+          "assessment": "FEASIBLE \u2014 verified, and Pi's clobbering behaviour works in rollback's favour",
+          "evidence": "pi/dist/modes/interactive/interactive-mode.js:1893-1914 `resetExtensionUI()` ends with `this.updateTerminalTitle()`; called on session invalidate (:363-365) and on `/reload` (:5345). Deleting the file from the discovery directory (loader.js:677-682) and reloading restores the default title with no residue. Per-session rollback is also immediate on the next `updateTerminalTitle()` call site."
+        },
+        {
+          "id": "6b",
+          "text": "Radar side needs no rollback",
+          "assessment": "FEASIBLE \u2014 verified",
+          "evidence": "The `$model`/`$model_stale` cells and the `model` tokens predate this work (source/CHANGELOG.md:3,15; source/lib/state.js:40,592-593; source/lib/managed-config.js:455-456). With no model word in Pi's title, `modelFor` returns null for agent `pi` (logos.js:261) and the cell collapses; Radar's existing removal paths are untouched (source/lib/managed-config.js:645-655 `remove()`, :906-916 `clearAll`)."
+        },
+        {
+          "id": "6c",
+          "text": "No upgrades required",
+          "assessment": "FEASIBLE \u2014 verified",
+          "evidence": "Every API the spec needs exists in the installed build: pi/package.json:3 is 1.0.4; types.d.ts:119 setTitle, :1154 session_start, :1155 session_info_changed, :1187 model_select."
+        },
+        {
+          "id": "6d",
+          "text": "No paid model requests required",
+          "assessment": "FEASIBLE \u2014 verified",
+          "evidence": "runner.js:642-645 exposes `ctx.model` synchronously; the ModelSelectEvent carries `model` and `previousModel` directly (types.d.ts:850-855). No provider call is on any path involved."
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "High",
+      "claim": "Pi writes its own default terminal title AFTER every `session_start` handler has returned, at both startup and restoration, so a title set from a `session_start` handler is deterministically overwritten. Bullet 2 names session start and restoration as refresh points and acceptance 5a/5b require tests for them; as specified, the straightforward implementation cannot satisfy either.",
+      "evidence": "pi/dist/core/agent-session.js:2614 `await this._extensionRunner.emit(this._sessionStartEvent)` (inside `bindExtensions`, :2594-2617). pi/dist/modes/interactive/interactive-mode.js:1584-1603 `rebindCurrentSession`: :1593 `await this.bindCurrentSessionExtensions()` then :1602 `this.updateTerminalTitle()`. Startup entry: interactive-mode.js:783. Resume entry: pi/dist/core/agent-session-runtime.js:128-146 (:111 `beforeSessionInvalidate()` \u2192 interactive-mode.js:364 `resetExtensionUI()` \u2192 :1914 `updateTerminalTitle()`; :141 session_start reason \"resume\"; :144 \u2192 :120-123 `rebindSession` \u2192 interactive-mode.js:367 \u2192 :1602). Title writer: interactive-mode.js:810-819. Contrast `session_info_changed`, where pi/dist/core/agent-session.js:3176-3178 emits to the host first (`_emit`, consumed at interactive-mode.js:2800-2801) and to extensions second and unawaited (`void ... .emit(event)`), so an extension handler there does win \u2014 i.e. the clobbering is specific to the two refresh points the spec names."
+    },
+    {
+      "id": "F2",
+      "severity": "Medium",
+      "claim": "`ModelSelectSource` declares a `\"restore\"` source, but no code path in the installed build emits it \u2014 only `\"set\"` and `\"cycle\"`. `model_select` therefore cannot be used as the restoration trigger, and a test or live check written against a restore-sourced model event would never fire.",
+      "evidence": "pi/dist/core/extensions/types.d.ts:848 `export type ModelSelectSource = \"set\" | \"cycle\" | \"restore\";`. The only emit sites are pi/dist/core/agent-session.js:1958 (`\"set\"`), :2012 (`\"cycle\"`), :2036 (`\"cycle\"`), all via `_emitModelSelect` (:1926-1935). A content search for `\"restore\"` across every `pi/dist/**/*.js` returns no matches, and a search for `_emitModelSelect|emitModelSelect` returns only those four lines."
+    },
+    {
+      "id": "F3",
+      "severity": "Medium",
+      "claim": "Radar's `modelFor` matches its family regexes against the whole terminal title, and Pi's title already contains the session name and the cwd basename. A project or session whose name contains a family word therefore produces a model logo that was not derived from the selected model \u2014 a guessed logo, which bullet 4 forbids. The spec's reuse instruction inherits this behaviour unchanged.",
+      "evidence": "source/lib/logos.js:259-262 `for (const [family, re] of MODEL_FAMILIES) if (re.test(title ?? '')) return family;` against `MODEL_FAMILIES` at :247-256, including `/\\b(claude|opus|sonnet|haiku|fable)\\b/i`, `/\\b(gpt|o[1-9](-\\w+)?|codex)\\b/i`, `/\\bgrok\\b/i`, `/\\bqwen\\b/i`. Title composition: pi/dist/modes/interactive/interactive-mode.js:811-818 interpolates `path.basename(this.sessionManager.getCwd())` and `this.sessionManager.getSessionName()`. Radar passes the title through unmodified on this path: source/lib/state.js:300-308 (`vendorTitle`/`stripVendorPulse` only; `locationOnly` at :232-238 keeps any title with a real tail) and source/lib/state.js:475 `modelFor(entry.title, entry.name)` \u2014 `trimGroupPrefix` (state.js:429-435) is not applied before the match. Concrete instance: this review's own directory basename, `pi-model-logo-opus-review-recovery`, matches the claude family on `opus`."
+    },
+    {
+      "id": "F4",
+      "severity": "Medium",
+      "claim": "The model-to-logo mapping the spec says to reuse has no test coverage anywhere in the repository snapshot, so acceptance 5c/5d cannot be met by reuse alone \u2014 the tests for model switching and unknown models have to cover `modelFor` itself, and no existing test file owns it.",
+      "evidence": "A content search for `modelFor|MODEL_FAMILIES|MODEL_FALLBACK|model_stale|\\$model` across `source/` matches only source/lib/logos.js:247,257,259,260,261,265; source/lib/state.js:26,40,475,593; source/lib/managed-config.js:455,456; source/README.md:98. source/test/ contains exactly dead-targets.test.js, labels.test.js, control.test.js, scheduler.test.js, daemon-status.test.js, checked-write.test.js, foreign-tables.test.js \u2014 each scoped to one module (e.g. labels.test.js:16-17 requires `../lib/herdr` and `../lib/state`), none referencing the mapping. The invariant-checking tool the code defers to (`tools/check.js`, cited at source/lib/state.js:931 and source/lib/managed-config.js:664,669) is not present in the snapshot."
+    },
+    {
+      "id": "F5",
+      "severity": "Low",
+      "claim": "Three of the eight model families have no brand hue, so their model marks render in plain ink while the other five render in brand colour. A live check phrased as \"the correct logo\" (acceptance 5f) can read a correct-but-uncoloured mark as wrong, particularly for a GPT-family selection next to a coral Claude mark.",
+      "evidence": "source/lib/palette.js:78-88 `brand` covers claude, gemini, kimi, deepseek, qwen, kiro, cline, kilo plus `other`; `gpt`, `grok` and `glm` are absent, while all three are `MODEL_FAMILIES` keys (source/lib/logos.js:248,253,254). The rules for the `$model` cell are built only from branded vendors: source/lib/managed-config.js:353-370 `logoCell` filters `Object.entries(palette.brand)`, and :455 applies it to `$model`; the documented consequence is at palette.js:59-64."
+    },
+    {
+      "id": "F6",
+      "severity": "Low",
+      "claim": "If the Pi extension reuses the mapping by importing `source/lib/logos.js` (one of the two readings in U1), first glyph resolution under the default `auto` variant runs a synchronous `spawnSync('fc-match')` with a 3000 ms timeout on Pi's event loop, and the module is CommonJS inside an ESM package.",
+      "evidence": "source/lib/logos.js:198-201 `resolveVariant` calls `fontAvailable()` for `auto`; :169-194 `fontAvailable` tries `require('./font').isInstalled()` then `spawnSync('fc-match', [...], { timeout: 3000 })`; `logoFor` (:215-219) and `glyphs` (:206-210) both route through it. source/lib/logos.js:1 `'use strict'` + :264 `module.exports` (CommonJS) against pi/package.json:5 `\"type\": \"module\"`; source/package.json:6 `\"private\": true` (not installable as a dependency). The result is cached after the first call (logos.js:166-171), so the cost is paid once per process."
+    },
+    {
+      "id": "F7",
+      "severity": "Low",
+      "claim": "Pi tracks no title ownership: `ui.setTitle` is an unrecorded passthrough to the terminal and `resetExtensionUI()` unconditionally reclaims the title to Pi's default. Two extensions setting the title are last-writer-wins with no restore, and the model title is silently dropped on `/reload` until the extension re-applies it.",
+      "evidence": "pi/dist/modes/interactive/interactive-mode.js:2068 `setTitle: (title) => this.ui.terminal.setTitle(title)` \u2014 no stored value, no key, no per-extension slot (contrast `setStatus(key, text)` at :2055 and `setWidget(key, ...)` at :2065, which are keyed and are cleared per-extension at :1907-1908). interactive-mode.js:1893-1914 `resetExtensionUI()` \u2192 :1914 `updateTerminalTitle()`, invoked from :364 and :5345. pi/dist/core/extensions/runner.js:146 the no-op default confirms there is no fallback bookkeeping."
+    },
+    {
+      "id": "F8",
+      "severity": "Low",
+      "claim": "On win32 Pi restores its own title asynchronously after the startup package-update check completes, with no event an extension can hook to re-apply. Whether either target host is affected is not establishable here.",
+      "evidence": "pi/dist/modes/interactive/interactive-mode.js:841-853 \u2014 the `checkForPackageUpdates()` `.finally()` block: \"On Windows, npm can overwrite the shared console title ... Restore Pi's title after the startup check\", `if (process.platform === \"win32\" && this.isInitialized) { this.updateTerminalTitle(); }`. No host OS evidence is available for Darkseid or Alghul in either snapshot."
+    }
+  ],
+  "unknowns": [
+    {
+      "id": "U1",
+      "text": "Which direction \"reuse Radar's existing model-to-logo mapping\" means. Reading (a): the Pi extension imports `lib/logos.js` and writes the resolved glyph into its own title. Reading (b): the Pi extension writes only the model name/id, and Radar's existing title-derived mapping (source/lib/state.js:475) produces the glyph, so no new mapping code exists anywhere. The two differ in deliverable, in coupling (F6 applies only to (a)), in where the unknown-model test lives (F4), and in whether the glyph would appear twice (once in Pi's title, once in Radar's `$model` cell). The spec text does not decide it; reading (b) is the cheaper one and is consistent with how the mark is documented to work (source/README.md:95-98, source/CHANGELOG.md:15)."
+    },
+    {
+      "id": "U2",
+      "text": "The literal value of `APP_TITLE`, which the extension must reproduce to preserve Pi's title shape, is not in the snapshot: pi/dist/modes/interactive/interactive-mode.js:14 imports it from `../../config.js`, and no file exists at pi/dist/config.js (only pi/dist/core/**, pi/dist/modes/** and pi/examples/** were supplied)."
+    },
+    {
+      "id": "U3",
+      "text": "The spec does not fix where the model token sits in the title. Position determines whether Radar's own title handling interferes: `locationOnly` (source/lib/state.js:232-238) and `trimGroupPrefix` (:429-435, matching a group label plus one of `\u00b7 \u30fb \u2027 | \u00bb : - \u2014 \u2013`) both key off the head of the title, and F3's false-positive surface depends on what else shares the string."
+    },
+    {
+      "id": "U4",
+      "text": "Whether Radar's managed sidebar block is installed on either host, and at which glyph variant. The model mark only draws when that block is present (source/lib/managed-config.js:455, installed at :578-614 / :629-643), and the block's rules match literal glyph strings tagged at :376-380 and :532, so a variant mismatch yields a blank cell. No host state was supplied."
+    },
+    {
+      "id": "U5",
+      "text": "Whether Herdr's agent detection reports `pi` for the panes in question \u2014 required for `$logo` to be Pi's own mark, which the acceptance phrase \"beside Pi's logo\" presupposes. Detection is Herdr-side (source/lib/state.js:276-288, `display_agent` override via `pane.report_metadata --display-agent`) and not verifiable offline."
+    },
+    {
+      "id": "U6",
+      "text": "Which discovery location the deployment targets \u2014 project-local `cwd/.pi/extensions/` or global `<agentDir>/extensions/` (pi/dist/core/extensions/loader.js:677-682). This changes the rollback blast radius and whether the title changes for every Pi session on the host or only inside one project."
+    },
+    {
+      "id": "U7",
+      "text": "No Pi-side artefact exists in the snapshot to review: the source tree contains only lib/*.js, test/*.test.js, package.json, README.md and CHANGELOG.md \u2014 no extension directory, and the referenced bin/ and tools/ scripts (bin/install-font.js at logos.js:172, bin/configure.js at managed-config.js:8, tools/check.js at state.js:931, agent-icons.js at state.js:747) are absent. The spec's work is entirely prospective; per instruction this is recorded as scope, not as a defect."
+    }
+  ],
+  "taste": [
+    {
+      "id": "T1",
+      "text": "The spec's three triggers do not map one-to-one onto Pi's events: \"session start\" and \"restoration\" are the same hook (`session_start`, with `reason` discriminating startup/reload/new/resume/fork \u2014 pi/dist/core/extensions/types.d.ts:554-561), while `session_info_changed` (types.d.ts:1155) is a fourth refresh point the spec omits even though renaming a session rewrites the title (interactive-mode.js:2800-2801) and would drop the model mark. Wording the bullet as \"on every Pi title write\" would describe the actual surface more honestly than enumerating three."
+    },
+    {
+      "id": "T2",
+      "text": "One `applyTitle()` reading `ctx.model` and `ctx.sessionManager` at call time, invoked from each registered handler, beats formatting the title per event \u2014 it mirrors how Pi itself funnels four call sites into `updateTerminalTitle()` (interactive-mode.js:810-819, called at :851, :1602, :1914, :2801)."
+    },
+    {
+      "id": "T3",
+      "text": "Routing Pi's model through the terminal title is consistent with the mechanism already shipped rather than a new channel: the model mark is title-derived by design (source/CHANGELOG.md:15, source/README.md:95-98), and `MODEL_FALLBACK` (source/lib/logos.js:257) exists precisely for harnesses that do not say. Adding `pi` to that table would be the provider-hardcoding bullet 3 rules out, and would be unnecessary once the title carries the model."
+    },
+    {
+      "id": "T4",
+      "text": "Narrowing F3 would be cheap and local: matching against the model id alone rather than the whole title, or anchoring the model token in the title with a delimiter the family regexes cannot straddle, keeps bullet 4's promise without touching the family table. Non-blocking as a design preference, but F3 itself is not."
+    }
+  ],
+  "source_inventory": {
+    "spec": ["/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/spec.txt (7 lines, read in full)"],
+    "repository_files_read": [
+      "source/package.json (version 0.42.0, name herdr-radar-plus, test script `node --test`) \u2014 full",
+      "source/lib/logos.js \u2014 full (279 lines). Methods read: fontAvailable, resolveVariant, glyphs, logoFor, nameFor, stateGlyph, blockedFrame, modelFor; tables PUA, STATE_PUA, TEXT, DISPLAY, MODEL_FAMILIES, MODEL_FALLBACK",
+      "source/lib/state.js \u2014 full (960 lines). Methods read: daemonStatus, waitForExit, terminate, stripVendorPulse, tilde, namesDirectory, locationOnly, said, vendorTitle, declaredVendor, snapshot, worktreeParents, labels, trimGroupPrefix, hostLine, composeLine, reportChunked, reportPane, stateTokens, tokenDelta, writeTokens, clearState, groupBoundaries, writeGroups, clearGroups, sweepOrphans, spaceToken, spaceMark, spaceLogoTokens, writeSpaceState, clearSpaceState, clearAll; constants STATES, LOGO_TOKENS, SPLIT_TOKEN, LEGACY_LOGO_TOKENS, OWNED_TOKENS, SPACE_TOKENS, SPACE_PRIORITY, MAX_TOKENS_PER_REPORT",
+      "source/lib/herdr.js \u2014 full (273 lines). Methods read: binary, source, reloadConfig, configCheck, notify, call, panes, pane, agents, tabs, workspaces, paneProcessCwd, tabRowWidth, readListAsync, agentsAsync, workspacesAsync, tabsAsync, panesAsync, panelGrouped, workspaceGet, reportMetadata, reportWorkspaceMetadata, tokenPatch, reportMetadataAsync, reportWorkspaceMetadataAsync; GONE/landed",
+      "source/lib/managed-config.js \u2014 full (676 lines). Methods read: migrateMarkers, foreignTables, yours, refusal, checkedWrite, recordThemeOrigin, restoreThemeOrigin, posix, backup, block, chromeVariant, applyAppearance, chromeTokens, themeBlock, withThemeBlock, cell, topLevelRows, tokensIn, knownAgents, logoCell, blockVariant, sidebarBlock, inspect, apply, setSidebarRows, remove",
+      "source/lib/paths.js \u2014 full (81 lines): pluginId, stateRoot, ensureDir, herdrConfigPath, herdrStateDir, pluginConfigDir",
+      "source/lib/config.js \u2014 lines 1-80 (stripComment, parseToml, load and the HERDR_PLUGIN_CONFIG_DIR fallback)",
+      "source/lib/palette.js \u2014 brand/brandVendors/inks/inkFor region (lines 56-115)",
+      "source/lib/lanes.js \u2014 lines 1-40 (HOST derivation, file layout)",
+      "source/README.md \u2014 lines 17-21 and 80-119 (model mark, across-machines, uninstall, credits)",
+      "source/CHANGELOG.md \u2014 lines 1-45 (0.42.0 entry incl. the shipped model mark)",
+      "source/test/labels.test.js \u2014 full (61 lines), as the representative test-ownership pattern",
+      "source/test/{foreign-tables,checked-write,daemon-status,dead-targets,control}.test.js \u2014 headers, requires and test titles (structural/ownership read)",
+      "source/ full file inventory via glob: 37 lib files, 7 test files, package.json, README.md, CHANGELOG.md \u2014 no bin/, tools/, extensions/ or font/"
+    ],
+    "pi_files_read": [
+      "pi/package.json \u2014 full (version 1.0.4, type module, piConfig.configDir .pi)",
+      "pi/dist/core/extensions/types.d.ts \u2014 lines 60-196 (ExtensionUIContext incl. setTitle:118-119), 197-229 (ExtensionContext), 520-639 (SessionStartEvent, SessionInfoChangedEvent, session lifecycle events), 760-880 (ModelSelectSource:848, ModelSelectEvent:849-855), 1148-1207 (ExtensionAPI.on overloads)",
+      "pi/dist/core/extensions/runner.js \u2014 lines 100-250 (noOpUIContext incl. setTitle:146; ExtensionRunner fields; bindCore), 588-760 (createContext incl. ctx.model:642-645, createToolContext, createCommandContext, emitBoundary), 813-818 (emit)",
+      "pi/dist/modes/interactive/interactive-mode.js \u2014 lines 340-379 (setBeforeSessionInvalidate/setRebindSession wiring), 760-819 (init tail; updateTerminalTitle:810-819), 824-874 (run, win32 title restore:847-853), 1470-1529 (bindCurrentSessionExtensions), 1584-1618 (rebindCurrentSession:1593,1602), 1890-1922 (resetExtensionUI:1914), 2050-2079 (createExtensionUIContext incl. setTitle:2068), 2780-2819 (session_info_changed:2800-2801), 4764-4797 (handleResumeSession), 5330-5359 (handleReloadCommand:5345)",
+      "pi/dist/core/agent-session.js \u2014 lines 280-339 (_recordSelection), 1916-2038 (_emitModelSelect:1926-1935 and its three call sites), 2594-2683 (bindExtensions:2594-2617 incl. session_start emit:2614, _applyExtensionBindings), 2961 (session_start reason reload), 3172-3179 (setSessionName / session_info_changed emit order)",
+      "pi/dist/core/agent-session-runtime.js \u2014 lines 40-179 (setRebindSession, setBeforeSessionInvalidate, teardownCurrent, apply, finishSessionReplacement, switchSession, newSession, fork head)",
+      "pi/dist/core/extensions/loader.js \u2014 discovery region (lines 548-694: loadExtensions, manifest handling, discoverExtensionsInDir, discoverAndLoadExtensions)",
+      "pi/dist/core/session-manager.d.ts \u2014 line 178 (ReadonlySessionManager pick list)",
+      "pi/dist/modes/rpc/rpc-mode.js \u2014 lines 143-148 (setTitle over RPC) and 225 (setRebindSession), for mode parity"
+    ],
+    "searches_run": [
+      "model_select / model-select across pi/dist (13 files)",
+      "setTitle|updateTerminalTitle|\\x1b]0|titleOverride across pi/dist/**/*.js",
+      "session_start|bindExtensions in agent-session.js",
+      "_emitModelSelect|emitModelSelect across pi/dist/**/*.js",
+      "\"restore\" across pi/dist/**/*.js (zero matches)",
+      "session_info_changed across pi/dist/**/*.js",
+      "resetExtensionUI|bindCurrentSessionExtensions|rebindCurrentSession in interactive-mode.js",
+      "ReadonlySessionManager across pi/dist/**/*.d.ts",
+      "APP_TITLE across pi/ (only the two interpolation sites plus the import)",
+      "modelFor|MODEL_FAMILIES|MODEL_FALLBACK|model_stale|$model across source/",
+      "requires / test titles across source/test/"
+    ]
+  },
+  "limitations": [
+    "No remote or live checks were performed and none were authorized. Darkseid (local) and Alghul (SSH) were treated as named targets only; no host state, deployment record, terminal capture or Herdr runtime state was supplied, so acceptance subcriteria 3b, 5e and the colour reading in 5f are unverifiable here and are reported as such rather than as pass or fail.",
+    "No commands, SSH, credentials, environment or session content were used; tools were restricted to Read, Glob and Grep. Nothing was executed \u2014 the 7 existing tests were read, not run \u2014 so all behavioural claims are static-reading claims from the supplied bytes.",
+    "No source was modified and no implementation, amendment or write of any kind was produced.",
+    "The Pi snapshot is partial: pi/dist/core/**, pi/dist/modes/** and pi/examples/** are present, but no root-level pi/dist files (config.js, index.js) exist, so APP_TITLE's literal value and the module's own exports surface could not be read (U2). Source maps (*.js.map) were not consulted and no TypeScript sources were available \u2014 findings rest on the compiled dist plus the shipped .d.ts.",
+    "The repository snapshot contains only lib/, test/, package.json, README.md and CHANGELOG.md. bin/, tools/ and any extension directory are absent, so the deployment and rollback scripts the code refers to (bin/configure.js, bin/install-font.js, tools/check.js, agent-icons.js) could not be inspected; bullets 3 and 6 were assessed from Pi's loader and from Radar's in-lib install/remove paths only (U7).",
+    "Repository evidence is parent-provided and the snapshots are described as byte-preserving; their correspondence to what is deployed on either host was taken on trust and not verified.",
+    "Per instruction, the absence of the Pi extension is recorded as prospective scope, not as a defect. Findings are limited to behaviour demonstrated in the supplied bytes; design ambiguities are in unknowns and preferences are in taste.",
+    "Completed inside the authorized 900-second recovery cap, single reviewer, no agents spawned. Session ID 929cee82-d5cf-4bca-b24b-80809101e909 retained."
+  ]
+}

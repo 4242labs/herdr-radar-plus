@@ -1,0 +1,5 @@
+{
+  "output": "3 plugins installed:\n- 4242labs.herdr-radar-plus (Herdr Radar Plus) enabled [local:/Users/42piratas/42labs/herdr-radar-plus]\n  config: /Users/42piratas/.config/herdr/plugins/config/4242labs.herdr-radar-plus\n- herdr-scratchpad (herdr-scratchpad) enabled [github:vjeantet/herdr-scratchpad@ae1b861f83ffc8a20bd4f1853dacda54ae288688]\n  config: /Users/42piratas/.config/herdr/plugins/config/herdr-scratchpad\n- herdr-sidebar (herdr-sidebar) enabled [github:alexarthurs/herdr-sidebar/plugins/herdr-sidebar@1a5d37ef84edc91e5b3d3d4e39daa32952e6ecf2]\n  config: /Users/42piratas/.config/herdr/plugins/config/herdr-sidebar",
+  "exit_code": 0,
+  "error": null
+}

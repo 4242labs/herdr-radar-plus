@@ -1,0 +1,5 @@
+{
+  "output": "{\"passed\":true,\"actualInstalledMethods\":[\"rebindCurrentSession\",\"createExtensionUIContext.setTitle\",\"updateTerminalTitle\"],\"scenarios\":[\"delayed post-hook overwrite\",\"next 250ms callback repairs\",\"fresh name and model read\",\"timer retirement plus normal title\"],\"providerRequests\":0,\"liveSessions\":0}",
+  "exit_code": 0,
+  "error": null
+}

@@ -1,0 +1,5 @@
+{
+  "output": "{\n  \"verdict\": \"READY\",\n  \"counts\": {\n    \"obligations\": 37,\n    \"requirements\": 19,\n    \"verification_methods\": 19,\n    \"delivery_tasks\": 6\n  },\n  \"rule_receipts\": 64,\n  \"review_counts\": {\n    \"findings\": 8,\n    \"unknowns\": 7,\n    \"taste\": 4,\n    \"coverage_subcriteria\": 23\n  },\n  \"source_hashes_checked\": 19,\n  \"resolved_local_cross_references\": 10,\n  \"dependency_cycle\": false,\n  \"orphan_requirements\": 0,\n  \"orphan_tasks\": 0,\n  \"unresolved_obligations\": 0,\n  \"main_branch\": \"main\",\n  \"main_clean\": true,\n  \"implementation_tests_executed\": false,\n  \"live_acceptance_executed\": false,\n  \"audit_scope\": \"structural graph, source hashes, exact original bytes, existing probe receipts, document paths and WIP preservation; whole-document semantic sweep is author judgment recorded separately\"\n}",
+  "exit_code": 0,
+  "error": null
+}

@@ -1,0 +1,480 @@
+{
+  "obligations": [
+    {
+      "id": "O1",
+      "source": "Original proposal bullet 1: includes selected model in terminal title",
+      "outcome": "Selected model id transported by title; metadata alternative not selected",
+      "requirement": "R1",
+      "status": "resolved"
+    },
+    {
+      "id": "O2",
+      "source": "Original proposal bullet 1: preserving session/project name",
+      "outcome": "Preserve Pi title base and naming",
+      "requirement": "R2",
+      "status": "resolved"
+    },
+    {
+      "id": "O3",
+      "source": "Original proposal bullet 2: session start",
+      "outcome": "Startup survives later Pi default writer",
+      "requirement": "R3",
+      "status": "resolved"
+    },
+    {
+      "id": "O4",
+      "source": "Original proposal bullet 2: restoration",
+      "outcome": "Resume uses session_start, not hypothetical restore model event",
+      "requirement": "R4",
+      "status": "resolved"
+    },
+    {
+      "id": "O5",
+      "source": "Original proposal bullet 2: model_select",
+      "outcome": "Set/cycle selected model replaces former brand",
+      "requirement": "R5",
+      "status": "resolved"
+    },
+    {
+      "id": "O6",
+      "source": "Original proposal bullet 2: reuse Radar mapping",
+      "outcome": "Reuse existing family keys, glyphs and token pipeline; narrow Pi matching",
+      "requirement": "R6",
+      "status": "resolved"
+    },
+    {
+      "id": "O7",
+      "source": "Original proposal bullet 3: Darkseid",
+      "outcome": "Local host installation and separate acceptance gate",
+      "requirement": "R15",
+      "status": "resolved"
+    },
+    {
+      "id": "O8",
+      "source": "Original proposal bullet 3: Alghul",
+      "outcome": "SSH host installation and separate acceptance gate",
+      "requirement": "R15",
+      "status": "resolved"
+    },
+    {
+      "id": "O9",
+      "source": "Original proposal bullet 3: without changing Hermes",
+      "outcome": "Non-Pi model behavior unchanged",
+      "requirement": "R7",
+      "status": "resolved"
+    },
+    {
+      "id": "O10",
+      "source": "Original proposal bullet 3: without hardcoding provider",
+      "outcome": "Never infer Pi model from harness/provider",
+      "requirement": "R6",
+      "status": "resolved"
+    },
+    {
+      "id": "O11",
+      "source": "Original proposal bullet 4: unknown models",
+      "outcome": "Unknown/missing model clears model cells",
+      "requirement": "R8",
+      "status": "resolved"
+    },
+    {
+      "id": "O12",
+      "source": "Original proposal bullet 4: never guessed",
+      "outcome": "Names/malformed suffixes never infer a brand",
+      "requirement": "R9",
+      "status": "resolved"
+    },
+    {
+      "id": "O13",
+      "source": "Original proposal bullet 5: startup tests",
+      "outcome": "Offline automated startup acceptance",
+      "requirement": "R3",
+      "status": "resolved"
+    },
+    {
+      "id": "O14",
+      "source": "Original proposal bullet 5: restoration tests",
+      "outcome": "Offline automated resume acceptance",
+      "requirement": "R4",
+      "status": "resolved"
+    },
+    {
+      "id": "O15",
+      "source": "Original proposal bullet 5: switching tests",
+      "outcome": "Offline automated set/cycle acceptance",
+      "requirement": "R5",
+      "status": "resolved"
+    },
+    {
+      "id": "O16",
+      "source": "Original proposal bullet 5: unknown tests",
+      "outcome": "Automated unknown-to-known and known-to-unknown clearing",
+      "requirement": "R8",
+      "status": "resolved"
+    },
+    {
+      "id": "O17",
+      "source": "Original proposal bullet 5: logo beside Pi on both hosts",
+      "outcome": "Distinct glyph/token and cropped visual evidence per host",
+      "requirement": "R16",
+      "status": "resolved"
+    },
+    {
+      "id": "O18",
+      "source": "Original proposal bullet 6: remove extension",
+      "outcome": "Removal/reload retires title reconciler",
+      "requirement": "R17",
+      "status": "resolved"
+    },
+    {
+      "id": "O19",
+      "source": "Original proposal bullet 6: restore normal title",
+      "outcome": "Default title restored without restarting session",
+      "requirement": "R17",
+      "status": "resolved"
+    },
+    {
+      "id": "O20",
+      "source": "Original proposal bullet 6: no upgrades",
+      "outcome": "Installed pinned API only",
+      "requirement": "R13",
+      "status": "resolved"
+    },
+    {
+      "id": "O21",
+      "source": "Original proposal bullet 6: no paid model requests",
+      "outcome": "No provider operation in verification/deployment",
+      "requirement": "R13",
+      "status": "resolved"
+    },
+    {
+      "id": "O22",
+      "source": "Current mandate: SPECONLY no implementation/reviewer/merge",
+      "outcome": "Only contract/evidence authoring now",
+      "requirement": "R19",
+      "status": "resolved"
+    },
+    {
+      "id": "O23",
+      "source": "Current mandate: full canonical skill and linked examples",
+      "outcome": "Whole-rule compliance receipts, no summary-only drafting",
+      "requirement": "R19",
+      "status": "resolved"
+    },
+    {
+      "id": "O24",
+      "source": "Current mandate: branch worktree with Linear before edit; preserve WIP",
+      "outcome": "Isolated durable project artifact with custody",
+      "requirement": "R19",
+      "status": "resolved"
+    },
+    {
+      "id": "O25",
+      "source": "Current mandate: original proposal versus unvalidated metadata",
+      "outcome": "Evidence-backed title repair; no metadata architecture swap",
+      "requirement": "R1",
+      "status": "resolved"
+    },
+    {
+      "id": "O26",
+      "source": "Current mandate: full Opus adjudication against actual sources",
+      "outcome": "F1–F8, U1–U7, T1–T4 and every coverage subcriterion disposition",
+      "requirement": "R19",
+      "status": "resolved"
+    },
+    {
+      "id": "O27",
+      "source": "Current mandate: startup/restoration/reload/switch/rename timing",
+      "outcome": "Reconciler accounts for every scoped title-write surface",
+      "requirement": "R10",
+      "status": "resolved"
+    },
+    {
+      "id": "O28",
+      "source": "Current mandate: suffix identifier boundary, false matches",
+      "outcome": "Final structured token and anchored id-only family predicate",
+      "requirement": "R9",
+      "status": "resolved"
+    },
+    {
+      "id": "O29",
+      "source": "Current mandate: existing extensions and title naming preserved",
+      "outcome": "No competing title-writer adoption; lifecycle only resources",
+      "requirement": "R11",
+      "status": "resolved"
+    },
+    {
+      "id": "O30",
+      "source": "Current mandate: safe offline supported sequencing proof",
+      "outcome": "Actual installed host ordering probe plus implementation tests",
+      "requirement": "R3",
+      "status": "resolved"
+    },
+    {
+      "id": "O31",
+      "source": "Current mandate: global deployment conventions and authority none",
+      "outcome": "Host-global artifact delivery gated by separate authorization",
+      "requirement": "R15",
+      "status": "resolved"
+    },
+    {
+      "id": "O32",
+      "source": "Current mandate: privacy only model/provider not prompts/tokens",
+      "outcome": "Title uses model id only; evidence crops/redacts session content",
+      "requirement": "R12",
+      "status": "resolved"
+    },
+    {
+      "id": "O33",
+      "source": "Current mandate: actors/happy/edge/failure/recovery/rollback/observability",
+      "outcome": "Explicit bounded contract and error behavior",
+      "requirement": "R14",
+      "status": "resolved"
+    },
+    {
+      "id": "O34",
+      "source": "Current mandate: traceability counts computed, commands executed, hashes/paths sourced",
+      "outcome": "Machine-auditable graph and real command receipts",
+      "requirement": "R19",
+      "status": "resolved"
+    },
+    {
+      "id": "O35",
+      "source": "Current mandate: never live acceptance claim from unverified commands",
+      "outcome": "Future live gates stay unexecuted; authoring proof separate",
+      "requirement": "R16",
+      "status": "resolved"
+    },
+    {
+      "id": "O36",
+      "source": "Current mandate: executable slices and project sizing",
+      "outcome": "One feature, deterministic slices, no speculative subsystem",
+      "requirement": "R18",
+      "status": "resolved"
+    },
+    {
+      "id": "O37",
+      "source": "Current mandate: final verdict all rules attended no placeholders",
+      "outcome": "Single verdict and reconciled ledger, audit receipt",
+      "requirement": "R19",
+      "status": "resolved"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "name": "Title transport",
+      "outcome": "Pi interactive session; selected ctx.model.id; on each apply, append exactly one versioned model suffix to the default title base. Missing model uses an empty suffix. The extension emits no glyph and uses no pane model metadata API.",
+      "verification": "test:pi-title-protocol",
+      "task": "T1",
+      "authority": "E2,D1,O1,O25",
+      "status": "specified; implementation not executed"
+    },
+    {
+      "id": "R2",
+      "name": "Preserved naming",
+      "outcome": "Pi operator; any nonempty/cleared session name or project basename; default prefix remains π and name/cwd order exactly follows installed Pi. Preserve ordinary Unicode and delimiters; strip terminal control characters only. Never derive names from prompts or transcript.",
+      "verification": "test:pi-title-naming",
+      "task": "T1",
+      "authority": "E2,O2",
+      "status": "specified; implementation not executed"
+    },
+    {
+      "id": "R3",
+      "name": "Startup after host overwrite",
+      "outcome": "Pi interactive startup; after every Pi default write in the bind path settles, the next session-scoped reconciliation callback publishes the currently selected id, including when another extension delays bind beyond the first callback. No fixed one-shot timeout is sufficient.",
+      "verification": "test:pi-title-startup-order",
+      "task": "T2",
+      "authority": "E3,E9,D2,O3,O13,O30",
+      "status": "specified; implementation not executed"
+    },
+    {
+      "id": "R4",
+      "name": "Restored selection",
+      "outcome": "Pi operator resumes a session; retire previous reconciler, read restored ctx.model from the new session_start context, publish that id after the replacement host default write. Do not depend on model_select source restore.",
+      "verification": "test:pi-title-resume",
+      "task": "T2",
+      "authority": "E3,E4,O4,O14",
+      "status": "specified; implementation not executed"
+    },
+    {
+      "id": "R5",
+      "name": "Model switch",
+      "outcome": "Pi operator selects/cycles a model without submitting a prompt; model_select reads fresh context after Pi assignment, replaces the suffix, and Radar replaces/clears the previous model glyph. Re-selecting the same model leaves state unchanged.",
+      "verification": "test:pi-title-model-switch",
+      "task": "T2",
+      "authority": "E4,O5,O15",
+      "status": "specified; implementation not executed"
+    },
+    {
+      "id": "R6",
+      "name": "Known family resolution",
+      "outcome": "Radar receives a Pi title with a valid final suffix; decode only selected model id and match one anchored known-family predicate at the leaf identifier start. Existing glyph table and state token pipeline remain authoritative. Provider/harness alone never supplies a Pi model brand.",
+      "verification": "test:pi-model-known-families",
+      "task": "T1",
+      "authority": "E1,E5,D3,O6,O10",
+      "status": "specified; implementation not executed"
+    },
+    {
+      "id": "R7",
+      "name": "Hermes/non-Pi compatibility",
+      "outcome": "Radar receives any non-Pi agent/title pair; modelFor return remains exactly the old behavior, including existing fallbacks and regex priority. No Hermes code/config/title producer or palette/font assets change.",
+      "verification": "test:pi-model-non-pi-regression",
+      "task": "T3",
+      "authority": "E1,D3,O9",
+      "status": "specified; implementation not executed"
+    },
+    {
+      "id": "R8",
+      "name": "Unknown/missing model clearing",
+      "outcome": "Radar Pi row transitions from a recognized id to missing, empty or unrecognized id; model and model_stale cells clear, Pi agent mark remains. No previous-family caching, provider fallback or neutral guessed model glyph.",
+      "verification": "test:pi-model-unknown-clear",
+      "task": "T3",
+      "authority": "E1,E5,O11,O16",
+      "status": "specified; implementation not executed"
+    },
+    {
+      "id": "R9",
+      "name": "No name-derived model",
+      "outcome": "Radar Pi row with misleading family words in session/project/provider/title prefix, malformed percent encoding, extra trailing text, or no final suffix; returns no model family. A genuine final suffix alone is authoritative; older embedded suffix-like text in names is not.",
+      "verification": "test:pi-model-suffix-boundaries",
+      "task": "T1",
+      "authority": "E1,D3,O12,O28",
+      "status": "specified; implementation not executed"
+    },
+    {
+      "id": "R10",
+      "name": "All scoped lifecycle writes",
+      "outcome": "Pi reload, new session, fork, resume and rename/name clearing; title reconciles fresh model/name/cwd on the next callback after host write, and session_info_changed/model_select immediately apply using live values. Never reuse an invalidated context. Windows is out of scope because targets are Darwin/Linux.",
+      "verification": "test:pi-title-lifecycle-matrix",
+      "task": "T2",
+      "authority": "E2,E3,E4,E8,O27",
+      "status": "specified; implementation not executed"
+    },
+    {
+      "id": "R11",
+      "name": "Resource/extension compatibility",
+      "outcome": "Pi extension factory loads in any mode; creates no timer. Only session_start in mode tui allocates one unrefed 250ms timer. session_shutdown cancels it idempotently before invalidation; next session starts only its own timer. Deployment refuses unresolved other active title writers rather than fighting them; all other extension files/behavior stay untouched.",
+      "verification": "test:pi-title-resource-lifecycle",
+      "task": "T2",
+      "authority": "E6,E8,D2,O29",
+      "status": "specified; implementation not executed"
+    },
+    {
+      "id": "R12",
+      "name": "Privacy and terminal safety",
+      "outcome": "Pi/Radar test/deployment evidence uses only model identifiers, glyph/token values, source/package identities and redacted host metadata. No prompt, transcript, auth file, token/secret, raw user title/session name is persisted. Model id is percent encoded; control characters cannot terminate OSC.",
+      "verification": "test:pi-title-privacy-controls",
+      "task": "T3",
+      "authority": "E2,E7,O32",
+      "status": "specified; implementation not executed"
+    },
+    {
+      "id": "R13",
+      "name": "Pinned, request-free execution",
+      "outcome": "Implementer/tests and later deployer use Pi 1.0.4 and Radar 0.42.0 baseline, existing dependencies and synchronous ctx.model. No package upgrades, provider discovery/auth/request, inference, bot changes or live prompt are needed; forbidden dependencies are mocked to throw in offline tests.",
+      "verification": "test:pi-title-no-provider-operations",
+      "task": "T3",
+      "authority": "E2,E4,E8,O20,O21",
+      "status": "specified; implementation not executed"
+    },
+    {
+      "id": "R14",
+      "name": "Failures and observability",
+      "outcome": "Reconciler metadata getter failure retires timer rather than touching invalid context; a write failure stops timer and gives one generic UI warning without model/name/stack contents. Explicit successful reload/rebind is recovery. Known-to-unknown normally clears immediately; host reset supplies default after teardown. No telemetry service or prompt/state logs are added.",
+      "verification": "test:pi-title-failure-retirement",
+      "task": "T3",
+      "authority": "E3,E6,O33",
+      "status": "specified; implementation not executed"
+    },
+    {
+      "id": "R15",
+      "name": "Both-host global delivery gate",
+      "outcome": "Authorized deployer on Darkseid and Alghul separately verifies active extension resources/no competing title owner, native pinned Pi, Herdr Pi detection, managed model cells and matching resolved glyph variant. Deliver and activate the reviewed strict Pi-only Radar parser in each existing linked checkout first; read back its hash and passing protocol/non-Pi fixture assertions before any extension activation. Then install byte-identical reviewed extension into each discovered native global extension directory, not wrapper/bot/project-local copies. No activation/restart/write authorized by this specification-authoring task.",
+      "verification": "test:pi-logo-deployment-preflight",
+      "task": "T4",
+      "authority": "E5,E8,O7,O8,O31",
+      "status": "specified; implementation not executed"
+    },
+    {
+      "id": "R16",
+      "name": "Both-host visible acceptance",
+      "outcome": "After separate live-test authorization, operator/deployer verifies an idle native Pi pane on each host with one known selected family and its existing configured glyph variant: Pi harness mark followed by the selected-family model mark in managed Agents row. Unknown clears only model mark. Model selection is request-free; no new session/restart/prompt required. Metadata assertion is automated and one cropped screenshot per host establishes adjacency; no brand hue beyond existing palette is required.",
+      "verification": "screenshot:pi-logo-darkseid-and-alghul",
+      "task": "T5",
+      "authority": "E5,E8,O17,O35",
+      "status": "specified; implementation not executed"
+    },
+    {
+      "id": "R17",
+      "name": "Safe rollback",
+      "outcome": "Authorized deployer removes only the added extension file; operator invokes idle /reload (if streaming/compacting, wait, never interrupt/restart). Old session_shutdown clears timer and restores normal sanitized Pi base via supported ui.setTitle; removing file prevents rediscovery. Session/PID and all pre-existing extensions remain. Retain Pi fail-closed Radar parser so default title has no guessed mark. No undo of sidebar/font/Hermes/credentials.",
+      "verification": "test:pi-title-rollback-reload",
+      "task": "T4",
+      "authority": "E2,E3,E6,O18,O19",
+      "status": "specified; implementation not executed"
+    },
+    {
+      "id": "R18",
+      "name": "Bounded delivery",
+      "outcome": "Implementer delivers protocol/mapping with tests, extension with lifecycle tests, regression/failure gates, then deployment/rollback runbook, then separately authorized host checks. Each preceding slice has an independent offline acceptance gate; later live execution is explicitly held. No new metadata service, provider integration, family-logo/font rebuild or fleet rollout outside the two hosts.",
+      "verification": "test:pi-logo-delivery-order",
+      "task": "T4",
+      "authority": "D1,D3,O36",
+      "status": "specified; implementation not executed"
+    },
+    {
+      "id": "R19",
+      "name": "Specification-only handoff",
+      "outcome": "Author emits a durable project specification, source/decision/obligation/requirement/task/check graph, full rule receipts and a single readiness verdict, with all counts recomputed and no invented execution results. Branch/card custody exists before document edit; original main/WIP remains intact; no implementation/reviewer/merge/deploy.",
+      "verification": "cmd:spec-audit",
+      "task": "T0",
+      "authority": "O22,O23,O24,O26,O34,O37",
+      "status": "specified; implementation not executed"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T0",
+      "outcome": "Specification and audited evidence handoff only (current authorization)",
+      "requirements": ["R19"],
+      "depends_on": []
+    },
+    {
+      "id": "T1",
+      "outcome": "Pi suffix formatter and strict Pi-only family parser; existing non-Pi semantics preserved",
+      "requirements": ["R1", "R2", "R6", "R9"],
+      "depends_on": ["T0"]
+    },
+    {
+      "id": "T2",
+      "outcome": "Session-scoped supported-title reconciliation extension and lifecycle proof",
+      "requirements": ["R3", "R4", "R5", "R10", "R11"],
+      "depends_on": ["T1"]
+    },
+    {
+      "id": "T3",
+      "outcome": "Non-Pi/unknown/privacy/cost/failure regression gates",
+      "requirements": ["R7", "R8", "R12", "R13", "R14"],
+      "depends_on": ["T2"]
+    },
+    {
+      "id": "T4",
+      "outcome": "Both-host preflight, install and rollback runbook; implementation release is held pending authorization",
+      "requirements": ["R15", "R17", "R18"],
+      "depends_on": ["T3"]
+    },
+    {
+      "id": "T5",
+      "outcome": "Separately authorized request-free host readback and cropped visual acceptance",
+      "requirements": ["R16"],
+      "depends_on": ["T4"]
+    }
+  ],
+  "counts": {
+    "obligations": 37,
+    "requirements": 19,
+    "verification_methods": 19,
+    "delivery_tasks": 6
+  }
+}

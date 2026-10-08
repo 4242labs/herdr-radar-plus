@@ -12,10 +12,15 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
 
 const { resolvePiFamily, referenceDigest: consumerDigest } = require('../lib/pi-model');
 
-test('producer/consumer parity and end-to-end wire format', async () => {
+test('producer/consumer parity and end-to-end wire format', async (t) => {
+  const stateDir = path.join(__dirname, '..', 'pi-model-logo-state');
+  t.after(() => fs.rmSync(stateDir, { recursive: true, force: true }));
+
   const ext = await import('../extensions/pi-model-logo.js');
 
   assert.equal(ext.referenceDigest('id', 'sess-123'), consumerDigest('id', 'sess-123'));
@@ -32,6 +37,12 @@ test('producer/consumer parity and end-to-end wire format', async () => {
 
   const refused = ext.provisionZeroCounterWithEvidence(false);
   assert.equal(refused.ok, false);
+
+  // Regression: counterDir() must resolve under ESM (import.meta.url), not
+  // __dirname (undefined in ESM, which silently killed every counter read
+  // and therefore every publish before this was caught live).
+  const provisioned = ext.provisionZeroCounterWithEvidence(true);
+  assert.equal(provisioned.ok, true, JSON.stringify(provisioned));
 
   // Confirms the two modules' wire format actually interoperates: the
   // producer's digest and the consumer's acceptance check agree on the same

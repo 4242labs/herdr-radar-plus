@@ -13,6 +13,7 @@ import net from 'node:net';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const SOURCE = 'user:radar-pi-model';
 const REFRESH_MS = 30000; // spec §3 Lifecycle: "one unrefed 30000ms metadata-refresh timer"
@@ -150,7 +151,8 @@ async function writePatch(paneId, seq, tokens) {
 // resetting it.
 function counterDir() {
   // Beside the global native `extensions` directory this file itself lives in.
-  return path.join(path.dirname(__dirname), 'pi-model-logo-state');
+  const thisFileDir = path.dirname(fileURLToPath(import.meta.url));
+  return path.join(path.dirname(thisFileDir), 'pi-model-logo-state');
 }
 
 function counterFile() {

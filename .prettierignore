@@ -23,3 +23,8 @@ tools/sidebar.html
 lefthook.yml
 lefthook-local.yml
 .hooks-profile.json
+
+# Frozen Pi specification evidence and reviewed traceability: preserve the
+# reviewed bytes and upstream captures when publishing the handover packet.
+specs/pi-model-logo/evidence/
+specs/pi-model-logo/traceability.json

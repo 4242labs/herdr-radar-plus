@@ -1,0 +1,35 @@
+{
+  "cause": "Local launcher selected a runtime without a usable authorization source; working parallel review launch records used Alghul's existing claude.ai authorization. No evidence supports the proposed suppressed-apiKeyHelper cause in the inspected local user/project settings.",
+  "local_executable": "/Users/42piratas/.local/bin/claude",
+  "local_version": "2.1.288",
+  "local_user_settings_apiKeyHelper_present": false,
+  "local_project_settings_present": false,
+  "local_inherited_api_key_present": false,
+  "local_inherited_auth_token_present": false,
+  "local_inherited_endpoint_host": "127.0.0.1",
+  "restricted_behavior": "CLI help: ignores user/project/local settings; managed settings and explicit --settings still apply",
+  "safe_mode_behavior": "CLI help: auth works normally",
+  "working_launch_record": "42L-2120-sonnet-review/pr14/remote-command.txt and remote-native-output.jsonl: same restricted/safe-mode runtime successfully used claude-sonnet-5",
+  "recovery_executable": "/home/42piratas/.npm-global/bin/claude",
+  "recovery_version": "2.1.273",
+  "recovery_transport": "ssh BatchMode alghul zsh -lic",
+  "recovery_auth_status": {
+    "loggedIn": true,
+    "authMethod": "claude.ai",
+    "apiProvider": "firstParty",
+    "subscriptionType": "max"
+  },
+  "actual_init_model": "claude-opus-5",
+  "actual_init_session_id": "929cee82-d5cf-4bca-b24b-80809101e909",
+  "actual_init_tools": [
+    "Glob",
+    "Grep",
+    "Read"
+  ],
+  "actual_init_permissionMode": "dontAsk",
+  "credentials_read_or_copied": false,
+  "additional_smoke_or_second_model_request": false,
+  "review_sources": "Byte-preserving local source snapshot transported to isolated Alghul review artifact directory; not remote/live host validation",
+  "recovery_cap_seconds": 900,
+  "heartbeat_seconds": 180
+}

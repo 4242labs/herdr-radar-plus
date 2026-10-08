@@ -1,0 +1,444 @@
+{
+  "findings": [
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5",
+    "F6",
+    "F7",
+    "F8"
+  ],
+  "unknowns": [
+    "U1",
+    "U2",
+    "U3",
+    "U4",
+    "U5",
+    "U6",
+    "U7"
+  ],
+  "taste": [
+    "T1",
+    "T2",
+    "T3",
+    "T4"
+  ],
+  "amendment_findings": [
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "A6",
+    "A7"
+  ],
+  "round2_findings": [
+    "RR1",
+    "RR2"
+  ],
+  "rows": [
+    {
+      "id": "F1",
+      "status": "RESOLVED",
+      "claim": "Pi overwrites startup/restoration extension titles",
+      "change": "Zero-title metadata transport; R1\u2013R4",
+      "evidence": "pi-output.json: title writer/bind/reset; socket.mdx: metadata API"
+    },
+    {
+      "id": "F2",
+      "status": "RESOLVED",
+      "claim": "Restoration cannot rely on a restore model event",
+      "change": "Fresh session_start context; R4,R10",
+      "evidence": "pi-output.json: session_start reasons and public model getter; no restore emit claimed"
+    },
+    {
+      "id": "F3",
+      "status": "RESOLVED",
+      "claim": "Whole-title family matching guesses from names",
+      "change": "Pi-only ID/ref consumer; R6,R8,R9",
+      "evidence": "source-output.json: state 263\u2013320,474\u2013475; logos 247\u2013262"
+    },
+    {
+      "id": "F4",
+      "status": "RESOLVED",
+      "claim": "Mapping reuse alone does not provide coverage",
+      "change": "Dedicated shipped family/boundary/clear tests and guard mutation; R6,R8,R9",
+      "evidence": "source-output.json: registry/output path; historical snapshot absence not asserted as current test census"
+    },
+    {
+      "id": "F5",
+      "status": "DISPUTED",
+      "claim": "Uncolored glyphs may be mistaken for wrong glyphs",
+      "change": "Do not redesign palette; require exact existing variant/adjacency; R16",
+      "evidence": "source-output.json: managed-config 353\u2013379,439\u2013456; palette 78\u201388,97\u2013114"
+    },
+    {
+      "id": "F6",
+      "status": "RESOLVED",
+      "claim": "Radar imports in Pi could trigger font subprocess/module coupling",
+      "change": "Only built-in net/crypto/fs/path in producer; R1,R13",
+      "evidence": "recheck/source-output.json: glyph owner; recheck/pi-output.json: public model getter; recheck/filesystem-passages.json and crypto-passages.json: builtin APIs"
+    },
+    {
+      "id": "F7",
+      "status": "RESOLVED",
+      "claim": "Unkeyed title ownership/reload conflict",
+      "change": "No title API calls; session resource generation/cleanup; R2,R10,R11,R17",
+      "evidence": "pi-output.json: title passthrough/reset; extensions.md 58\u201360,251,262\u2013263"
+    },
+    {
+      "id": "F8",
+      "status": "DISPUTED",
+      "claim": "Windows title restoration may overwrite model title",
+      "change": "No title writer; Windows excluded; no Windows scope added",
+      "evidence": "pi-output.json: OS Darwin; alghul identity Linux; original Windows claim treated as historical"
+    },
+    {
+      "id": "U1",
+      "status": "RESOLVED",
+      "claim": "Direction of glyph-mapping reuse ambiguous",
+      "change": "Pi emits ID/ref; Radar alone resolves glyphs; R1,R6",
+      "evidence": "source-output.json: family registry and output token pipeline"
+    },
+    {
+      "id": "U2",
+      "status": "RESOLVED",
+      "claim": "Default title literal missing in supplied snapshot",
+      "change": "Host title left untouched; no literal reconstruction; R2",
+      "evidence": "pi-output.json: host title composition"
+    },
+    {
+      "id": "U3",
+      "status": "RESOLVED",
+      "claim": "Title suffix location ambiguous",
+      "change": "No suffix; exact metadata ownership/wire; R1,R9",
+      "evidence": "socket.mdx 751\u2013769; schema-fields.json"
+    },
+    {
+      "id": "U4",
+      "status": "RESOLVED",
+      "claim": "Live sidebar/variant unknown",
+      "change": "Runnable preflight plus actual host gate retained; R15,R16; not claimed passed",
+      "evidence": "source-output.json: managed-config 376\u2013379,439\u2013456"
+    },
+    {
+      "id": "U5",
+      "status": "RESOLVED",
+      "claim": "Actual Pi detection unknown",
+      "change": "Authoritative Pi/session reference preflight and host acceptance; R15,R16; not claimed passed",
+      "evidence": "schema-fields.json and schema-fields-alghul.json: AgentInfo/AgentSessionInfo"
+    },
+    {
+      "id": "U6",
+      "status": "RESOLVED",
+      "claim": "Extension discovery destination undecided",
+      "change": "Native global directories; R15,R17",
+      "evidence": "pi-output.json: global managed extension; alghul-paths.json"
+    },
+    {
+      "id": "U7",
+      "status": "RESOLVED",
+      "claim": "Partial reviewer tree and no extension artifact",
+      "change": "Actual source re-read; new artifact explicitly prospective; R13,R15",
+      "evidence": "source-output.json, identity.json; no shipping implementation claim"
+    },
+    {
+      "id": "T1",
+      "status": "RESOLVED",
+      "claim": "Additional lifecycle/title-write surfaces omitted",
+      "change": "Full lifecycle matrix; rename does not touch model/title; R2,R10",
+      "evidence": "pi-output.json: session_start reasons and title owner"
+    },
+    {
+      "id": "T2",
+      "status": "RESOLVED",
+      "claim": "Prefer one fresh-context apply path",
+      "change": "One latest-value serialized snapshot publisher; R5,R10,R11",
+      "evidence": "public model/session getters and lifecycle guidance in pi-output.json/extensions.md"
+    },
+    {
+      "id": "T3",
+      "status": "DISPUTED",
+      "claim": "Prefer already-shipped title transport",
+      "change": "Official metadata avoids title ownership; original assistant quick proposal is not operator title authority; no provider fallback",
+      "evidence": "socket.mdx 725\u2013769; original spec.txt; latest operator research/amendment request"
+    },
+    {
+      "id": "T4",
+      "status": "RESOLVED",
+      "claim": "Narrow model matching rather than whole-title scan",
+      "change": "Strict Pi-only ID classifier; other agents unchanged; R6,R7,R9",
+      "evidence": "source-output.json: logos 247\u2013262"
+    },
+    {
+      "id": "A1",
+      "status": "RESOLVED",
+      "claim": "250ms persistent title reconciliation not accepted",
+      "change": "Zero title writes; explicit metadata lease renewal; R1,R2,R11",
+      "evidence": "operator investigate/amendment; primary metadata/lifecycle guidance"
+    },
+    {
+      "id": "A2",
+      "status": "RESOLVED",
+      "claim": "Metadata token/source ownership and identity unspecified",
+      "change": "Distinct ID/ref inputs, Radar-only outputs, digest, durable sequence ownership and capacity refusal; R1,R6,R9,R15",
+      "evidence": "socket.mdx 751\u2013769; both installed schemas; managed session-source code"
+    },
+    {
+      "id": "A3",
+      "status": "RESOLVED",
+      "claim": "Expiry/server restart recovery unspecified",
+      "change": "30s refresh/60s lease, current-context reread and explicit identity refusal; R10,R14",
+      "evidence": "socket.mdx 767; typed pane/reference schema; lifecycle guidance"
+    },
+    {
+      "id": "A4",
+      "status": "RESOLVED",
+      "claim": "Failures, stale callbacks and sequence reuse unspecified",
+      "change": "Bounded serialized socket, durable persist-before-send counter and readback, process-shared generation serialization, failure cancellation, first-install provisioning and safe rollback; R5,R11,R14,R15,R17",
+      "evidence": "socket.mdx 753,767,769; installed seq/TTL schema; filesystem-sources.json with fresh Node fs and POSIX rename; final read-only counter policy audit"
+    },
+    {
+      "id": "A5",
+      "status": "RESOLVED",
+      "claim": "Truncation/normalization can change an identifier",
+      "change": "Reject invalid/overlength input, strict ID-only boundaries; R9,R12",
+      "evidence": "socket.mdx 763; no title/provider inference"
+    },
+    {
+      "id": "A6",
+      "status": "RESOLVED",
+      "claim": "Mandate provenance, review history and receipts polluted the contract",
+      "change": "Shorter implementation-only document; provenance/history and R19 authoring check moved to ledger",
+      "evidence": "skill-amend-specs rules 1\u20134/checklist; SPEC-before.md; latest operator instruction"
+    },
+    {
+      "id": "A7",
+      "claim": "Previous full-compliance claim concealed verify-after-write chronology and stale adjacent ledger details",
+      "status": "RESOLVED",
+      "change": "Record prior AM03 as failed; conduct a fresh source-first reissue/checklist; correct module/input-key descriptions without changing scope or acceptance",
+      "evidence": "recheck/LEDGER.md; recheck/rules-before.json; recheck/SPEC-before.md; recheck/final-checks.json"
+    },
+    {
+      "id": "RR1",
+      "status": "RESOLVED",
+      "claim": "Round-2 BLOCKER: title-versus-metadata transport choice was not established by a demonstrated operator decision; SPEC silently fixes metadata",
+      "change": "Cited the actual authorizing exchange: operator message 192425 established the divergence needed resolution; the assistant's follow-up (192846) asked a direct binary (accept the 250ms title-rewrite defect, or investigate metadata); operator message 193040 answered \"investigate\"; operator message 193058 answered \"go ahead and do it\". O1/O25 updated to cite this chain instead of an unlabeled inherited control.",
+      "evidence": "session-handover/round-2/packet/operator-messages.json: messages 192425, 193040, 193058; session-handover/round-2/packet/decision-context.json: assistant 192846/193057 pairing confirms the binary question each operator reply answers; Pi official docs (piagent.fyi/guides/extensions-101, pi.dev/docs/latest/extensions, retrieved 2026-10-08) and Herdr official docs (herdr.dev/docs/socket-api/, retrieved 2026-10-08) independently confirm the metadata transport (session_start/model_select events, pane.report_metadata with arbitrary tokens) is a real, documented, working API, not a fabricated alternative"
+    },
+    {
+      "id": "RR2",
+      "status": "RESOLVED",
+      "claim": "Round-2 MAJOR: traceability.json O22\u2013O37 used an unlabeled \"inherited engineering control, not verbatim operator wording\" source_class with no message ID or named canonical clause, obscuring which rows are real operator authority versus canon versus author discretion",
+      "change": "Reclassified all 16 rows (O22\u2013O37) into one of: direct operator instruction (exact message ID), named canonical source (exact file + section, e.g. principles-base.md \u00a714, skill-write-specs.md rule N), discovered fact (official vendor doc + retrieval date), or author implementation choice inside approved scope. O26 specifically downgraded: message 191983 authorized a prior Opus review only, not the detailed F1\u2013F8/U1\u2013U7/T1\u2013T4 ledger format, which this authoring pass's own structuring choice.",
+      "evidence": "traceability.json O22\u2013O37 (current); tortuga/dead-mans-chest/skills/skill-write-specs.md (full file read, rules 1\u20138 and \u00a74/\u00a76 bullets cited by exact wording); tortuga/dead-mans-chest/principles-base.md \u00a714 \"Worktree path\" (lines 242-245, read directly); operator-messages.json 192429/192773/193329/193392 (exact wording confirmed)"
+    }
+  ],
+  "coverage": [
+    {
+      "id": "1a",
+      "original_assessment": "FEASIBLE \u2014 verified executable API",
+      "requirements": [
+        "R1",
+        "R11"
+      ],
+      "disposition": "Named future acceptance retained, not executed. Title-only proposal mechanics replaced by zero-title metadata; model-logo/naming/live/regression/rollback outcomes and verification strengths retained."
+    },
+    {
+      "id": "1b",
+      "original_assessment": "FEASIBLE \u2014 verified",
+      "requirements": [
+        "R13"
+      ],
+      "disposition": "Named future acceptance retained, not executed. Title-only proposal mechanics replaced by zero-title metadata; model-logo/naming/live/regression/rollback outcomes and verification strengths retained."
+    },
+    {
+      "id": "1c",
+      "original_assessment": "FEASIBLE \u2014 inputs verified, exact prefix unverified",
+      "requirements": [
+        "R2"
+      ],
+      "disposition": "Named future acceptance retained, not executed. Title-only proposal mechanics replaced by zero-title metadata; model-logo/naming/live/regression/rollback outcomes and verification strengths retained."
+    },
+    {
+      "id": "2a",
+      "original_assessment": "DEMONSTRATED ERROR (F1)",
+      "requirements": [
+        "R3"
+      ],
+      "disposition": "Named future acceptance retained, not executed. Title-only proposal mechanics replaced by zero-title metadata; model-logo/naming/live/regression/rollback outcomes and verification strengths retained."
+    },
+    {
+      "id": "2b",
+      "original_assessment": "DEMONSTRATED ERROR (F1) + F2",
+      "requirements": [
+        "R4",
+        "R10"
+      ],
+      "disposition": "Named future acceptance retained, not executed. Title-only proposal mechanics replaced by zero-title metadata; model-logo/naming/live/regression/rollback outcomes and verification strengths retained."
+    },
+    {
+      "id": "2c",
+      "original_assessment": "FEASIBLE \u2014 verified, and uncontested by Pi",
+      "requirements": [
+        "R5"
+      ],
+      "disposition": "Named future acceptance retained, not executed. Title-only proposal mechanics replaced by zero-title metadata; model-logo/naming/live/regression/rollback outcomes and verification strengths retained."
+    },
+    {
+      "id": "2d",
+      "original_assessment": "EXISTS AND IS EXECUTABLE; reuse direction ambiguous (U1); contains F3",
+      "requirements": [
+        "R6",
+        "R7"
+      ],
+      "disposition": "Named future acceptance retained, not executed. Title-only proposal mechanics replaced by zero-title metadata; model-logo/naming/live/regression/rollback outcomes and verification strengths retained."
+    },
+    {
+      "id": "3a",
+      "original_assessment": "FEASIBLE \u2014 verified; target choice unspecified (U6)",
+      "requirements": [
+        "R15"
+      ],
+      "disposition": "Named future acceptance retained, not executed. Title-only proposal mechanics replaced by zero-title metadata; model-logo/naming/live/regression/rollback outcomes and verification strengths retained."
+    },
+    {
+      "id": "3b",
+      "original_assessment": "NOT VERIFIABLE IN THIS REVIEW",
+      "requirements": [
+        "R15",
+        "R16"
+      ],
+      "disposition": "Named future acceptance retained, not executed. Title-only proposal mechanics replaced by zero-title metadata; model-logo/naming/live/regression/rollback outcomes and verification strengths retained."
+    },
+    {
+      "id": "3c",
+      "original_assessment": "FEASIBLE \u2014 nothing in the reviewed sources requires a Hermes change",
+      "requirements": [
+        "R7"
+      ],
+      "disposition": "Named future acceptance retained, not executed. Title-only proposal mechanics replaced by zero-title metadata; model-logo/naming/live/regression/rollback outcomes and verification strengths retained."
+    },
+    {
+      "id": "3d",
+      "original_assessment": "FEASIBLE \u2014 and the existing mapping already contains the only hardcoding risk",
+      "requirements": [
+        "R6",
+        "R13"
+      ],
+      "disposition": "Named future acceptance retained, not executed. Title-only proposal mechanics replaced by zero-title metadata; model-logo/naming/live/regression/rollback outcomes and verification strengths retained."
+    },
+    {
+      "id": "4a",
+      "original_assessment": "FEASIBLE \u2014 verified in existing code",
+      "requirements": [
+        "R8"
+      ],
+      "disposition": "Named future acceptance retained, not executed. Title-only proposal mechanics replaced by zero-title metadata; model-logo/naming/live/regression/rollback outcomes and verification strengths retained."
+    },
+    {
+      "id": "4b",
+      "original_assessment": "DEMONSTRATED ERROR (F3)",
+      "requirements": [
+        "R9"
+      ],
+      "disposition": "Named future acceptance retained, not executed. Title-only proposal mechanics replaced by zero-title metadata; model-logo/naming/live/regression/rollback outcomes and verification strengths retained."
+    },
+    {
+      "id": "5a",
+      "original_assessment": "PROPOSED FUTURE ACCEPTANCE \u2014 testable, but blocked by F1 until the ordering is handled",
+      "requirements": [
+        "R3"
+      ],
+      "disposition": "Named future acceptance retained, not executed. Title-only proposal mechanics replaced by zero-title metadata; model-logo/naming/live/regression/rollback outcomes and verification strengths retained."
+    },
+    {
+      "id": "5b",
+      "original_assessment": "PROPOSED FUTURE ACCEPTANCE \u2014 same blocker (F1/F2)",
+      "requirements": [
+        "R4"
+      ],
+      "disposition": "Named future acceptance retained, not executed. Title-only proposal mechanics replaced by zero-title metadata; model-logo/naming/live/regression/rollback outcomes and verification strengths retained."
+    },
+    {
+      "id": "5c",
+      "original_assessment": "PROPOSED FUTURE ACCEPTANCE \u2014 cleanly testable",
+      "requirements": [
+        "R5"
+      ],
+      "disposition": "Named future acceptance retained, not executed. Title-only proposal mechanics replaced by zero-title metadata; model-logo/naming/live/regression/rollback outcomes and verification strengths retained."
+    },
+    {
+      "id": "5d",
+      "original_assessment": "PROPOSED FUTURE ACCEPTANCE; existing mapping has zero coverage today (F4)",
+      "requirements": [
+        "R8",
+        "R9"
+      ],
+      "disposition": "Named future acceptance retained, not executed. Title-only proposal mechanics replaced by zero-title metadata; model-logo/naming/live/regression/rollback outcomes and verification strengths retained."
+    },
+    {
+      "id": "5e",
+      "original_assessment": "NOT VERIFIABLE IN THIS REVIEW",
+      "requirements": [
+        "R16"
+      ],
+      "disposition": "Named future acceptance retained, not executed. Title-only proposal mechanics replaced by zero-title metadata; model-logo/naming/live/regression/rollback outcomes and verification strengths retained."
+    },
+    {
+      "id": "5f",
+      "original_assessment": "QUALIFIED (F5)",
+      "requirements": [
+        "R16"
+      ],
+      "disposition": "Named future acceptance retained, not executed. Title-only proposal mechanics replaced by zero-title metadata; model-logo/naming/live/regression/rollback outcomes and verification strengths retained."
+    },
+    {
+      "id": "6a",
+      "original_assessment": "FEASIBLE \u2014 verified, and Pi's clobbering behaviour works in rollback's favour",
+      "requirements": [
+        "R17"
+      ],
+      "disposition": "Named future acceptance retained, not executed. Title-only proposal mechanics replaced by zero-title metadata; model-logo/naming/live/regression/rollback outcomes and verification strengths retained."
+    },
+    {
+      "id": "6b",
+      "original_assessment": "FEASIBLE \u2014 verified",
+      "requirements": [
+        "R17"
+      ],
+      "disposition": "Named future acceptance retained, not executed. Title-only proposal mechanics replaced by zero-title metadata; model-logo/naming/live/regression/rollback outcomes and verification strengths retained."
+    },
+    {
+      "id": "6c",
+      "original_assessment": "FEASIBLE \u2014 verified",
+      "requirements": [
+        "R13"
+      ],
+      "disposition": "Named future acceptance retained, not executed. Title-only proposal mechanics replaced by zero-title metadata; model-logo/naming/live/regression/rollback outcomes and verification strengths retained."
+    },
+    {
+      "id": "6d",
+      "original_assessment": "FEASIBLE \u2014 verified",
+      "requirements": [
+        "R13"
+      ],
+      "disposition": "Named future acceptance retained, not executed. Title-only proposal mechanics replaced by zero-title metadata; model-logo/naming/live/regression/rollback outcomes and verification strengths retained."
+    }
+  ],
+  "counts": {
+    "report_findings": 8,
+    "report_unknowns": 7,
+    "report_taste": 4,
+    "amendment_findings": 7,
+    "round2_findings": 2,
+    "coverage_subcriteria": 23,
+    "resolved": 25,
+    "disputed": 3,
+    "escalated": 0
+  },
+  "prior_pass_compliance": "FAILED_AM03",
+  "round2_review_verdict": "CHANGES REQUIRED (1 BLOCKER, 1 MAJOR); both findings resolved in this amendment pass, see RR1/RR2 above",
+  "current_pass_evidence": "amendment/recheck/final-checks.json"
+}

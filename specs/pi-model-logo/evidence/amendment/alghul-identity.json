@@ -1,0 +1,9 @@
+{
+  "command": "ssh -o BatchMode=yes -o ConnectTimeout=10 alghul \"uname -s; command -v pi; pi --version; command -v herdr; herdr --version\"",
+  "cwd": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec",
+  "result": {
+    "output": "Linux\nzsh:1: command not found: pi\n/home/42piratas/.local/bin/herdr\nherdr 0.9.1",
+    "exit_code": 0,
+    "error": null
+  }
+}

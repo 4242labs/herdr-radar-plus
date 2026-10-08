@@ -1,0 +1,7 @@
+{
+  "baseline_test_file_count": 7,
+  "modelFor_test_file_count": 0,
+  "model_select_emit_sources": ["set", "cycle", "cycle"],
+  "callback_frequency_per_second": 4.0,
+  "plugin_checkout_host_heads": ["e258108012cc45ac18c8b3e7bb6b5e1dab1b3b2d", "e258108012cc45ac18c8b3e7bb6b5e1dab1b3b2d"]
+}

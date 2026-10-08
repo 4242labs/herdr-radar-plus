@@ -1,0 +1,47 @@
+---
+name: skill-amend-specs
+description: Evidence-first amendment workflow. Use when revising a block, spec, plan, or ADR after review findings or change requests.
+source: canon
+canon_version: HEAD
+---
+
+# Skill: Amend Specifications
+
+Use this skill when amending a block, spec, plan, or ADR that a reviewer returned with change
+requests. You are editing a **contract**, not code: its job is to be unambiguous and true.
+
+## The four that break amendments
+
+**1. Do not widen the scope.** The amendment answers findings. It adds no criteria, pulls in no adjacent work, promotes no "while we're here" idea. A finding that cannot be resolved inside the current scope is an escalation, not a licence to widen. Do not quietly *narrow* it either: an acceptance criterion may not be downgraded to a weaker verification method (`test:` → `manual_by:`, `cmd:` → code review) to make a finding go away. Renegotiating a criterion needs the operator's approval recorded in the document.
+
+**2. Not every finding is correct.** A reviewer asked to find gaps will report some, sound work or not, and obeying all of them mechanically is how a spec bloats. Each finding is either **RESOLVED**, **DISPUTED** (state your evidence), or **ESCALATED** (state what you need). Disputing with evidence is the expected move, not an act of insubordination; capitulating without new evidence is a defect.
+
+**3. Verify before you write, not after.** Every fact the amendment rests on gets re-read at its source: the code (`file:line`), or the provider's *current* documentation (URL + the date you read it). Facts from memory, from your own earlier draft, or from the reviewer's prose are stale until re-read. Training data is not evidence. There is nothing here to run red, so guessing costs a full review cycle.
+
+**4. The spec holds implementation only.** No review history, no round numbers, no finding IDs, no justification of an earlier draft, no meta-commentary. That belongs in the ledger. The amended document must not be longer than the one you started from. Anything else needs the operator asking for it, in writing.
+
+## Working
+
+Read the current document end to end first, on disk, not as you remember it. Then the findings in full, including the ones you intend to dispute.
+
+Keep a ledger, one row per finding: what is claimed, what you will change, where, and the evidence. A finding you cannot restate in your own words, ask about.
+
+Evidence means pasted output. Every command, path, line number and count the amendment asserts gets run or read first, and its actual result — including the exit code, for a command — goes in the ledger next to the claim it supports. Write the command into the document only after its output is in the ledger, and only in the form you ran it: same flags, same repository, same working directory. A command that errored, or that returns nothing where the criterion needs something to read, is not ready to be written down.
+
+**Cite only what you just printed.** Every line range, every count, and every claim that spans a set ("all", "each", "every", "the only") is the pasted, unelided output of a command you ran in this pass. A citation you did not open in this pass is a guess with a colon in it.
+
+Fix the class, not the sentence quoted. If one ambiguous criterion is flagged and three siblings share the ambiguity, fix all four and say so.
+
+Change nothing a finding did not name. Spot something real, log it as a new finding for the operator to triage.
+
+Text adjacent to your edit that your amendment makes wrong is now your defect, whoever wrote it.
+
+## Before you call it done
+
+Re-read the **whole** document, not the diff. Patch-wise editing reliably leaves the paragraph you fixed agreeing with itself and contradicting a section three pages away. Sweep every claim at its source while you are in there, not only the ones a finding named: an untouched sentence can have been wrong from the start, and what the sweep turns up you fix in the same pass.
+
+Open every cross-reference you touched or added. Each must exist and say what you claim. Do not trust a reference's own label.
+
+Check the document against its template: required sections present, a verification method declared for every acceptance criterion, header fields intact.
+
+Then report: what changed, which finding it answers, the status of every ledger row, every assumption, and everything you could not verify. Unverified reported plainly is fine. Unverified reported as settled is not.

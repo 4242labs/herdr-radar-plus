@@ -1,0 +1,76 @@
+{
+  "captured_at": "2026-10-08T10:21:16.088519-03:00",
+  "branch": "docs/adhoc-L2130-pi-model-logo-spec",
+  "ancestor": "6d3151132ffc0ecd2bc2f8fad01aee5661c940fd",
+  "revision": "uncommitted worktree; not the ancestor commit",
+  "files": {
+    "SPEC.md": {
+      "original": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec/specs/pi-model-logo/SPEC.md",
+      "sha256": "30e9921892ecfc8545b4c12dd1283001e0afb93ec78745ccc88ce7aa03bacdc3"
+    },
+    "traceability.json": {
+      "original": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec/specs/pi-model-logo/traceability.json",
+      "sha256": "6b4eead98722a919c676087a52f62f8cdc6a725cb4d2099af308c56118fbd785"
+    },
+    "proposal-assistant-not-authority.txt": {
+      "original": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec/specs/pi-model-logo/evidence/spec.txt",
+      "sha256": "31ea10346168513a9c1da53b3a6a3409c89762cef37c633cc9255b754c2d2b06"
+    },
+    "source/source-output.json": {
+      "original": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec/specs/pi-model-logo/evidence/amendment/recheck/source-output.json",
+      "sha256": "f92c75369e92073117feeb601dcc2446f9a69fbd2ebb84f0ce1220b32982bff9"
+    },
+    "source/pi-output.json": {
+      "original": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec/specs/pi-model-logo/evidence/amendment/recheck/pi-output.json",
+      "sha256": "19d197bcfce8b0cdac9c5509e65493a9ea434bcd93f95548ffc99fcaec797807"
+    },
+    "source/schema-fields.json": {
+      "original": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec/specs/pi-model-logo/evidence/amendment/recheck/schema-fields.json",
+      "sha256": "322273e6d81e649c7b5f1a181a5a7542687a708f4051ae35e4ecf42bd6cd482a"
+    },
+    "source/schema-fields-alghul.json": {
+      "original": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec/specs/pi-model-logo/evidence/amendment/recheck/schema-fields-alghul.json",
+      "sha256": "563049404fd514a8edd1488298528fa77439dde1ba8fa3c8a453035366d30596"
+    },
+    "source/alghul-paths.json": {
+      "original": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec/specs/pi-model-logo/evidence/amendment/recheck/alghul-paths.json",
+      "sha256": "a3b1c181a0aea6afafe735c79086dcf1a135b263672221933f31a8a881025146"
+    },
+    "source/callers-loader.json": {
+      "original": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec/specs/pi-model-logo/evidence/amendment/recheck/callers-loader.json",
+      "sha256": "ea8e9d927a0f2a4169a7b316fac937d5ac7e5402fa81bfdf7ada9e486189bf21"
+    },
+    "source/versions.json": {
+      "original": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec/specs/pi-model-logo/evidence/amendment/recheck/versions.json",
+      "sha256": "b2025d8bd6ec073f59c7c89aeb2551253f7d4ada185161c677101c34f5893b25"
+    },
+    "source/hash-bounds-identity.json": {
+      "original": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec/specs/pi-model-logo/evidence/amendment/recheck/hash-bounds-identity.json",
+      "sha256": "97747769db7b76202e698a74fbca929301c37b1f75f7f2b01c094bc72b498ca7"
+    },
+    "source/socket.mdx": {
+      "original": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec/specs/pi-model-logo/evidence/amendment/recheck/socket.mdx",
+      "sha256": "0f0aa15b4f3204cb121c9a05c37c195de5f0fe57252803eae15a526d9cb4aa50"
+    },
+    "source/extensions.md": {
+      "original": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec/specs/pi-model-logo/evidence/amendment/recheck/extensions.md",
+      "sha256": "bd2ed1f728173c1defc035e90c3894c308ae153fa08575c12b4a9988e11f8108"
+    },
+    "source/types-1.0.4.ts": {
+      "original": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec/specs/pi-model-logo/evidence/amendment/recheck/types-1.0.4.ts",
+      "sha256": "33be19555ad54f9e10a3436ce51f54bd6b27cc870a7d9ecc0e4997aeeaa3ae0b"
+    },
+    "source/sources.json": {
+      "original": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec/specs/pi-model-logo/evidence/amendment/recheck/sources.json",
+      "sha256": "a35164a6aae03a6dbedd6cdedf4781fe3b09c252b46b9462980925f1337beef6"
+    },
+    "source/filesystem-passages.json": {
+      "original": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec/specs/pi-model-logo/evidence/amendment/recheck/filesystem-passages.json",
+      "sha256": "4ff16f1a1092a9f0b69306b0cc1e5a6c31a17aa91a21f4bc422a09806fac69ea"
+    },
+    "source/crypto-passages.json": {
+      "original": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec/specs/pi-model-logo/evidence/amendment/recheck/crypto-passages.json",
+      "sha256": "2afeebdd1265d7138ab6b2a42d3ee21898b57db592fb9324c01a90ca3aeaed85"
+    }
+  }
+}

@@ -1,0 +1,606 @@
+{
+  "obligations": [
+    {
+      "id": "O1",
+      "source": "Original proposal bullet 1 (title transport) superseded by direct operator authority: operator message 192425 objected to the pivot, assistant message 192846 posed the binary (accept 250ms title-rewrite defect or investigate metadata), operator message 193040 replied \"investigate\", operator message 193058 replied \"go ahead and do it\"",
+      "outcome": "Selected model travels via metadata, not an unapproved title writer",
+      "status": "resolved",
+      "source_class": "direct current operator instruction",
+      "destination": "R1",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O2",
+      "source": "Original proposal bullet 1: preserving session/project name",
+      "outcome": "Pi naming/title remains untouched",
+      "status": "resolved",
+      "source_class": "assistant proposal/design context",
+      "destination": "R2",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O3",
+      "source": "Original proposal bullet 2: session start",
+      "outcome": "Startup model publication independent of title ordering",
+      "status": "resolved",
+      "source_class": "assistant proposal/design context",
+      "destination": "R3",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O4",
+      "source": "Original proposal bullet 2: restoration",
+      "outcome": "Resume uses session_start, not hypothetical restore model event",
+      "status": "resolved",
+      "source_class": "assistant proposal/design context",
+      "destination": "R4",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O5",
+      "source": "Original proposal bullet 2: model_select",
+      "outcome": "Set/cycle selected model replaces former brand",
+      "status": "resolved",
+      "source_class": "assistant proposal/design context",
+      "destination": "R5",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O6",
+      "source": "Original proposal bullet 2: reuse Radar mapping",
+      "outcome": "Reuse existing family keys, glyphs and token pipeline; narrow Pi matching",
+      "status": "resolved",
+      "source_class": "assistant proposal/design context",
+      "destination": "R6",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O7",
+      "source": "Original proposal bullet 3: Darkseid",
+      "outcome": "Local host installation and separate acceptance gate",
+      "status": "resolved",
+      "source_class": "assistant proposal/design context",
+      "destination": "R15",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O8",
+      "source": "Original proposal bullet 3: Alghul",
+      "outcome": "SSH host installation and separate acceptance gate",
+      "status": "resolved",
+      "source_class": "assistant proposal/design context",
+      "destination": "R15",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O9",
+      "source": "Original proposal bullet 3: without changing Hermes",
+      "outcome": "Non-Pi model behavior unchanged",
+      "status": "resolved",
+      "source_class": "assistant proposal/design context",
+      "destination": "R7",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O10",
+      "source": "Original proposal bullet 3: without hardcoding provider",
+      "outcome": "Never infer Pi model from harness/provider",
+      "status": "resolved",
+      "source_class": "assistant proposal/design context",
+      "destination": "R6",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O11",
+      "source": "Original proposal bullet 4: unknown models",
+      "outcome": "Unknown/missing model clears model cells",
+      "status": "resolved",
+      "source_class": "assistant proposal/design context",
+      "destination": "R8",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O12",
+      "source": "Original proposal bullet 4: never guessed",
+      "outcome": "Names/malformed suffixes never infer a brand",
+      "status": "resolved",
+      "source_class": "assistant proposal/design context",
+      "destination": "R9",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O13",
+      "source": "Original proposal bullet 5: startup tests",
+      "outcome": "Offline automated startup acceptance",
+      "status": "resolved",
+      "source_class": "assistant proposal/design context",
+      "destination": "R3",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O14",
+      "source": "Original proposal bullet 5: restoration tests",
+      "outcome": "Offline automated resume acceptance",
+      "status": "resolved",
+      "source_class": "assistant proposal/design context",
+      "destination": "R4",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O15",
+      "source": "Original proposal bullet 5: switching tests",
+      "outcome": "Offline automated set/cycle acceptance",
+      "status": "resolved",
+      "source_class": "assistant proposal/design context",
+      "destination": "R5",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O16",
+      "source": "Original proposal bullet 5: unknown tests",
+      "outcome": "Automated unknown-to-known and known-to-unknown clearing",
+      "status": "resolved",
+      "source_class": "assistant proposal/design context",
+      "destination": "R8",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O17",
+      "source": "Original proposal bullet 5: logo beside Pi on both hosts",
+      "outcome": "Distinct glyph/token and cropped visual evidence per host",
+      "status": "resolved",
+      "source_class": "assistant proposal/design context",
+      "destination": "R16",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O18",
+      "source": "Original proposal bullet 6: remove extension",
+      "outcome": "Removal/reload retires metadata publisher",
+      "status": "resolved",
+      "source_class": "assistant proposal/design context",
+      "destination": "R17",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O19",
+      "source": "Original proposal bullet 6: restore normal title",
+      "outcome": "Pi normal title is never overwritten",
+      "status": "resolved",
+      "source_class": "assistant proposal/design context",
+      "destination": "R17",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O20",
+      "source": "Original proposal bullet 6: no upgrades",
+      "outcome": "Installed pinned API only",
+      "status": "resolved",
+      "source_class": "assistant proposal/design context",
+      "destination": "R13",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O21",
+      "source": "Original proposal bullet 6: no paid model requests",
+      "outcome": "No provider operation in verification/deployment",
+      "status": "resolved",
+      "source_class": "assistant proposal/design context",
+      "destination": "R13",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O22",
+      "source": "skill-write-specs.md and skill-amend-specs.md are themselves spec/evidence-amendment-only workflows (both invoked directly by messages 192429, 193329, 193392); invoking either skill is a spec-only scope by definition",
+      "outcome": "Only contract/evidence authoring now",
+      "status": "resolved",
+      "source_class": "canonical skill scope, directly invoked by operator",
+      "destination": "R19",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O23",
+      "source": "Direct messages 192429, 192773, 193329, 193392: \"Follow every single rule in [skill]. Only declare it done once every rule... has been attended to in full.\"",
+      "outcome": "Whole-rule compliance receipts, no summary-only drafting",
+      "status": "resolved",
+      "source_class": "direct current operator instruction",
+      "destination": "R19",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O24",
+      "source": "tortuga/dead-mans-chest/principles-base.md \u00a714 \"Worktree path\": main checkout is read-only, all commits originate from an added worktree; Linear card required before a conforming branch exists",
+      "outcome": "Isolated durable project artifact with custody",
+      "status": "resolved",
+      "source_class": "named canonical source",
+      "destination": "R19",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O25",
+      "source": "Message 192425 established the transport divergence required explicit resolution; messages 193040 \"investigate\" and 193058 \"go ahead and do it\" are the direct operator decision resolving it in favor of metadata",
+      "outcome": "Evidence-backed metadata correction; no silent live activation",
+      "status": "resolved",
+      "source_class": "direct current operator instruction",
+      "destination": "R1",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O26",
+      "source": "Message 191983 authorized a prior Opus review of the title proposal only, not the detailed F1\u2013F8/U1\u2013U7/T1\u2013T4 ledger wording, which is this authoring pass's own structuring choice built from that review's output",
+      "outcome": "Prior Opus review results are treated as evidence input, not an operator-dictated ledger format; F1\u2013F8/U1\u2013U7/T1\u2013T4 disposition is an authoring choice",
+      "status": "resolved",
+      "source_class": "prior-review evidence, not verbatim operator wording",
+      "destination": "R19",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O27",
+      "source": "Pi official docs (https://pi.dev/docs/latest/extensions, re-verified via web_search this pass): session_start event.reason startup|reload|new|resume|fork; model_select event.source set|cycle|restore",
+      "outcome": "Fresh startup/reload/new/resume/fork selection; rename leaves model intact",
+      "status": "resolved",
+      "source_class": "discovered fact, official vendor documentation",
+      "destination": "R10",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O28",
+      "source": "Author implementation choice, evidence-backed by lib/logos.js:247-262 existing MODEL_FAMILIES regex design (reused boundary convention, not invented)",
+      "outcome": "Strict selected-ID-only classification",
+      "status": "resolved",
+      "source_class": "author implementation choice inside approved scope",
+      "destination": "R9",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O29",
+      "source": "Original mandate 191578 (preserve Hermes behavior) plus message 192425 (objecting to any unexplained departure from existing behavior)",
+      "outcome": "Managed lifecycle and title extensions remain untouched",
+      "status": "resolved",
+      "source_class": "direct operator instruction",
+      "destination": "R11",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O30",
+      "source": "skill-write-specs.md rule 2 \"Discover facts; ask for decisions. Read code, docs, APIs, and current system state yourself.\"",
+      "outcome": "Primary API/source/schema evidence; future shipped startup tests required",
+      "status": "resolved",
+      "source_class": "canonical skill rule",
+      "destination": "R3",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O31",
+      "source": "tortuga/dead-mans-chest/principles-base.md Authority Model (deployment/activation reserved) plus author implementation choice on artifact placement",
+      "outcome": "Host-global artifact delivery gated by separate authorization",
+      "status": "resolved",
+      "source_class": "named canonical source plus author implementation choice",
+      "destination": "R15",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O32",
+      "source": "skill-write-specs.md \u00a74 bound-the-work bullet: \"security, privacy, cost, deployment, and operational impact\"",
+      "outcome": "Only selected ID, hashed reference and reserved counter; no names/transcripts",
+      "status": "resolved",
+      "source_class": "canonical skill rule",
+      "destination": "R12",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O33",
+      "source": "skill-write-specs.md \u00a74 bound-the-work bullet: \"failure behavior, degraded behavior, recovery, rollback, and observability\"",
+      "outcome": "Explicit bounded contract and error behavior",
+      "status": "resolved",
+      "source_class": "canonical skill rule",
+      "destination": "R14",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O34",
+      "source": "skill-write-specs.md \u00a76 \"Trace delivery\": every requirement maps to a delivery task and verification method",
+      "outcome": "Machine-auditable graph and real command receipts",
+      "status": "resolved",
+      "source_class": "canonical skill rule",
+      "destination": "R19",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O35",
+      "source": "skill-write-specs.md rule 5 \"No hidden uncertainty\" and \u00a75 \"Never replace a runnable check with manual review\"",
+      "outcome": "Future live gates stay unexecuted; authoring proof separate",
+      "status": "resolved",
+      "source_class": "canonical skill rule",
+      "destination": "R16",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O36",
+      "source": "skill-write-specs.md rule 7 \"Prefer the smallest sufficient design\" and \u00a77 adversarial-sweep bullet \"the work fits the project's sizing limits; oversized work is split by deployable outcome\"",
+      "outcome": "One feature, deterministic slices, no speculative subsystem",
+      "status": "resolved",
+      "source_class": "canonical skill rule",
+      "destination": "R18",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O37",
+      "source": "skill-write-specs.md \u00a78 \"Issue the readiness verdict\" and skill-amend-specs.md \"Before you call it done\"",
+      "outcome": "Single verdict, no unanswered contract choices; full amendment checklist",
+      "status": "resolved",
+      "source_class": "canonical skill rule",
+      "destination": "R19",
+      "meaning": "accounted for in contract or authoring ledger; not feature acceptance"
+    },
+    {
+      "id": "O38",
+      "source": "Latest operator: Follow every single rule in skill-amend-specs.md, including Before you call it done; FUCKING GO",
+      "source_class": "direct current operator instruction",
+      "outcome": "Personal complete amendment and checklist, no delegation",
+      "destination": "R19",
+      "status": "resolved",
+      "meaning": "authoring gate"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "name": "Selected-model transport",
+      "outcome": "Eligible Pi publishes its current exact model ID and reference through the defined input protocol; unknown metadata clears instead of guessing. It never publishes a glyph or terminal-title suffix.",
+      "verification": "test:pi-title-protocol",
+      "acceptance": "checks the full wire method, source, allowed keys, values, reservation/readback, TTL, and null/invalid-input cases.",
+      "task": "T1",
+      "status": "specified; implementation/live acceptance not executed"
+    },
+    {
+      "id": "R2",
+      "name": "Preserved naming",
+      "outcome": "Pi's title, session/project naming and other extensions' title behavior remain untouched through startup, delayed binding, rename and shutdown.",
+      "verification": "test:pi-title-naming",
+      "acceptance": "supplies a title writer that throws on any call and verifies ordinary Unicode/naming state is unchanged.",
+      "task": "T1",
+      "status": "specified; implementation/live acceptance not executed"
+    },
+    {
+      "id": "R3",
+      "name": "Startup publication",
+      "outcome": "Startup makes fresh selected-model metadata available independently of any default title write after binding, including delayed extension/resource binding.",
+      "verification": "test:pi-title-startup-order",
+      "acceptance": "performs late host title writes around publication and verifies the same selected-model inputs/family without a title write from this extension.",
+      "task": "T2",
+      "status": "specified; implementation/live acceptance not executed"
+    },
+    {
+      "id": "R4",
+      "name": "Restored selection",
+      "outcome": "Resume uses its fresh session-start context and reference; previous session data/callbacks cannot supply the restored model.",
+      "verification": "test:pi-title-resume",
+      "acceptance": "changes model/reference, invalidates the old context, omits restore model events and verifies the restored family plus refusal of the old digest.",
+      "task": "T2",
+      "status": "specified; implementation/live acceptance not executed"
+    },
+    {
+      "id": "R5",
+      "name": "Model switch",
+      "outcome": "Set/cycle replaces the former selected ID and glyph after accepted publication; same-model selection remains consistent. Latest pending selection wins over delayed earlier requests.",
+      "verification": "test:pi-title-model-switch",
+      "acceptance": "checks recognized-to-recognized and rapid A→B→C transitions, delayed replies and same-model selection through the shipped consumer/output path.",
+      "task": "T2",
+      "status": "specified; implementation/live acceptance not executed"
+    },
+    {
+      "id": "R6",
+      "name": "Known family resolution",
+      "outcome": "Only the matching occupant's selected ID determines Pi's family; the existing glyph keys and cells provide the mark.",
+      "verification": "test:pi-model-known-families",
+      "acceptance": "tests every table row and namespace leaf in font/text/none variants, including numeric Qwen IDs and the reasoning boundary.",
+      "task": "T1",
+      "status": "specified; implementation/live acceptance not executed"
+    },
+    {
+      "id": "R7",
+      "name": "Hermes/non-Pi compatibility",
+      "outcome": "Non-Pi lookup, output and presentation remain semantically identical; no Hermes, palette/font or managed integration changes are made.",
+      "verification": "test:pi-model-non-pi-regression",
+      "acceptance": "compares old/new non-Pi regex/fallback fixtures and output snapshots exactly, and hashes protected artifacts.",
+      "task": "T3",
+      "status": "specified; implementation/live acceptance not executed"
+    },
+    {
+      "id": "R8",
+      "name": "Unknown/missing model clearing",
+      "outcome": "Missing/invalid/unrecognized/expired or mismatched Pi input clears both model cells on the next successful frame and preserves the agent mark; it never caches the preceding family.",
+      "verification": "test:pi-model-unknown-clear",
+      "acceptance": "covers known→unknown→known, TTL expiry, missing inputs, wrong reference and preserved Pi mark in fresh/stale rows.",
+      "task": "T3",
+      "status": "specified; implementation/live acceptance not executed"
+    },
+    {
+      "id": "R9",
+      "name": "No unrelated-text inference",
+      "outcome": "Names, titles, provider labels, malformed identifiers, other agents and other sessions cannot supply a guessed Pi model.",
+      "verification": "test:pi-model-suffix-boundaries",
+      "acceptance": "supplies family words/old suffix-like text in unrelated fields, near-prefix IDs, trailing slash, whitespace, controls, overlength IDs and foreign references; only a valid selected-ID input can resolve.",
+      "task": "T1",
+      "status": "specified; implementation/live acceptance not executed"
+    },
+    {
+      "id": "R10",
+      "name": "Lifecycle matrix",
+      "outcome": "Startup/reload/new/resume/fork republish fresh state; rename does not change the model; shutdown retires old work. Session replacement cannot reuse an invalid context.",
+      "verification": "test:pi-title-lifecycle-matrix",
+      "acceptance": "covers those paths, name clearing, deferred old callbacks, both reference kinds and server token loss followed by fresh republishing.",
+      "task": "T2",
+      "status": "specified; implementation/live acceptance not executed"
+    },
+    {
+      "id": "R11",
+      "name": "Resource and extension compatibility",
+      "outcome": "Factory/headless/outside-Herdr execution allocates nothing. An eligible session owns one refresh timer and serialized bounded socket work; shutdown releases them without changing the managed extension.",
+      "verification": "test:pi-title-resource-lifecycle",
+      "acceptance": "checks zero factory/rpc/json/print resources, one unrefed timer, missing-environment refusal, repeated shutdown/reload, zero old sockets/timers, and duplicate-publisher/preflight refusal.",
+      "task": "T2",
+      "status": "specified; implementation/live acceptance not executed"
+    },
+    {
+      "id": "R12",
+      "name": "Privacy and payload safety",
+      "outcome": "Only model ID, reference digest, sequence counter and source/host/glyph identities enter feature metadata/evidence. Counter files contain only the last reserved integer. No session file content/path, prompt, transcript, credential, user title or task name is persisted; no payload controls are normalized into another model.",
+      "verification": "test:pi-title-privacy-controls",
+      "acceptance": "uses secret sentinels in forbidden inputs, checks exact allowed payload keys and generic diagnostics, and verifies control/Unicode/length rejection and digest construction.",
+      "task": "T3",
+      "status": "specified; implementation/live acceptance not executed"
+    },
+    {
+      "id": "R13",
+      "name": "Request-free pinned compatibility",
+      "outcome": "Pi 1.0.4 and existing dependencies suffice; selection/readback does not require inference, authentication, discovery, upgrades, process spawning or bot changes.",
+      "verification": "test:pi-title-no-provider-operations",
+      "acceptance": "imports the shipped extension through the installed compatible loader and exercises it with forbidden provider/HTTP/process operations set to throw.",
+      "task": "T3",
+      "status": "specified; implementation/live acceptance not executed"
+    },
+    {
+      "id": "R14",
+      "name": "Failure, ordering and restart recovery",
+      "outcome": "Socket refusal, partial/malformed/oversized replies, timeout, ignored sequences, clock changes and capacity refusals do not hang Pi, invent delivery or resurrect old state. Session loss fails closed; recoverable token loss republishes without a prompt.",
+      "verification": "test:pi-title-failure-retirement",
+      "acceptance": "covers those failures, persistence-before-send, counter-write/rename/crash failures, corrupt/symlink/ownership refusal, reload after TTL expiry, server restart between requests followed by producer crash/reload, delayed old clears, sequence recovery without wall-clock assumptions, server reset, pane-not-found retirement, bounded cleanup and single generic warning.",
+      "task": "T3",
+      "status": "specified; implementation/live acceptance not executed"
+    },
+    {
+      "id": "R15",
+      "name": "Two-host deployment gate",
+      "outcome": "Only an authorized deployer may activate the reviewed consumer first, then the byte-identical global native extension on each host after independent successful preflight. No unrelated files or integrations are altered.",
+      "verification": "test:pi-logo-deployment-preflight",
+      "acceptance": "dry-runs both hosts; missing authority, native Pi, managed reference, model cell, glyph match, token/source capacity, input ownership, active consumer or idle activation safety must refuse mutation. It checks zero-counter provisioning before first activation with prior-publication evidence, refusing initialization without that evidence. Success verifies shipped source hashes and protected files.",
+      "task": "T4",
+      "status": "specified; implementation/live acceptance not executed"
+    },
+    {
+      "id": "R16",
+      "name": "Two-host visible acceptance",
+      "outcome": "On each authorized existing idle native Pi pane, the selected known model's glyph is shown after Pi's mark; changing to an unknown selection removes only the model mark. No prompt/inference/new session/restart is needed.",
+      "verification": "screenshot:pi-logo-darkseid-and-alghul",
+      "acceptance": "requires per-host automated selected-ID/reference/input/output/digest readbacks plus cropped sidebar evidence of adjacency and unknown clearing, in the actual configured visible glyph variant. Existing plain ink is valid. Offline tests are not this acceptance.",
+      "task": "T5",
+      "status": "specified; implementation/live acceptance not executed"
+    },
+    {
+      "id": "R17",
+      "name": "Safe rollback",
+      "outcome": "Remove only the delivered global extension after authorization; activate removal through idle `/reload`, with no session/process restart or interruption. Retire publication, clear/expire ID/ref and preserve the invisible sequence counters, Pi's normal title, existing extensions and Hermes. Keep the fail-closed Pi consumer; never restore whole-title guessing.",
+      "verification": "test:pi-title-rollback-reload",
+      "acceptance": "verifies file ownership, removal/reload discovery, unchanged session/PID/title, immediate successful clear versus failed-clear lease expiry, retained counters and safe reinstall without stale writes.",
+      "task": "T4",
+      "status": "specified; implementation/live acceptance not executed"
+    },
+    {
+      "id": "R18",
+      "name": "Bounded delivery",
+      "outcome": "Deliver one feature through the ordered slices below, each with its own gate; hold live execution until authorized. Do not introduce a metadata service, integration replacement or additional-host rollout.",
+      "verification": "test:pi-logo-delivery-order",
+      "acceptance": "dry-runs missing/failed earlier gates and verifies no consumer/extension activation or live action is reachable until its prerequisites and authority pass.",
+      "task": "T4",
+      "status": "specified; implementation/live acceptance not executed"
+    }
+  ],
+  "authoring_requirement": {
+    "id": "R19",
+    "name": "Specification-only handoff",
+    "verification": "cmd:spec-audit",
+    "destination": "evidence/finding-adjudication.md and rule-compliance.md",
+    "status": "authoring criterion retained outside implementation-only contract"
+  },
+  "tasks": [
+    {
+      "id": "T1",
+      "outcome": "Shipped selected-ID/ref publisher and Pi-only consumer; contract tests",
+      "requirements": [
+        "R1",
+        "R2",
+        "R6",
+        "R9"
+      ],
+      "depends_on": []
+    },
+    {
+      "id": "T2",
+      "outcome": "Complete native lifecycle/serialization; their implementation tests",
+      "requirements": [
+        "R3",
+        "R4",
+        "R5",
+        "R10",
+        "R11"
+      ],
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T3",
+      "outcome": "Compatibility/privacy/expiry/failure tests",
+      "requirements": [
+        "R7",
+        "R8",
+        "R12",
+        "R13",
+        "R14"
+      ],
+      "depends_on": [
+        "T2"
+      ]
+    },
+    {
+      "id": "T4",
+      "outcome": "Two-host release/preflight/activation/rollback dry-run runbook",
+      "requirements": [
+        "R15",
+        "R17",
+        "R18"
+      ],
+      "depends_on": [
+        "T3"
+      ]
+    },
+    {
+      "id": "T5",
+      "outcome": "Authorized host readbacks and visible acceptance",
+      "requirements": [
+        "R16"
+      ],
+      "depends_on": [
+        "T4"
+      ]
+    }
+  ],
+  "counts": {
+    "obligations": 38,
+    "implementation_requirements": 18,
+    "implementation_verifications": 18,
+    "authoring_verifications": 1,
+    "delivery_tasks": 5
+  },
+  "authority": "Contract amendment only; future implementation/deployment require separate authority",
+  "assumptions": [],
+  "unexecuted": [
+    "feature implementation tests",
+    "live preflight/selection/visual acceptance",
+    "deployment/reload/rollback",
+    "provider requests"
+  ],
+  "evidence": [
+    "source-output.json",
+    "pi-output.json",
+    "schema-fields.json",
+    "schema-fields-alghul.json",
+    "alghul-paths.json",
+    "sources.json",
+    "api-passages.txt",
+    "filesystem-sources.json",
+    "callers-output.json"
+  ]
+}

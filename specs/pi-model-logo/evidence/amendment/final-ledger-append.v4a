@@ -1,0 +1,160 @@
+*** Begin Patch
+*** Update File: /Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec/specs/pi-model-logo/evidence/finding-adjudication.md
+@@
+ 200|    await Promise.all(jobs);
+ EXIT_CODE 0
+ ```
++
++
++## Final A4 recovery sweep and readiness
++
++The temporary token watermark proposal was rejected during the personal semantic sweep: Herdr restart between reservation/data requests followed by producer crash can erase the recovery token while leaving new sequence history. The final contract uses one feature-owned persisted counter per socket/pane, reserved before IPC; existing managed integration stays untouched. First-install provisioning is explicit, missing/corrupt state fails closed, and rollback preserves counters. This answers A4 and its adjacent R1/R11/R12/R14/R15/R17 clauses without adding a service or weakening any method. File-store design is prospective; the policy model is not an implemented extension.
++
++Primary filesystem support: Node fs API and POSIX rename retrieved in this pass; source URLs, retrieval times and exact hashes are in amendment/filesystem-sources.json. Both complete fetched references were opened for source checks; no live state store was created. Node exposes open/sync/rename; POSIX specifies atomic rename. The original web extraction backend refused extraction, so direct official retrieval supplied the source, not the failed attempt.
++
++All 15 amendment rule groups attended; full document and cross-references checked personally, no agent dispatched. Scope remains specification/evidence only; no library/application diff, runtime mutation, provider call, installation, reload, commit, push or merge.
++
++### audit
++
++```sh
++PYTHON_BIN=$(command -v python3); env -i HOME="$HOME" PATH="/opt/homebrew/bin:/usr/bin:/bin" "$PYTHON_BIN" specs/pi-model-logo/evidence/audit-spec.py
++```
++Cwd: `/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec`; exit code: 0
++```text
++{
++  "verdict": "READY",
++  "audit_passed": true,
++  "counts": {
++    "obligations": 38,
++    "implementation_requirements": 18,
++    "implementation_verifications": 18,
++    "authoring_verifications": 1,
++    "delivery_tasks": 5
++  },
++  "finding_statuses": {
++    "report_findings": 8,
++    "report_unknowns": 7,
++    "report_taste": 4,
++    "amendment_findings": 6,
++    "coverage_subcriteria": 23,
++    "resolved": 22,
++    "disputed": 3,
++    "escalated": 0
++  },
++  "rules_attended": 15,
++  "length": {
++    "before_bytes": 46695,
++    "after_bytes": 26559,
++    "before_words": 6065,
++    "after_words": 3565,
++    "before_lines": 341,
++    "after_lines": 230
++  },
++  "cross_references": [
++    "lib/logos.js",
++    "lib/managed-config.js",
++    "lib/state.js"
++  ],
++  "sequence_policy_cases": 96,
++  "dependency_cycle": false,
++  "orphan_tasks": 0,
++  "spec_sha256": "8e2d3f5ef97ac77ee10f8efd7084973d0cda23e85fd466d51cfb51082f587e2f",
++  "assumptions": [],
++  "implementation_tests_executed": false,
++  "live_acceptance_executed": false,
++  "deployment_executed": false,
++  "scope": "structural/provenance/schema-bound and declared-policy audit; final semantic sweep is author judgment"
++}
++```
++
++### scope
++
++```sh
++python3 -c 'import json, subprocess
++from pathlib import Path
++changed=subprocess.check_output(["/opt/homebrew/bin/git","diff","--name-only","HEAD"],text=True).splitlines()
++untracked=subprocess.check_output(["/opt/homebrew/bin/git","ls-files","--others","--exclude-standard"],text=True).splitlines()
++assert all(x.startswith("specs/pi-model-logo/") for x in changed+untracked), (changed,untracked)
++assert not subprocess.check_output(["/opt/homebrew/bin/git","diff","HEAD","--","lib","test","package.json","package-lock.json"],text=True)
++print(json.dumps({"tracked_changes":changed,"untracked_files":untracked,"scope":"specification/evidence only","application_diff_empty":True,"passed":True},indent=2))
++'
++```
++Cwd: `/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec`; exit code: 0
++```text
++{
++  "tracked_changes": [
++    "specs/pi-model-logo/SPEC.md",
++    "specs/pi-model-logo/evidence/audit-spec.py",
++    "specs/pi-model-logo/evidence/finding-adjudication.md",
++    "specs/pi-model-logo/evidence/review-adjudication.json",
++    "specs/pi-model-logo/rule-compliance.md",
++    "specs/pi-model-logo/traceability.json"
++  ],
++  "untracked_files": [
++    "specs/pi-model-logo/evidence/amendment/SPEC-before.md",
++    "specs/pi-model-logo/evidence/amendment/alghul-identity.json",
++    "specs/pi-model-logo/evidence/amendment/alghul-paths.json",
++    "specs/pi-model-logo/evidence/amendment/api-passages.txt",
++    "specs/pi-model-logo/evidence/amendment/audit-amendment.py",
++    "specs/pi-model-logo/evidence/amendment/audit-output.json",
++    "specs/pi-model-logo/evidence/amendment/before-audit-spec.py",
++    "specs/pi-model-logo/evidence/amendment/before-finding-adjudication.md",
++    "specs/pi-model-logo/evidence/amendment/before-review-adjudication.json",
++    "specs/pi-model-logo/evidence/amendment/before-rule-compliance.md",
++    "specs/pi-model-logo/evidence/amendment/before-traceability.json",
++    "specs/pi-model-logo/evidence/amendment/callers-output.json",
++    "specs/pi-model-logo/evidence/amendment/extensions.md",
++    "specs/pi-model-logo/evidence/amendment/filesystem-sources.json",
++    "specs/pi-model-logo/evidence/amendment/herdr-schema-receipt.json",
++    "specs/pi-model-logo/evidence/amendment/identity.json",
++    "specs/pi-model-logo/evidence/amendment/node-fs.html",
++    "specs/pi-model-logo/evidence/amendment/pi-output.json",
++    "specs/pi-model-logo/evidence/amendment/posix-rename.html",
++    "specs/pi-model-logo/evidence/amendment/rules.json",
++    "specs/pi-model-logo/evidence/amendment/schema-fields-alghul.json",
++    "specs/pi-model-logo/evidence/amendment/schema-fields.json",
++    "specs/pi-model-logo/evidence/amendment/schema-summary.json",
++    "specs/pi-model-logo/evidence/amendment/socket.mdx",
++    "specs/pi-model-logo/evidence/amendment/source-output.json",
++    "specs/pi-model-logo/evidence/amendment/sources.json",
++    "specs/pi-model-logo/evidence/amendment/superseded-checks.json",
++    "specs/pi-model-logo/evidence/amendment/types-1.0.4.ts"
++  ],
++  "scope": "specification/evidence only",
++  "application_diff_empty": true,
++  "passed": true
++}
++```
++
++### diff
++
++```sh
++/opt/homebrew/bin/git diff --check
++```
++Cwd: `/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec`; exit code: 0
++```text
++
++```
++
++### identity
++
++```sh
++/opt/homebrew/bin/git branch --show-current && /opt/homebrew/bin/git status --short && /opt/homebrew/bin/git rev-parse HEAD
++```
++Cwd: `/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec`; exit code: 0
++```text
++docs/adhoc-L2130-pi-model-logo-spec
++ M specs/pi-model-logo/SPEC.md
++ M specs/pi-model-logo/evidence/audit-spec.py
++ M specs/pi-model-logo/evidence/finding-adjudication.md
++ M specs/pi-model-logo/evidence/review-adjudication.json
++ M specs/pi-model-logo/rule-compliance.md
++ M specs/pi-model-logo/traceability.json
++?? specs/pi-model-logo/evidence/amendment/
++6d3151132ffc0ecd2bc2f8fad01aee5661c940fd
++```
++
++The unqualified system Git attempts failed because that binary cannot read this relative-worktree repository; they prove no absence and are superseded by the absolute Homebrew Git receipts above. The final whole-document read followed the passing audit; unchanged SPEC SHA256 matches final-checks.json.
++
++**READY for implementation, not implemented.** Findings: 22 RESOLVED, 3 evidence-backed DISPUTED, 0 ESCALATED; every row is recorded above and in review-adjudication.json. Assumptions: none. Remaining unverified: feature tests and guard mutations, independent live preflight/selection/rendering on both hosts, deployment/activation/rollback and post-merge acceptance. Those require separately authorized execution; no offline audit claims them. Changes remain local and uncommitted.
+*** End Patch

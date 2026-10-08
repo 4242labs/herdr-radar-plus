@@ -1,0 +1,44 @@
+[
+  {
+    "user_message_id": 192425,
+    "user_verbatim": "why ar eoyu trying an alternative ratehr than that proposal?!",
+    "assistant_message_id": 192424,
+    "assistant_context_verbatim": "No—the Opus reviewer validated the title-based proposal, not this metadata-based alternative.",
+    "classification": "Conversation context only, not evidence that assistant factual assertions or readiness judgments are true"
+  },
+  {
+    "user_message_id": 193040,
+    "user_verbatim": "investigate",
+    "assistant_message_id": 192846,
+    "assistant_context_verbatim": "My audit revoked the premature READY claim: the proposal continuously rewrites Pi’s title every 250 ms; do you accept that behavior, or should I investigate a repair without continuous rewriting?",
+    "classification": "Conversation context only, not evidence that assistant factual assertions or readiness judgments are true"
+  },
+  {
+    "user_message_id": 193056,
+    "user_verbatim": "are you basing everything in their latest docs ratehr than trial and errors?",
+    "assistant_message_id": 193055,
+    "assistant_context_verbatim": "Confirmed with an offline test: a one-shot title update is overwritten when startup is delayed; Herdr already supports a separate metadata channel that avoids title rewriting, but that approach still needs end-to-end validation before entering the spec.",
+    "classification": "Conversation context only, not evidence that assistant factual assertions or readiness judgments are true"
+  },
+  {
+    "user_message_id": 193058,
+    "user_verbatim": "go ahead and do it - and research reliable artiflces/foruns as well - no time to waste on trial and errors",
+    "assistant_message_id": 193057,
+    "assistant_context_verbatim": "Not entirely—I used the installed Pi 1.0.4 APIs, source and documentation plus offline tests; I haven’t yet checked all claims against the latest official docs.",
+    "classification": "Conversation context only, not evidence that assistant factual assertions or readiness judgments are true"
+  },
+  {
+    "user_message_id": 193325,
+    "user_verbatim": "is everything now 100% clear, straigftoward what must be implemented?",
+    "assistant_message_id": 193116,
+    "assistant_context_verbatim": "Research completed against official Pi/Herdr docs, versioned source, maintainer discussions and community implementations.\n\n- **Herdr officially supports model metadata without changing terminal titles.** `pi-herdr` demonstrates this using Pi’s startup/model-change events.\n- **Title alternatives still use polling, delayed writes or API interception**—none supplied a clean, supported replacement for the rejected loop.\n- **Metadata needs distinct token names and restart recovery**; directly installing the community extension could conflict with Radar.\n\nPi **1.1.0** was released October 7; I also checked **1.0.4** compatibility—no upgrade or runtime change made.\n\nEvidence: `/Users/42piratas/42labs/review-artifacts/pi-model-logo-docs-research/RESEARCH.md`; the spec remains **BLOCKED**, not validated.",
+    "classification": "Conversation context only, not evidence that assistant factual assertions or readiness judgments are true"
+  },
+  {
+    "user_message_id": 193329,
+    "user_verbatim": "Follow every single rule in tortuga/dead-mans-chest/skills/skill-amend-specs.md. Only declare it done once every rule in the skill, including its \"Before you call it done\" checklist, has been attended to in full. Do you have any questions or relevant considerations? (very concisely!)",
+    "assistant_message_id": 193326,
+    "assistant_context_verbatim": "No—the metadata approach is evidence-backed, but token ownership, restart recovery and failure handling still need exact contracts, and the spec still describes the rejected title-rewriting approach.",
+    "classification": "Conversation context only, not evidence that assistant factual assertions or readiness judgments are true"
+  }
+]

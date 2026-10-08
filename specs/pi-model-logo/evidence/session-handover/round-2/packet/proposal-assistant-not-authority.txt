@@ -1,0 +1,7 @@
+Quick spec — Pi model logo
+- Add a Pi extension that includes the selected model in its terminal title, preserving the session/project name.
+- Refresh the title on session start, restoration and model_select; reuse Radar’s existing model-to-logo mapping.
+- Deploy on Darkseid and Alghul, without changing Hermes or hardcoding a provider.
+- Unknown models show no model logo, never a guessed one.
+- Acceptance: tests cover startup, restoration, model switching and unknown models; live checks confirm the correct logo beside Pi’s logo on both hosts.
+- Rollback: remove the extension and restore Pi’s normal title; no upgrades or paid model requests required.

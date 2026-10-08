@@ -1,0 +1,104 @@
+{
+  "skill": "/Users/42piratas/42labs/tortuga/dead-mans-chest/skills/skill-amend-specs.md",
+  "checks": [
+    {
+      "id": "AM01",
+      "rule": "Scope and acceptance strength",
+      "status": "attended",
+      "receipt": "Same actual-model/both-host/Hermes/no-guessing/no-provider outcome; fixed automated and screenshot methods retained; authoring R19 relocated not dropped."
+    },
+    {
+      "id": "AM02",
+      "rule": "Finding adjudication",
+      "status": "attended",
+      "receipt": "Individual F/U/T/A rows; evidence-backed disputes F5,F8,T3, not blanket acceptance."
+    },
+    {
+      "id": "AM03",
+      "rule": "Verify before drafting",
+      "status": "attended",
+      "receipt": "Source/API/schema/host receipts preceded the principal rewrite; final A4 counter protocol grounded in freshly captured Node/POSIX filesystem sources before the final contract revision; review is not production evidence."
+    },
+    {
+      "id": "AM04",
+      "rule": "Implementation-only and length",
+      "status": "attended",
+      "receipt": "History/provenance/obligation ledger moved out; baseline vs current byte/word/line lengths are machine checked."
+    },
+    {
+      "id": "AM05",
+      "rule": "Read current contract and full report first",
+      "status": "attended",
+      "receipt": "SPEC-before.md full disk read and full formal-review.json read preceded editing; every report item/coverage subcriterion reconciled."
+    },
+    {
+      "id": "AM06",
+      "rule": "Ledger per finding and understandable claims",
+      "status": "attended",
+      "receipt": "Own-word claims/change/destination/source for each finding; no unidentified claim or missing next decision."
+    },
+    {
+      "id": "AM07",
+      "rule": "Pasted output for numbers/paths/commands",
+      "status": "attended",
+      "receipt": "Unelided receipt outputs include exact command/cwd/exit; proposed protocol constants are design choices checked against real API bounds, not fabricated existing defaults."
+    },
+    {
+      "id": "AM08",
+      "rule": "Only freshly printed citations/set claims",
+      "status": "attended",
+      "receipt": "Source-output, pi-output, installed schema field dumps and API passages printed in this pass; all cited ranges exist; graph/review totals recomputed."
+    },
+    {
+      "id": "AM09",
+      "rule": "Fix classes not one sentence",
+      "status": "attended",
+      "receipt": "Zero-title and Pi-only no-fallback rules applied across lifecycle/expiry/rollback; A4 durable counter covers process reload, server restart between requests plus process crash, pending callbacks, first-install provisioning and rollback."
+    },
+    {
+      "id": "AM10",
+      "rule": "Only findings; outside-scope issues separate",
+      "status": "attended",
+      "receipt": "Changes answer report or operator-identified ownership/recovery/failure/provenance concerns; stale Linear description logged outside contract, not silently updated."
+    },
+    {
+      "id": "AM11",
+      "rule": "Adjacent consequences repaired",
+      "status": "attended",
+      "receipt": "Transport, actor/owner, scope, flows, tests, traceability, deployment, cleanup and rollback rewritten consistently; legacy current-ledger claims replaced, old receipts preserved as historical."
+    },
+    {
+      "id": "AM12",
+      "rule": "Final whole-document reread and source sweep",
+      "status": "attended",
+      "receipt": "Whole final contract opened after last wire/task/footer edit; source/semantic sweep and same-hash authoring audit captured in final-checks.json."
+    },
+    {
+      "id": "AM13",
+      "rule": "Open cross-references",
+      "status": "attended",
+      "receipt": "Current source/evidence/template/report references opened; prospective extension/destinations explicitly prospective; future tests not represented as existing paths."
+    },
+    {
+      "id": "AM14",
+      "rule": "Template, methods and headers",
+      "status": "attended",
+      "receipt": "Problem/goal/actors/authority/scope/dependencies/assumptions/data/security/cost/failure/recovery/rollback/observability/slices present; fixed method and task for every feature criterion; identity/version fields intact."
+    },
+    {
+      "id": "AM15",
+      "rule": "Report statuses, assumptions and verification limits",
+      "status": "attended",
+      "receipt": "Ledger records every status; assumptions none; future implementation/live gates explicitly unexecuted; concise handoff points to detailed ledger."
+    }
+  ],
+  "count": 15,
+  "assumptions": [],
+  "limits": [
+    "feature implementation tests",
+    "live preflight/selection/visual acceptance",
+    "deployment/reload/rollback",
+    "provider requests"
+  ],
+  "not_delegated": true
+}

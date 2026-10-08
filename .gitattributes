@@ -1,0 +1,10 @@
+# Frozen source captures: preserve upstream whitespace rather than rewriting evidence.
+specs/pi-model-logo/evidence/amendment/node-fs.html -whitespace
+specs/pi-model-logo/evidence/amendment/recheck/node-crypto.html -whitespace
+specs/pi-model-logo/evidence/amendment/recheck/node-fs.html -whitespace
+specs/pi-model-logo/evidence/session-handover/research/dynamic-title-config.ts -whitespace
+specs/pi-model-logo/evidence/session-handover/research/dynamic-title-index.ts -whitespace
+specs/pi-model-logo/evidence/session-handover/research/dynamic-title-title-formatter.ts -whitespace
+specs/pi-model-logo/evidence/session-handover/round-2/packet/source/node-crypto.txt -whitespace
+specs/pi-model-logo/evidence/session-handover/round-2/packet/source/node-fs.txt -whitespace
+specs/pi-model-logo/evidence/session-handover/round-2/packet/source/posix-rename.txt -whitespace

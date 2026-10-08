@@ -1,0 +1,185 @@
+socket.mdx
+749|```
+750|
+751|Metadata reports are display-only. Valid metadata can override the pane title, displayed agent name, visible state labels, and arbitrary named tokens. `working`, `blocked`, `idle`, waits, notifications, and rollups still come from semantic state. Native session restore comes from stored official session references. `agent` is an optional guard for presentation fields against the authoritative agent label; `applies_to_source` similarly guards presentation fields against the active lifecycle authority source. These guards do not apply to token patches: token reporters own clearing and TTL refresh. Use `display_agent` to change the visible name. `state_labels` keys must be `idle`, `working`, `blocked`, `done`, or `unknown`.
+752|
+753|Token maps are per-resource patches. A string sets a key, JSON `null` clears it, and omitted keys remain unchanged. The latest accepted update wins. Optional TTL applies independently to token keys updated by that report. Pane tokens are exposed by pane and agent get/list responses and can be rendered as `$name` in Agent sidebar rows. A report may mention at most 16 token keys, and a pane or workspace may retain at most 32 keys. Token names are 1–32 ASCII letters, digits, underscores, or hyphens.
+754|
+755|Workspace tokens use the same contract:
+756|
+757|```json
+751|Metadata reports are display-only. Valid metadata can override the pane title, displayed agent name, visible state labels, and arbitrary named tokens. `working`, `blocked`, `idle`, waits, notifications, and rollups still come from semantic state. Native session restore comes from stored official session references. `agent` is an optional guard for presentation fields against the authoritative agent label; `applies_to_source` similarly guards presentation fields against the active lifecycle authority source. These guards do not apply to token patches: token reporters own clearing and TTL refresh. Use `display_agent` to change the visible name. `state_labels` keys must be `idle`, `working`, `blocked`, `done`, or `unknown`.
+752|
+753|Token maps are per-resource patches. A string sets a key, JSON `null` clears it, and omitted keys remain unchanged. The latest accepted update wins. Optional TTL applies independently to token keys updated by that report. Pane tokens are exposed by pane and agent get/list responses and can be rendered as `$name` in Agent sidebar rows. A report may mention at most 16 token keys, and a pane or workspace may retain at most 32 keys. Token names are 1–32 ASCII letters, digits, underscores, or hyphens.
+754|
+755|Workspace tokens use the same contract:
+756|
+757|```json
+758|{"id":"req_3","method":"workspace.report_metadata","params":{"workspace_id":"w1","source":"user:jj","tokens":{"jj_status":"2 changes","old":null},"ttl_ms":5000}}
+759|```
+761|Workspace get/list responses expose the resulting `tokens` map, and Space sidebar rows can render values such as `$jj_status`. Changes and TTL expiry emit `workspace.metadata_updated` with the latest workspace snapshot. This metadata event is available to API subscribers but does not invoke plugin event hooks.
+762|
+763|Presentation text is normalized before storage. Herdr trims surrounding whitespace, removes control characters, and caps `title`, `display_agent`, each state label, and token values at 80 characters. Empty normalized token values clear that key.
+764|
+765|`source` and `applies_to_source` are source identifiers. They must be 80 characters or fewer and may contain only ASCII letters, digits, colon, dot, underscore, and hyphen.
+766|
+767|Use `ttl_ms` for short-lived metadata. It must be between `1` and `86400000` milliseconds. Omit `ttl_ms` for metadata that should stay until replaced, cleared, or the pane/workspace closes. Presentation fields retain their existing source-scoped expiry behavior; each token updated by the call receives its own deadline. Token metadata is not restored after a server restart.
+768|
+769|Use `seq` when a hook may send updates out of order. For the same `source`, reports with a sequence number less than or equal to the last accepted sequence are accepted by the API but ignored by the pane state. A pane or workspace accepts sequenced token reports from at most 32 distinct sources during its lifetime; clearing or expiry does not release those source slots.
+765|`source` and `applies_to_source` are source identifiers. They must be 80 characters or fewer and may contain only ASCII letters, digits, colon, dot, underscore, and hyphen.
+766|
+767|Use `ttl_ms` for short-lived metadata. It must be between `1` and `86400000` milliseconds. Omit `ttl_ms` for metadata that should stay until replaced, cleared, or the pane/workspace closes. Presentation fields retain their existing source-scoped expiry behavior; each token updated by the call receives its own deadline. Token metadata is not restored after a server restart.
+768|
+769|Use `seq` when a hook may send updates out of order. For the same `source`, reports with a sequence number less than or equal to the last accepted sequence are accepted by the API but ignored by the pane state. A pane or workspace accepts sequenced token reports from at most 32 distinct sources during its lifetime; clearing or expiry does not release those source slots.
+770|
+771|## Event subscriptions
+772|
+773|Subscribe to events when you need a long-lived stream:
+767|Use `ttl_ms` for short-lived metadata. It must be between `1` and `86400000` milliseconds. Omit `ttl_ms` for metadata that should stay until replaced, cleared, or the pane/workspace closes. Presentation fields retain their existing source-scoped expiry behavior; each token updated by the call receives its own deadline. Token metadata is not restored after a server restart.
+768|
+769|Use `seq` when a hook may send updates out of order. For the same `source`, reports with a sequence number less than or equal to the last accepted sequence are accepted by the API but ignored by the pane state. A pane or workspace accepts sequenced token reports from at most 32 distinct sources during its lifetime; clearing or expiry does not release those source slots.
+770|
+771|## Event subscriptions
+772|
+773|Subscribe to events when you need a long-lived stream:
+774|
+775|```json
+
+extensions.md
+57|
+58|Do not start processes, sockets, watchers, or timers in the factory because some invocations load extensions without starting a session.
+59|Start long-lived resources from `session_start` or from the command or tool that needs them.
+60|Close session-scoped resources from an idempotent `session_shutdown` handler.
+61|
+62|A run proceeds from input and `before_agent_start`, through model, message, and tool events, to `agent_end`.
+63|Automatic retries, recovery, compaction, or queued work can continue afterward.
+64|<a id="agent_start--agent_end--agent_before_settle--agent_settled"></a>
+65|
+58|Do not start processes, sockets, watchers, or timers in the factory because some invocations load extensions without starting a session.
+59|Start long-lived resources from `session_start` or from the command or tool that needs them.
+60|Close session-scoped resources from an idempotent `session_shutdown` handler.
+61|
+62|A run proceeds from input and `before_agent_start`, through model, message, and tool events, to `agent_end`.
+63|Automatic retries, recovery, compaction, or queued work can continue afterward.
+64|<a id="agent_start--agent_end--agent_before_settle--agent_settled"></a>
+65|
+66|`agent_before_settle` is the final actionable boundary: it can append entries and request one continuation.
+201|Servers registered while the extension loads connect when the session starts, together with the `mcp.json` servers; servers registered later connect right away, and `pi.unregisterMcpServer()` closes the connection and makes the server's tools unreachable. Registrations are not saved: register again on every load, for example based on the extension's own settings. A server in `mcp.json` with the same name takes precedence, and `/mcp` shows the override. Registering the same name again replaces the extension's earlier registration; names registered by another extension, invalid names, and invalid configs throw.
+202|
+203|The built-in MCP support connects registered servers. When nothing does, because another extension replaced it (see [MCP](mcp.md#other-mcp-extensions)), each registration is reported as an extension error. Other MCP extensions can connect registered servers too: read them with `pi.getMcpServers()` on `session_start` and handle the `mcp_servers_change` event for later changes.
+204|
+205|<a id="extensioncontext"></a>
+206|<a id="extensioncommandcontext"></a>
+207|<a id="use-extension-context"></a>
+208|
+209|### Context and session changes
+210|
+211|`ExtensionContext` provides the working directory, mode, UI, session manager, model runtime, abort signal, context usage, and controls for compaction and shutdown.
+212|Use `ctx.modelRegistry.streamSimple()` for provider-neutral nested model calls.
+213|
+214|Command handlers receive `ExtensionCommandContext`, which adds operations for waiting until idle, reloading, tree navigation, and session replacement.
+215|These operations are command-only because calling them from lifecycle handlers can deadlock the runtime.
+216|
+217|Session replacement invalidates the old context. Capture only plain data before switching, then use the fresh context supplied to `withSession` for session-bound work.
+218|
+231|| Data outside one session | External storage |
+232|
+233|Reconstruct branch-sensitive state from `ctx.sessionManager.getBranch()` during `session_start`.
+234|Do not rebuild it from every file entry because abandoned branches represent alternative histories.
+235|Register an entry or message renderer when custom stored content should appear in the transcript.
+236|
+237|<a id="custom-ui"></a>
+238|<a id="mode-behavior"></a>
+239|<a id="interact-with-the-user"></a>
+249|Interactive mode provides the complete terminal UI.
+250|RPC can forward supported dialogs and notifications through the [RPC Extension UI protocol](rpc-extension-ui.md), but not custom terminal components; JSON and print modes have no UI.
+251|Guard terminal-only behavior with `ctx.mode === "tui"` and use `ctx.hasUI` for interactions supported by interactive and RPC clients.
+252|
+253|Keep tool and event behavior independent from rendering so non-interactive modes remain functional.
+254|
+255|<a id="error-handling"></a>
+256|<a id="handle-errors-and-shutdown"></a>
+257|
+260|Pi reports handler errors and continues where possible. A `tool_call` handler failure blocks the tool as a fail-safe; a tool execution failure becomes an error result for the model.
+261|
+262|Release resources in `session_shutdown` even when normal operation attempted cleanup.
+263|Keep cleanup idempotent because cancellation, reload, session replacement, and process exit can converge on the same path.
+264|Use `ctx.shutdown()` to request an orderly process shutdown.
+265|
+266|<a id="examples-reference"></a>
+267|<a id="use-examples-as-the-implementation-reference"></a>
+268|
+
+types-1.0.4.ts
+337|	modelRegistry: ModelRegistry;
+338|	/** Current model (may be undefined) */
+339|	model: Model<any> | undefined;
+340|	/** Models scoped to this session (resolved from `--models` /
+341|	 *  `enabledModels` settings against the available catalogue). Same set
+342|	 *  the `/scoped-models` command shows. Empty when no scoping is
+343|	 *  configured (all available models are usable). Read-only snapshot. */
+344|	scopedModels: readonly ScopedModel[];
+345|	/** Current thinking level, when provided by the session runtime. */
+732|
+733|/** Fired when a session is started, loaded, or reloaded */
+734|export interface SessionStartEvent {
+735|	type: "session_start";
+736|	/** Why this session start happened. */
+737|	reason: "startup" | "reload" | "new" | "resume" | "fork";
+738|	/** Previously active session file. Present for "new", "resume", and "fork". */
+739|	previousSessionFile?: string;
+740|}
+1090|// ============================================================================
+1091|
+1092|export type ModelSelectSource = "set" | "cycle" | "restore";
+1093|
+1094|/** Fired when a new model is selected */
+1095|export interface ModelSelectEvent {
+1096|	type: "model_select";
+1097|	model: Model<any>;
+1098|	previousModel: Model<any> | undefined;
+1093|
+1094|/** Fired when a new model is selected */
+1095|export interface ModelSelectEvent {
+1096|	type: "model_select";
+1097|	model: Model<any>;
+1098|	previousModel: Model<any> | undefined;
+1099|	source: ModelSelectSource;
+1100|}
+1101|
+1095|export interface ModelSelectEvent {
+1096|	type: "model_select";
+1097|	model: Model<any>;
+1098|	previousModel: Model<any> | undefined;
+1099|	source: ModelSelectSource;
+1100|}
+1101|
+1102|/** Fired when a new thinking level is selected */
+1103|export interface ThinkingLevelSelectEvent {
+1750|	 * Returns false if authentication is not configured for the model's provider.
+1751|	 */
+1752|	setModel(model: Model<any>): Promise<boolean>;
+1753|
+1754|	/** Get current thinking level. */
+1755|	getThinkingLevel(): ThinkingLevel;
+1756|
+1757|	/**
+1758|	 * Set the thinking level (clamped to model capabilities) for the current session without changing the configured default
+1910|	 */
+1911|	streamSimple?: (
+1912|		model: Model<Api>,
+1913|		context: TranscriptContext,
+1914|		options?: SimpleStreamOptions,
+1915|	) => AssistantMessageEventStream;
+1916|	/** Image-generation implementations keyed by image API. */
+1917|	images?: Partial<Record<ImageApi, ProviderImages>>;
+1918|	/** Classifier implementations keyed by classifier API. */
+2098|export type RefreshToolsHandler = () => void;
+2099|
+2100|export type SetModelHandler = (model: Model<any>) => Promise<boolean>;
+2101|
+2102|export type GetThinkingLevelHandler = () => ThinkingLevel;
+2103|
+2104|export type SetThinkingLevelHandler = (level: ThinkingLevel) => void;
+2105|
+2106|export type SetLabelHandler = (entryId: string, label: string | undefined) => void;

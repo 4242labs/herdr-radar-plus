@@ -1,0 +1,97 @@
+{
+  "radar-logos": {
+    "path": "/Users/42piratas/42labs/herdr-radar-plus/lib/logos.js",
+    "sha256": "7b375ace1e07e14e827d75779958716e63bd73ff568e6bc5f1ad1c82a938946f",
+    "lines": 279
+  },
+  "radar-state": {
+    "path": "/Users/42piratas/42labs/herdr-radar-plus/lib/state.js",
+    "sha256": "3f3d8aa6cd174ec8314e51c6787f70ae5cb4aae675e609bd6333362eb8c1f2ea",
+    "lines": 960
+  },
+  "radar-sidebar": {
+    "path": "/Users/42piratas/42labs/herdr-radar-plus/lib/managed-config.js",
+    "sha256": "46241e7d0d2678e7ab694bfd2975119d073190172b36275842bbccfdddff8c0b",
+    "lines": 676
+  },
+  "pi-title": {
+    "path": "/opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/dist/modes/interactive/interactive-mode.js",
+    "sha256": "89ad3129807c036820c746ef4e0e930292b4ea7ab8150c085e75148a581793c4",
+    "lines": 5937
+  },
+  "pi-runtime": {
+    "path": "/opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/dist/core/agent-session.js",
+    "sha256": "9898d8a44ba68d495b0f6e78f888116a6496d7c1b5d1bb568e3028c3b1413977",
+    "lines": 3569
+  },
+  "pi-runner": {
+    "path": "/opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/dist/core/extensions/runner.js",
+    "sha256": "258f142bc56cc84d953ef6146222e5ff3a94cc908592a1b3d075d34bbcd68b36",
+    "lines": 1239
+  },
+  "pi-types": {
+    "path": "/opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/dist/core/extensions/types.d.ts",
+    "sha256": "5e43b8423ee2454959b987007292fd1514fe168dbe58a04d9b9d951b10bf2123",
+    "lines": 1722
+  },
+  "pi-loader": {
+    "path": "/opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/dist/core/extensions/loader.js",
+    "sha256": "44a356da552c9cf2ea619c61944cfb28f81b45f09b325f152c91a914bfce1bc0",
+    "lines": 701
+  },
+  "pi-config": {
+    "path": "/opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/dist/config.js",
+    "sha256": "b53418ca3bc54b70e18ccb192eb471696f5211c5aa2e80d68fe6fe3851ff23ae",
+    "lines": 534
+  },
+  "pi-switch": {
+    "path": "/opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/dist/core/agent-session-runtime.js",
+    "sha256": "928b6528bb17d26273af8f7023a4f98e5f440d5896a4280d060b9b3e1f9a6882",
+    "lines": 317
+  },
+  "spec.txt": {
+    "path": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/spec.txt",
+    "sha256": "31ea10346168513a9c1da53b3a6a3409c89762cef37c633cc9255b754c2d2b06",
+    "lines": 7
+  },
+  "formal-review.json": {
+    "path": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/formal-review.json",
+    "sha256": "cd36a770c2c188997b972f51c76797ed68fbebe382d4e08b23b82d8db8e90ab2",
+    "lines": 333
+  },
+  "skill-write-specs.md": {
+    "path": "/Users/42piratas/42labs/tortuga/dead-mans-chest/skills/skill-write-specs.md",
+    "sha256": "9189616144528615dfb725bd2c01f58fee483a661913c4b9e573339cb4af10c8",
+    "lines": 157
+  },
+  "examples.md": {
+    "path": "/Users/42piratas/42labs/tortuga/dead-mans-chest/skills/write-specs/examples.md",
+    "sha256": "1bd9c8e546ff55ca06712af53fe17d5338dc09841445cfa3d067f7f243f8b7ef",
+    "lines": 61
+  },
+  "radar-palette": {
+    "path": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec/lib/palette.js",
+    "sha256": "2e603fd3106a4842e09c1817d35b8a05dcfd78d85aa2e13e1cc527fd839e620e",
+    "lines": 193
+  },
+  "radar-configure": {
+    "path": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec/bin/configure.js",
+    "sha256": "aca41f14fb9bf25469f7da00c136de70982f76f2b9279047852b122c70c5158d",
+    "lines": 100
+  },
+  "pi-terminal": {
+    "path": "/opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/node_modules/@earendil-works/pi-tui/dist/terminal.js",
+    "sha256": "e3a594cb638d57da4e195bee6a4ad10e4ebeb3335dbf2bd9990d913ef03ee4fb",
+    "lines": 449
+  },
+  "pi-docs": {
+    "path": "/opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/docs/extensions.md",
+    "sha256": "bd2ed1f728173c1defc035e90c3894c308ae153fa08575c12b4a9988e11f8108",
+    "lines": 274
+  },
+  "skill-amend-specs.md": {
+    "path": "/Users/42piratas/42labs/tortuga/dead-mans-chest/skills/skill-amend-specs.md",
+    "sha256": "f6635d3c7b777c381ca0dbf9c270b85b7f6789d682cbbcd3cb57384655befbb8",
+    "lines": 47
+  }
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "file": "socket.mdx",
+    "url": "https://raw.githubusercontent.com/herdrdev/herdr/master/docs/next/website/src/content/docs/socket-api.mdx",
+    "retrieved_at": "2026-10-08T08:45:38.875915-03:00",
+    "sha256": "0f0aa15b4f3204cb121c9a05c37c195de5f0fe57252803eae15a526d9cb4aa50"
+  },
+  {
+    "file": "extensions.md",
+    "url": "https://raw.githubusercontent.com/earendil-works/pi/main/packages/coding-agent/docs/extensions.md",
+    "retrieved_at": "2026-10-08T08:45:39.740663-03:00",
+    "sha256": "bd2ed1f728173c1defc035e90c3894c308ae153fa08575c12b4a9988e11f8108"
+  },
+  {
+    "file": "types-1.0.4.ts",
+    "url": "https://raw.githubusercontent.com/earendil-works/pi/v1.0.4/packages/coding-agent/src/core/extensions/types.ts",
+    "retrieved_at": "2026-10-08T08:45:42.330105-03:00",
+    "sha256": "33be19555ad54f9e10a3436ce51f54bd6b27cc870a7d9ecc0e4997aeeaa3ae0b"
+  }
+]

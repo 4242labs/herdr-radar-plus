@@ -1,0 +1,167 @@
+[
+  {
+    "message_id": 191578,
+    "role": "user",
+    "content": "read by the logs: herdr-radar-plys, we have added the logo of the model being used besides the agents logo. It works for Hermes. It doesnt for PI. Check it out now"
+  },
+  {
+    "message_id": 191938,
+    "role": "user",
+    "content": "is it doable? confirmed with certain?"
+  },
+  {
+    "message_id": 191949,
+    "role": "user",
+    "content": "quickly spec how that would be done"
+  },
+  {
+    "message_id": 191983,
+    "role": "user",
+    "content": "valdiate against an OPUS reviewer"
+  },
+  {
+    "message_id": 192101,
+    "role": "user",
+    "content": "you're mostly likely doing it wrong given other agents are doing in paralelle with no problem"
+  },
+  {
+    "message_id": 192180,
+    "role": "user",
+    "content": "eta?"
+  },
+  {
+    "message_id": 192232,
+    "role": "user",
+    "content": "WHA TCONFIGURATION RECOVERY?!"
+  },
+  {
+    "message_id": 192421,
+    "role": "user",
+    "content": "how to handle that?"
+  },
+  {
+    "message_id": 192423,
+    "role": "user",
+    "content": "have you validated that with an adversarial agent alreayd?"
+  },
+  {
+    "message_id": 192425,
+    "role": "user",
+    "content": "why ar eoyu trying an alternative ratehr than that proposal?!"
+  },
+  {
+    "message_id": 192427,
+    "role": "user",
+    "content": "IS THAT PLAN DOCUMENTED?"
+  },
+  {
+    "message_id": 192429,
+    "role": "user",
+    "content": "Wroite the specs. Follow every single rule in tortuga/dead-mans-chest/skills/skill-write-specs.md. Only declare it done once every rule in the skill has been attended to in full."
+  },
+  {
+    "message_id": 192690,
+    "role": "user",
+    "content": "status?"
+  },
+  {
+    "message_id": 192751,
+    "role": "user",
+    "content": "is another agent wirting it?"
+  },
+  {
+    "message_id": 192753,
+    "role": "user",
+    "content": "who the fuck allowed you to sapwn any agents?!"
+  },
+  {
+    "message_id": 192765,
+    "role": "user",
+    "content": "status?"
+  },
+  {
+    "message_id": 192771,
+    "role": "user",
+    "content": "have you complied with every rule from the skill you have been directed to?"
+  },
+  {
+    "message_id": 192773,
+    "role": "user",
+    "content": "Follow every single rule in tortuga/dead-mans-chest/skills/skill-write-specs.md. Only declare it done once every rule in the skill has been attended to in full. \n\nDo you have any questions or relevant considerations? (very concisely!)"
+  },
+  {
+    "message_id": 192790,
+    "role": "user",
+    "content": "fucking go piece os hit"
+  },
+  {
+    "message_id": 193040,
+    "role": "user",
+    "content": "investigate"
+  },
+  {
+    "message_id": 193056,
+    "role": "user",
+    "content": "are you basing everything in their latest docs ratehr than trial and errors?"
+  },
+  {
+    "message_id": 193058,
+    "role": "user",
+    "content": "go ahead and do it - and research reliable artiflces/foruns as well - no time to waste on trial and errors"
+  },
+  {
+    "message_id": 193325,
+    "role": "user",
+    "content": "is everything now 100% clear, straigftoward what must be implemented?"
+  },
+  {
+    "message_id": 193329,
+    "role": "user",
+    "content": "Follow every single rule in tortuga/dead-mans-chest/skills/skill-amend-specs.md. Only declare it done once every rule in the skill, including its \"Before you call it done\" checklist, has been attended to in full. Do you have any questions or relevant considerations? (very concisely!)"
+  },
+  {
+    "message_id": 193343,
+    "role": "user",
+    "content": "FUCKING GO FUCKSHINT SHIT"
+  },
+  {
+    "message_id": 193390,
+    "role": "user",
+    "content": "is everything now 100% clear, straigftoward what must be implemented?"
+  },
+  {
+    "message_id": 193392,
+    "role": "user",
+    "content": "Follow every single rule in tortuga/dead-mans-chest/skills/skill-amend-specs.md. Only declare it done once every rule in the skill, including its \"Before you call it done\" checklist, has been attended to in full. Do you have any questions or relevant considerations? (very concisely!)"
+  },
+  {
+    "message_id": 193396,
+    "role": "user",
+    "content": "FUCKING GO FUCKSHINT SHIT"
+  },
+  {
+    "message_id": 194146,
+    "role": "user",
+    "content": "have you complied with every rule from the skill you have been directed to?"
+  },
+  {
+    "message_id": 194164,
+    "role": "user",
+    "content": "follow every rule now"
+  },
+  {
+    "message_id": 194261,
+    "role": "user",
+    "content": "have you complied with every rule from the skill you have been directed to?"
+  },
+  {
+    "message_id": 194265,
+    "role": "user",
+    "content": "follow every rule now"
+  },
+  {
+    "message_id": 194704,
+    "role": "user",
+    "content": "Dispatch a reviewer to independently review the block/spec. The reviewer must load dead-mans-chest/skills/skill-review-specs.md and follow it exactly — all four inspection passes. Coordinate and enforce: do not accept, close, or dismiss the reviewer until every obligation and acceptance criterion have been covered. A review that skips a pass, omits coverage, or returns an informal verdict is incomplete — send it back. \n\nAt the end, only print the table: findings per severity (cols) per round (rows) updated, nothing else.\n\nDo you have any questions or relevant considerations? (very concisely!)"
+  }
+]

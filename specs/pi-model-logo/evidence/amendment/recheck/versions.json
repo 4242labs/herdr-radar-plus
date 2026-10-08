@@ -1,0 +1,10 @@
+{
+  "command": "herdr --version; pi --version; node --version; ssh -o BatchMode=yes -o ConnectTimeout=10 alghul \"uname -s; herdr --version; /home/42piratas/.npm-global/bin/pi --version; node --version\"",
+  "cwd": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec",
+  "executed_at": "2026-10-08T09:59:35.701905-03:00",
+  "result": {
+    "output": "herdr 0.9.1\n1.0.4\nv26.7.0\nLinux\nherdr 0.9.1\n1.0.4\nv24.21.0",
+    "exit_code": 0,
+    "error": null
+  }
+}

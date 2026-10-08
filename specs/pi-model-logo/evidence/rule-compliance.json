@@ -1,0 +1,389 @@
+{
+  "checks": [
+    {
+      "id": "C01",
+      "rule": "N1 Recover whole mandate",
+      "receipt": "SPEC \u00a71 O1\u2013O37; original evidence/spec.txt read full; delegate wording ledger distinguishes inherited summary from exact original proposal",
+      "status": "attended"
+    },
+    {
+      "id": "C02",
+      "rule": "N2 Discover facts; ask decisions only",
+      "receipt": "SPEC \u00a73 E1\u2013E13; source excerpts/installed probe; no fact confirmation questions",
+      "status": "attended"
+    },
+    {
+      "id": "C03",
+      "rule": "N3 Ask one decision at a time",
+      "receipt": "No unanswered operator product choice; D1\u2013D4 remain within original title mandate; no question needed",
+      "status": "attended"
+    },
+    {
+      "id": "C04",
+      "rule": "N4 Never invent authority",
+      "receipt": "SPEC \u00a71 granted/reserved; R15/R16/T5 safety gates; no implementation/reviewer/deployment/merge",
+      "status": "attended"
+    },
+    {
+      "id": "C05",
+      "rule": "N5 No hidden uncertainty",
+      "receipt": "Exact protocol/rules/error paths; E12 deliberately future preflight, not fact; no execution design placeholder",
+      "status": "attended"
+    },
+    {
+      "id": "C06",
+      "rule": "N6 Verification part of requirement",
+      "receipt": "R1\u2013R19 each has one fixed test/cmd/screenshot identity; 19 trace methods",
+      "status": "attended"
+    },
+    {
+      "id": "C07",
+      "rule": "N7 Smallest sufficient design",
+      "receipt": "D1\u2013D3 reuse title/family/glyph/token channels; one supported lifecycle timer; no metadata service/monkey patch",
+      "status": "attended"
+    },
+    {
+      "id": "C08",
+      "rule": "W1 Whole request/contracts read; obligation row per item",
+      "receipt": "37 individual rows resolved; original 7 lines and full 333-line Opus report preserved",
+      "status": "attended"
+    },
+    {
+      "id": "C09",
+      "rule": "W1 Obligation statuses captured/resolved/blocked",
+      "receipt": "All rows resolved; final graph asserts no lost obligations",
+      "status": "attended"
+    },
+    {
+      "id": "C10",
+      "rule": "W2 Current implementation/docs/patterns inspected",
+      "receipt": "CONTRIBUTING/package/actual source/installed Pi docs and primary retrieval",
+      "status": "attended"
+    },
+    {
+      "id": "C11",
+      "rule": "W2 External official docs/version/retrieval date",
+      "receipt": "Pi1.0.4/Radar0.42.0; evidence/official-doc-retrieval.json and pi-docs excerpts",
+      "status": "attended"
+    },
+    {
+      "id": "C12",
+      "rule": "W2 Evidence status verified/contradicted/unknown",
+      "receipt": "E1\u2013E13; E11 contradicted; E12 unknown explicitly not asserted",
+      "status": "attended"
+    },
+    {
+      "id": "C13",
+      "rule": "W3 Separate facts/decisions/details/blockers",
+      "receipt": "D1\u2013D4 chosen details; facts source-verified; no unresolved architecture choice; deploy authority explicitly withheld",
+      "status": "attended"
+    },
+    {
+      "id": "C14",
+      "rule": "W3 No READY with execution-critical open item",
+      "receipt": "Protocol/sequence/error behavior executable; actual deployment preflight has defined checks/refusal, not assumed pass",
+      "status": "attended"
+    },
+    {
+      "id": "C15",
+      "rule": "W4 Explicit bound field: problem and current behavior",
+      "receipt": "SPEC \u00a72 plus \u00a74 protocol, \u00a77 tasks; none stated for assumptions/unresolved decisions; no blank section",
+      "status": "attended"
+    },
+    {
+      "id": "C16",
+      "rule": "W4 Explicit bound field: goal",
+      "receipt": "SPEC \u00a72 plus \u00a74 protocol, \u00a77 tasks; none stated for assumptions/unresolved decisions; no blank section",
+      "status": "attended"
+    },
+    {
+      "id": "C17",
+      "rule": "W4 Explicit bound field: actors",
+      "receipt": "SPEC \u00a72 plus \u00a74 protocol, \u00a77 tasks; none stated for assumptions/unresolved decisions; no blank section",
+      "status": "attended"
+    },
+    {
+      "id": "C18",
+      "rule": "W4 Explicit bound field: target behavior and happy path",
+      "receipt": "SPEC \u00a72 plus \u00a74 protocol, \u00a77 tasks; none stated for assumptions/unresolved decisions; no blank section",
+      "status": "attended"
+    },
+    {
+      "id": "C19",
+      "rule": "W4 Explicit bound field: in-scope outcomes and named exclusions",
+      "receipt": "SPEC \u00a72 plus \u00a74 protocol, \u00a77 tasks; none stated for assumptions/unresolved decisions; no blank section",
+      "status": "attended"
+    },
+    {
+      "id": "C20",
+      "rule": "W4 Explicit bound field: authority granted and reserved",
+      "receipt": "SPEC \u00a72 plus \u00a74 protocol, \u00a77 tasks; none stated for assumptions/unresolved decisions; no blank section",
+      "status": "attended"
+    },
+    {
+      "id": "C21",
+      "rule": "W4 Explicit bound field: prerequisites and dependencies",
+      "receipt": "SPEC \u00a72 plus \u00a74 protocol, \u00a77 tasks; none stated for assumptions/unresolved decisions; no blank section",
+      "status": "attended"
+    },
+    {
+      "id": "C22",
+      "rule": "W4 Explicit bound field: constraints and compatibility",
+      "receipt": "SPEC \u00a72 plus \u00a74 protocol, \u00a77 tasks; none stated for assumptions/unresolved decisions; no blank section",
+      "status": "attended"
+    },
+    {
+      "id": "C23",
+      "rule": "W4 Explicit bound field: assumptions with evidence or validation",
+      "receipt": "SPEC \u00a72 plus \u00a74 protocol, \u00a77 tasks; none stated for assumptions/unresolved decisions; no blank section",
+      "status": "attended"
+    },
+    {
+      "id": "C24",
+      "rule": "W4 Explicit bound field: affected repositories/modules/interfaces/data/docs",
+      "receipt": "SPEC \u00a72 plus \u00a74 protocol, \u00a77 tasks; none stated for assumptions/unresolved decisions; no blank section",
+      "status": "attended"
+    },
+    {
+      "id": "C25",
+      "rule": "W4 Explicit bound field: security/privacy/cost",
+      "receipt": "SPEC \u00a72 plus \u00a74 protocol, \u00a77 tasks; none stated for assumptions/unresolved decisions; no blank section",
+      "status": "attended"
+    },
+    {
+      "id": "C26",
+      "rule": "W4 Explicit bound field: deployment and operations",
+      "receipt": "SPEC \u00a72 plus \u00a74 protocol, \u00a77 tasks; none stated for assumptions/unresolved decisions; no blank section",
+      "status": "attended"
+    },
+    {
+      "id": "C27",
+      "rule": "W4 Explicit bound field: failure/degraded/recovery/rollback/observability",
+      "receipt": "SPEC \u00a72 plus \u00a74 protocol, \u00a77 tasks; none stated for assumptions/unresolved decisions; no blank section",
+      "status": "attended"
+    },
+    {
+      "id": "C28",
+      "rule": "W4 Explicit bound field: ordering and independently verifiable slices",
+      "receipt": "SPEC \u00a72 plus \u00a74 protocol, \u00a77 tasks; none stated for assumptions/unresolved decisions; no blank section",
+      "status": "attended"
+    },
+    {
+      "id": "C29",
+      "rule": "W5 Requirement stable IDs",
+      "receipt": "R1\u2013R19",
+      "status": "attended"
+    },
+    {
+      "id": "C30",
+      "rule": "W5 Requirement observable outcomes not activity-only",
+      "receipt": "R outcome text specifies trigger/result; R18 delivery gates observable graph order",
+      "status": "attended"
+    },
+    {
+      "id": "C31",
+      "rule": "W5 Requirement actor/trigger/precondition/result",
+      "receipt": "R rows and \u00a72 named actors/flows",
+      "status": "attended"
+    },
+    {
+      "id": "C32",
+      "rule": "W5 Requirement edge/failure behavior",
+      "receipt": "\u00a72/\u00a74 and test matrix; R8\u2013R14/R17",
+      "status": "attended"
+    },
+    {
+      "id": "C33",
+      "rule": "W5 Requirement one fixed acceptance method",
+      "receipt": "traceability.json unique test/cmd/screenshot per requirement",
+      "status": "attended"
+    },
+    {
+      "id": "C34",
+      "rule": "W5 Requirement evidence/operator authority",
+      "receipt": "R authority field, \u00a71 explicit original/operator mandate",
+      "status": "attended"
+    },
+    {
+      "id": "C35",
+      "rule": "W5 manual_by only human irreducible judgment",
+      "receipt": "No manual_by substituted for runnable checks; R16 screenshot only visual adjacency, metadata assertions automated",
+      "status": "attended"
+    },
+    {
+      "id": "C36",
+      "rule": "W5 Command cwd valid and explicit",
+      "receipt": "SPEC \u00a77 absolute worktree; actual audit/probe/npm test/check/prove output receipts; no executable future deploy commands invented",
+      "status": "attended"
+    },
+    {
+      "id": "C37",
+      "rule": "W6 Every requirement maps to task and verification",
+      "receipt": "traceability.json; audit verifies 19 mapped requirements",
+      "status": "attended"
+    },
+    {
+      "id": "C38",
+      "rule": "W6 Every task maps back to requirement; no orphans",
+      "receipt": "T0\u2013T5 all nonempty; audit two-direction references",
+      "status": "attended"
+    },
+    {
+      "id": "C39",
+      "rule": "W6 Trace table exists before handoff",
+      "receipt": "SPEC \u00a77 reconciled with machine graph",
+      "status": "attended"
+    },
+    {
+      "id": "C40",
+      "rule": "W7 Adversarial sweep: every obligation resolved",
+      "receipt": "Whole SPEC re-read, corrected deployment to include Radar parser before extension, final audit graph/source/probe/command receipts; explicit future live holds",
+      "status": "attended"
+    },
+    {
+      "id": "C41",
+      "rule": "W7 Adversarial sweep: every number/version/path/command/cross-reference sourced",
+      "receipt": "Whole SPEC re-read, corrected deployment to include Radar parser before extension, final audit graph/source/probe/command receipts; explicit future live holds",
+      "status": "attended"
+    },
+    {
+      "id": "C42",
+      "rule": "W7 Adversarial sweep: consistent terminology and named actors",
+      "receipt": "Whole SPEC re-read, corrected deployment to include Radar parser before extension, final audit graph/source/probe/command receipts; explicit future live holds",
+      "status": "attended"
+    },
+    {
+      "id": "C43",
+      "rule": "W7 Adversarial sweep: no mandate widening/narrowing",
+      "receipt": "Whole SPEC re-read, corrected deployment to include Radar parser before extension, final audit graph/source/probe/command receipts; explicit future live holds",
+      "status": "attended"
+    },
+    {
+      "id": "C44",
+      "rule": "W7 Adversarial sweep: no acceptance only works/correct/handled",
+      "receipt": "Whole SPEC re-read, corrected deployment to include Radar parser before extension, final audit graph/source/probe/command receipts; explicit future live holds",
+      "status": "attended"
+    },
+    {
+      "id": "C45",
+      "rule": "W7 Adversarial sweep: consistent happy/failure/recovery/rollback",
+      "receipt": "Whole SPEC re-read, corrected deployment to include Radar parser before extension, final audit graph/source/probe/command receipts; explicit future live holds",
+      "status": "attended"
+    },
+    {
+      "id": "C46",
+      "rule": "W7 Adversarial sweep: acyclic executable dependencies/order",
+      "receipt": "Whole SPEC re-read, corrected deployment to include Radar parser before extension, final audit graph/source/probe/command receipts; explicit future live holds",
+      "status": "attended"
+    },
+    {
+      "id": "C47",
+      "rule": "W7 Adversarial sweep: project sizing limits considered and slices bounded",
+      "receipt": "Whole SPEC re-read, corrected deployment to include Radar parser before extension, final audit graph/source/probe/command receipts; explicit future live holds",
+      "status": "attended"
+    },
+    {
+      "id": "C48",
+      "rule": "W7 Adversarial sweep: no unnecessary rebuild of existing capability",
+      "receipt": "Whole SPEC re-read, corrected deployment to include Radar parser before extension, final audit graph/source/probe/command receipts; explicit future live holds",
+      "status": "attended"
+    },
+    {
+      "id": "C49",
+      "rule": "W7 Adversarial sweep: no hidden operator choice/assumption",
+      "receipt": "Whole SPEC re-read, corrected deployment to include Radar parser before extension, final audit graph/source/probe/command receipts; explicit future live holds",
+      "status": "attended"
+    },
+    {
+      "id": "C50",
+      "rule": "W7 Fix defect class, not first instance",
+      "receipt": "All Pi lifecycle paths and every family-word/unknown/suffix class included, non-Pi preserved",
+      "status": "attended"
+    },
+    {
+      "id": "C51",
+      "rule": "W8 Exactly one verdict READY or BLOCKED",
+      "receipt": "Single verdict READY; does not assert live implementation acceptance",
+      "status": "attended"
+    },
+    {
+      "id": "C52",
+      "rule": "Handoff path/verdict/three reconciled counts",
+      "receipt": "Final handoff and traceability/audit: 37 obligations/19 requirements/19 methods",
+      "status": "attended"
+    },
+    {
+      "id": "C53",
+      "rule": "Handoff BLOCKED single next question if needed",
+      "receipt": "Not triggered: no unresolved execution decision; do not ask future deployment authority now",
+      "status": "attended"
+    },
+    {
+      "id": "C54",
+      "rule": "Examples first-spec read in full",
+      "receipt": "Canonical write-specs/examples.md all 61 lines read before drafting; stored evidence copy",
+      "status": "attended"
+    },
+    {
+      "id": "C55",
+      "rule": "Failure handling: conflicting sources",
+      "receipt": "No unresolved source authority conflict; Opus snapshot limitations adjudicated against installed actual sources",
+      "status": "attended"
+    },
+    {
+      "id": "C56",
+      "rule": "Failure handling: missing access/dependency",
+      "receipt": "Read-only SSH and installed methods available; no unsafe workaround; unavailable live authorization explicitly future gate",
+      "status": "attended"
+    },
+    {
+      "id": "C57",
+      "rule": "Failure handling: multiple valid product interpretations",
+      "receipt": "Metadata alternative rejected in favor of original title mandate; exact protocol/ordering chosen with evidence",
+      "status": "attended"
+    },
+    {
+      "id": "C58",
+      "rule": "Failure handling: existing-contract review findings",
+      "receipt": "Canonical skill-amend-specs.md loaded/read in full; findings ledger separate, statuses RESOLVED/DISPUTED, source evidence reread. Operator explicitly requested full contract so seven-line length exception is authorized; original file remains unchanged.",
+      "status": "attended"
+    },
+    {
+      "id": "C59",
+      "rule": "Failure handling: new issue outside scope",
+      "receipt": "Open runtime PR overlaps recorded for future engineer; unrelated tool/source/palette fixes not inserted",
+      "status": "attended"
+    },
+    {
+      "id": "C60",
+      "rule": "User current-date footer and local/UTC distinction",
+      "receipt": "Observed date tool: Oct7 local -03 / Oct8 UTC; footer timestamp source",
+      "status": "attended"
+    },
+    {
+      "id": "C61",
+      "rule": "User spec-only/no implementation or reviewer",
+      "receipt": "Only specs directory files tracked; probes are offline evidence, not deployable extension; no dispatch/deploy/merge",
+      "status": "attended"
+    },
+    {
+      "id": "C62",
+      "rule": "User preserve WIP and branch/card before tracked edit",
+      "receipt": "Main remained main; local-only relative-worktree configuration/exclude; 42L-2130 created/readback before docs edit; final clean status and source hashes checked",
+      "status": "attended"
+    },
+    {
+      "id": "C63",
+      "rule": "User full Opus accounting counts verified",
+      "receipt": "8 findings,7 unknowns,4 taste notes,23 coverage entries; full report and adjudication graph",
+      "status": "attended"
+    },
+    {
+      "id": "C64",
+      "rule": "User privacy/no provider requests/live sessions",
+      "receipt": "Source identity/extensions/plugins only; probe fake public collaborators; cropped future evidence; no auth/transcript reads",
+      "status": "attended"
+    }
+  ],
+  "count": 64
+}

@@ -1,0 +1,408 @@
+{
+  "type": "object",
+  "properties": {
+    "artifact": {
+      "type": "string"
+    },
+    "revision": {
+      "type": "string"
+    },
+    "verdict": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "CHANGES REQUIRED",
+        "UNVERIFIED"
+      ]
+    },
+    "skill_loaded": {
+      "type": "string"
+    },
+    "passes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "inspection": {
+            "type": "string"
+          },
+          "evidence": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "inspection",
+          "evidence",
+          "result"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "operator_coverage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "message_id": {
+            "type": "string"
+          },
+          "obligation_or_decision": {
+            "type": "string"
+          },
+          "authority": {
+            "type": "string"
+          },
+          "requirement_or_reason": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "message_id",
+          "obligation_or_decision",
+          "authority",
+          "requirement_or_reason",
+          "result"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "obligations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "authorized_outcome": {
+            "type": "string"
+          },
+          "requirement": {
+            "type": "string"
+          },
+          "task": {
+            "type": "string"
+          },
+          "verification": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "source",
+          "authorized_outcome",
+          "requirement",
+          "task",
+          "verification",
+          "result"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "observable_result": {
+            "type": "string"
+          },
+          "ireb_lenses": {
+            "type": "string"
+          },
+          "evidence": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "observable_result",
+          "ireb_lenses",
+          "evidence",
+          "result"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "criteria": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "method": {
+            "type": "string"
+          },
+          "can_fail_wrong_outcome": {
+            "type": "string"
+          },
+          "shipped_entry_point": {
+            "type": "string"
+          },
+          "environment_dependencies": {
+            "type": "string"
+          },
+          "authority_trace": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "method",
+          "can_fail_wrong_outcome",
+          "shipped_entry_point",
+          "environment_dependencies",
+          "authority_trace",
+          "result"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "requirements": {
+            "type": "string"
+          },
+          "ordering": {
+            "type": "string"
+          },
+          "authorized_outcome": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "requirements",
+          "ordering",
+          "authorized_outcome",
+          "result"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "operator_quote_or_source": {
+            "type": "string"
+          },
+          "classification": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "operator_quote_or_source",
+          "classification",
+          "result"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "source_inventory": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "pass": {
+            "type": "string"
+          },
+          "read_ranges": {
+            "type": "string"
+          },
+          "evidence_checked": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "pass",
+          "read_ranges",
+          "evidence_checked",
+          "limit"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "BLOCKER",
+              "MAJOR",
+              "MINOR"
+            ]
+          },
+          "location": {
+            "type": "string"
+          },
+          "violated_obligation_or_claim": {
+            "type": "string"
+          },
+          "observed_evidence": {
+            "type": "string"
+          },
+          "failure_scenario": {
+            "type": "string"
+          },
+          "minimal_contract_correction": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "severity",
+          "location",
+          "violated_obligation_or_claim",
+          "observed_evidence",
+          "failure_scenario",
+          "minimal_contract_correction"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "safe_checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "command": {
+            "type": "string"
+          },
+          "cwd": {
+            "type": "string"
+          },
+          "exit_code": {
+            "type": "string"
+          },
+          "observed_output": {
+            "type": "string"
+          },
+          "meaning": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "command",
+          "cwd",
+          "exit_code",
+          "observed_output",
+          "meaning"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "hash_rechecks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "matches_initial": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "sha256",
+          "matches_initial"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "artifact",
+    "revision",
+    "verdict",
+    "skill_loaded",
+    "passes",
+    "operator_coverage",
+    "obligations",
+    "requirements",
+    "criteria",
+    "tasks",
+    "decisions",
+    "source_inventory",
+    "findings",
+    "limitations",
+    "assumptions",
+    "safe_checks",
+    "hash_rechecks"
+  ],
+  "additionalProperties": false
+}

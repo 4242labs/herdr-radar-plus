@@ -1,0 +1,14 @@
+[
+  {
+    "file": "node-fs.html",
+    "url": "https://nodejs.org/api/fs.html",
+    "retrieved_at": "2026-10-08T09:15:36.981214-03:00",
+    "sha256": "6d9c4ac5b87a3dcdab2f31258e05fee8b797d05403584a5b32fe1e150625ed52"
+  },
+  {
+    "file": "posix-rename.html",
+    "url": "https://pubs.opengroup.org/onlinepubs/9799919799/functions/rename.html",
+    "retrieved_at": "2026-10-08T09:15:38.698310-03:00",
+    "sha256": "06671610134b0a52cdf4dcdaf382f72fef85ef51088b8a52b8679c7f03829318"
+  }
+]

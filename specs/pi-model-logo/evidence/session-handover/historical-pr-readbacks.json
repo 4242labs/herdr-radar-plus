@@ -1,0 +1,198 @@
+[
+  {
+    "repository": "42piratas/alghul",
+    "number": 13,
+    "exit_code": 0,
+    "readback": {
+      "draft": false,
+      "html_url": "https://github.com/42piratas/alghul/pull/13",
+      "merge_commit_sha": "92c1ac26e2f539824d4bc1eb906c007b03de1597",
+      "merged": true,
+      "number": 13,
+      "state": "closed",
+      "title": "fix(provisioning): prevent Alghul tooling drift (42L-2119)"
+    }
+  },
+  {
+    "repository": "42piratas/alghul",
+    "number": 14,
+    "exit_code": 0,
+    "readback": {
+      "draft": false,
+      "html_url": "https://github.com/42piratas/alghul/pull/14",
+      "merge_commit_sha": "868556ee45ff3e82fe80d3d303572ce2228cef9b",
+      "merged": true,
+      "number": 14,
+      "state": "closed",
+      "title": "chore(provisioning): consume exact Hermes stable declaration (42L-2120)"
+    }
+  },
+  {
+    "repository": "42piratas/alghul",
+    "number": 15,
+    "exit_code": 0,
+    "readback": {
+      "draft": false,
+      "html_url": "https://github.com/42piratas/alghul/pull/15",
+      "merge_commit_sha": "e35e55f702931905562e5cf444b8815ac4a5b234",
+      "merged": true,
+      "number": 15,
+      "state": "closed",
+      "title": "chore(pi): Alghul adoption evidence — 42L-2120"
+    }
+  },
+  {
+    "repository": "42piratas/alghul",
+    "number": 17,
+    "exit_code": 0,
+    "readback": {
+      "draft": false,
+      "html_url": "https://github.com/42piratas/alghul/pull/17",
+      "merge_commit_sha": "9cf604b098ad8c4fcf29b4e5393b651b19c05b06",
+      "merged": true,
+      "number": 17,
+      "state": "closed",
+      "title": "feat(alghul): dedicated native Pi Telegram bridge (42L-2127)"
+    }
+  },
+  {
+    "repository": "42piratas/alghul",
+    "number": 18,
+    "exit_code": 0,
+    "readback": {
+      "draft": false,
+      "html_url": "https://github.com/42piratas/alghul/pull/18",
+      "merge_commit_sha": "4314c68716ac45983a519fe85c182d9c9a6626bd",
+      "merged": true,
+      "number": 18,
+      "state": "closed",
+      "title": "fix(night-watch): discover user npm tools (42L-1944)"
+    }
+  },
+  {
+    "repository": "42piratas/alghul",
+    "number": 19,
+    "exit_code": 0,
+    "readback": {
+      "draft": false,
+      "html_url": "https://github.com/42piratas/alghul/pull/19",
+      "merge_commit_sha": "8a6c6e26d219a6c23237571daf6ab2e31e4be6e4",
+      "merged": true,
+      "number": 19,
+      "state": "closed",
+      "title": "docs: reconcile completed session records and core inventory"
+    }
+  },
+  {
+    "repository": "42piratas/tortuga",
+    "number": 396,
+    "exit_code": 0,
+    "readback": {
+      "draft": false,
+      "html_url": "https://github.com/42piratas/tortuga/pull/396",
+      "merge_commit_sha": "633954a9b68bf2d480581535fce6957a99819f7d",
+      "merged": true,
+      "number": 396,
+      "state": "closed",
+      "title": "chore(replicator): stable Hermes adoption and exact pin (42L-2120)"
+    }
+  },
+  {
+    "repository": "42piratas/tortuga",
+    "number": 397,
+    "exit_code": 0,
+    "readback": {
+      "draft": false,
+      "html_url": "https://github.com/42piratas/tortuga/pull/397",
+      "merge_commit_sha": "462c07bb3b9ac5cbcd2b74a065da823ba3bdd082",
+      "merged": true,
+      "number": 397,
+      "state": "closed",
+      "title": "chore(pi): Alghul 1.0.4 adoption — 42L-2120"
+    }
+  },
+  {
+    "repository": "42piratas/tortuga",
+    "number": 399,
+    "exit_code": 0,
+    "readback": {
+      "draft": false,
+      "html_url": "https://github.com/42piratas/tortuga/pull/399",
+      "merge_commit_sha": "36254c7fe9b153c1540c679f721e6a16fa4c3f49",
+      "merged": true,
+      "number": 399,
+      "state": "closed",
+      "title": "test(replicator): prove Hermes post-mutation rollback (42L-2120)"
+    }
+  },
+  {
+    "repository": "42piratas/tortuga",
+    "number": 401,
+    "exit_code": 0,
+    "readback": {
+      "draft": false,
+      "html_url": "https://github.com/42piratas/tortuga/pull/401",
+      "merge_commit_sha": "94f18f89eb85e5dcb47b8cfb321a81f1708d9ef5",
+      "merged": true,
+      "number": 401,
+      "state": "closed",
+      "title": "feat(replicator): Darkseid native Pi Telegram bridge (42L-2127)"
+    }
+  },
+  {
+    "repository": "42piratas/tortuga",
+    "number": 403,
+    "exit_code": 0,
+    "readback": {
+      "draft": false,
+      "html_url": "https://github.com/42piratas/tortuga/pull/403",
+      "merge_commit_sha": "e8bf3f9703cd836d4616e48e295cc63c3b753188",
+      "merged": true,
+      "number": 403,
+      "state": "closed",
+      "title": "docs: reconcile completed session records and core inventory"
+    }
+  },
+  {
+    "repository": "42piratas/tortuga",
+    "number": 405,
+    "exit_code": 0,
+    "readback": {
+      "draft": true,
+      "html_url": "https://github.com/42piratas/tortuga/pull/405",
+      "merge_commit_sha": "ece8cddf1f6fcfda6fecc3356d770df8c1b5c70f",
+      "merged": false,
+      "number": 405,
+      "state": "open",
+      "title": "WIP preservation: unrelated operator primary edits (42L-2127)"
+    }
+  },
+  {
+    "repository": "4242labs/kraken-meta",
+    "number": 22,
+    "exit_code": 0,
+    "readback": {
+      "draft": false,
+      "html_url": "https://github.com/4242labs/kraken-meta/pull/22",
+      "merge_commit_sha": "b56e48743c39eef7267272495ba2194e0aaa8895",
+      "merged": true,
+      "number": 22,
+      "state": "closed",
+      "title": "docs: record td-01, approved redeploy unusable without in-alert option"
+    }
+  },
+  {
+    "repository": "4242labs/kraken-meta",
+    "number": 26,
+    "exit_code": 0,
+    "readback": {
+      "draft": false,
+      "html_url": "https://github.com/4242labs/kraken-meta/pull/26",
+      "merge_commit_sha": "a1e7124eb7021706f5a7b45a990de63378282306",
+      "merged": true,
+      "number": 26,
+      "state": "closed",
+      "title": "docs: reconcile completed session records and core inventory"
+    }
+  }
+]

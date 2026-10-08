@@ -1,0 +1,337 @@
+{
+  "completed_at": "2026-10-08T10:12:54.531333-03:00",
+  "spec_path": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec/specs/pi-model-logo/SPEC.md",
+  "spec_sha256": "30e9921892ecfc8545b4c12dd1283001e0afb93ec78745ccc88ce7aa03bacdc3",
+  "verdict": "READY",
+  "prior_pass_compliance": "FAILED_AM03 (not retroactively repaired)",
+  "current_pass": "source-first contract reissue and personal full checklist",
+  "audit_command": {
+    "command": "env -i PATH=/opt/homebrew/bin:/usr/bin:/bin python3 specs/pi-model-logo/evidence/audit-spec.py && env -i PATH=/opt/homebrew/bin:/usr/bin:/bin python3 specs/pi-model-logo/evidence/amendment/audit-amendment.py && /opt/homebrew/bin/git diff --check",
+    "cwd": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec",
+    "result": {
+      "output": "{\n  \"verdict\": \"READY\",\n  \"audit_passed\": true,\n  \"counts\": {\n    \"obligations\": 38,\n    \"implementation_requirements\": 18,\n    \"implementation_verifications\": 18,\n    \"authoring_verifications\": 1,\n    \"delivery_tasks\": 5\n  },\n  \"finding_statuses\": {\n    \"report_findings\": 8,\n    \"report_unknowns\": 7,\n    \"report_taste\": 4,\n    \"amendment_findings\": 7,\n    \"coverage_subcriteria\": 23,\n    \"resolved\": 23,\n    \"disputed\": 3,\n    \"escalated\": 0\n  },\n  \"rules_attended\": 15,\n  \"length\": {\n    \"before_bytes\": 46695,\n    \"after_bytes\": 27271,\n    \"before_words\": 6065,\n    \"after_words\": 3664,\n    \"before_lines\": 341,\n    \"after_lines\": 232\n  },\n  \"cross_references\": [\n    \"lib/logos.js\",\n    \"lib/managed-config.js\",\n    \"lib/state.js\"\n  ],\n  \"sequence_policy_cases\": 96,\n  \"dependency_cycle\": false,\n  \"orphan_tasks\": 0,\n  \"spec_sha256\": \"30e9921892ecfc8545b4c12dd1283001e0afb93ec78745ccc88ce7aa03bacdc3\",\n  \"assumptions\": [],\n  \"implementation_tests_executed\": false,\n  \"live_acceptance_executed\": false,\n  \"deployment_executed\": false,\n  \"scope\": \"structural/provenance/schema-bound and declared-policy audit; final semantic sweep is author judgment\"\n}\n{\n  \"verdict\": \"READY\",\n  \"audit_passed\": true,\n  \"counts\": {\n    \"obligations\": 38,\n    \"implementation_requirements\": 18,\n    \"implementation_verifications\": 18,\n    \"authoring_verifications\": 1,\n    \"delivery_tasks\": 5\n  },\n  \"finding_statuses\": {\n    \"report_findings\": 8,\n    \"report_unknowns\": 7,\n    \"report_taste\": 4,\n    \"amendment_findings\": 7,\n    \"coverage_subcriteria\": 23,\n    \"resolved\": 23,\n    \"disputed\": 3,\n    \"escalated\": 0\n  },\n  \"rules_attended\": 15,\n  \"length\": {\n    \"before_bytes\": 46695,\n    \"after_bytes\": 27271,\n    \"before_words\": 6065,\n    \"after_words\": 3664,\n    \"before_lines\": 341,\n    \"after_lines\": 232\n  },\n  \"cross_references\": [\n    \"lib/logos.js\",\n    \"lib/managed-config.js\",\n    \"lib/state.js\"\n  ],\n  \"sequence_policy_cases\": 96,\n  \"dependency_cycle\": false,\n  \"orphan_tasks\": 0,\n  \"spec_sha256\": \"30e9921892ecfc8545b4c12dd1283001e0afb93ec78745ccc88ce7aa03bacdc3\",\n  \"assumptions\": [],\n  \"implementation_tests_executed\": false,\n  \"live_acceptance_executed\": false,\n  \"deployment_executed\": false,\n  \"scope\": \"structural/provenance/schema-bound and declared-policy audit; final semantic sweep is author judgment\"\n}",
+      "exit_code": 0,
+      "error": null
+    },
+    "recording": "transcribed real preceding terminal tool output"
+  },
+  "current_baseline": {
+    "bytes": 27271,
+    "words": 3664,
+    "lines": 232
+  },
+  "current_length": {
+    "bytes": 27271,
+    "words": 3664,
+    "lines": 232
+  },
+  "body_unchanged": true,
+  "source_receipts_precede_final_reissue": true,
+  "full_final_document_reread": true,
+  "personal_semantic_and_template_sweep": true,
+  "scope_receipt": {
+    "command": "/opt/homebrew/bin/git diff --name-only && /opt/homebrew/bin/git ls-files --others --exclude-standard",
+    "cwd": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec",
+    "result": {
+      "output": "specs/pi-model-logo/SPEC.md\nspecs/pi-model-logo/evidence/audit-spec.py\nspecs/pi-model-logo/evidence/finding-adjudication.md\nspecs/pi-model-logo/evidence/review-adjudication.json\nspecs/pi-model-logo/rule-compliance.md\nspecs/pi-model-logo/traceability.json\nspecs/pi-model-logo/evidence/amendment/SPEC-before.md\nspecs/pi-model-logo/evidence/amendment/alghul-identity.json\nspecs/pi-model-logo/evidence/amendment/alghul-paths.json\nspecs/pi-model-logo/evidence/amendment/api-passages.txt\nspecs/pi-model-logo/evidence/amendment/audit-amendment.py\nspecs/pi-model-logo/evidence/amendment/audit-output.json\nspecs/pi-model-logo/evidence/amendment/before-audit-spec.py\nspecs/pi-model-logo/evidence/amendment/before-finding-adjudication.md\nspecs/pi-model-logo/evidence/amendment/before-review-adjudication.json\nspecs/pi-model-logo/evidence/amendment/before-rule-compliance.md\nspecs/pi-model-logo/evidence/amendment/before-traceability.json\nspecs/pi-model-logo/evidence/amendment/callers-output.json\nspecs/pi-model-logo/evidence/amendment/extensions.md\nspecs/pi-model-logo/evidence/amendment/filesystem-sources.json\nspecs/pi-model-logo/evidence/amendment/final-checks.json\nspecs/pi-model-logo/evidence/amendment/final-ledger-append.v4a\nspecs/pi-model-logo/evidence/amendment/herdr-schema-receipt.json\nspecs/pi-model-logo/evidence/amendment/identity.json\nspecs/pi-model-logo/evidence/amendment/node-fs.html\nspecs/pi-model-logo/evidence/amendment/pi-output.json\nspecs/pi-model-logo/evidence/amendment/posix-rename.html\nspecs/pi-model-logo/evidence/amendment/recheck/LEDGER.md\nspecs/pi-model-logo/evidence/amendment/recheck/SPEC-before.md\nspecs/pi-model-logo/evidence/amendment/recheck/alghul-paths.json\nspecs/pi-model-logo/evidence/amendment/recheck/callers-loader.json\nspecs/pi-model-logo/evidence/amendment/recheck/crypto-passages.json\nspecs/pi-model-logo/evidence/amendment/recheck/extensions.md\nspecs/pi-model-logo/evidence/amendment/recheck/filesystem-passages.json\nspecs/pi-model-logo/evidence/amendment/recheck/hash-bounds-identity.json\nspecs/pi-model-logo/evidence/amendment/recheck/node-crypto.html\nspecs/pi-model-logo/evidence/amendment/recheck/node-fs.html\nspecs/pi-model-logo/evidence/amendment/recheck/pi-output.json\nspecs/pi-model-logo/evidence/amendment/recheck/posix-rename.html\nspecs/pi-model-logo/evidence/amendment/recheck/review-adjudication-before.json\nspecs/pi-model-logo/evidence/amendment/recheck/rule-compliance-before.md\nspecs/pi-model-logo/evidence/amendment/recheck/rules-before.json\nspecs/pi-model-logo/evidence/amendment/recheck/schema-fields-alghul.json\nspecs/pi-model-logo/evidence/amendment/recheck/schema-fields.json\nspecs/pi-model-logo/evidence/amendment/recheck/socket.mdx\nspecs/pi-model-logo/evidence/amendment/recheck/source-output.json\nspecs/pi-model-logo/evidence/amendment/recheck/sources.json\nspecs/pi-model-logo/evidence/amendment/recheck/types-1.0.4.ts\nspecs/pi-model-logo/evidence/amendment/recheck/versions.json\nspecs/pi-model-logo/evidence/amendment/rules.json\nspecs/pi-model-logo/evidence/amendment/schema-fields-alghul.json\nspecs/pi-model-logo/evidence/amendment/schema-fields.json\nspecs/pi-model-logo/evidence/amendment/schema-summary.json\nspecs/pi-model-logo/evidence/amendment/socket.mdx\nspecs/pi-model-logo/evidence/amendment/source-output.json\nspecs/pi-model-logo/evidence/amendment/sources.json\nspecs/pi-model-logo/evidence/amendment/superseded-checks.json\nspecs/pi-model-logo/evidence/amendment/types-1.0.4.ts",
+      "exit_code": 0,
+      "error": null
+    }
+  },
+  "finding_rows": [
+    {
+      "id": "F1",
+      "status": "RESOLVED",
+      "claim": "Pi overwrites startup/restoration extension titles",
+      "change": "Zero-title metadata transport; R1\u2013R4",
+      "evidence": "pi-output.json: title writer/bind/reset; socket.mdx: metadata API"
+    },
+    {
+      "id": "F2",
+      "status": "RESOLVED",
+      "claim": "Restoration cannot rely on a restore model event",
+      "change": "Fresh session_start context; R4,R10",
+      "evidence": "pi-output.json: session_start reasons and public model getter; no restore emit claimed"
+    },
+    {
+      "id": "F3",
+      "status": "RESOLVED",
+      "claim": "Whole-title family matching guesses from names",
+      "change": "Pi-only ID/ref consumer; R6,R8,R9",
+      "evidence": "source-output.json: state 263\u2013320,474\u2013475; logos 247\u2013262"
+    },
+    {
+      "id": "F4",
+      "status": "RESOLVED",
+      "claim": "Mapping reuse alone does not provide coverage",
+      "change": "Dedicated shipped family/boundary/clear tests and guard mutation; R6,R8,R9",
+      "evidence": "source-output.json: registry/output path; historical snapshot absence not asserted as current test census"
+    },
+    {
+      "id": "F5",
+      "status": "DISPUTED",
+      "claim": "Uncolored glyphs may be mistaken for wrong glyphs",
+      "change": "Do not redesign palette; require exact existing variant/adjacency; R16",
+      "evidence": "source-output.json: managed-config 353\u2013379,439\u2013456; palette 78\u201388,97\u2013114"
+    },
+    {
+      "id": "F6",
+      "status": "RESOLVED",
+      "claim": "Radar imports in Pi could trigger font subprocess/module coupling",
+      "change": "Only built-in net/crypto/fs/path in producer; R1,R13",
+      "evidence": "recheck/source-output.json: glyph owner; recheck/pi-output.json: public model getter; recheck/filesystem-passages.json and crypto-passages.json: builtin APIs"
+    },
+    {
+      "id": "F7",
+      "status": "RESOLVED",
+      "claim": "Unkeyed title ownership/reload conflict",
+      "change": "No title API calls; session resource generation/cleanup; R2,R10,R11,R17",
+      "evidence": "pi-output.json: title passthrough/reset; extensions.md 58\u201360,251,262\u2013263"
+    },
+    {
+      "id": "F8",
+      "status": "DISPUTED",
+      "claim": "Windows title restoration may overwrite model title",
+      "change": "No title writer; Windows excluded; no Windows scope added",
+      "evidence": "pi-output.json: OS Darwin; alghul identity Linux; original Windows claim treated as historical"
+    },
+    {
+      "id": "U1",
+      "status": "RESOLVED",
+      "claim": "Direction of glyph-mapping reuse ambiguous",
+      "change": "Pi emits ID/ref; Radar alone resolves glyphs; R1,R6",
+      "evidence": "source-output.json: family registry and output token pipeline"
+    },
+    {
+      "id": "U2",
+      "status": "RESOLVED",
+      "claim": "Default title literal missing in supplied snapshot",
+      "change": "Host title left untouched; no literal reconstruction; R2",
+      "evidence": "pi-output.json: host title composition"
+    },
+    {
+      "id": "U3",
+      "status": "RESOLVED",
+      "claim": "Title suffix location ambiguous",
+      "change": "No suffix; exact metadata ownership/wire; R1,R9",
+      "evidence": "socket.mdx 751\u2013769; schema-fields.json"
+    },
+    {
+      "id": "U4",
+      "status": "RESOLVED",
+      "claim": "Live sidebar/variant unknown",
+      "change": "Runnable preflight plus actual host gate retained; R15,R16; not claimed passed",
+      "evidence": "source-output.json: managed-config 376\u2013379,439\u2013456"
+    },
+    {
+      "id": "U5",
+      "status": "RESOLVED",
+      "claim": "Actual Pi detection unknown",
+      "change": "Authoritative Pi/session reference preflight and host acceptance; R15,R16; not claimed passed",
+      "evidence": "schema-fields.json and schema-fields-alghul.json: AgentInfo/AgentSessionInfo"
+    },
+    {
+      "id": "U6",
+      "status": "RESOLVED",
+      "claim": "Extension discovery destination undecided",
+      "change": "Native global directories; R15,R17",
+      "evidence": "pi-output.json: global managed extension; alghul-paths.json"
+    },
+    {
+      "id": "U7",
+      "status": "RESOLVED",
+      "claim": "Partial reviewer tree and no extension artifact",
+      "change": "Actual source re-read; new artifact explicitly prospective; R13,R15",
+      "evidence": "source-output.json, identity.json; no shipping implementation claim"
+    },
+    {
+      "id": "T1",
+      "status": "RESOLVED",
+      "claim": "Additional lifecycle/title-write surfaces omitted",
+      "change": "Full lifecycle matrix; rename does not touch model/title; R2,R10",
+      "evidence": "pi-output.json: session_start reasons and title owner"
+    },
+    {
+      "id": "T2",
+      "status": "RESOLVED",
+      "claim": "Prefer one fresh-context apply path",
+      "change": "One latest-value serialized snapshot publisher; R5,R10,R11",
+      "evidence": "public model/session getters and lifecycle guidance in pi-output.json/extensions.md"
+    },
+    {
+      "id": "T3",
+      "status": "DISPUTED",
+      "claim": "Prefer already-shipped title transport",
+      "change": "Official metadata avoids title ownership; original assistant quick proposal is not operator title authority; no provider fallback",
+      "evidence": "socket.mdx 725\u2013769; original spec.txt; latest operator research/amendment request"
+    },
+    {
+      "id": "T4",
+      "status": "RESOLVED",
+      "claim": "Narrow model matching rather than whole-title scan",
+      "change": "Strict Pi-only ID classifier; other agents unchanged; R6,R7,R9",
+      "evidence": "source-output.json: logos 247\u2013262"
+    },
+    {
+      "id": "A1",
+      "status": "RESOLVED",
+      "claim": "250ms persistent title reconciliation not accepted",
+      "change": "Zero title writes; explicit metadata lease renewal; R1,R2,R11",
+      "evidence": "operator investigate/amendment; primary metadata/lifecycle guidance"
+    },
+    {
+      "id": "A2",
+      "status": "RESOLVED",
+      "claim": "Metadata token/source ownership and identity unspecified",
+      "change": "Distinct ID/ref inputs, Radar-only outputs, digest, durable sequence ownership and capacity refusal; R1,R6,R9,R15",
+      "evidence": "socket.mdx 751\u2013769; both installed schemas; managed session-source code"
+    },
+    {
+      "id": "A3",
+      "status": "RESOLVED",
+      "claim": "Expiry/server restart recovery unspecified",
+      "change": "30s refresh/60s lease, current-context reread and explicit identity refusal; R10,R14",
+      "evidence": "socket.mdx 767; typed pane/reference schema; lifecycle guidance"
+    },
+    {
+      "id": "A4",
+      "status": "RESOLVED",
+      "claim": "Failures, stale callbacks and sequence reuse unspecified",
+      "change": "Bounded serialized socket, durable persist-before-send counter and readback, process-shared generation serialization, failure cancellation, first-install provisioning and safe rollback; R5,R11,R14,R15,R17",
+      "evidence": "socket.mdx 753,767,769; installed seq/TTL schema; filesystem-sources.json with fresh Node fs and POSIX rename; final read-only counter policy audit"
+    },
+    {
+      "id": "A5",
+      "status": "RESOLVED",
+      "claim": "Truncation/normalization can change an identifier",
+      "change": "Reject invalid/overlength input, strict ID-only boundaries; R9,R12",
+      "evidence": "socket.mdx 763; no title/provider inference"
+    },
+    {
+      "id": "A6",
+      "status": "RESOLVED",
+      "claim": "Mandate provenance, review history and receipts polluted the contract",
+      "change": "Shorter implementation-only document; provenance/history and R19 authoring check moved to ledger",
+      "evidence": "skill-amend-specs rules 1\u20134/checklist; SPEC-before.md; latest operator instruction"
+    },
+    {
+      "id": "A7",
+      "claim": "Previous full-compliance claim concealed verify-after-write chronology and stale adjacent ledger details",
+      "status": "RESOLVED",
+      "change": "Record prior AM03 as failed; conduct a fresh source-first reissue/checklist; correct module/input-key descriptions without changing scope or acceptance",
+      "evidence": "recheck/LEDGER.md; recheck/rules-before.json; recheck/SPEC-before.md; recheck/final-checks.json"
+    }
+  ],
+  "finding_counts": {
+    "report_findings": 8,
+    "report_unknowns": 7,
+    "report_taste": 4,
+    "amendment_findings": 7,
+    "coverage_subcriteria": 23,
+    "resolved": 23,
+    "disputed": 3,
+    "escalated": 0
+  },
+  "rules": [
+    {
+      "id": "AM01",
+      "rule": "Scope and acceptance strength",
+      "status": "attended",
+      "receipt": "Reissued body is byte-identical to the current-pass baseline; fixed methods, both hosts, scope and authority are preserved."
+    },
+    {
+      "id": "AM02",
+      "rule": "Finding adjudication",
+      "status": "attended",
+      "receipt": "Full review read; each F/U/T/A row individually restated and reconciled; disputes F5,F8,T3 retained with fresh code/API evidence."
+    },
+    {
+      "id": "AM03",
+      "rule": "Verify before drafting",
+      "status": "attended",
+      "receipt": "Prior pass FAILED_AM03, preserved in recheck/rules-before.json; fresh receipts and pasted source ledger precede final reissue. This is not retroactive compliance."
+    },
+    {
+      "id": "AM04",
+      "rule": "Implementation-only and length",
+      "status": "attended",
+      "receipt": "Contract contains implementation only; all process/history here and in ledgers; fresh baseline bytes/words/lines bound checked."
+    },
+    {
+      "id": "AM05",
+      "rule": "Read current contract and full report first",
+      "status": "attended",
+      "receipt": "Current disk contract read end-to-end before editing, along with the entire findings report, including disputed findings; recheck/SPEC-before.md preserves it."
+    },
+    {
+      "id": "AM06",
+      "rule": "Ledger per finding and understandable claims",
+      "status": "attended",
+      "receipt": "One own-word row per finding in review-adjudication.json; A7 records the process defect and correction; recheck/LEDGER.md holds actual output."
+    },
+    {
+      "id": "AM07",
+      "rule": "Pasted output for numbers/paths/commands",
+      "status": "attended",
+      "receipt": "Fresh source, types, schemas, host paths, versions and bounds receipts paste exact command, cwd, unelided output and exit. Failed lookup is explicitly excluded from proof."
+    },
+    {
+      "id": "AM08",
+      "rule": "Only freshly printed citations/set claims",
+      "status": "attended",
+      "receipt": "Fresh source-output, pi-output, schema and caller passages were printed; current counts computed from graph/individual dispositions; no failed/truncated output used as absence proof."
+    },
+    {
+      "id": "AM09",
+      "rule": "Fix classes not one sentence",
+      "status": "attended",
+      "receipt": "Process-compliance correction applies consistently to all current certification records; builtin-module/input-key mismatches repaired in sibling ledgers; feature requirements unchanged."
+    },
+    {
+      "id": "AM10",
+      "rule": "Only findings; outside-scope issues separate",
+      "status": "attended",
+      "receipt": "A7 is the operator-named process defect; F6 and input-key text are adjacent inconsistent consequences; no feature, host, service, integration or acceptance expansion."
+    },
+    {
+      "id": "AM11",
+      "rule": "Adjacent consequences repaired",
+      "status": "attended",
+      "receipt": "Machine and human ledgers, checklist, final receipts and current version agree; prior contradictory certificates explicitly historical, not silently relabeled."
+    },
+    {
+      "id": "AM12",
+      "rule": "Final whole-document reread and source sweep",
+      "status": "attended",
+      "receipt": "Final full SPEC.md reread after final footer; source/semantic sweep and same-hash final audits recorded in recheck/final-checks.json."
+    },
+    {
+      "id": "AM13",
+      "rule": "Open cross-references",
+      "status": "attended",
+      "receipt": "Canonical skills/examples, source references, original proposal/report/graph and current evidence opened; prospective artifacts/tests remain explicitly prospective."
+    },
+    {
+      "id": "AM14",
+      "rule": "Template, methods and headers",
+      "status": "attended",
+      "receipt": "Required template/header sections, fixed acceptance method and task per criterion, requirement/task graph and no placeholders checked on final contract."
+    },
+    {
+      "id": "AM15",
+      "rule": "Report statuses, assumptions and verification limits",
+      "status": "attended",
+      "receipt": "Current ledger lists individual statuses and assumptions none; feature/live/preflight/deploy/rollback remain unexecuted and explicitly outside this pass."
+    }
+  ],
+  "assumptions": [],
+  "implementation_tests_executed": false,
+  "live_acceptance_executed": false,
+  "deployment_executed": false,
+  "unverified": [
+    "feature implementation tests",
+    "live per-host preflight/detection/reference/capacity/glyph/idle-safety gates",
+    "live selected-model/unknown-clearing visual acceptance",
+    "activation, deployment and rollback"
+  ]
+}

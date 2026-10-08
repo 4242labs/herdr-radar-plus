@@ -1,0 +1,807 @@
+{
+  "session_id": "20261006_131929_47514b",
+  "snapshot_first_message_id": 166225,
+  "snapshot_last_message_id": 195273,
+  "snapshot_record_count": 2253,
+  "record_counts_by_role": {
+    "user": 336,
+    "assistant": 1075,
+    "tool": 842
+  },
+  "excluded_columns": [
+    "reasoning",
+    "reasoning_content",
+    "reasoning_details",
+    "codex_reasoning_items",
+    "codex_message_items",
+    "api_content",
+    "display_identity",
+    "display_metadata"
+  ],
+  "record_meaning": "Each record documents stored conversation content or a recorded tool call/result, not independent confirmation that every statement in it is true. Runtime summaries are flagged and are not original operator authority. Internal model reasoning is not exported.",
+  "redaction_policy": "Credential-like values are replaced by [REDACTED]; secret scanner will be run before commit.",
+  "automatic_redaction_counts": {
+    "private-key": 0,
+    "telegram": 0,
+    "provider-token": 1,
+    "jwt": 0,
+    "connection-string": 2,
+    "url-userinfo": 0,
+    "bearer": 1,
+    "assignment": 12
+  },
+  "artifact_files": [
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-docs-research/RESEARCH.md",
+      "export": "specs/pi-model-logo/evidence/session-handover/research/RESEARCH.md",
+      "source_sha256": "687d4d1cc35e38c329dcd824c9e7148a153f38c6603968d18257c0695b106f77",
+      "export_sha256": "687d4d1cc35e38c329dcd824c9e7148a153f38c6603968d18257c0695b106f77",
+      "source_bytes": 3729,
+      "export_bytes": 3729,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-docs-research/community-pi-herdr-metadata.ts",
+      "export": "specs/pi-model-logo/evidence/session-handover/research/community-pi-herdr-metadata.ts",
+      "source_sha256": "3253ec58c7d9c29c9305a793530e567ac1356264ed6d26933a0dcc863400fae4",
+      "export_sha256": "3253ec58c7d9c29c9305a793530e567ac1356264ed6d26933a0dcc863400fae4",
+      "source_bytes": 2659,
+      "export_bytes": 2659,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-docs-research/community-pi-herdr-package.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/research/community-pi-herdr-package.json",
+      "source_sha256": "b2aebff1ab7815764ca8949bd3df4218e6b404885afc2ac80a030a11a355264b",
+      "export_sha256": "017a31fc71feb0f49482bfcfb138fb7049e5fa37bd40d73ed1c854cd097162fb",
+      "source_bytes": 2973,
+      "export_bytes": 2974,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-docs-research/community-pi-herdr-readme.md",
+      "export": "specs/pi-model-logo/evidence/session-handover/research/community-pi-herdr-readme.md",
+      "source_sha256": "ee40baafd4b2450ecdf8f78488513bb7deb38e5d9ecb04104643465aad61b78c",
+      "export_sha256": "ee40baafd4b2450ecdf8f78488513bb7deb38e5d9ecb04104643465aad61b78c",
+      "source_bytes": 13431,
+      "export_bytes": 13431,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-docs-research/community-pi-herdr-source.ts",
+      "export": "specs/pi-model-logo/evidence/session-handover/research/community-pi-herdr-source.ts",
+      "source_sha256": "2a8b5ff5cf68cd0bfbfc37f8927ef244af8e8916bffc5b2d35f3e54ac3ddb1d5",
+      "export_sha256": "2a8b5ff5cf68cd0bfbfc37f8927ef244af8e8916bffc5b2d35f3e54ac3ddb1d5",
+      "source_bytes": 14885,
+      "export_bytes": 14885,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-docs-research/dynamic-title-config.ts",
+      "export": "specs/pi-model-logo/evidence/session-handover/research/dynamic-title-config.ts",
+      "source_sha256": "de11c1e737becc64a4e1b4f849f275b89592c2ced7dac682446960900f8be437",
+      "export_sha256": "de11c1e737becc64a4e1b4f849f275b89592c2ced7dac682446960900f8be437",
+      "source_bytes": 5364,
+      "export_bytes": 5364,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-docs-research/dynamic-title-index.ts",
+      "export": "specs/pi-model-logo/evidence/session-handover/research/dynamic-title-index.ts",
+      "source_sha256": "f8206d1fd0572fa65978d6231374eb3500b8fdfb5cc5b256217f5e86286d0aa6",
+      "export_sha256": "f8206d1fd0572fa65978d6231374eb3500b8fdfb5cc5b256217f5e86286d0aa6",
+      "source_bytes": 20815,
+      "export_bytes": 20815,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-docs-research/dynamic-title-title-formatter.ts",
+      "export": "specs/pi-model-logo/evidence/session-handover/research/dynamic-title-title-formatter.ts",
+      "source_sha256": "fbe3fd346d7fd56da9d27f669a6dc971a5d167f49631163453393fde0cbdc6cc",
+      "export_sha256": "fbe3fd346d7fd56da9d27f669a6dc971a5d167f49631163453393fde0cbdc6cc",
+      "source_bytes": 3265,
+      "export_bytes": 3265,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-docs-research/herdr-cli-latest.mdx",
+      "export": "specs/pi-model-logo/evidence/session-handover/research/herdr-cli-latest.mdx",
+      "source_sha256": "f9b6a2ed88e35799551cb7f1efd3f58281f81945357b607d2e8a0f688f673489",
+      "export_sha256": "f9b6a2ed88e35799551cb7f1efd3f58281f81945357b607d2e8a0f688f673489",
+      "source_bytes": 37540,
+      "export_bytes": 37540,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-docs-research/herdr-socket-latest.mdx",
+      "export": "specs/pi-model-logo/evidence/session-handover/research/herdr-socket-latest.mdx",
+      "source_sha256": "0f0aa15b4f3204cb121c9a05c37c195de5f0fe57252803eae15a526d9cb4aa50",
+      "export_sha256": "0f0aa15b4f3204cb121c9a05c37c195de5f0fe57252803eae15a526d9cb4aa50",
+      "source_bytes": 45816,
+      "export_bytes": 45816,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-docs-research/pi-extensions-latest.md",
+      "export": "specs/pi-model-logo/evidence/session-handover/research/pi-extensions-latest.md",
+      "source_sha256": "bd2ed1f728173c1defc035e90c3894c308ae153fa08575c12b4a9988e11f8108",
+      "export_sha256": "bd2ed1f728173c1defc035e90c3894c308ae153fa08575c12b4a9988e11f8108",
+      "source_bytes": 20085,
+      "export_bytes": 20085,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-docs-research/pi-interactive-1.0.4.ts",
+      "export": "specs/pi-model-logo/evidence/session-handover/research/pi-interactive-1.0.4.ts",
+      "source_sha256": "14abc51f5749f174045a5cb8879e4947b87dfee1a154db857cf2709bccfe9c50",
+      "export_sha256": "14abc51f5749f174045a5cb8879e4947b87dfee1a154db857cf2709bccfe9c50",
+      "source_bytes": 249202,
+      "export_bytes": 249202,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-docs-research/pi-interactive-latest.ts",
+      "export": "specs/pi-model-logo/evidence/session-handover/research/pi-interactive-latest.ts",
+      "source_sha256": "b38fc2eb1647d702f8bf09c6ba4e69dc6fda6941d6cb2edad214277aef8e8b8d",
+      "export_sha256": "b38fc2eb1647d702f8bf09c6ba4e69dc6fda6941d6cb2edad214277aef8e8b8d",
+      "source_bytes": 250760,
+      "export_bytes": 250760,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-docs-research/pi-issue-3686.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/research/pi-issue-3686.json",
+      "source_sha256": "d3ccca59b677524159c9e00991f00aeae26452904aea63e819678495193518ea",
+      "export_sha256": "726ec5a77289504472492215978efb0cba01d6cc7700b8b49403b3fb0fd19227",
+      "source_bytes": 7288,
+      "export_bytes": 7856,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-docs-research/pi-latest-release.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/research/pi-latest-release.json",
+      "source_sha256": "8a1277e1e796311c1abff9da4b83cbacdc1e0a4e9cb373913001e743fb9e8c20",
+      "export_sha256": "aba9ae75b24eb572b75f74aa33755419fd84e0bf99f56662a602f5be9d9813ac",
+      "source_bytes": 27314,
+      "export_bytes": 30773,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-docs-research/pi-main-commit.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/research/pi-main-commit.json",
+      "source_sha256": "53d814b9295fb073dee19cab0c5e5bf87dd36dcf9ee5e158f8faa8ec6273614b",
+      "export_sha256": "f74040c269a5574e4f1330d7dbe3dcd37fd7ae7aecdb2fec86ad0077cb46a985",
+      "source_bytes": 8499,
+      "export_bytes": 9189,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-docs-research/pi-title-example-latest.ts",
+      "export": "specs/pi-model-logo/evidence/session-handover/research/pi-title-example-latest.ts",
+      "source_sha256": "ec56e7edf954966b5991bcad63141be1a09d17753cdd0c59efca1b9e649dadf2",
+      "export_sha256": "ec56e7edf954966b5991bcad63141be1a09d17753cdd0c59efca1b9e649dadf2",
+      "source_bytes": 1623,
+      "export_bytes": 1623,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-docs-research/pi-types-1.0.4.ts",
+      "export": "specs/pi-model-logo/evidence/session-handover/research/pi-types-1.0.4.ts",
+      "source_sha256": "33be19555ad54f9e10a3436ce51f54bd6b27cc870a7d9ecc0e4997aeeaa3ae0b",
+      "export_sha256": "5290e3ae1451c79eea31eb4609ae9e3457360515ed1080a09a1017abbff96de6",
+      "source_bytes": 82892,
+      "export_bytes": 82888,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-docs-research/pi-types-latest.ts",
+      "export": "specs/pi-model-logo/evidence/session-handover/research/pi-types-latest.ts",
+      "source_sha256": "d9a24065cc9830dc8bdc8d2e41299ad6ce125b3d156a0de1674faeabcb439122",
+      "export_sha256": "b5986c47a2f8d3ca0235c12a02c49439a281d4dbd6d21e1e1debc1bc60b89e3f",
+      "source_bytes": 83476,
+      "export_bytes": 83472,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-docs-research/retrieval-manifest.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/research/retrieval-manifest.json",
+      "source_sha256": "fe1d771d49e8ec8fb09fc0a6f7e9e1231e545fd82454444f6615a25e02de2bee",
+      "export_sha256": "af52f602fbcb15e9cb59a4938e6feb4ac8914f88c38f76415d1b0edd06799a13",
+      "source_bytes": 5024,
+      "export_bytes": 5025,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-docs-research/upstream-title-issue-comments.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/research/upstream-title-issue-comments.json",
+      "source_sha256": "ddec769e1573aa1f6e12005cdb359da6248351171d80429da351959cb0a75c58",
+      "export_sha256": "68b43dd01d5080fef38fb7300f6052eaa5ffa068b31b98bcd12669d634af00eb",
+      "source_bytes": 6859,
+      "export_bytes": 8345,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/brief.txt",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-1/brief.txt",
+      "source_sha256": "77dcf0543eb57e4cfa9ce1d5cba627165314daa9228db3b6ac794b0c3624ce6a",
+      "export_sha256": "77dcf0543eb57e4cfa9ce1d5cba627165314daa9228db3b6ac794b0c3624ce6a",
+      "source_bytes": 2003,
+      "export_bytes": 2003,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/dispatch-audit.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-1/dispatch-audit.json",
+      "source_sha256": "1292a6cbb0f091592416392512019e805433caf1de03b6d31dc3f53a9c14faa4",
+      "export_sha256": "f4dd2904608621e33053757622ab1bdac8af87f9995737a675df97b9fe4719cc",
+      "source_bytes": 1016,
+      "export_bytes": 995,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/execution.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-1/execution.json",
+      "source_sha256": "fbda97d36644b9777d40ba62f4b1ea563acb3309a92ce8f18f369af7da58f9ff",
+      "export_sha256": "68f6394946073b4d052ad550c57f46c07bd5cdeb4396abddfcf6ff9999dd580e",
+      "source_bytes": 86,
+      "export_bytes": 97,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/formal-review.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-1/formal-review.json",
+      "source_sha256": "cd36a770c2c188997b972f51c76797ed68fbebe382d4e08b23b82d8db8e90ab2",
+      "export_sha256": "f5ebf0f0a31e499065e249a221fe120e4a831c10235c5171addb38ef5cf853bb",
+      "source_bytes": 35778,
+      "export_bytes": 35540,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/recover_review.py",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-1/recover_review.py",
+      "source_sha256": "ea55a9103a839f3305641077a657e87e84ae0e152dddad22ee88cf76bcfa1a6a",
+      "export_sha256": "ea55a9103a839f3305641077a657e87e84ae0e152dddad22ee88cf76bcfa1a6a",
+      "source_bytes": 1917,
+      "export_bytes": 1917,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/recovery-audit.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-1/recovery-audit.json",
+      "source_sha256": "a14095f67d41c4ec3e4d0d54b05b826473a5234c9601b1b8f18cc118df912c7f",
+      "export_sha256": "ae6f288907539036022ada2af47244b91e6df917f31adba301f46c2700c6abe4",
+      "source_bytes": 450,
+      "export_bytes": 451,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/recovery-auth-evidence.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-1/recovery-auth-evidence.json",
+      "source_sha256": "0e53234d471a29f5c3229e60176922bede86ccdaf3bcb7228c36f8a90afaf1a2",
+      "export_sha256": "97d1eeff4e23c49bc155f9c05956d1a63119ec43a9f20733db85a13494de7ffd",
+      "source_bytes": 1762,
+      "export_bytes": 1798,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/recovery-brief.txt",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-1/recovery-brief.txt",
+      "source_sha256": "5ac77339d9e81888f571930492970af9caf98c095e6472314c04d23a3961af26",
+      "export_sha256": "5ac77339d9e81888f571930492970af9caf98c095e6472314c04d23a3961af26",
+      "source_bytes": 2322,
+      "export_bytes": 2322,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/recovery-command.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-1/recovery-command.json",
+      "source_sha256": "c51d92a6aa5c8f34c0efb8b29d9492ff417d5212217bf8d6d640c3258fb7a291",
+      "export_sha256": "20d6d8530643bfa292d61a81790631d825ca640f3d469037512d8baa47eb2cbd",
+      "source_bytes": 3270,
+      "export_bytes": 3315,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/recovery-execution.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-1/recovery-execution.json",
+      "source_sha256": "0957fa257a2fda32a658d199cfe99a47f1fb3f93f181e2645703f1fb80cb5413",
+      "export_sha256": "cb721dd779a57676299d6fffffe8ca1ee9af904bfa2c02d54d1b24f1f345cc37",
+      "source_bytes": 85,
+      "export_bytes": 96,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/recovery-output.jsonl",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-1/recovery-output.jsonl",
+      "source_sha256": "1cd3b98e02de740cf04ced2d03b770686dad6ddf3de0395d883157e0dd853ecd",
+      "export_sha256": "777ad5a58d23538b47b9fcab1fe6e7f18c8e9e8d4b58689b690728448f7624dd",
+      "source_bytes": 811632,
+      "export_bytes": 822286,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/recovery-packet-verification.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-1/recovery-packet-verification.json",
+      "source_sha256": "7460917c3a6ea1476fe86016688d9a2f8de20a6521faebbc4e4769a418437a03",
+      "export_sha256": "a356c48e59a0aed7bba8b8b56fb044ba4adce4b620ab68977efce2608c0ae0a3",
+      "source_bytes": 41,
+      "export_bytes": 47,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/recovery-packet.tar.gz",
+      "source_sha256": "6fcbb7b76db28d861b171c4802f0928c33e276fef18bbd493ebfc18876b4f365",
+      "bytes": 4857028,
+      "export": "not exported: binary archive; readable packet material is exported separately"
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/recovery-process-verification.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-1/recovery-process-verification.json",
+      "source_sha256": "7b459cd0a8717a08a4c5bb4c7d4affb94a82407a4a90b97ebe5ca4598ba1f98a",
+      "export_sha256": "b417f9950db7323307235cf885c04eae00b2c599f7c3a43b1d4868994f84adde",
+      "source_bytes": 29,
+      "export_bytes": 33,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/recovery-result.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-1/recovery-result.json",
+      "source_sha256": "2c1ae5cfdb59d33b41284e48a10e99350cc82ef0771968d76a608120c138fff7",
+      "export_sha256": "50f604c5b8cf30dc67620de0d77637edaaa46906f6c51848ea5d7c7a6ea50594",
+      "source_bytes": 41164,
+      "export_bytes": 40908,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/recovery-settings.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-1/recovery-settings.json",
+      "source_sha256": "f432eddcc7a006afdfc7c4077c1bf4dd8da412f6bdd804ed296b6959a23f88e7",
+      "export_sha256": "0929be52a86ede0523ec08d00c8edbff1b4cf1b03d1bde58f18528b4b084741c",
+      "source_bytes": 3512,
+      "export_bytes": 3777,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/recovery-stderr.txt",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-1/recovery-stderr.txt",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "export_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_bytes": 0,
+      "export_bytes": 0,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/repository-evidence.txt",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-1/repository-evidence.txt",
+      "source_sha256": "ff38966342973fc61385edc7af55fdbab1c0f19776fb9d2c1ad50e9c50bb401a",
+      "export_sha256": "ff38966342973fc61385edc7af55fdbab1c0f19776fb9d2c1ad50e9c50bb401a",
+      "source_bytes": 812,
+      "export_bytes": 812,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/result.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-1/result.json",
+      "source_sha256": "6343e27984ac8be722b2d5675cf2f7a8a9eb180cc5d6888ecc2d7280ccc3014b",
+      "export_sha256": "45f6b2d0787a1b4abd2996a62eb33e6644554a5789fd1694390aaad029801ea3",
+      "source_bytes": 1197,
+      "export_bytes": 1562,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/run_review.py",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-1/run_review.py",
+      "source_sha256": "43364fe1fbf3d52b5bb072de48ed24f957aefccbb03d2af9c5d45e92ae6cf92e",
+      "export_sha256": "43364fe1fbf3d52b5bb072de48ed24f957aefccbb03d2af9c5d45e92ae6cf92e",
+      "source_bytes": 1455,
+      "export_bytes": 1455,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/session.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-1/session.json",
+      "source_sha256": "82c07d5e62d5af22fbc726ed3ccafa455f53c8d6f759da53cc125552058efdde",
+      "export_sha256": "a8901ec025d30e648490507bc3d46dd58ebe0d92b68365595f2549f15fd0a00a",
+      "source_bytes": 138,
+      "export_bytes": 149,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/settings.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-1/settings.json",
+      "source_sha256": "cad2ed70692796fa9aae4daf8480d97e30f6c6b086dafb5e4d49683aee95c4da",
+      "export_sha256": "644e10bde7941ce8f46b8c87a97c055ecbedb148523b486dec68a39a4b0b92bd",
+      "source_bytes": 2876,
+      "export_bytes": 3141,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/spec.sha256",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-1/spec.sha256",
+      "source_sha256": "5e81587986a35e917349c38b613d07dacfa9d740c8a8b7907cbdb619e35015a5",
+      "export_sha256": "5e81587986a35e917349c38b613d07dacfa9d740c8a8b7907cbdb619e35015a5",
+      "source_bytes": 75,
+      "export_bytes": 75,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/spec.txt",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-1/spec.txt",
+      "source_sha256": "31ea10346168513a9c1da53b3a6a3409c89762cef37c633cc9255b754c2d2b06",
+      "export_sha256": "31ea10346168513a9c1da53b3a6a3409c89762cef37c633cc9255b754c2d2b06",
+      "source_bytes": 665,
+      "export_bytes": 665,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/stderr.txt",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-1/stderr.txt",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "export_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_bytes": 0,
+      "export_bytes": 0,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/brief.txt",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/brief.txt",
+      "source_sha256": "6eb7f1ed2313663e66a384a8640930a6553cba9d248b430eb7431dfd2ef0cf4a",
+      "export_sha256": "6eb7f1ed2313663e66a384a8640930a6553cba9d248b430eb7431dfd2ef0cf4a",
+      "source_bytes": 7041,
+      "export_bytes": 7041,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/coverage-audit.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/coverage-audit.json",
+      "source_sha256": "71a862817d5741e4efd95ecbc7fd44984f5aeb1fd65c33b5686de90ceac8ad3e",
+      "export_sha256": "71a862817d5741e4efd95ecbc7fd44984f5aeb1fd65c33b5686de90ceac8ad3e",
+      "source_bytes": 1543,
+      "export_bytes": 1543,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/deadline.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/deadline.json",
+      "source_sha256": "36d18a6dede1afdfc6897177dff1da2063c2b004e976d3df783d5a5bf430a455",
+      "export_sha256": "a1b93f49835e59dc5061deef26ea901a8c7272949a3a4990618406456c1f1a2b",
+      "source_bytes": 168,
+      "export_bytes": 169,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/gitleaks-context.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/gitleaks-context.json",
+      "source_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "export_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "source_bytes": 3,
+      "export_bytes": 3,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/gitleaks.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/gitleaks.json",
+      "source_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "export_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "source_bytes": 3,
+      "export_bytes": 3,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/launch.py",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/launch.py",
+      "source_sha256": "0c6f3c325719bf40ea1b54f96d94f9578e28f40a2fef84776c80f683bf71b888",
+      "export_sha256": "0c6f3c325719bf40ea1b54f96d94f9578e28f40a2fef84776c80f683bf71b888",
+      "source_bytes": 2741,
+      "export_bytes": 2741,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/packet/SPEC.md",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/packet/SPEC.md",
+      "source_sha256": "30e9921892ecfc8545b4c12dd1283001e0afb93ec78745ccc88ce7aa03bacdc3",
+      "export_sha256": "30e9921892ecfc8545b4c12dd1283001e0afb93ec78745ccc88ce7aa03bacdc3",
+      "source_bytes": 27271,
+      "export_bytes": 27271,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/packet/decision-context.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/packet/decision-context.json",
+      "source_sha256": "86edad25a841af603134c5b7c97a1665ce42d7c84f517e178171525457bc4a4d",
+      "export_sha256": "86edad25a841af603134c5b7c97a1665ce42d7c84f517e178171525457bc4a4d",
+      "source_bytes": 3957,
+      "export_bytes": 3957,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/packet/manifest.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/packet/manifest.json",
+      "source_sha256": "3aa9dcbbc159c224631e3aa41dfc5aae3d4fa22996fb99fee9d8b821de2c7c98",
+      "export_sha256": "3aa9dcbbc159c224631e3aa41dfc5aae3d4fa22996fb99fee9d8b821de2c7c98",
+      "source_bytes": 5216,
+      "export_bytes": 5216,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/packet/operator-messages.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/packet/operator-messages.json",
+      "source_sha256": "966935d074d15e7ad318213fbb88b11a26323ed5ad2f8eff1fcd9d30e2f3c43b",
+      "export_sha256": "966935d074d15e7ad318213fbb88b11a26323ed5ad2f8eff1fcd9d30e2f3c43b",
+      "source_bytes": 5320,
+      "export_bytes": 5320,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/packet/proposal-assistant-not-authority.txt",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/packet/proposal-assistant-not-authority.txt",
+      "source_sha256": "31ea10346168513a9c1da53b3a6a3409c89762cef37c633cc9255b754c2d2b06",
+      "export_sha256": "31ea10346168513a9c1da53b3a6a3409c89762cef37c633cc9255b754c2d2b06",
+      "source_bytes": 665,
+      "export_bytes": 665,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/packet/source/alghul-paths.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/packet/source/alghul-paths.json",
+      "source_sha256": "a3b1c181a0aea6afafe735c79086dcf1a135b263672221933f31a8a881025146",
+      "export_sha256": "a3b1c181a0aea6afafe735c79086dcf1a135b263672221933f31a8a881025146",
+      "source_bytes": 665,
+      "export_bytes": 665,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/packet/source/callers-loader.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/packet/source/callers-loader.json",
+      "source_sha256": "ea8e9d927a0f2a4169a7b316fac937d5ac7e5402fa81bfdf7ada9e486189bf21",
+      "export_sha256": "0f71ba21660de306a88e71ff074188ecac3473de05cd7f9d766d11d6486112ec",
+      "source_bytes": 10723,
+      "export_bytes": 10708,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/packet/source/crypto-passages.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/packet/source/crypto-passages.json",
+      "source_sha256": "2afeebdd1265d7138ab6b2a42d3ee21898b57db592fb9324c01a90ca3aeaed85",
+      "export_sha256": "3f664887dacb097a9bbdc9f8722cd9f24107ae006e3aa563b25d9aeb68cb4eec",
+      "source_bytes": 5776,
+      "export_bytes": 5712,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/packet/source/extensions.md",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/packet/source/extensions.md",
+      "source_sha256": "bd2ed1f728173c1defc035e90c3894c308ae153fa08575c12b4a9988e11f8108",
+      "export_sha256": "bd2ed1f728173c1defc035e90c3894c308ae153fa08575c12b4a9988e11f8108",
+      "source_bytes": 20085,
+      "export_bytes": 20085,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/packet/source/filesystem-passages.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/packet/source/filesystem-passages.json",
+      "source_sha256": "4ff16f1a1092a9f0b69306b0cc1e5a6c31a17aa91a21f4bc422a09806fac69ea",
+      "export_sha256": "576b420eecec88beb18376bc5f52e8e44ff8fdea4cf221478249f4198fb47a9c",
+      "source_bytes": 6012,
+      "export_bytes": 5960,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/packet/source/hash-bounds-identity.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/packet/source/hash-bounds-identity.json",
+      "source_sha256": "97747769db7b76202e698a74fbca929301c37b1f75f7f2b01c094bc72b498ca7",
+      "export_sha256": "97747769db7b76202e698a74fbca929301c37b1f75f7f2b01c094bc72b498ca7",
+      "source_bytes": 1015,
+      "export_bytes": 1015,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/packet/source/node-crypto.txt",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/packet/source/node-crypto.txt",
+      "source_sha256": "4cdc5bc411528e3621213a163cc6856dc0385f63dd063f6455d86e50c2340277",
+      "export_sha256": "4cdc5bc411528e3621213a163cc6856dc0385f63dd063f6455d86e50c2340277",
+      "source_bytes": 263195,
+      "export_bytes": 263195,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/packet/source/node-fs.txt",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/packet/source/node-fs.txt",
+      "source_sha256": "0ae66a34cfd67cedce5c53ca8f6269f2f470ac760ed923776ffb7e8525eaa8aa",
+      "export_sha256": "0ae66a34cfd67cedce5c53ca8f6269f2f470ac760ed923776ffb7e8525eaa8aa",
+      "source_bytes": 290231,
+      "export_bytes": 290231,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/packet/source/pi-output.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/packet/source/pi-output.json",
+      "source_sha256": "19d197bcfce8b0cdac9c5509e65493a9ea434bcd93f95548ffc99fcaec797807",
+      "export_sha256": "19d197bcfce8b0cdac9c5509e65493a9ea434bcd93f95548ffc99fcaec797807",
+      "source_bytes": 11707,
+      "export_bytes": 11707,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/packet/source/posix-rename.txt",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/packet/source/posix-rename.txt",
+      "source_sha256": "13635a48dae2c69e80817726328cd6651f8e1139e6c43dcae00255c6e9896ee4",
+      "export_sha256": "13635a48dae2c69e80817726328cd6651f8e1139e6c43dcae00255c6e9896ee4",
+      "source_bytes": 15238,
+      "export_bytes": 15238,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/packet/source/schema-fields-alghul.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/packet/source/schema-fields-alghul.json",
+      "source_sha256": "563049404fd514a8edd1488298528fa77439dde1ba8fa3c8a453035366d30596",
+      "export_sha256": "563049404fd514a8edd1488298528fa77439dde1ba8fa3c8a453035366d30596",
+      "source_bytes": 4232,
+      "export_bytes": 4232,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/packet/source/schema-fields.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/packet/source/schema-fields.json",
+      "source_sha256": "322273e6d81e649c7b5f1a181a5a7542687a708f4051ae35e4ecf42bd6cd482a",
+      "export_sha256": "322273e6d81e649c7b5f1a181a5a7542687a708f4051ae35e4ecf42bd6cd482a",
+      "source_bytes": 4169,
+      "export_bytes": 4169,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/packet/source/socket.mdx",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/packet/source/socket.mdx",
+      "source_sha256": "0f0aa15b4f3204cb121c9a05c37c195de5f0fe57252803eae15a526d9cb4aa50",
+      "export_sha256": "0f0aa15b4f3204cb121c9a05c37c195de5f0fe57252803eae15a526d9cb4aa50",
+      "source_bytes": 45816,
+      "export_bytes": 45816,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/packet/source/source-output.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/packet/source/source-output.json",
+      "source_sha256": "f92c75369e92073117feeb601dcc2446f9a69fbd2ebb84f0ce1220b32982bff9",
+      "export_sha256": "2314f9030a68cea31e0f42fed55660e7b40ef42795e6a3f377acf7ad3521bc93",
+      "source_bytes": 16823,
+      "export_bytes": 16772,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/packet/source/sources.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/packet/source/sources.json",
+      "source_sha256": "a35164a6aae03a6dbedd6cdedf4781fe3b09c252b46b9462980925f1337beef6",
+      "export_sha256": "a35164a6aae03a6dbedd6cdedf4781fe3b09c252b46b9462980925f1337beef6",
+      "source_bytes": 1365,
+      "export_bytes": 1365,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/packet/source/types-1.0.4.ts",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/packet/source/types-1.0.4.ts",
+      "source_sha256": "33be19555ad54f9e10a3436ce51f54bd6b27cc870a7d9ecc0e4997aeeaa3ae0b",
+      "export_sha256": "5290e3ae1451c79eea31eb4609ae9e3457360515ed1080a09a1017abbff96de6",
+      "source_bytes": 82892,
+      "export_bytes": 82888,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/packet/source/versions.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/packet/source/versions.json",
+      "source_sha256": "b2025d8bd6ec073f59c7c89aeb2551253f7d4ada185161c677101c34f5893b25",
+      "export_sha256": "b2025d8bd6ec073f59c7c89aeb2551253f7d4ada185161c677101c34f5893b25",
+      "source_bytes": 499,
+      "export_bytes": 499,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/packet/traceability.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/packet/traceability.json",
+      "source_sha256": "6b4eead98722a919c676087a52f62f8cdc6a725cb4d2099af308c56118fbd785",
+      "export_sha256": "6b4eead98722a919c676087a52f62f8cdc6a725cb4d2099af308c56118fbd785",
+      "source_bytes": 28676,
+      "export_bytes": 28676,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/process-receipt.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/process-receipt.json",
+      "source_sha256": "597fe9cd6f94e2e317685d378831899bef373c1cb4dd895a820555254f52e3eb",
+      "export_sha256": "36bbcb46afb51dbc9de14afc1a6694e8c0371c2af86a6657d3720aefcaf58b5c",
+      "source_bytes": 217,
+      "export_bytes": 218,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/report-attempt1.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/report-attempt1.json",
+      "source_sha256": "8423354eb6e3b3a9dd04b2c03a4bb189f210e381137c856a047aac5ec026720a",
+      "export_sha256": "088a754e435ce95b870270eee259224db309cf3f49d5e0545270807ab8486653",
+      "source_bytes": 51303,
+      "export_bytes": 60678,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/report-schema.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/report-schema.json",
+      "source_sha256": "6a5a95b8ad8d1c214d58cccfb299c0c7791c9839bf4ee64cc6e4aa4a3eadc57c",
+      "export_sha256": "6a5a95b8ad8d1c214d58cccfb299c0c7791c9839bf4ee64cc6e4aa4a3eadc57c",
+      "source_bytes": 8556,
+      "export_bytes": 8556,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/report.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/report.json",
+      "source_sha256": "c4c15bb70c769d4b56b3815cd996639220d2874817a40b296ccb3af5648994d8",
+      "export_sha256": "3234df8a7fda7b7f1542d9dd390abd48ceb13d3b8ef4a5ba4ac70cea09148bd2",
+      "source_bytes": 49574,
+      "export_bytes": 59117,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/resume.py",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/resume.py",
+      "source_sha256": "420e2460a5dba102f16d0c8dffd565daddb789bc75b0e18ff325a2f245284666",
+      "export_sha256": "420e2460a5dba102f16d0c8dffd565daddb789bc75b0e18ff325a2f245284666",
+      "source_bytes": 1291,
+      "export_bytes": 1291,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/run.err",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/run.err",
+      "source_sha256": "f33f5c8b7b792aa77b1b48c8936ef97c0166a2084d5ad181a2c36e3ef341df5d",
+      "export_sha256": "f33f5c8b7b792aa77b1b48c8936ef97c0166a2084d5ad181a2c36e3ef341df5d",
+      "source_bytes": 393,
+      "export_bytes": 393,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/run.jsonl",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/run.jsonl",
+      "source_sha256": "9fa324b0cd720692e6319dada305918e53e2cad3de7cb14b3581faf3558b0814",
+      "export_sha256": "71f1fe062f515b3cb24b71a68c54562a1b3551c03248e13262a8347dccfa6147",
+      "source_bytes": 384369,
+      "export_bytes": 386703,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/sendback-1.err",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/sendback-1.err",
+      "source_sha256": "3c0230e704d658f69f25e87ff45ddc70386cd74b24bad790650e37e64677e40c",
+      "export_sha256": "3c0230e704d658f69f25e87ff45ddc70386cd74b24bad790650e37e64677e40c",
+      "source_bytes": 354,
+      "export_bytes": 354,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/sendback-1.jsonl",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/sendback-1.jsonl",
+      "source_sha256": "e029a62e4b2df11391a7a939927fd4e911354298ca333ad0afd7b3a5da54ee95",
+      "export_sha256": "ace497a3f07c17aaa7be829c3e1174320b2209bea9cd39f5ffd40ed318f5c323",
+      "source_bytes": 228655,
+      "export_bytes": 230753,
+      "unchanged_bytes": false
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/sendback-1.txt",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/sendback-1.txt",
+      "source_sha256": "417a82296408c7fcda97a1b096183087f45767dd193e10d6f0a555a98301a6b9",
+      "export_sha256": "417a82296408c7fcda97a1b096183087f45767dd193e10d6f0a555a98301a6b9",
+      "source_bytes": 2665,
+      "export_bytes": 2665,
+      "unchanged_bytes": true
+    },
+    {
+      "source": "/Users/42piratas/42labs/review-artifacts/pi-model-logo-independent-review/r2/sendback-process-receipt.json",
+      "export": "specs/pi-model-logo/evidence/session-handover/round-2/sendback-process-receipt.json",
+      "source_sha256": "5a70387701e1f8f410557e24886ac0d5bb4dfa4e312d3f80e88d21971c978662",
+      "export_sha256": "6e3fefca8c640ed9881fa6f9766db15c84ce3e5d95903c0332b0e2e2352da894",
+      "source_bytes": 192,
+      "export_bytes": 193,
+      "unchanged_bytes": false
+    }
+  ],
+  "public_ssh_credential_redactions": 4
+}

@@ -1,0 +1,13 @@
+e258108012cc45ac18c8b3e7bb6b5e1dab1b3b2d
+e258108 chore(deps): bump actions/setup-node from 4.4.0 to 7.0.0 (#3)
+5a07485 chore(deps): bump actions/setup-python from 5.6.0 to 7.0.0 (#4)
+a28ac6e chore(deps-dev): bump prettier from 3.9.6 to 3.9.9 (#5)
+0a5cb40 chore(deps): bump actions/checkout from 4.4.0 to 7.0.1 (#2)
+43f2ab9 docs(readme): refresh contributors (#1)
+354214b fix(font): rebuild stale icon font so CI goes green (#6)
+3b059f6 docs: add a demo of the attention view and groups
+1149d31 docs: cut the README to what the plugin adds, link upstream for the rest
+c511b4a chore: version 0.42.0
+05da8c4 fix: rebuild from the working local install, herdr-radar 1.3.15 base
+292b189 feat: herdr-radar-plus 1.0.0, attention view, named groups across machines, model mark, machine row
+1869b06 chore(release): 1.3.18

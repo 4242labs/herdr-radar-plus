@@ -1,0 +1,48 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/source/lib/**)",
+      "Read(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/source/test/**)",
+      "Read(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/source/README.md)",
+      "Read(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/source/CHANGELOG.md)",
+      "Read(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/source/package.json)",
+      "Read(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/pi/dist/core/**)",
+      "Read(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/pi/dist/modes/**)",
+      "Read(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/pi/docs/**)",
+      "Read(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/pi/examples/extensions/**)",
+      "Read(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/pi/package.json)",
+      "Read(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/spec.txt)",
+      "Read(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/repository-evidence.txt)",
+      "Glob(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/source/lib/**)",
+      "Glob(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/source/test/**)",
+      "Glob(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/source/README.md)",
+      "Glob(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/source/CHANGELOG.md)",
+      "Glob(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/source/package.json)",
+      "Glob(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/pi/dist/core/**)",
+      "Glob(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/pi/dist/modes/**)",
+      "Glob(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/pi/docs/**)",
+      "Glob(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/pi/examples/extensions/**)",
+      "Glob(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/pi/package.json)",
+      "Glob(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/spec.txt)",
+      "Glob(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/repository-evidence.txt)",
+      "Grep(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/source/lib/**)",
+      "Grep(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/source/test/**)",
+      "Grep(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/source/README.md)",
+      "Grep(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/source/CHANGELOG.md)",
+      "Grep(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/source/package.json)",
+      "Grep(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/pi/dist/core/**)",
+      "Grep(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/pi/dist/modes/**)",
+      "Grep(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/pi/docs/**)",
+      "Grep(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/pi/examples/extensions/**)",
+      "Grep(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/pi/package.json)",
+      "Grep(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/spec.txt)",
+      "Grep(/home/42piratas/review-artifacts/pi-model-logo-opus-review-recovery/repository-evidence.txt)"
+    ],
+    "deny": [
+      "Read(**/.env*)",
+      "Read(**/sessions/**)",
+      "Read(**/.git/**)"
+    ]
+  },
+  "disableAllHooks": true
+}

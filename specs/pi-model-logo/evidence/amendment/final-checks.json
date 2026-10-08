@@ -1,0 +1,93 @@
+{
+  "verdict": "READY",
+  "compliance_certificate": "SUPERSEDED: prior AM03 violated; not an all-rules pass",
+  "current_source_first_receipt": "recheck/final-checks.json",
+  "completed_at": "2026-10-08T09:35:55.940960-03:00",
+  "spec_sha256": "25a11ab0b2352c15b75c21b634a449d02c6261c1c0bc283e4a33e70f666dab67",
+  "counts": {
+    "obligations": 38,
+    "implementation_requirements": 18,
+    "implementation_verifications": 18,
+    "authoring_verifications": 1,
+    "delivery_tasks": 5
+  },
+  "finding_statuses": {
+    "report_findings": 8,
+    "report_unknowns": 7,
+    "report_taste": 4,
+    "amendment_findings": 6,
+    "coverage_subcriteria": 23,
+    "resolved": 22,
+    "disputed": 3,
+    "escalated": 0
+  },
+  "checks": {
+    "audit": {
+      "command": "PYTHON_BIN=$(command -v python3); env -i HOME=\"$HOME\" PATH=\"/opt/homebrew/bin:/usr/bin:/bin\" \"$PYTHON_BIN\" specs/pi-model-logo/evidence/audit-spec.py",
+      "cwd": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec",
+      "result": {
+        "output": "{\n  \"verdict\": \"READY\",\n  \"audit_passed\": true,\n  \"counts\": {\n    \"obligations\": 38,\n    \"implementation_requirements\": 18,\n    \"implementation_verifications\": 18,\n    \"authoring_verifications\": 1,\n    \"delivery_tasks\": 5\n  },\n  \"finding_statuses\": {\n    \"report_findings\": 8,\n    \"report_unknowns\": 7,\n    \"report_taste\": 4,\n    \"amendment_findings\": 6,\n    \"coverage_subcriteria\": 23,\n    \"resolved\": 22,\n    \"disputed\": 3,\n    \"escalated\": 0\n  },\n  \"rules_attended\": 15,\n  \"length\": {\n    \"before_bytes\": 46695,\n    \"after_bytes\": 27271,\n    \"before_words\": 6065,\n    \"after_words\": 3664,\n    \"before_lines\": 341,\n    \"after_lines\": 232\n  },\n  \"cross_references\": [\n    \"lib/logos.js\",\n    \"lib/managed-config.js\",\n    \"lib/state.js\"\n  ],\n  \"sequence_policy_cases\": 96,\n  \"dependency_cycle\": false,\n  \"orphan_tasks\": 0,\n  \"spec_sha256\": \"25a11ab0b2352c15b75c21b634a449d02c6261c1c0bc283e4a33e70f666dab67\",\n  \"assumptions\": [],\n  \"implementation_tests_executed\": false,\n  \"live_acceptance_executed\": false,\n  \"deployment_executed\": false,\n  \"scope\": \"structural/provenance/schema-bound and declared-policy audit; final semantic sweep is author judgment\"\n}",
+        "exit_code": 0,
+        "error": null
+      }
+    },
+    "scope": {
+      "command": "python3 -c 'import json, subprocess\nfrom pathlib import Path\nchanged=subprocess.check_output([\"/opt/homebrew/bin/git\",\"diff\",\"--name-only\",\"HEAD\"],text=True).splitlines()\nuntracked=subprocess.check_output([\"/opt/homebrew/bin/git\",\"ls-files\",\"--others\",\"--exclude-standard\"],text=True).splitlines()\nassert all(x.startswith(\"specs/pi-model-logo/\") for x in changed+untracked), (changed,untracked)\nassert not subprocess.check_output([\"/opt/homebrew/bin/git\",\"diff\",\"HEAD\",\"--\",\"lib\",\"test\",\"package.json\",\"package-lock.json\"],text=True)\nprint(json.dumps({\"tracked_changes\":changed,\"untracked_files\":untracked,\"scope\":\"specification/evidence only\",\"application_diff_empty\":True,\"passed\":True},indent=2))\n'",
+      "cwd": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec",
+      "result": {
+        "output": "{\n  \"tracked_changes\": [\n    \"specs/pi-model-logo/SPEC.md\",\n    \"specs/pi-model-logo/evidence/audit-spec.py\",\n    \"specs/pi-model-logo/evidence/finding-adjudication.md\",\n    \"specs/pi-model-logo/evidence/review-adjudication.json\",\n    \"specs/pi-model-logo/rule-compliance.md\",\n    \"specs/pi-model-logo/traceability.json\"\n  ],\n  \"untracked_files\": [\n    \"specs/pi-model-logo/evidence/amendment/SPEC-before.md\",\n    \"specs/pi-model-logo/evidence/amendment/alghul-identity.json\",\n    \"specs/pi-model-logo/evidence/amendment/alghul-paths.json\",\n    \"specs/pi-model-logo/evidence/amendment/api-passages.txt\",\n    \"specs/pi-model-logo/evidence/amendment/audit-amendment.py\",\n    \"specs/pi-model-logo/evidence/amendment/audit-output.json\",\n    \"specs/pi-model-logo/evidence/amendment/before-audit-spec.py\",\n    \"specs/pi-model-logo/evidence/amendment/before-finding-adjudication.md\",\n    \"specs/pi-model-logo/evidence/amendment/before-review-adjudication.json\",\n    \"specs/pi-model-logo/evidence/amendment/before-rule-compliance.md\",\n    \"specs/pi-model-logo/evidence/amendment/before-traceability.json\",\n    \"specs/pi-model-logo/evidence/amendment/callers-output.json\",\n    \"specs/pi-model-logo/evidence/amendment/extensions.md\",\n    \"specs/pi-model-logo/evidence/amendment/filesystem-sources.json\",\n    \"specs/pi-model-logo/evidence/amendment/final-checks.json\",\n    \"specs/pi-model-logo/evidence/amendment/final-ledger-append.v4a\",\n    \"specs/pi-model-logo/evidence/amendment/herdr-schema-receipt.json\",\n    \"specs/pi-model-logo/evidence/amendment/identity.json\",\n    \"specs/pi-model-logo/evidence/amendment/node-fs.html\",\n    \"specs/pi-model-logo/evidence/amendment/pi-output.json\",\n    \"specs/pi-model-logo/evidence/amendment/posix-rename.html\",\n    \"specs/pi-model-logo/evidence/amendment/rules.json\",\n    \"specs/pi-model-logo/evidence/amendment/schema-fields-alghul.json\",\n    \"specs/pi-model-logo/evidence/amendment/schema-fields.json\",\n    \"specs/pi-model-logo/evidence/amendment/schema-summary.json\",\n    \"specs/pi-model-logo/evidence/amendment/socket.mdx\",\n    \"specs/pi-model-logo/evidence/amendment/source-output.json\",\n    \"specs/pi-model-logo/evidence/amendment/sources.json\",\n    \"specs/pi-model-logo/evidence/amendment/superseded-checks.json\",\n    \"specs/pi-model-logo/evidence/amendment/types-1.0.4.ts\"\n  ],\n  \"scope\": \"specification/evidence only\",\n  \"application_diff_empty\": true,\n  \"passed\": true\n}",
+        "exit_code": 0,
+        "error": null
+      }
+    },
+    "diff": {
+      "command": "/opt/homebrew/bin/git diff --check",
+      "cwd": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec",
+      "result": {
+        "output": "",
+        "exit_code": 0,
+        "error": null
+      }
+    },
+    "identity": {
+      "command": "/opt/homebrew/bin/git branch --show-current && /opt/homebrew/bin/git status --short && /opt/homebrew/bin/git rev-parse HEAD",
+      "cwd": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec",
+      "result": {
+        "output": "docs/adhoc-L2130-pi-model-logo-spec\n M specs/pi-model-logo/SPEC.md\n M specs/pi-model-logo/evidence/audit-spec.py\n M specs/pi-model-logo/evidence/finding-adjudication.md\n M specs/pi-model-logo/evidence/review-adjudication.json\n M specs/pi-model-logo/rule-compliance.md\n M specs/pi-model-logo/traceability.json\n?? specs/pi-model-logo/evidence/amendment/\n6d3151132ffc0ecd2bc2f8fad01aee5661c940fd",
+        "exit_code": 0,
+        "error": null
+      }
+    }
+  },
+  "whole_document_reread": true,
+  "source_sweep_completed": true,
+  "schema_bounds_checked": true,
+  "no_scope_change": true,
+  "no_acceptance_method_weakened": true,
+  "assumptions": [],
+  "not_delegated": true,
+  "unverified": [
+    "feature implementation tests",
+    "live two-host preflight and visible model acceptance",
+    "deployment/activation/rollback",
+    "post-merge validation"
+  ],
+  "runtime_changes": false,
+  "publication_performed": false,
+  "semantic_sweep": {
+    "actual-selected-model-only": true,
+    "both-hosts": true,
+    "zero-title-writes": true,
+    "single-token-owner": true,
+    "authoritative-reference-match": true,
+    "durable-sequence-reload-crash-recovery": true,
+    "bounded-failure-and-cleanup": true,
+    "unchanged-Hermes-and-managed-extension": true,
+    "fixed-acceptance-methods": true,
+    "executable-task-order": true,
+    "safe-rollback": true,
+    "scope-authority-and-prospective-paths": true,
+    "no-unanswered-product-decision": true,
+    "explicit-wire-envelope-and-response-validation": true
+  }
+}

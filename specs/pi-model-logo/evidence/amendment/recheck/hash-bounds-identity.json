@@ -1,0 +1,10 @@
+{
+  "command": "node -e \"const c=require('node:crypto'),f=require('node:fs'),p=require('node:path'); console.log(JSON.stringify({sha256:c.createHash('sha256').update('id\\u0000example','utf8').digest('hex'),open:typeof f.promises.open,rename:typeof f.promises.rename,absolute:p.isAbsolute('/example'),maxCounterBytes:Buffer.byteLength(JSON.stringify({last:Number.MAX_SAFE_INTEGER})),inputKeys:['pi_model_id','pi_model_ref'].length}));\"; /opt/homebrew/bin/git branch --show-current; /opt/homebrew/bin/git rev-parse HEAD",
+  "cwd": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec",
+  "executed_at": "2026-10-08T10:07:53.976614-03:00",
+  "result": {
+    "output": "{\"sha256\":\"dbd4920b9568f39da10981eae4541060152eaa18fcbf9d1d2197a591da9e8531\",\"open\":\"function\",\"rename\":\"function\",\"absolute\":true,\"maxCounterBytes\":25,\"inputKeys\":2}\ndocs/adhoc-L2130-pi-model-logo-spec\n6d3151132ffc0ecd2bc2f8fad01aee5661c940fd",
+    "exit_code": 0,
+    "error": null
+  }
+}

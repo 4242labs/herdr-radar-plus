@@ -1,0 +1,48 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(/Users/42piratas/42labs/herdr-radar-plus/lib/**)",
+      "Read(/Users/42piratas/42labs/herdr-radar-plus/test/**)",
+      "Read(/Users/42piratas/42labs/herdr-radar-plus/README.md)",
+      "Read(/Users/42piratas/42labs/herdr-radar-plus/CHANGELOG.md)",
+      "Read(/Users/42piratas/42labs/herdr-radar-plus/package.json)",
+      "Read(/opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/dist/core/**)",
+      "Read(/opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/dist/modes/**)",
+      "Read(/opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/docs/**)",
+      "Read(/opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/examples/extensions/**)",
+      "Read(/opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/package.json)",
+      "Read(/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/spec.txt)",
+      "Read(/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/repository-evidence.txt)",
+      "Glob(/Users/42piratas/42labs/herdr-radar-plus/lib/**)",
+      "Glob(/Users/42piratas/42labs/herdr-radar-plus/test/**)",
+      "Glob(/Users/42piratas/42labs/herdr-radar-plus/README.md)",
+      "Glob(/Users/42piratas/42labs/herdr-radar-plus/CHANGELOG.md)",
+      "Glob(/Users/42piratas/42labs/herdr-radar-plus/package.json)",
+      "Glob(/opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/dist/core/**)",
+      "Glob(/opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/dist/modes/**)",
+      "Glob(/opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/docs/**)",
+      "Glob(/opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/examples/extensions/**)",
+      "Glob(/opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/package.json)",
+      "Glob(/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/spec.txt)",
+      "Glob(/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/repository-evidence.txt)",
+      "Grep(/Users/42piratas/42labs/herdr-radar-plus/lib/**)",
+      "Grep(/Users/42piratas/42labs/herdr-radar-plus/test/**)",
+      "Grep(/Users/42piratas/42labs/herdr-radar-plus/README.md)",
+      "Grep(/Users/42piratas/42labs/herdr-radar-plus/CHANGELOG.md)",
+      "Grep(/Users/42piratas/42labs/herdr-radar-plus/package.json)",
+      "Grep(/opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/dist/core/**)",
+      "Grep(/opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/dist/modes/**)",
+      "Grep(/opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/docs/**)",
+      "Grep(/opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/examples/extensions/**)",
+      "Grep(/opt/homebrew/lib/node_modules/@earendil-works/pi-coding-agent/package.json)",
+      "Grep(/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/spec.txt)",
+      "Grep(/Users/42piratas/42labs/review-artifacts/pi-model-logo-opus-review/repository-evidence.txt)"
+    ],
+    "deny": [
+      "Read(**/.env*)",
+      "Read(**/sessions/**)",
+      "Read(**/.git/**)"
+    ]
+  },
+  "disableAllHooks": true
+}

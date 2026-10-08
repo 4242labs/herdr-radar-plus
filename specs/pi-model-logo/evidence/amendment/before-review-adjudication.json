@@ -1,0 +1,151 @@
+{
+  "findings": ["F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8"],
+  "unknowns": ["U1", "U2", "U3", "U4", "U5", "U6", "U7"],
+  "taste": ["T1", "T2", "T3", "T4"],
+  "coverage": [
+    {
+      "id": "1a",
+      "original_assessment": "FEASIBLE \u2014 verified executable API",
+      "requirements": ["R1", "R11"],
+      "disposition": "Specified with installed-source/offline feasibility evidence; implementation and live acceptance are future gates"
+    },
+    {
+      "id": "1b",
+      "original_assessment": "FEASIBLE \u2014 verified",
+      "requirements": ["R13"],
+      "disposition": "Specified with installed-source/offline feasibility evidence; implementation and live acceptance are future gates"
+    },
+    {
+      "id": "1c",
+      "original_assessment": "FEASIBLE \u2014 inputs verified, exact prefix unverified",
+      "requirements": ["R2"],
+      "disposition": "Specified with installed-source/offline feasibility evidence; implementation and live acceptance are future gates"
+    },
+    {
+      "id": "2a",
+      "original_assessment": "DEMONSTRATED ERROR (F1)",
+      "requirements": ["R3"],
+      "disposition": "Specified with installed-source/offline feasibility evidence; implementation and live acceptance are future gates"
+    },
+    {
+      "id": "2b",
+      "original_assessment": "DEMONSTRATED ERROR (F1) + F2",
+      "requirements": ["R4", "R10"],
+      "disposition": "Specified with installed-source/offline feasibility evidence; implementation and live acceptance are future gates"
+    },
+    {
+      "id": "2c",
+      "original_assessment": "FEASIBLE \u2014 verified, and uncontested by Pi",
+      "requirements": ["R5"],
+      "disposition": "Specified with installed-source/offline feasibility evidence; implementation and live acceptance are future gates"
+    },
+    {
+      "id": "2d",
+      "original_assessment": "EXISTS AND IS EXECUTABLE; reuse direction ambiguous (U1); contains F3",
+      "requirements": ["R6", "R7"],
+      "disposition": "Specified with installed-source/offline feasibility evidence; implementation and live acceptance are future gates"
+    },
+    {
+      "id": "3a",
+      "original_assessment": "FEASIBLE \u2014 verified; target choice unspecified (U6)",
+      "requirements": ["R15"],
+      "disposition": "Specified with installed-source/offline feasibility evidence; implementation and live acceptance are future gates"
+    },
+    {
+      "id": "3b",
+      "original_assessment": "NOT VERIFIABLE IN THIS REVIEW",
+      "requirements": ["R15", "R16"],
+      "disposition": "Specified with installed-source/offline feasibility evidence; implementation and live acceptance are future gates"
+    },
+    {
+      "id": "3c",
+      "original_assessment": "FEASIBLE \u2014 nothing in the reviewed sources requires a Hermes change",
+      "requirements": ["R7"],
+      "disposition": "Specified with installed-source/offline feasibility evidence; implementation and live acceptance are future gates"
+    },
+    {
+      "id": "3d",
+      "original_assessment": "FEASIBLE \u2014 and the existing mapping already contains the only hardcoding risk",
+      "requirements": ["R6", "R13"],
+      "disposition": "Specified with installed-source/offline feasibility evidence; implementation and live acceptance are future gates"
+    },
+    {
+      "id": "4a",
+      "original_assessment": "FEASIBLE \u2014 verified in existing code",
+      "requirements": ["R8"],
+      "disposition": "Specified with installed-source/offline feasibility evidence; implementation and live acceptance are future gates"
+    },
+    {
+      "id": "4b",
+      "original_assessment": "DEMONSTRATED ERROR (F3)",
+      "requirements": ["R9"],
+      "disposition": "Specified with installed-source/offline feasibility evidence; implementation and live acceptance are future gates"
+    },
+    {
+      "id": "5a",
+      "original_assessment": "PROPOSED FUTURE ACCEPTANCE \u2014 testable, but blocked by F1 until the ordering is handled",
+      "requirements": ["R3"],
+      "disposition": "Specified with installed-source/offline feasibility evidence; implementation and live acceptance are future gates"
+    },
+    {
+      "id": "5b",
+      "original_assessment": "PROPOSED FUTURE ACCEPTANCE \u2014 same blocker (F1/F2)",
+      "requirements": ["R4"],
+      "disposition": "Specified with installed-source/offline feasibility evidence; implementation and live acceptance are future gates"
+    },
+    {
+      "id": "5c",
+      "original_assessment": "PROPOSED FUTURE ACCEPTANCE \u2014 cleanly testable",
+      "requirements": ["R5"],
+      "disposition": "Specified with installed-source/offline feasibility evidence; implementation and live acceptance are future gates"
+    },
+    {
+      "id": "5d",
+      "original_assessment": "PROPOSED FUTURE ACCEPTANCE; existing mapping has zero coverage today (F4)",
+      "requirements": ["R8", "R9"],
+      "disposition": "Specified with installed-source/offline feasibility evidence; implementation and live acceptance are future gates"
+    },
+    {
+      "id": "5e",
+      "original_assessment": "NOT VERIFIABLE IN THIS REVIEW",
+      "requirements": ["R16"],
+      "disposition": "Specified with installed-source/offline feasibility evidence; implementation and live acceptance are future gates"
+    },
+    {
+      "id": "5f",
+      "original_assessment": "QUALIFIED (F5)",
+      "requirements": ["R16"],
+      "disposition": "Specified with installed-source/offline feasibility evidence; implementation and live acceptance are future gates"
+    },
+    {
+      "id": "6a",
+      "original_assessment": "FEASIBLE \u2014 verified, and Pi's clobbering behaviour works in rollback's favour",
+      "requirements": ["R17"],
+      "disposition": "Specified with installed-source/offline feasibility evidence; implementation and live acceptance are future gates"
+    },
+    {
+      "id": "6b",
+      "original_assessment": "FEASIBLE \u2014 verified",
+      "requirements": ["R17"],
+      "disposition": "Specified with installed-source/offline feasibility evidence; implementation and live acceptance are future gates"
+    },
+    {
+      "id": "6c",
+      "original_assessment": "FEASIBLE \u2014 verified",
+      "requirements": ["R13"],
+      "disposition": "Specified with installed-source/offline feasibility evidence; implementation and live acceptance are future gates"
+    },
+    {
+      "id": "6d",
+      "original_assessment": "FEASIBLE \u2014 verified",
+      "requirements": ["R13"],
+      "disposition": "Specified with installed-source/offline feasibility evidence; implementation and live acceptance are future gates"
+    }
+  ],
+  "counts": {
+    "findings": 8,
+    "unknowns": 7,
+    "taste": 4,
+    "coverage_subcriteria": 23
+  }
+}

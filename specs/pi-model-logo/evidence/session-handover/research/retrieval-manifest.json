@@ -1,0 +1,122 @@
+[
+  {
+    "name": "pi-latest-release.json",
+    "url": "https://api.github.com/repos/earendil-works/pi/releases/latest",
+    "retrieved_at": "2026-10-08T08:16:06.675468-03:00",
+    "sha256": "8a1277e1e796311c1abff9da4b83cbacdc1e0a4e9cb373913001e743fb9e8c20",
+    "bytes": 27314,
+    "saved": true
+  },
+  {
+    "name": "pi-main-commit.json",
+    "url": "https://api.github.com/repos/earendil-works/pi/commits/main",
+    "retrieved_at": "2026-10-08T08:16:07.544049-03:00",
+    "sha256": "53d814b9295fb073dee19cab0c5e5bf87dd36dcf9ee5e158f8faa8ec6273614b",
+    "bytes": 8499,
+    "saved": true
+  },
+  {
+    "name": "pi-extensions-latest.md",
+    "url": "https://raw.githubusercontent.com/earendil-works/pi/main/packages/coding-agent/docs/extensions.md",
+    "retrieved_at": "2026-10-08T08:16:08.358242-03:00",
+    "sha256": "bd2ed1f728173c1defc035e90c3894c308ae153fa08575c12b4a9988e11f8108",
+    "bytes": 20085,
+    "saved": true
+  },
+  {
+    "name": "pi-types-latest.ts",
+    "url": "https://raw.githubusercontent.com/earendil-works/pi/main/packages/coding-agent/src/core/extensions/types.ts",
+    "retrieved_at": "2026-10-08T08:16:12.978382-03:00",
+    "sha256": "d9a24065cc9830dc8bdc8d2e41299ad6ce125b3d156a0de1674faeabcb439122",
+    "bytes": 83476,
+    "saved": true
+  },
+  {
+    "name": "pi-interactive-latest.ts",
+    "url": "https://raw.githubusercontent.com/earendil-works/pi/main/packages/coding-agent/src/modes/interactive/interactive-mode.ts",
+    "retrieved_at": "2026-10-08T08:16:15.112918-03:00",
+    "sha256": "b38fc2eb1647d702f8bf09c6ba4e69dc6fda6941d6cb2edad214277aef8e8b8d",
+    "bytes": 250760,
+    "saved": true
+  },
+  {
+    "name": "pi-title-example-latest.ts",
+    "url": "https://raw.githubusercontent.com/earendil-works/pi/main/packages/coding-agent/examples/extensions/titlebar-spinner.ts",
+    "retrieved_at": "2026-10-08T08:16:17.506054-03:00",
+    "sha256": "ec56e7edf954966b5991bcad63141be1a09d17753cdd0c59efca1b9e649dadf2",
+    "bytes": 1623,
+    "saved": true
+  },
+  {
+    "name": "pi-types-1.0.4.ts",
+    "url": "https://raw.githubusercontent.com/earendil-works/pi/v1.0.4/packages/coding-agent/src/core/extensions/types.ts",
+    "retrieved_at": "2026-10-08T08:16:20.508043-03:00",
+    "sha256": "33be19555ad54f9e10a3436ce51f54bd6b27cc870a7d9ecc0e4997aeeaa3ae0b",
+    "bytes": 82892,
+    "saved": true
+  },
+  {
+    "name": "pi-interactive-1.0.4.ts",
+    "url": "https://raw.githubusercontent.com/earendil-works/pi/v1.0.4/packages/coding-agent/src/modes/interactive/interactive-mode.ts",
+    "retrieved_at": "2026-10-08T08:16:24.043282-03:00",
+    "sha256": "14abc51f5749f174045a5cb8879e4947b87dfee1a154db857cf2709bccfe9c50",
+    "bytes": 249202,
+    "saved": true
+  },
+  {
+    "name": "pi-issue-3686.json",
+    "url": "https://api.github.com/repos/earendil-works/pi/issues/3686",
+    "retrieved_at": "2026-10-08T08:16:24.980771-03:00",
+    "sha256": "d3ccca59b677524159c9e00991f00aeae26452904aea63e819678495193518ea",
+    "bytes": 7288,
+    "saved": true
+  },
+  {
+    "name": "herdr-cli-latest.mdx",
+    "url": "https://raw.githubusercontent.com/herdrdev/herdr/master/docs/next/website/src/content/docs/cli-reference.mdx",
+    "retrieved_at": "2026-10-08T08:16:26.090223-03:00",
+    "sha256": "f9b6a2ed88e35799551cb7f1efd3f58281f81945357b607d2e8a0f688f673489",
+    "bytes": 37540,
+    "saved": true
+  },
+  {
+    "name": "herdr-socket-latest.mdx",
+    "url": "https://raw.githubusercontent.com/herdrdev/herdr/master/docs/next/website/src/content/docs/socket-api.mdx",
+    "retrieved_at": "2026-10-08T08:16:27.185668-03:00",
+    "sha256": "0f0aa15b4f3204cb121c9a05c37c195de5f0fe57252803eae15a526d9cb4aa50",
+    "bytes": 45816,
+    "saved": true
+  },
+  {
+    "name": "community-pi-herdr-readme.md",
+    "url": "https://raw.githubusercontent.com/narumiruna/pi-extensions/main/packages/pi-herdr/README.md",
+    "retrieved_at": "2026-10-08T08:19:29.845226-03:00",
+    "sha256": "ee40baafd4b2450ecdf8f78488513bb7deb38e5d9ecb04104643465aad61b78c",
+    "bytes": 13431,
+    "saved": true
+  },
+  {
+    "name": "community-pi-herdr-source.ts",
+    "url": "https://raw.githubusercontent.com/narumiruna/pi-extensions/main/packages/pi-herdr/src/herdr-agent-state.ts",
+    "retrieved_at": "2026-10-08T08:19:32.219749-03:00",
+    "sha256": "2a8b5ff5cf68cd0bfbfc37f8927ef244af8e8916bffc5b2d35f3e54ac3ddb1d5",
+    "bytes": 14885,
+    "saved": true
+  },
+  {
+    "name": "community-pi-herdr-metadata.ts",
+    "url": "https://raw.githubusercontent.com/narumiruna/pi-extensions/main/packages/pi-herdr/src/herdr-metadata.ts",
+    "retrieved_at": "2026-10-08T08:19:34.232584-03:00",
+    "sha256": "3253ec58c7d9c29c9305a793530e567ac1356264ed6d26933a0dcc863400fae4",
+    "bytes": 2659,
+    "saved": true
+  },
+  {
+    "name": "upstream-title-issue-comments.json",
+    "url": "https://api.github.com/repos/earendil-works/pi/issues/3686/comments",
+    "retrieved_at": "2026-10-08T08:19:35.113731-03:00",
+    "sha256": "ddec769e1573aa1f6e12005cdb359da6248351171d80429da351959cb0a75c58",
+    "bytes": 6859,
+    "saved": true
+  }
+]

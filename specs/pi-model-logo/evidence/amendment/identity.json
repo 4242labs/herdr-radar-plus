@@ -1,0 +1,9 @@
+{
+  "command": "command -v herdr; command -v pi; herdr --version; pi --version; /opt/homebrew/bin/git status --short; /opt/homebrew/bin/git rev-parse HEAD",
+  "cwd": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec",
+  "result": {
+    "output": "/Users/42piratas/.local/bin/herdr\n/opt/homebrew/bin/pi\nherdr 0.9.1\n1.0.4\n M specs/pi-model-logo/SPEC.md\n M specs/pi-model-logo/evidence/audit-spec.py\n?? specs/pi-model-logo/evidence/amendment/\n6d3151132ffc0ecd2bc2f8fad01aee5661c940fd",
+    "exit_code": 0,
+    "error": null
+  }
+}

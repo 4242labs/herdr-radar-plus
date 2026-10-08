@@ -1,0 +1,1347 @@
+{
+  "artifact": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec/specs/pi-model-logo/SPEC.md",
+  "revision": "uncommitted worktree on docs/adhoc-L2130-pi-model-logo-spec; SHA256 30e9921892ecfc8545b4c12dd1283001e0afb93ec78745ccc88ce7aa03bacdc3",
+  "verdict": "CHANGES REQUIRED",
+  "skill_loaded": "/Users/42piratas/42labs/tortuga/dead-mans-chest/skills/skill-review-specs.md, plus review-specs/examples.md, review-specs/SOURCES.md, canonical skill-write-specs.md, and write-specs/examples.md, all read in full",
+  "passes": [
+    {
+      "id": "1",
+      "inspection": "Stakeholder/authority: independently read all 33 operator messages, the assistant proposal, SPEC, and every O1–O38 row. Distinguished direct authority, contextual questions, discovered facts, canonical authoring rules, and author recommendations.",
+      "evidence": "191578 authorizes investigating/fixing Pi model-logo behavior; 192429 authorizes a full specification; 192425 objects to an unexplained alternative to the referenced proposal. No supplied message explicitly decides title transport versus metadata transport. O1–O21 originate in an assistant proposal, while O22–O37 are mostly labelled inherited controls without a message ID or named canonical source.",
+      "result": "FAIL: SPEC resolves the transport choice and marks its provenance resolved without a demonstrated operator decision; several ledger rows misstate their authority class."
+    },
+    {
+      "id": "2",
+      "inspection": "Engineer/architecture: walked startup, selection, refresh, failure, shutdown, Radar snapshot/composition/output, cleanup, deployment, and rollback. Inspected bounded relevant sections of actual modules, Pi loader/runner, both decoded Herdr schema receipts, and official filesystem/crypto/POSIX passages.",
+      "evidence": "state.js currently retains only agent_session.value and omits raw session source/kind and Pi input tokens, so implementation must extend snapshot data; stateTokens owns model/model_stale; herdr.js and ipc.js show current transport/fallback semantics; frame.js consumes fresh snapshots and clears departed panes; daemon.js owns shutdown and scheduling. Pi loader discovers global .js/.ts files and runner guards stale contexts. Herdr schemas confirm seq uint64, TTL 1–86400000, 16 keys/report, 32 retained tokens, and typed agent_session fields.",
+      "result": "PASS on technical feasibility and internal architecture, conditional on resolving the authority defect."
+    },
+    {
+      "id": "3",
+      "inspection": "Tester/verifier: checked R1–R19, AC-R1–AC-R19, and T0–T5 bidirectionally; tried contradictory outcomes and false-positive paths. Reassessed R19 through its live companions and final-check receipt rather than the traceability label alone.",
+      "evidence": "rule-compliance.md and finding-adjudication.md route R19 to amendment/recheck/final-checks.json. That receipt records the exact audit command, cwd, full output, exit 0, matching SPEC hash, graph counts, no dependency cycle, and no orphan tasks. Therefore the prior F3 was retracted. AC-R15 independently covers conflicting-producer refusal, so the prior duplicate-preflight finding was also retracted.",
+      "result": "PASS for criterion structure and authoring audit execution; future feature/live criteria remain intentionally unexecuted."
+    },
+    {
+      "id": "4",
+      "inspection": "Safety/operations: checked local trust boundaries, token capacity, pane identity, hashed references, sequence persistence, exclusive temporary creation, sync/close/rename, ownership/symlink refusal, cleanup, TTL recovery, privacy, host separation, activation authority, and rollback.",
+      "evidence": "Official Node passages establish open modes, filehandle.sync, rename and SHA256 UTF-8 hashing; POSIX specifies replacement rename keeps a target entry visible as old or new. Herdr documents token patches, TTL, seq and absence of token guards. SPEC consequently requires consumer-side agent/session validation, persist-before-send, bounded IPC, generic diagnostics and separately authorized host operations.",
+      "result": "PASS subject to F1/F2; no additional safety defect confirmed."
+    }
+  ],
+  "operator_coverage": [
+    {
+      "message_id": "191578",
+      "obligation_or_decision": "Investigate why the model logo works for Hermes but not Pi.",
+      "authority": "Direct operator request.",
+      "requirement_or_reason": "Overall goal maps to R1–R18.",
+      "result": "COVERED"
+    },
+    {
+      "message_id": "191938",
+      "obligation_or_decision": "Establish whether the outcome is certainly feasible.",
+      "authority": "Direct operator question.",
+      "requirement_or_reason": "Primary code/API evidence supports feasibility; implementation/live proof remains future work.",
+      "result": "COVERED"
+    },
+    {
+      "message_id": "191949",
+      "obligation_or_decision": "Quickly specify an approach.",
+      "authority": "Direct operator request.",
+      "requirement_or_reason": "Superseded in rigor by 192429.",
+      "result": "COVERED"
+    },
+    {
+      "message_id": "191983",
+      "obligation_or_decision": "Validate the earlier work with an Opus reviewer.",
+      "authority": "Prior task-specific instruction.",
+      "requirement_or_reason": "Does not impose a provider on this independent review.",
+      "result": "NO LONGER APPLICABLE"
+    },
+    {
+      "message_id": "192101",
+      "obligation_or_decision": "Challenge prior parallel-agent handling.",
+      "authority": "Operator process correction.",
+      "requirement_or_reason": "Not feature behavior or continuing delegation authority.",
+      "result": "NON-CONTRACT"
+    },
+    {
+      "message_id": "192180",
+      "obligation_or_decision": "Request ETA.",
+      "authority": "Status question.",
+      "requirement_or_reason": "No durable specification outcome.",
+      "result": "NON-CONTRACT"
+    },
+    {
+      "message_id": "192232",
+      "obligation_or_decision": "Object to unexplained configuration recovery.",
+      "authority": "Operator challenge.",
+      "requirement_or_reason": "SPEC confines recovery to feature state and existing mechanisms.",
+      "result": "COVERED"
+    },
+    {
+      "message_id": "192421",
+      "obligation_or_decision": "Ask how the identified issue should be handled.",
+      "authority": "Contextual question.",
+      "requirement_or_reason": "Authorizes explanation/investigation, not a specific transport decision.",
+      "result": "NON-CONTRACT"
+    },
+    {
+      "message_id": "192423",
+      "obligation_or_decision": "Ask whether adversarial validation occurred.",
+      "authority": "Prior-process status question.",
+      "requirement_or_reason": "Not enduring product authority.",
+      "result": "NON-CONTRACT"
+    },
+    {
+      "message_id": "192425",
+      "obligation_or_decision": "Challenge use of an alternative instead of the referenced proposal.",
+      "authority": "Direct operator correction, but wording does not unambiguously select title transport after later research.",
+      "requirement_or_reason": "Requires the title-versus-metadata decision to be surfaced and resolved, not inferred.",
+      "result": "NOT SATISFIED"
+    },
+    {
+      "message_id": "192427",
+      "obligation_or_decision": "Ensure the plan is documented.",
+      "authority": "Direct operator request.",
+      "requirement_or_reason": "A plan exists, but its changed transport authority is unresolved.",
+      "result": "PARTIAL"
+    },
+    {
+      "message_id": "192429",
+      "obligation_or_decision": "Write the specification under every skill-write-specs rule.",
+      "authority": "Direct operator instruction.",
+      "requirement_or_reason": "Controls R19/T0 and prohibits hidden decisions.",
+      "result": "NOT SATISFIED"
+    },
+    {
+      "message_id": "192690",
+      "obligation_or_decision": "Request status.",
+      "authority": "Status question.",
+      "requirement_or_reason": "No durable contract outcome.",
+      "result": "NON-CONTRACT"
+    },
+    {
+      "message_id": "192751",
+      "obligation_or_decision": "Ask whether another agent is authoring.",
+      "authority": "Process question.",
+      "requirement_or_reason": "No feature requirement.",
+      "result": "NON-CONTRACT"
+    },
+    {
+      "message_id": "192753",
+      "obligation_or_decision": "Reject unauthorized agent spawning.",
+      "authority": "Direct process boundary.",
+      "requirement_or_reason": "No delegation occurred in this review.",
+      "result": "COVERED"
+    },
+    {
+      "message_id": "192765",
+      "obligation_or_decision": "Request status.",
+      "authority": "Status question.",
+      "requirement_or_reason": "No durable contract outcome.",
+      "result": "NON-CONTRACT"
+    },
+    {
+      "message_id": "192771",
+      "obligation_or_decision": "Ask whether every directed skill rule was followed.",
+      "authority": "Compliance question.",
+      "requirement_or_reason": "Maps to R19/T0.",
+      "result": "PARTIAL"
+    },
+    {
+      "message_id": "192773",
+      "obligation_or_decision": "Repeat complete skill-write-specs compliance and request concise considerations.",
+      "authority": "Direct authoring instruction.",
+      "requirement_or_reason": "The unresolved transport choice should have been raised.",
+      "result": "NOT SATISFIED"
+    },
+    {
+      "message_id": "192790",
+      "obligation_or_decision": "Proceed.",
+      "authority": "Continuation signal.",
+      "requirement_or_reason": "Authorizes specification work, not an unstated product choice.",
+      "result": "COVERED"
+    },
+    {
+      "message_id": "193040",
+      "obligation_or_decision": "Investigate.",
+      "authority": "Direct research instruction.",
+      "requirement_or_reason": "Maps to evidence gathering.",
+      "result": "COVERED"
+    },
+    {
+      "message_id": "193056",
+      "obligation_or_decision": "Base conclusions on latest documentation rather than trial and error.",
+      "authority": "Operator research constraint.",
+      "requirement_or_reason": "Primary Pi, Herdr, Node and POSIX sources were used.",
+      "result": "COVERED"
+    },
+    {
+      "message_id": "193058",
+      "obligation_or_decision": "Proceed with reliable sources/forums and avoid trial and error.",
+      "authority": "Direct research authorization.",
+      "requirement_or_reason": "Primary sources sufficed; no forum assertion controls the contract.",
+      "result": "COVERED"
+    },
+    {
+      "message_id": "193325",
+      "obligation_or_decision": "Ask whether implementation is fully clear.",
+      "authority": "Readiness question.",
+      "requirement_or_reason": "Not itself approval of an unresolved decision.",
+      "result": "NON-CONTRACT"
+    },
+    {
+      "message_id": "193329",
+      "obligation_or_decision": "Amend under every skill-amend-specs rule and checklist.",
+      "authority": "Direct prior amendment instruction.",
+      "requirement_or_reason": "Maps to authoring R19/T0.",
+      "result": "PARTIAL"
+    },
+    {
+      "message_id": "193343",
+      "obligation_or_decision": "Proceed.",
+      "authority": "Continuation signal.",
+      "requirement_or_reason": "Authorizes amendment work only.",
+      "result": "COVERED"
+    },
+    {
+      "message_id": "193390",
+      "obligation_or_decision": "Repeat readiness question.",
+      "authority": "Readiness question.",
+      "requirement_or_reason": "Not product authority.",
+      "result": "NON-CONTRACT"
+    },
+    {
+      "message_id": "193392",
+      "obligation_or_decision": "Repeat full amendment-skill compliance.",
+      "authority": "Direct prior amendment instruction.",
+      "requirement_or_reason": "Maps to R19/T0.",
+      "result": "PARTIAL"
+    },
+    {
+      "message_id": "193396",
+      "obligation_or_decision": "Proceed.",
+      "authority": "Continuation signal.",
+      "requirement_or_reason": "Authorizes amendment work only.",
+      "result": "COVERED"
+    },
+    {
+      "message_id": "194146",
+      "obligation_or_decision": "Ask whether the directed rules were followed.",
+      "authority": "Compliance question.",
+      "requirement_or_reason": "Maps to R19/T0.",
+      "result": "PARTIAL"
+    },
+    {
+      "message_id": "194164",
+      "obligation_or_decision": "Follow every rule.",
+      "authority": "Direct authoring instruction.",
+      "requirement_or_reason": "Maps to R19/T0.",
+      "result": "PARTIAL"
+    },
+    {
+      "message_id": "194261",
+      "obligation_or_decision": "Repeat the compliance question.",
+      "authority": "Compliance question.",
+      "requirement_or_reason": "Maps to R19/T0.",
+      "result": "PARTIAL"
+    },
+    {
+      "message_id": "194265",
+      "obligation_or_decision": "Repeat instruction to follow every rule.",
+      "authority": "Direct authoring instruction.",
+      "requirement_or_reason": "Maps to R19/T0.",
+      "result": "PARTIAL"
+    },
+    {
+      "message_id": "194704",
+      "obligation_or_decision": "Obtain one independent complete four-pass review with full obligation and criterion coverage.",
+      "authority": "Prior review instruction; current request independently renews the same scope.",
+      "requirement_or_reason": "This corrected report includes all mandatory matrices and four passes.",
+      "result": "COVERED"
+    }
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "source": "Assistant proposal bullet 1, later referenced by 192425 but not independently adopted with an unambiguous transport decision.",
+      "authorized_outcome": "Surface and resolve title versus metadata transport.",
+      "requirement": "R1",
+      "task": "T1",
+      "verification": "AC-R1",
+      "result": "FAIL"
+    },
+    {
+      "id": "O2",
+      "source": "Assistant proposal bullet 1; consistent with requested narrow behavior.",
+      "authorized_outcome": "Preserve Pi/session/project naming.",
+      "requirement": "R2",
+      "task": "T1",
+      "verification": "AC-R2",
+      "result": "PASS"
+    },
+    {
+      "id": "O3",
+      "source": "Assistant proposal bullet 2; implementation detail.",
+      "authorized_outcome": "Refresh on session start if an extension design is approved.",
+      "requirement": "R3",
+      "task": "T2",
+      "verification": "AC-R3",
+      "result": "PASS"
+    },
+    {
+      "id": "O4",
+      "source": "Assistant proposal bullet 2; implementation detail.",
+      "authorized_outcome": "Refresh on restoration.",
+      "requirement": "R4",
+      "task": "T2",
+      "verification": "AC-R4",
+      "result": "PASS"
+    },
+    {
+      "id": "O5",
+      "source": "Assistant proposal bullet 2; implementation detail.",
+      "authorized_outcome": "Refresh on model selection.",
+      "requirement": "R5",
+      "task": "T2",
+      "verification": "AC-R5",
+      "result": "PASS"
+    },
+    {
+      "id": "O6",
+      "source": "Assistant proposal bullet 2; evidence-backed implementation choice.",
+      "authorized_outcome": "Reuse existing Radar family keys and glyph pipeline.",
+      "requirement": "R6",
+      "task": "T1",
+      "verification": "AC-R6",
+      "result": "PASS"
+    },
+    {
+      "id": "O7",
+      "source": "Assistant proposal bullet 3 only.",
+      "authorized_outcome": "Potential Darkseid activation remains separately authorized.",
+      "requirement": "R15",
+      "task": "T4",
+      "verification": "AC-R15",
+      "result": "PASS"
+    },
+    {
+      "id": "O8",
+      "source": "Assistant proposal bullet 3 only.",
+      "authorized_outcome": "Potential Alghul activation remains separately authorized.",
+      "requirement": "R15",
+      "task": "T4",
+      "verification": "AC-R15",
+      "result": "PASS"
+    },
+    {
+      "id": "O9",
+      "source": "Assistant proposal bullet 3; consistent with narrow Pi scope.",
+      "authorized_outcome": "Preserve Hermes/non-Pi behavior.",
+      "requirement": "R7",
+      "task": "T3",
+      "verification": "AC-R7",
+      "result": "PASS"
+    },
+    {
+      "id": "O10",
+      "source": "Assistant proposal bullet 3.",
+      "authorized_outcome": "Do not hardcode a provider fallback.",
+      "requirement": "R6",
+      "task": "T1",
+      "verification": "AC-R6",
+      "result": "PASS"
+    },
+    {
+      "id": "O11",
+      "source": "Assistant proposal bullet 4; product behavior not directly stated elsewhere.",
+      "authorized_outcome": "Unknown model shows no model mark.",
+      "requirement": "R8",
+      "task": "T3",
+      "verification": "AC-R8",
+      "result": "PASS"
+    },
+    {
+      "id": "O12",
+      "source": "Assistant proposal bullet 4.",
+      "authorized_outcome": "Never guess from unrelated text.",
+      "requirement": "R9",
+      "task": "T1",
+      "verification": "AC-R9",
+      "result": "PASS"
+    },
+    {
+      "id": "O13",
+      "source": "Assistant proposal bullet 5.",
+      "authorized_outcome": "Automated startup coverage.",
+      "requirement": "R3",
+      "task": "T2",
+      "verification": "AC-R3",
+      "result": "PASS"
+    },
+    {
+      "id": "O14",
+      "source": "Assistant proposal bullet 5.",
+      "authorized_outcome": "Automated resume coverage.",
+      "requirement": "R4",
+      "task": "T2",
+      "verification": "AC-R4",
+      "result": "PASS"
+    },
+    {
+      "id": "O15",
+      "source": "Assistant proposal bullet 5.",
+      "authorized_outcome": "Automated model-switch coverage.",
+      "requirement": "R5",
+      "task": "T2",
+      "verification": "AC-R5",
+      "result": "PASS"
+    },
+    {
+      "id": "O16",
+      "source": "Assistant proposal bullet 5.",
+      "authorized_outcome": "Automated unknown-model coverage.",
+      "requirement": "R8",
+      "task": "T3",
+      "verification": "AC-R8",
+      "result": "PASS"
+    },
+    {
+      "id": "O17",
+      "source": "Assistant proposal bullet 5; no present live authority.",
+      "authorized_outcome": "Future separately authorized visible acceptance on both hosts.",
+      "requirement": "R16",
+      "task": "T5",
+      "verification": "AC-R16",
+      "result": "PASS"
+    },
+    {
+      "id": "O18",
+      "source": "Assistant proposal bullet 6.",
+      "authorized_outcome": "Authorized rollback removes only the delivered extension.",
+      "requirement": "R17",
+      "task": "T4",
+      "verification": "AC-R17",
+      "result": "PASS"
+    },
+    {
+      "id": "O19",
+      "source": "Assistant proposal bullet 6.",
+      "authorized_outcome": "Preserve normal Pi title behavior.",
+      "requirement": "R17",
+      "task": "T4",
+      "verification": "AC-R17",
+      "result": "PASS"
+    },
+    {
+      "id": "O20",
+      "source": "Assistant proposal bullet 6.",
+      "authorized_outcome": "No dependency upgrade.",
+      "requirement": "R13",
+      "task": "T3",
+      "verification": "AC-R13",
+      "result": "PASS"
+    },
+    {
+      "id": "O21",
+      "source": "Assistant proposal bullet 6.",
+      "authorized_outcome": "No paid model request.",
+      "requirement": "R13",
+      "task": "T3",
+      "verification": "AC-R13",
+      "result": "PASS"
+    },
+    {
+      "id": "O22",
+      "source": "Author-labelled inherited control; current review request independently confirms read-only review but supplied original messages do not establish the historical wording.",
+      "authorized_outcome": "Keep authoring/review separate from implementation.",
+      "requirement": "R19",
+      "task": "T0",
+      "verification": "AC-R19",
+      "result": "PARTIAL"
+    },
+    {
+      "id": "O23",
+      "source": "Direct messages 192429/192773 and canonical skill-write-specs.",
+      "authorized_outcome": "Full authoring-rule compliance.",
+      "requirement": "R19",
+      "task": "T0",
+      "verification": "AC-R19",
+      "result": "FAIL"
+    },
+    {
+      "id": "O24",
+      "source": "Author-labelled inherited control without a supplied message or named canon source.",
+      "authorized_outcome": "Isolated artifact custody.",
+      "requirement": "R19",
+      "task": "T0",
+      "verification": "AC-R19",
+      "result": "FAIL"
+    },
+    {
+      "id": "O25",
+      "source": "Author-labelled inherited control; metadata feasibility is factual, but choosing it over title transport is not.",
+      "authorized_outcome": "Resolve transport and prevent silent live activation.",
+      "requirement": "R1",
+      "task": "T1",
+      "verification": "AC-R1",
+      "result": "FAIL"
+    },
+    {
+      "id": "O26",
+      "source": "Message 191983 authorized a prior Opus review, not the detailed F1–F8/U1–U7/T1–T4 ledger wording.",
+      "authorized_outcome": "Treat prior review as evidence, not new operator authority.",
+      "requirement": "R19",
+      "task": "T0",
+      "verification": "AC-R19",
+      "result": "FAIL"
+    },
+    {
+      "id": "O27",
+      "source": "Author-labelled inherited control plus verified Pi lifecycle facts.",
+      "authorized_outcome": "Cover supported lifecycle events.",
+      "requirement": "R10",
+      "task": "T2",
+      "verification": "AC-R10",
+      "result": "PASS"
+    },
+    {
+      "id": "O28",
+      "source": "Author-labelled inherited control; implementation choice.",
+      "authorized_outcome": "Strict selected-ID classification if metadata transport is approved.",
+      "requirement": "R9",
+      "task": "T1",
+      "verification": "AC-R9",
+      "result": "PASS"
+    },
+    {
+      "id": "O29",
+      "source": "Author-labelled inherited control; compatible with narrow scope.",
+      "authorized_outcome": "Preserve managed integration and title behavior.",
+      "requirement": "R11",
+      "task": "T2",
+      "verification": "AC-R11",
+      "result": "PASS"
+    },
+    {
+      "id": "O30",
+      "source": "Author-labelled inherited control plus canonical evidence-first rule.",
+      "authorized_outcome": "Use primary evidence and future shipped tests.",
+      "requirement": "R3",
+      "task": "T2",
+      "verification": "AC-R3",
+      "result": "PASS"
+    },
+    {
+      "id": "O31",
+      "source": "Author-labelled inherited control; SPEC independently reserves deployment authority.",
+      "authorized_outcome": "No live deployment without separate authority.",
+      "requirement": "R15",
+      "task": "T4",
+      "verification": "AC-R15",
+      "result": "PASS"
+    },
+    {
+      "id": "O32",
+      "source": "Author-labelled inherited control; safety implementation detail.",
+      "authorized_outcome": "Minimize persisted/captured data.",
+      "requirement": "R12",
+      "task": "T3",
+      "verification": "AC-R12",
+      "result": "PASS"
+    },
+    {
+      "id": "O33",
+      "source": "Canonical skill-write-specs completeness rule, not a distinct operator product decision.",
+      "authorized_outcome": "Specify actors, failure, recovery, rollback and observability.",
+      "requirement": "R14",
+      "task": "T3",
+      "verification": "AC-R14",
+      "result": "PASS"
+    },
+    {
+      "id": "O34",
+      "source": "Canonical traceability rule plus author-labelled inherited wording.",
+      "authorized_outcome": "Machine-auditable graph and command receipts.",
+      "requirement": "R19",
+      "task": "T0",
+      "verification": "AC-R19",
+      "result": "PASS"
+    },
+    {
+      "id": "O35",
+      "source": "Canonical truthful-reporting rule.",
+      "authorized_outcome": "Do not claim unexecuted live acceptance.",
+      "requirement": "R16",
+      "task": "T5",
+      "verification": "AC-R16",
+      "result": "PASS"
+    },
+    {
+      "id": "O36",
+      "source": "Canonical smallest-sufficient-design and sizing rules.",
+      "authorized_outcome": "Bounded ordered delivery.",
+      "requirement": "R18",
+      "task": "T4",
+      "verification": "AC-R18",
+      "result": "PASS"
+    },
+    {
+      "id": "O37",
+      "source": "Direct compliance questions plus canonical READY rule.",
+      "authorized_outcome": "No READY verdict with an unresolved operator decision.",
+      "requirement": "R19",
+      "task": "T0",
+      "verification": "AC-R19",
+      "result": "FAIL"
+    },
+    {
+      "id": "O38",
+      "source": "Direct messages 193329/193392/194164/194265.",
+      "authorized_outcome": "Personally complete the amendment/checklist without unauthorized delegation.",
+      "requirement": "R19",
+      "task": "T0",
+      "verification": "AC-R19",
+      "result": "PARTIAL"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "observable_result": "Eligible Pi publishes exact selected model identity/reference without guessing or title output.",
+      "ireb_lenses": "Technically adequate and verifiable, but necessity/authority is unresolved because it fixes metadata rather than the referenced title approach.",
+      "evidence": "SPEC §3; proposal bullet 1; messages 192425/192429.",
+      "result": "FAIL"
+    },
+    {
+      "id": "R2",
+      "observable_result": "Pi title and naming remain untouched.",
+      "ireb_lenses": "Adequate, necessary, unambiguous, complete, understandable and verifiable.",
+      "evidence": "Throwing title-writer criterion.",
+      "result": "PASS"
+    },
+    {
+      "id": "R3",
+      "observable_result": "Startup publishes fresh selected-model state independently of title timing.",
+      "ireb_lenses": "Clear and verifiable once R1 is authorized.",
+      "evidence": "Pinned Pi session_start and ctx.model APIs.",
+      "result": "PASS"
+    },
+    {
+      "id": "R4",
+      "observable_result": "Resume uses current context/reference and rejects retired data.",
+      "ireb_lenses": "Complete and falsifiable.",
+      "evidence": "Pi resume lifecycle and managed reference priority.",
+      "result": "PASS"
+    },
+    {
+      "id": "R5",
+      "observable_result": "Set/cycle replaces the family and latest pending state wins.",
+      "ireb_lenses": "Unambiguous and delay-testable.",
+      "evidence": "Pinned model_select event and specified drain.",
+      "result": "PASS"
+    },
+    {
+      "id": "R6",
+      "observable_result": "Valid selected IDs resolve to exactly one existing glyph family.",
+      "ireb_lenses": "Concrete aliases/boundaries make outcomes verifiable.",
+      "evidence": "Existing logos.js family/glyph registry.",
+      "result": "PASS"
+    },
+    {
+      "id": "R7",
+      "observable_result": "Non-Pi semantics and protected artifacts remain unchanged.",
+      "ireb_lenses": "Necessary and verifiable through fixtures/snapshots/hashes.",
+      "evidence": "Current title regex/fallback pipeline.",
+      "result": "PASS"
+    },
+    {
+      "id": "R8",
+      "observable_result": "Invalid/missing/expired/mismatched Pi input clears both model cells.",
+      "ireb_lenses": "Complete across fresh/stale rows and rejects cache reuse.",
+      "evidence": "stateTokens model/model_stale ownership.",
+      "result": "PASS"
+    },
+    {
+      "id": "R9",
+      "observable_result": "Unrelated fields cannot infer a Pi model.",
+      "ireb_lenses": "Strong negative matrix makes false positives observable.",
+      "evidence": "Near-prefix, control, length, slash and foreign-reference fixtures.",
+      "result": "PASS"
+    },
+    {
+      "id": "R10",
+      "observable_result": "Supported lifecycle changes refresh or retire the proper generation.",
+      "ireb_lenses": "Consistent with pinned event reasons and testable.",
+      "evidence": "Pi types and loader/runner behavior.",
+      "result": "PASS"
+    },
+    {
+      "id": "R11",
+      "observable_result": "Ineligible modes allocate nothing; eligible sessions own bounded resources; managed integration remains unchanged.",
+      "ireb_lenses": "Clear and verifiable; duplicate-producer refusal is also independently covered by AC-R15.",
+      "evidence": "Pi factory/session guidance and R15 preflight.",
+      "result": "PASS"
+    },
+    {
+      "id": "R12",
+      "observable_result": "Only bounded model/reference/counter identities enter state/evidence.",
+      "ireb_lenses": "Explicit allowed and forbidden classes.",
+      "evidence": "Exact payload keys and secret sentinels.",
+      "result": "PASS"
+    },
+    {
+      "id": "R13",
+      "observable_result": "Pinned Pi and existing built-ins suffice without provider/network/process operations.",
+      "ireb_lenses": "Adequate and falsifiable.",
+      "evidence": "Pi loader and Node built-ins.",
+      "result": "PASS"
+    },
+    {
+      "id": "R14",
+      "observable_result": "Failures do not hang, falsely acknowledge, reuse sequence or resurrect retired state.",
+      "ireb_lenses": "Broad but enumerated and observable.",
+      "evidence": "Transport, persistence, retirement and recovery cases.",
+      "result": "PASS"
+    },
+    {
+      "id": "R15",
+      "observable_result": "Each host refuses activation unless authority and all preflight conditions succeed.",
+      "ireb_lenses": "Clear host separation, ordering and refusal behavior.",
+      "evidence": "AC-R15 includes conflicting producers and prior-publication proof.",
+      "result": "PASS"
+    },
+    {
+      "id": "R16",
+      "observable_result": "Each authorized host visibly shows known adjacency and unknown clearing.",
+      "ireb_lenses": "Observable and not substitutable with offline tests.",
+      "evidence": "Per-host readbacks and cropped screenshots.",
+      "result": "PASS"
+    },
+    {
+      "id": "R17",
+      "observable_result": "Rollback removes only owned extension bytes and preserves title, sessions and counters.",
+      "ireb_lenses": "Complete with successful-clear and lease-expiry branches.",
+      "evidence": "R17 and rollback section.",
+      "result": "PASS"
+    },
+    {
+      "id": "R18",
+      "observable_result": "Delivery remains one gated, ordered feature.",
+      "ireb_lenses": "Necessary, traceable and verifiable.",
+      "evidence": "T1–T5 order and refusal test.",
+      "result": "PASS"
+    },
+    {
+      "id": "R19",
+      "observable_result": "Specification-only authoring handoff is structurally auditable.",
+      "ireb_lenses": "Verifiable through the referenced companion chain and exact recorded command; audit output is supporting evidence, not independent semantic proof.",
+      "evidence": "rule-compliance.md; finding-adjudication.md; amendment/recheck/final-checks.json audit_command exit 0.",
+      "result": "PASS"
+    }
+  ],
+  "criteria": [
+    {
+      "id": "AC-R1",
+      "method": "test:pi-title-protocol",
+      "can_fail_wrong_outcome": "Yes technically; exact wire keys, values, seq/readback, TTL and invalid cases are checked.",
+      "shipped_entry_point": "Proposed extension plus Radar consumer.",
+      "environment_dependencies": "Fake local socket, isolated counter storage, shipped modules.",
+      "authority_trace": "R1/O1/O25; transport authority unresolved.",
+      "result": "FAIL"
+    },
+    {
+      "id": "AC-R2",
+      "method": "test:pi-title-naming",
+      "can_fail_wrong_outcome": "Yes; any title call throws.",
+      "shipped_entry_point": "Extension lifecycle handlers.",
+      "environment_dependencies": "Pi-compatible harness.",
+      "authority_trace": "R2/O2.",
+      "result": "PASS"
+    },
+    {
+      "id": "AC-R3",
+      "method": "test:pi-title-startup-order",
+      "can_fail_wrong_outcome": "Yes; late title writes surround publication.",
+      "shipped_entry_point": "session_start through consumer/output.",
+      "environment_dependencies": "Pi loader and fake socket.",
+      "authority_trace": "R3/O3/O13/O30.",
+      "result": "PASS"
+    },
+    {
+      "id": "AC-R4",
+      "method": "test:pi-title-resume",
+      "can_fail_wrong_outcome": "Yes; old context/reference is invalidated.",
+      "shipped_entry_point": "resume session_start through consumer.",
+      "environment_dependencies": "Lifecycle harness and fake Herdr.",
+      "authority_trace": "R4/O4/O14.",
+      "result": "PASS"
+    },
+    {
+      "id": "AC-R5",
+      "method": "test:pi-title-model-switch",
+      "can_fail_wrong_outcome": "Yes; delayed A→B→C detects stale overwrite.",
+      "shipped_entry_point": "model_select through Radar outputs.",
+      "environment_dependencies": "Fake socket timing.",
+      "authority_trace": "R5/O5/O15.",
+      "result": "PASS"
+    },
+    {
+      "id": "AC-R6",
+      "method": "test:pi-model-known-families",
+      "can_fail_wrong_outcome": "Yes; covers all aliases, namespace leaves, variants and boundaries.",
+      "shipped_entry_point": "Pi resolver and glyph lookup.",
+      "environment_dependencies": "Font/text/none fixtures.",
+      "authority_trace": "R6/O6/O10.",
+      "result": "PASS"
+    },
+    {
+      "id": "AC-R7",
+      "method": "test:pi-model-non-pi-regression",
+      "can_fail_wrong_outcome": "Yes; exact fixtures/snapshots/hashes detect drift.",
+      "shipped_entry_point": "Existing non-Pi output pipeline.",
+      "environment_dependencies": "Current fixtures/artifacts.",
+      "authority_trace": "R7/O9.",
+      "result": "PASS"
+    },
+    {
+      "id": "AC-R8",
+      "method": "test:pi-model-unknown-clear",
+      "can_fail_wrong_outcome": "Yes; transitions and both cells expose cache/partial-clear errors.",
+      "shipped_entry_point": "stateTokens output.",
+      "environment_dependencies": "Fake TTL and snapshots.",
+      "authority_trace": "R8/O11/O16.",
+      "result": "PASS"
+    },
+    {
+      "id": "AC-R9",
+      "method": "test:pi-model-suffix-boundaries",
+      "can_fail_wrong_outcome": "Yes; unrelated text and malformed IDs must remain blank.",
+      "shipped_entry_point": "Pi resolver.",
+      "environment_dependencies": "Identifier/reference matrix.",
+      "authority_trace": "R9/O12/O28.",
+      "result": "PASS"
+    },
+    {
+      "id": "AC-R10",
+      "method": "test:pi-title-lifecycle-matrix",
+      "can_fail_wrong_outcome": "Yes; invalidated callbacks and token-loss recovery catch generation bugs.",
+      "shipped_entry_point": "All Pi lifecycle handlers.",
+      "environment_dependencies": "Fake clock/socket.",
+      "authority_trace": "R10/O27.",
+      "result": "PASS"
+    },
+    {
+      "id": "AC-R11",
+      "method": "test:pi-title-resource-lifecycle",
+      "can_fail_wrong_outcome": "Yes for runtime allocation/retirement; deployment duplicate detection is additionally required by AC-R15.",
+      "shipped_entry_point": "Extension factory/session lifecycle.",
+      "environment_dependencies": "Pi loader, fake timers/sockets.",
+      "authority_trace": "R11/O29.",
+      "result": "PASS"
+    },
+    {
+      "id": "AC-R12",
+      "method": "test:pi-title-privacy-controls",
+      "can_fail_wrong_outcome": "Yes; sentinels and exact keys detect leakage.",
+      "shipped_entry_point": "Payload, counter and diagnostics.",
+      "environment_dependencies": "Isolated filesystem/socket.",
+      "authority_trace": "R12/O32.",
+      "result": "PASS"
+    },
+    {
+      "id": "AC-R13",
+      "method": "test:pi-title-no-provider-operations",
+      "can_fail_wrong_outcome": "Yes; forbidden collaborators throw.",
+      "shipped_entry_point": "Installed-compatible loader importing shipped extension.",
+      "environment_dependencies": "Pi 1.0.4 loader and Node built-ins.",
+      "authority_trace": "R13/O20/O21.",
+      "result": "PASS"
+    },
+    {
+      "id": "AC-R14",
+      "method": "test:pi-title-failure-retirement",
+      "can_fail_wrong_outcome": "Yes; enumerated failures detect false acknowledgement, hangs and unsafe persistence.",
+      "shipped_entry_point": "Producer transport/counter/generation.",
+      "environment_dependencies": "Fake socket, clock and filesystem failures.",
+      "authority_trace": "R14/O33.",
+      "result": "PASS"
+    },
+    {
+      "id": "AC-R15",
+      "method": "test:pi-logo-deployment-preflight",
+      "can_fail_wrong_outcome": "Yes; each missing prerequisite, including conflicting producers, refuses mutation.",
+      "shipped_entry_point": "Shipped preflight/runbook tooling.",
+      "environment_dependencies": "Per-host dry-run inventories; live authority later.",
+      "authority_trace": "R15/O7/O8/O31.",
+      "result": "PASS"
+    },
+    {
+      "id": "AC-R16",
+      "method": "screenshot:pi-logo-darkseid-and-alghul",
+      "can_fail_wrong_outcome": "Yes; readbacks plus known/unknown visuals are required on both hosts.",
+      "shipped_entry_point": "Activated extension, consumer and sidebar.",
+      "environment_dependencies": "Separate live authority and safe idle panes.",
+      "authority_trace": "R16/O17/O35.",
+      "result": "PASS"
+    },
+    {
+      "id": "AC-R17",
+      "method": "test:pi-title-rollback-reload",
+      "can_fail_wrong_outcome": "Yes; checks discovery, unchanged PID/title, clear/expiry and reinstall.",
+      "shipped_entry_point": "Rollback runbook and shutdown.",
+      "environment_dependencies": "Reload harness and fake lease.",
+      "authority_trace": "R17/O18/O19.",
+      "result": "PASS"
+    },
+    {
+      "id": "AC-R18",
+      "method": "test:pi-logo-delivery-order",
+      "can_fail_wrong_outcome": "Yes; failed earlier gates make later actions unreachable.",
+      "shipped_entry_point": "Delivery/runbook orchestration.",
+      "environment_dependencies": "Dry-run authority/prerequisite matrix.",
+      "authority_trace": "R18/O36.",
+      "result": "PASS"
+    },
+    {
+      "id": "AC-R19",
+      "method": "cmd:spec-audit",
+      "can_fail_wrong_outcome": "Yes structurally: graph/count/hash/check failures produce nonzero status; it does not independently prove semantic correctness.",
+      "shipped_entry_point": "specs/pi-model-logo/evidence/audit-spec.py and evidence/amendment/audit-amendment.py.",
+      "environment_dependencies": "cwd is the target worktree; clean PATH with Python 3 and git.",
+      "authority_trace": "R19/T0; rule-compliance.md → finding-adjudication.md → amendment/recheck/final-checks.json.",
+      "result": "PASS"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T0",
+      "requirements": "R19 only.",
+      "ordering": "Documentation authoring before implementation; no execution scope.",
+      "authorized_outcome": "Evidence-backed specification and traceability companions.",
+      "result": "FAIL overall because authority remains unresolved, although AC-R19 itself executed successfully."
+    },
+    {
+      "id": "T1",
+      "requirements": "R1, R2, R6, R9.",
+      "ordering": "After implementation authority.",
+      "authorized_outcome": "Producer, Pi consumer and contract tests.",
+      "result": "FAIL because R1 fixes an unresolved transport choice."
+    },
+    {
+      "id": "T2",
+      "requirements": "R3, R4, R5, R10, R11.",
+      "ordering": "After T1.",
+      "authorized_outcome": "Lifecycle, serialization and resource behavior.",
+      "result": "PASS conditional on T1 authority."
+    },
+    {
+      "id": "T3",
+      "requirements": "R7, R8, R12, R13, R14.",
+      "ordering": "After T2.",
+      "authorized_outcome": "Compatibility, privacy, expiry and failure evidence.",
+      "result": "PASS"
+    },
+    {
+      "id": "T4",
+      "requirements": "R15, R17, R18.",
+      "ordering": "After T3 and CI.",
+      "authorized_outcome": "Release, preflight, activation and rollback dry-run gates.",
+      "result": "PASS"
+    },
+    {
+      "id": "T5",
+      "requirements": "R16.",
+      "ordering": "After T4 and separate per-host authority.",
+      "authorized_outcome": "Per-host readbacks and visible acceptance.",
+      "result": "PASS"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "D1",
+      "operator_quote_or_source": "191578: Pi lacks the model logo that works for Hermes.",
+      "classification": "Authorized product outcome.",
+      "result": "AUTHORIZED"
+    },
+    {
+      "id": "D2",
+      "operator_quote_or_source": "192425: objection to trying an alternative rather than the referenced proposal.",
+      "classification": "Operator correction proving the transport divergence required explicit resolution; not by itself conclusive approval of either transport after later research.",
+      "result": "UNRESOLVED"
+    },
+    {
+      "id": "D3",
+      "operator_quote_or_source": "192429/192773: follow every skill-write-specs rule.",
+      "classification": "Authoring-process authority.",
+      "result": "VIOLATED by unresolved D2."
+    },
+    {
+      "id": "D4",
+      "operator_quote_or_source": "193056/193058: use reliable/latest sources.",
+      "classification": "Research-method authority.",
+      "result": "SATISFIED"
+    },
+    {
+      "id": "D5",
+      "operator_quote_or_source": "192753: no unauthorized agents.",
+      "classification": "Delegation boundary.",
+      "result": "SATISFIED"
+    },
+    {
+      "id": "D6",
+      "operator_quote_or_source": "SPEC token names, digest, TTL, counter, aliases and timing.",
+      "classification": "Evidence-backed implementation choices, conditional on metadata architecture approval.",
+      "result": "CONDITIONAL"
+    },
+    {
+      "id": "D7",
+      "operator_quote_or_source": "SPEC §1 and current request reserve implementation/deployment/live actions.",
+      "classification": "Authorization boundary.",
+      "result": "SATISFIED"
+    },
+    {
+      "id": "D8",
+      "operator_quote_or_source": "Pi, Herdr, Radar, Node and POSIX sources.",
+      "classification": "Discovered facts, not operator choices.",
+      "result": "VERIFIED as inventoried."
+    }
+  ],
+  "source_inventory": [
+    {
+      "path": "packet/SPEC.md and live SPEC.md",
+      "pass": "1–4",
+      "read_ranges": "All 232 lines.",
+      "evidence_checked": "Whole current contract and byte identity.",
+      "limit": "None."
+    },
+    {
+      "path": "packet/operator-messages.json",
+      "pass": "1",
+      "read_ranges": "All 167 lines / 33 messages.",
+      "evidence_checked": "Original human chronology and authority.",
+      "limit": "No omitted conversation treated as authority."
+    },
+    {
+      "path": "packet/proposal-assistant-not-authority.txt",
+      "pass": "1",
+      "read_ranges": "Entire file.",
+      "evidence_checked": "Referenced title proposal and assistant origin.",
+      "limit": "Proposal is not authority by itself."
+    },
+    {
+      "path": "packet/traceability.json",
+      "pass": "1,3",
+      "read_ranges": "All 606 lines; O1–O38, R1–R19 and T1–T5.",
+      "evidence_checked": "Mappings, counts and provenance claims.",
+      "limit": "T0 is implicit rather than stored in tasks."
+    },
+    {
+      "path": "live rule-compliance.md",
+      "pass": "1,3",
+      "read_ranges": "Entire 22-line current file.",
+      "evidence_checked": "R19 routing and current versus historical compliance status.",
+      "limit": "Author assertions were not accepted as independent proof."
+    },
+    {
+      "path": "live evidence/finding-adjudication.md",
+      "pass": "1,3",
+      "read_ranges": "Relevant current-status preface, O1–O38 table, R19 statement, command receipts, final limitations; bounded receipt sections throughout.",
+      "evidence_checked": "Companion authority classifications and exact audit routing.",
+      "limit": "Large historical pasted receipts sampled where duplicated by current recheck files."
+    },
+    {
+      "path": "live evidence/amendment/recheck/final-checks.json",
+      "pass": "1,3",
+      "read_ranges": "Complete JSON, including audit_command, finding rows, rules and limits.",
+      "evidence_checked": "Exact command/cwd/output/exit, hash, counts and unexecuted gates.",
+      "limit": "Author READY verdict not used as independent semantic proof."
+    },
+    {
+      "path": "skill-review-specs.md; examples.md; SOURCES.md; skill-write-specs.md; write-specs/examples.md; principles-base.md",
+      "pass": "1–4",
+      "read_ranges": "Applicable files read in full; applicable principles inspected.",
+      "evidence_checked": "Review method, authority separation, IREB lenses and executable criteria rules.",
+      "limit": "Unrelated operational principles not used as product authority."
+    },
+    {
+      "path": "lib/state.js",
+      "pass": "2,3,4",
+      "read_ranges": "1–330, 430–630, 740–820, 880–960.",
+      "evidence_checked": "Snapshot fields, row composition, model outputs, chunking, orphan cleanup and clearAll.",
+      "limit": "Routine grouping/workspace aggregation helpers sampled."
+    },
+    {
+      "path": "lib/logos.js",
+      "pass": "2,3",
+      "read_ranges": "1–279.",
+      "evidence_checked": "All glyph variants, family mappings and fallbacks.",
+      "limit": "None."
+    },
+    {
+      "path": "lib/herdr.js",
+      "pass": "2,3,4",
+      "read_ranges": "1–273.",
+      "evidence_checked": "List/get/report APIs, token patch, socket fallback and gone-target handling.",
+      "limit": "None."
+    },
+    {
+      "path": "lib/ipc.js",
+      "pass": "2,4",
+      "read_ranges": "1–70.",
+      "evidence_checked": "Socket path, framing, timeout, parsing and concurrency cap.",
+      "limit": "None."
+    },
+    {
+      "path": "lib/managed-config.js",
+      "pass": "2,3",
+      "read_ranges": "360–520 and 640–676, plus targeted earlier token-count helpers.",
+      "evidence_checked": "Model/model_stale sidebar cells, row token cap, managed removal and exports.",
+      "limit": "Theme/palette formatting helpers sampled."
+    },
+    {
+      "path": "lib/frame.js",
+      "pass": "2,3",
+      "read_ranges": "1–200 and 520–717.",
+      "evidence_checked": "Fresh snapshot entry point, render/write ordering, departed-pane cleanup and workspace/group writes.",
+      "limit": "Sorting/state-transition helpers sampled."
+    },
+    {
+      "path": "lib/daemon.js",
+      "pass": "2,4",
+      "read_ranges": "1–180 and 200–369.",
+      "evidence_checked": "Scheduler, shutdown clearAll, config uptake, subscription loss and heartbeat.",
+      "limit": "Routine startup plumbing sampled."
+    },
+    {
+      "path": "package.json; CONTRIBUTING.md; README.md; CHANGELOG.md",
+      "pass": "2,3",
+      "read_ranges": "First three complete; model/Pi and verification-related CHANGELOG entries.",
+      "evidence_checked": "Version/scripts/project gates/current documented behavior.",
+      "limit": "Unrelated changelog entries sampled."
+    },
+    {
+      "path": "/Users/42piratas/.pi/agent/extensions/herdr-agent-state.ts",
+      "pass": "2,4",
+      "read_ranges": "1–254.",
+      "evidence_checked": "Managed source, environment gate, reference priority and lifecycle reports.",
+      "limit": "Read-only."
+    },
+    {
+      "path": "packet/source/extensions.md and types-1.0.4.ts",
+      "pass": "2,4",
+      "read_ranges": "Extensions lifecycle/loader/context sections; types context 325–385, lifecycle 733–807, model 1080–1110, handlers 1548–1620.",
+      "evidence_checked": "Public lifecycle/model/session APIs and factory restrictions.",
+      "limit": "Unrelated tool/provider/UI APIs sampled."
+    },
+    {
+      "path": "installed Pi loader.js and runner.js via callers-loader.json",
+      "pass": "2,3",
+      "read_ranges": "loader 490–550, 623–694; runner 632–647.",
+      "evidence_checked": "Factory loading, direct .js/.ts discovery, global extensions directory and stale-context assertions.",
+      "limit": "Unrelated loader/package resolution sampled."
+    },
+    {
+      "path": "packet/source/socket.mdx",
+      "pass": "2,4",
+      "read_ranges": "Agent-session/metadata/TTL/seq sections 680–810 plus pane.get framing.",
+      "evidence_checked": "Wire contract, capacities and absence of token guards.",
+      "limit": "Unrelated APIs sampled."
+    },
+    {
+      "path": "packet/source/schema-fields.json and schema-fields-alghul.json",
+      "pass": "2,4",
+      "read_ranges": "Decoded complete embedded compact outputs.",
+      "evidence_checked": "PaneReportMetadataParams; seq uint64; TTL bounds; 16 request keys; AgentSessionInfo source/agent/kind/value; kind id/path; AgentInfo/PaneInfo 32-token maps on both hosts.",
+      "limit": "Receipts are captured host output, not fresh remote probes."
+    },
+    {
+      "path": "packet/source/source-output.json and pi-output.json",
+      "pass": "2",
+      "read_ranges": "Embedded cited outputs decoded and bounded by recorded ranges.",
+      "evidence_checked": "Radar/Pi source passages supporting current interfaces.",
+      "limit": "Not treated as complete modules; local modules were read separately where affected."
+    },
+    {
+      "path": "packet/source/alghul-paths.json; versions.json; hash-bounds-identity.json",
+      "pass": "2,4",
+      "read_ranges": "Complete JSON records.",
+      "evidence_checked": "Host path claims, pinned versions and bounded hash/counter facts.",
+      "limit": "Remote claims not re-executed."
+    },
+    {
+      "path": "packet/source/filesystem-passages.json and node-fs.txt",
+      "pass": "2,4",
+      "read_ranges": "Decoded passages for fsPromises.open, FileHandle.sync and fsPromises.rename; bounded raw text around those headings.",
+      "evidence_checked": "Exclusive/open mode basis, storage flush API and rename API.",
+      "limit": "No claim of full Node fs documentation coverage."
+    },
+    {
+      "path": "packet/source/crypto-passages.json and node-crypto.txt",
+      "pass": "2,4",
+      "read_ranges": "Decoded createHash and hash.update passages; bounded raw text.",
+      "evidence_checked": "SHA256 hash construction and UTF-8 string input behavior.",
+      "limit": "No claim of full crypto documentation coverage."
+    },
+    {
+      "path": "packet/source/posix-rename.txt",
+      "pass": "2,4",
+      "read_ranges": "NAME/SYNOPSIS and relevant DESCRIPTION replacement/visibility/symlink passages.",
+      "evidence_checked": "Same-filesystem replacement visibility and symlink semantics.",
+      "limit": "Error catalogue and unrelated renameat details sampled."
+    },
+    {
+      "path": "report-schema.json; packet/manifest.json; packet/source/sources.json",
+      "pass": "1,3",
+      "read_ranges": "Complete files.",
+      "evidence_checked": "Output schema, pinned hashes, URLs and retrieval dates.",
+      "limit": "None."
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "BLOCKER",
+      "location": "SPEC §1–3; traceability.json O1, O25 and R1; finding-adjudication.md T3 disposition",
+      "violated_obligation_or_claim": "skill-write-specs rules 3–5 require genuine workflow/product choices to be resolved by the operator rather than converted from an author recommendation into READY scope.",
+      "observed_evidence": "The assistant proposal says to include the model in Pi's terminal title. Message 192425 challenges pursuing an alternative to that proposal. Later messages authorize investigation and evidence-based amendment but contain no explicit quote selecting metadata transport. SPEC instead mandates zero title writes and a new token/counter protocol. The companion T3 row calls title transport an assistant proposal and metadata official, but technical superiority is not operator authority.",
+      "failure_scenario": "Two reasonable outcomes remain permitted by the actual authority: implement the referenced title extension, or adopt the newly researched metadata producer/consumer. The current contract silently fixes the second; all listed tests could pass while delivering a workflow the operator never selected.",
+      "minimal_contract_correction": "Mark the contract BLOCKED on one explicit operator decision: title transport versus metadata transport, presenting the verified trade-off. After the operator chooses, retain only the requirements dependent on that selected transport."
+    },
+    {
+      "id": "F2",
+      "severity": "MAJOR",
+      "location": "traceability.json O22–O37 source/source_class fields and finding-adjudication.md obligation table",
+      "violated_obligation_or_claim": "The obligation ledger must trace each obligation to its real controlling authority and must distinguish operator wording, canonical rules, discovered facts, prior-review evidence and author choices.",
+      "observed_evidence": "O22–O37 repeatedly use “inherited engineering control, not verbatim operator wording” without identifying an inherited contract. O26 turns message 191983's short prior Opus-review instruction into a detailed F1–F8/U1–U7/T1–T4 mandate. O33/O34/O36 are substantially canonical authoring rules; O27–O32 mix facts and implementation recommendations. The supplied chronology does not demonstrate these as operator decisions.",
+      "failure_scenario": "An implementer or later reviewer reads author/reviewer recommendations as operator-approved scope, while the one actual unresolved product choice is obscured by a ledger showing every row resolved.",
+      "minimal_contract_correction": "For every O22–O37 row, cite an exact message ID or named canonical clause and classify it accordingly. Reclassify prior-review conclusions as evidence and implementation recommendations as non-authoritative choices; remove any row with no governing obligation and leave resulting operator decisions unresolved."
+    }
+  ],
+  "limitations": [
+    "No SSH, private API, credential, transcript, production configuration, live Pi session, reload, deployment or model selection was used.",
+    "The proposed native extension and feature tests do not exist; AC-R1–AC-R18 have not passed implementation or live acceptance.",
+    "The single earlier npm test run produced 71 passes and four sandbox EPERM failures while creating temporary directories or Unix sockets; it proves neither feature success nor product failure.",
+    "Alghul schema/path/version receipts were decoded and inspected but not independently re-run because remote operations were prohibited.",
+    "Corrected coverage acknowledgement: the earlier report overclaimed complete module and receipt inspection. This report lists only ranges actually read; routine irrelevant helpers are explicitly sampled."
+  ],
+  "assumptions": [
+    "operator-messages.json is the complete supplied original-human chronology; omitted context is not treated as authority.",
+    "Packet primary-source documents are the pinned 2026-10-08 evidence basis; their recorded hashes were checked.",
+    "The live uncommitted SPEC.md and companions are the reviewed revision, not ancestor 6d3151132ffc0ecd2bc2f8fad01aee5661c940fd."
+  ],
+  "safe_checks": [
+    {
+      "command": "npm test",
+      "cwd": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec",
+      "exit_code": "1",
+      "observed_output": "75 tests: 71 passed; four failed with EPERM because the read-only sandbox denied temporary-directory or Unix-socket creation. RVM also could not run ps.",
+      "meaning": "Existing suite invoked once; incomplete baseline due environment. No feature tests exist."
+    },
+    {
+      "command": "Recorded authoring check inspected, not re-executed: env -i PATH=/opt/homebrew/bin:/usr/bin:/bin python3 specs/pi-model-logo/evidence/audit-spec.py && env -i PATH=/opt/homebrew/bin:/usr/bin:/bin python3 specs/pi-model-logo/evidence/amendment/audit-amendment.py && /opt/homebrew/bin/git diff --check",
+      "cwd": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec",
+      "exit_code": "Recorded 0 in amendment/recheck/final-checks.json",
+      "observed_output": "Two structural audit JSON objects reported READY/audit_passed true, 38 obligations, 18 implementation requirements/verifications, one authoring verification, five delivery tasks, no dependency cycle, no orphan tasks, and SPEC SHA256 30e992…; git diff --check produced no error.",
+      "meaning": "AC-R19 has an exact executable receipt. It establishes structural consistency only; it does not independently prove semantic authority or readiness."
+    }
+  ],
+  "hash_rechecks": [
+    {
+      "path": "live specs/pi-model-logo/SPEC.md",
+      "sha256": "30e9921892ecfc8545b4c12dd1283001e0afb93ec78745ccc88ce7aa03bacdc3",
+      "matches_initial": "YES"
+    },
+    {
+      "path": "packet/SPEC.md",
+      "sha256": "30e9921892ecfc8545b4c12dd1283001e0afb93ec78745ccc88ce7aa03bacdc3",
+      "matches_initial": "YES; byte-identical to live artifact"
+    },
+    {
+      "path": "live specs/pi-model-logo/traceability.json",
+      "sha256": "6b4eead98722a919c676087a52f62f8cdc6a725cb4d2099af308c56118fbd785",
+      "matches_initial": "YES"
+    },
+    {
+      "path": "live specs/pi-model-logo/rule-compliance.md",
+      "sha256": "daf08e7d2030f408049f63b4529e7ecf871a294683d6c238f644e413b687c194",
+      "matches_initial": "UNCHANGED DURING REVIEW; no manifest baseline supplied"
+    },
+    {
+      "path": "live specs/pi-model-logo/evidence/finding-adjudication.md",
+      "sha256": "376a0270583d2d318250134459c499670a98ba880ab738e29ac0cdbd8f60e4d9",
+      "matches_initial": "UNCHANGED DURING REVIEW; no manifest baseline supplied"
+    },
+    {
+      "path": "live specs/pi-model-logo/evidence/amendment/recheck/final-checks.json",
+      "sha256": "db7161e008e65add2c21854851826a2df52a1ea37d6064d6909985929e96e1bc",
+      "matches_initial": "UNCHANGED DURING REVIEW; no manifest baseline supplied"
+    },
+    {
+      "path": "packet/operator-messages.json",
+      "sha256": "966935d074d15e7ad318213fbb88b11a26323ed5ad2f8eff1fcd9d30e2f3c43b",
+      "matches_initial": "UNCHANGED DURING REVIEW"
+    },
+    {
+      "path": "packet/manifest.json",
+      "sha256": "3aa9dcbbc159c224631e3aa41dfc5aae3d4fa22996fb99fee9d8b821de2c7c98",
+      "matches_initial": "UNCHANGED DURING REVIEW"
+    },
+    {
+      "path": "packet/proposal-assistant-not-authority.txt",
+      "sha256": "31ea10346168513a9c1da53b3a6a3409c89762cef37c633cc9255b754c2d2b06",
+      "matches_initial": "YES"
+    },
+    {
+      "path": "packet/source/source-output.json",
+      "sha256": "f92c75369e92073117feeb601dcc2446f9a69fbd2ebb84f0ce1220b32982bff9",
+      "matches_initial": "YES"
+    },
+    {
+      "path": "packet/source/pi-output.json",
+      "sha256": "19d197bcfce8b0cdac9c5509e65493a9ea434bcd93f95548ffc99fcaec797807",
+      "matches_initial": "YES"
+    },
+    {
+      "path": "packet/source/schema-fields.json",
+      "sha256": "322273e6d81e649c7b5f1a181a5a7542687a708f4051ae35e4ecf42bd6cd482a",
+      "matches_initial": "YES"
+    },
+    {
+      "path": "packet/source/schema-fields-alghul.json",
+      "sha256": "563049404fd514a8edd1488298528fa77439dde1ba8fa3c8a453035366d30596",
+      "matches_initial": "YES"
+    },
+    {
+      "path": "packet/source/callers-loader.json",
+      "sha256": "ea8e9d927a0f2a4169a7b316fac937d5ac7e5402fa81bfdf7ada9e486189bf21",
+      "matches_initial": "YES"
+    },
+    {
+      "path": "packet/source/socket.mdx",
+      "sha256": "0f0aa15b4f3204cb121c9a05c37c195de5f0fe57252803eae15a526d9cb4aa50",
+      "matches_initial": "YES"
+    },
+    {
+      "path": "packet/source/extensions.md",
+      "sha256": "bd2ed1f728173c1defc035e90c3894c308ae153fa08575c12b4a9988e11f8108",
+      "matches_initial": "YES"
+    },
+    {
+      "path": "packet/source/types-1.0.4.ts",
+      "sha256": "33be19555ad54f9e10a3436ce51f54bd6b27cc870a7d9ecc0e4997aeeaa3ae0b",
+      "matches_initial": "YES"
+    },
+    {
+      "path": "packet/source/filesystem-passages.json",
+      "sha256": "4ff16f1a1092a9f0b69306b0cc1e5a6c31a17aa91a21f4bc422a09806fac69ea",
+      "matches_initial": "YES"
+    },
+    {
+      "path": "packet/source/crypto-passages.json",
+      "sha256": "2afeebdd1265d7138ab6b2a42d3ee21898b57db592fb9324c01a90ca3aeaed85",
+      "matches_initial": "YES"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "verdict": "UNVERIFIED",
+  "verdict_origin": "dispatch audit, not a reviewer verdict",
+  "reason": "Claude CLI returned Not logged in · Please run /login; no inference occurred.",
+  "session_id": "929cee82-d5cf-4bca-b24b-80809101e909",
+  "requested_model": "opus",
+  "verified_model": null,
+  "modelUsage": {},
+  "coverage": [
+    {
+      "bullet": 1,
+      "status": "UNVERIFIED — reviewer could not run"
+    },
+    {
+      "bullet": 2,
+      "status": "UNVERIFIED — reviewer could not run"
+    },
+    {
+      "bullet": 3,
+      "status": "UNVERIFIED — reviewer could not run"
+    },
+    {
+      "bullet": 4,
+      "status": "UNVERIFIED — reviewer could not run"
+    },
+    {
+      "bullet": 5,
+      "status": "UNVERIFIED — reviewer could not run"
+    },
+    {
+      "bullet": 6,
+      "status": "UNVERIFIED — reviewer could not run"
+    }
+  ],
+  "findings": [],
+  "spec_sha256": "31ea10346168513a9c1da53b3a6a3409c89762cef37c633cc9255b754c2d2b06",
+  "process_stopped": true
+}

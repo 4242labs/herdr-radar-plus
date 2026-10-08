@@ -1,0 +1,42 @@
+{
+  "round": 2,
+  "thread_id": "01a11bae-a410-7290-816b-44ee920131ff",
+  "model_verified": "gpt-5.6-sol",
+  "sandbox_verified": "read-only",
+  "formal_verdict": "CHANGES REQUIRED",
+  "four_passes_returned": true,
+  "all_original_packet_message_rows": true,
+  "obligations_covered": 38,
+  "requirements_covered": 19,
+  "criteria_covered": 19,
+  "tasks_covered": 6,
+  "shape_gaps": [],
+  "source_completion_followup": "same session; overclaimed source reads corrected; F2/F3 from attempt1 retracted, final findings must be counted instead",
+  "reviewer_stopped": true,
+  "deadline_preserved": 1791466391.9146993,
+  "remaining_at_reviewer_exit": 42.91250133514404,
+  "spec_and_companion_hashes_unchanged": true,
+  "findings_adjudicated_by_parent": false,
+  "implementation_authorized": false,
+  "amendment_authorized": false,
+  "late_parent_packet_addendum": {
+    "path": "packet/decision-context.json",
+    "reviewed_by_reviewer": false,
+    "limitation": "Paired assistant context was recovered late and not consumed in the completed reviewer turn; no additional same-session inference after the hard cap."
+  },
+  "acceptance": "UNACCEPTED pending reviewer inspection of late paired-decision context; no new reviewer/round launched",
+  "canonical_counts": {
+    "BLOCKER": 1,
+    "MAJOR": 1,
+    "MINOR": 0
+  },
+  "prior_round": {
+    "round": 1,
+    "original_counts": {
+      "High": 1,
+      "Medium": 3,
+      "Low": 4
+    },
+    "canonical_counts": "Unknown: High/Medium/Low labels cannot be silently mapped to BLOCKER/MAJOR/MINOR"
+  }
+}

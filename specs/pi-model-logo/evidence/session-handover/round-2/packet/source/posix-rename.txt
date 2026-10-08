@@ -1,0 +1,1146 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+rename
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<<
+Previous
+
+
+Home
+
+
+Next
+>>>
+
+
+
+
+
+
+
+
+
+
+The Open Group Base Specifications Issue 8
+
+IEEE Std 1003.1-2024
+
+Copyright © 2001-2024 The IEEE and The Open Group
+
+
+
+
+ 
+ 
+
+
+NAME
+
+
+rename, renameat — rename file
+
+
+SYNOPSIS
+
+
+
+
+#include <
+stdio.h
+>
+
+
+
+int rename(const char *
+old
+, const char *
+new
+);
+
+
+
+
+[
+OH
+]
+ 
+#include
+<fcntl.h>
+
+
+
+
+[
+CX
+]
+ 
+ int renameat(int
+ 
+oldfd
+, const char *
+old
+, int
+
+
+newfd
+,
+
+       const char *
+new
+); 
+
+
+
+
+DESCRIPTION
+
+
+
+
+For 
+rename
+(): 
+[
+CX
+]
+ 
+  The functionality described on this reference page is aligned with the ISO C standard. Any
+conflict between the requirements described here and the ISO C standard is unintentional. This volume of POSIX.1-2024 defers
+to the ISO C standard. 
+
+
+The 
+rename
+() function shall change the name of a file. The 
+old
+ argument points to the pathname of the file to be
+renamed. The 
+new
+ argument points to the new pathname of the file. 
+[
+CX
+]
+
+
+  If the 
+new
+ argument does not resolve to an
+existing directory entry for a file of type directory and the 
+new
+ argument contains at least one non-<slash> character
+and ends with one or more trailing <slash> characters after all symbolic links have been processed, 
+rename
+() shall
+fail.
+
+
+If either the 
+old
+ or 
+new
+ argument names a symbolic link, 
+rename
+() shall operate on the symbolic link
+itself, and shall not resolve the last component of the argument. If the 
+old
+ argument and the 
+new
+ argument resolve to
+either the same existing directory entry or different directory entries for the same existing file, 
+rename
+() shall return
+successfully and perform no other action.
+
+
+If the 
+old
+ argument names a file that is not a directory and the 
+new
+ argument names a directory, or 
+old
+
+names a directory and 
+new
+ names a file that is not a directory, or 
+new
+ names a directory that is not empty,
+
+rename
+() shall fail. Otherwise, if the directory entry named by 
+new
+ exists, it shall be removed and 
+old
+
+renamed to 
+new
+. In this case, a directory entry named 
+new
+ shall remain visible to other threads throughout the
+renaming operation and refer either to the file referred to by 
+new
+ or 
+old
+ before the operation began.
+
+
+If either 
+pathname
+ argument refers to a path whose final component is either dot or dot-dot, 
+rename
+() shall
+fail.
+
+
+If the 
+old
+ argument points to a pathname of a symbolic link, the symbolic link shall be renamed. If the 
+new
+
+argument points to a pathname of a symbolic link, the symbolic link shall be removed.
+
+
+The 
+old
+ pathname shall not name an ancestor directory of the 
+new
+ pathname. Write access permission is required for
+the directory containing 
+old
+ and the directory containing 
+new
+. If the 
+old
+ argument points to the pathname of a
+directory, write access permission may be required for the directory named by 
+old
+, and, if it exists, the directory named by
+
+new
+.
+
+
+If the 
+new
+ argument names an existing file and the file's link count becomes 0 when it is removed and no process has the
+file open, the space occupied by the file shall be freed and the file shall no longer be accessible. If one or more processes have
+the file open when the last link is removed, the link shall be removed before 
+rename
+() returns, but the removal of the file
+contents shall be postponed until all references to the file are closed.
+
+
+Upon successful completion, 
+rename
+() shall mark for update the last data modification and last file status change
+timestamps of the parent directory of each file.
+
+
+If the 
+rename
+() function fails for any reason other than [EIO], any file named by 
+new
+ shall be unaffected.
+
+
+The 
+renameat
+() function shall be equivalent to the 
+rename
+() function except in the case where either 
+old
+ or
+
+new
+ specifies a relative path. If 
+old
+ is a relative path, the file to be renamed is located relative to the directory
+associated with the file descriptor 
+oldfd
+ instead of the current working directory. If 
+new
+ is a relative path, the
+same happens only relative to the directory associated with 
+newfd
+. If the access mode of the open file description
+associated with the file descriptor is not O_SEARCH, the function shall check whether directory searches are permitted using the
+current permissions of the directory underlying the file descriptor. If the access mode is O_SEARCH, the function shall not perform
+the check.
+
+
+If 
+renameat
+() is passed the special value AT_FDCWD in the 
+oldfd
+ or 
+newfd
+ parameter, the current working
+directory shall be used in the determination of the file for the respective 
+path
+ parameter. 
+
+
+
+
+RETURN VALUE
+
+
+
+
+Upon successful completion, the 
+rename
+() function shall return 0. Otherwise, it shall return -1, 
+[
+CX
+]
+ 
+ 
+errno
+ shall
+be set to indicate the error, 
+  and neither the file named by
+
+old
+ nor the file named by 
+new
+ shall be changed or created.
+
+
+[
+CX
+]
+ 
+
+Upon successful completion, the 
+renameat
+() function shall return 0. Otherwise, it shall return -1 and set 
+errno
+ to
+indicate the error. 
+
+
+
+
+ERRORS
+
+
+
+
+The 
+rename
+() 
+[
+CX
+]
+ 
+  and 
+renameat
+() 
+
+ functions shall fail if:
+
+
+
+
+
+
+[EACCES]
+
+
+[
+CX
+]
+ 
+ A
+component of either path prefix denies search permission; or one of the directories containing 
+old
+ or 
+new
+ denies
+write permissions; or, write permission is required and is denied for a directory pointed to by the 
+old
+ or 
+new
+
+arguments. 
+
+
+[EBUSY]
+
+
+[
+CX
+]
+ 
+
+The directory named by 
+old
+ or 
+new
+ is currently in use by the system or another process, and the implementation
+considers this an error. 
+
+
+[EEXIST] or [ENOTEMPTY]
+
+
+[
+CX
+]
+ 
+
+The 
+new
+ argument names a directory that is not empty. 
+
+
+[EILSEQ]
+
+
+[
+CX
+]
+ 
+
+The last pathname component of the new pathname is not a portable filename, and cannot be created in the target directory.
+
+
+
+[EINVAL]
+
+
+[
+CX
+]
+ 
+
+The 
+old
+ pathname names an ancestor directory of the 
+new
+ pathname, or either pathname argument contains a final
+component that is dot or dot-dot. 
+
+
+[EIO]
+
+
+[
+CX
+]
+ 
+ A
+physical I/O error has occurred. 
+
+
+[EISDIR]
+
+
+[
+CX
+]
+ 
+
+The 
+new
+ argument points to a directory and the 
+old
+ argument points to a file that is not a directory. 
+
+
+[ELOOP]
+
+
+[
+CX
+]
+ 
+ A
+loop exists in symbolic links encountered during resolution of the 
+old
+ or 
+new
+ argument. 
+
+
+[EMLINK]
+
+
+[
+CX
+]
+ 
+
+The file named by 
+old
+ is a directory, and the link count of the parent directory of 
+new
+ would exceed {LINK_MAX}.
+
+
+
+[ENAMETOOLONG]
+
+
+[
+CX
+]
+ 
+
+The length of a component of a pathname is longer than {NAME_MAX}. 
+
+
+[ENOENT]
+
+
+[
+CX
+]
+ 
+
+The 
+old
+ argument does not name an existing file, a component of the path prefix of 
+new
+ does not exist, or either
+
+old
+ or 
+new
+ points to an empty string. 
+
+
+[ENOSPC]
+
+
+[
+CX
+]
+ 
+
+The directory that would contain 
+new
+ cannot be extended. 
+
+
+[ENOTDIR]
+
+
+[
+CX
+]
+ 
+ A
+component of either path prefix names an existing file that is neither a directory nor a symbolic link to a directory; or the
+
+old
+ argument names a directory and the 
+new
+ argument names a non-directory file; or the 
+old
+ argument contains
+at least one non-<slash> character and ends with one or more trailing <slash> characters and the last pathname
+component names an existing file that is neither a directory nor a symbolic link to a directory; or the 
+old
+ argument names
+an existing non-directory file and the 
+new
+ argument names a nonexistent file, contains at least one non-<slash>
+character, and ends with one or more trailing <slash> characters; or the 
+new
+ argument names an existing non-directory
+file, contains at least one non-<slash> character, and ends with one or more trailing <slash> characters. 
+
+
+[EPERM] or [EACCES]
+
+
+[
+XSI
+]
+ 
+
+The S_ISVTX flag is set on the directory containing the file referred to by 
+old
+ and the process does not satisfy the
+criteria specified in XBD 
+4.5 Directory Protection
+ with respect to
+
+old
+; or 
+new
+ refers to an existing file, the S_ISVTX flag is set on the directory containing this file, and the
+process does not satisfy the criteria specified in XBD 
+4.5 Directory
+Protection
+ with respect to this file. 
+
+
+[EROFS]
+
+
+[
+CX
+]
+ 
+
+The requested operation requires writing in a directory on a read-only file system. 
+
+
+[EXDEV]
+
+
+[
+CX
+]
+ 
+
+The file named by 
+old
+ and the directory in which the directory entry named by 
+new
+ is to be created or replaced are on
+different file systems and the implementation does not support hard links between file systems. 
+
+
+
+
+[
+CX
+]
+ 
+ In
+addition, the 
+renameat
+() function shall fail if:
+
+
+
+
+
+
+[EACCES]
+
+
+The access mode of the open file description associated with 
+oldfd
+ or 
+newfd
+ is not O_SEARCH and the permissions
+of the directory underlying 
+oldfd
+ or 
+newfd
+, respectively, do not permit directory searches.
+
+
+[EBADF]
+
+
+The 
+old
+ argument does not specify an absolute path and the 
+oldfd
+ argument is neither AT_FDCWD nor a valid file
+descriptor open for reading or searching, or the 
+new
+ argument does not specify an absolute path and the 
+newfd
+
+argument is neither AT_FDCWD nor a valid file descriptor open for reading or searching.
+
+
+[ENOTDIR]
+
+
+The 
+old
+ or 
+new
+ argument is not an absolute path and 
+oldfd
+ or 
+newfd
+, respectively, is a file
+descriptor associated with a non-directory file.
+
+
+
+
+
+
+The 
+rename
+() 
+[
+CX
+]
+ 
+  and 
+renameat
+() 
+
+ functions may fail if:
+
+
+
+
+
+
+[ELOOP]
+
+
+[
+CX
+]
+ 
+
+More than {SYMLOOP_MAX} symbolic links were encountered during resolution of the 
+old
+ or 
+new
+ argument. 
+
+
+[ENAMETOOLONG]
+
+
+[
+CX
+]
+ 
+
+The length of a pathname exceeds {PATH_MAX}, or pathname resolution of a symbolic link produced an intermediate result with a
+length that exceeds {PATH_MAX}. 
+
+
+[ETXTBSY]
+
+
+[
+CX
+]
+ 
+
+The file named by 
+new
+ exists and is the last directory entry to a pure procedure (shared text) file that is being executed.
+
+
+
+
+
+
+
+
+
+The following sections are informative.
+
+
+EXAMPLES
+
+
+
+
+Renaming a File
+
+
+The following example shows how to rename a file named 
+/home/cnd/mod1
+ to 
+/home/cnd/mod2
+.
+
+
+
+
+#include <stdio.h>
+
+
+int status;
+...
+status = rename("/home/cnd/mod1", "/home/cnd/mod2");
+
+
+
+APPLICATION USAGE
+
+
+
+
+Some implementations mark for update the last file status change timestamp of renamed files and some do not. Applications which
+make use of the last file status change timestamp may behave differently with respect to renamed files unless they are designed to
+allow for either behavior.
+
+
+
+
+RATIONALE
+
+
+
+
+This 
+rename
+() function is equivalent for regular files to that defined by the ISO C standard. Its inclusion here
+expands that definition to include actions on directories and specifies behavior when the 
+new
+ parameter names a file that
+already exists. That specification requires that the action of the function be atomic.
+
+
+One of the reasons for introducing this function was to have a means of renaming directories while permitting implementations to
+prohibit the use of 
+link
+()
+ and 
+unlink
+()
+
+with directories, thus constraining links to directories to those made by 
+mkdir
+()
+.
+
+
+The specification that if 
+old
+ and 
+new
+ refer to the same file is intended to guarantee that:
+
+
+
+
+rename("x", "x");
+
+
+
+does not remove the file.
+
+
+Renaming dot or dot-dot is prohibited in order to prevent cyclical file system paths.
+
+
+See also the descriptions of [ENOTEMPTY] and [ENAMETOOLONG] in 
+rmdir
+()
+ and [EBUSY]
+in 
+unlink
+()
+. For a discussion of [EXDEV], see 
+link
+()
+.
+
+
+The purpose of the 
+renameat
+() function is to rename files in directories other than the current working directory without
+exposure to race conditions. Any part of the path of a file could be changed in parallel to a call to 
+rename
+(), resulting in
+unspecified behavior. By opening file descriptors for the source and target directories and using the 
+renameat
+() function it
+can be guaranteed that that renamed file is located correctly and the resulting file is in the desired directory.
+
+
+Implementations are encouraged to have 
+rename
+() and 
+renameat
+() report an [EILSEQ] error if the file named by
+
+new
+ does not already exist and the last component of that pathname contains any bytes that have the encoded value of a
+<newline> character.
+
+
+
+
+FUTURE DIRECTIONS
+
+
+
+
+None.
+
+
+
+
+SEE ALSO
+
+
+
+
+link
+()
+, 
+rmdir
+()
+
+, 
+symlink
+()
+, 
+unlink
+()
+
+
+XBD 
+4.5 Directory Protection
+, 
+<fcntl.h>
+, 
+<stdio.h>
+
+
+
+
+CHANGE HISTORY
+
+
+
+
+First released in Issue 3. Included for alignment with the POSIX.1-1988 standard.
+
+
+
+
+Issue 5
+
+
+
+
+The [EBUSY] error is added to the optional part of the ERRORS section.
+
+
+
+
+Issue 6
+
+
+
+
+Extensions beyond the ISO C standard are marked.
+
+
+The following new requirements on POSIX implementations derive from alignment with the Single UNIX Specification:
+
+
+
+
+
+
+The [EIO] mandatory error condition is added.
+
+
+
+
+
+
+The [ELOOP] mandatory error condition is added.
+
+
+
+
+
+
+A second [ENAMETOOLONG] is added as an optional error condition.
+
+
+
+
+
+
+The [ETXTBSY] optional error condition is added.
+
+
+
+
+
+
+The following changes were made to align with the IEEE P1003.1a draft standard:
+
+
+
+
+
+
+Details are added regarding the treatment of symbolic links.
+
+
+
+
+
+
+The [ELOOP] optional error condition is added.
+
+
+
+
+
+
+The normative text is updated to avoid use of the term "must" for application requirements.
+
+
+
+
+Issue 7
+
+
+
+
+Austin Group Interpretation 1003.1-2001 #016 is applied, changing the definition of the [ENOTDIR] error.
+
+
+Austin Group Interpretation 1003.1-2001 #076 is applied, clarifying the behavior if the final component of a path is either dot
+or dot-dot, and adding the associated [EINVAL] error case.
+
+
+Austin Group Interpretation 1003.1-2001 #143 is applied.
+
+
+Austin Group Interpretation 1003.1-2001 #145 is applied, clarifying that the [ENOENT] error condition also applies to the case
+in which a component of 
+new
+ does not exist.
+
+
+Austin Group Interpretations 1003.1-2001 #174 and #181 are applied.
+
+
+The 
+renameat
+() function is added from The Open Group Technical Standard, 2006, Extended API Set Part 2.
+
+
+Changes are made related to support for finegrained timestamps.
+
+
+Changes are made to allow a directory to be opened for searching.
+
+
+POSIX.1-2008, Technical Corrigendum 1, XSH/TC1-2008/0508 [324], XSH/TC1-2008/0509 [147], XSH/TC1-2008/0510 [379],
+XSH/TC1-2008/0511 [278], and XSH/TC1-2008/0512 [278] are applied.
+
+
+POSIX.1-2008, Technical Corrigendum 2, XSH/TC2-2008/0311 [873], XSH/TC2-2008/0312 [591], XSH/TC2-2008/0313 [716],
+XSH/TC2-2008/0314 [817], XSH/TC2-2008/0315 [817], and XSH/TC2-2008/0316 [591] are applied.
+
+
+
+
+Issue 8
+
+
+
+
+Austin Group Defect 251 is applied, encouraging implementations to disallow the creation of filenames containing any bytes that
+have the encoded value of a <newline> character.
+
+
+Austin Group Defect 293 is applied, adding the [EILSEQ] error.
+
+
+Austin Group Defect 1200 is applied, correcting the argument names in the [ELOOP] errors.
+
+
+Austin Group Defect 1330 is applied, removing obsolescent interfaces.
+
+
+Austin Group Defect 1380 is applied, changing text using the term "link" in line with its updated definition.
+
+
+
+
+End of informative text.
+
+
+
+
+ 
+
+
+return to top of page
+
+
+
+
+UNIX® is a registered Trademark of The Open Group.
+
+POSIX™ is a Trademark of The IEEE.
+
+Copyright © 2001-2024 The IEEE and The Open Group, All Rights Reserved
+
+[ 
+Main Index
+ | 
+XBD
+ | 
+XSH
+ | 
+XCU
+ | 
+XRAT
+
+]
+
+
+
+
+
+
+
+
+
+
+<<<
+Previous
+
+
+Home
+
+
+Next
+>>>
+
+
+
+
+
+
+
+
+
+
+

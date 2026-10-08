@@ -1,0 +1,9 @@
+{
+  "command": "ssh -o BatchMode=yes -o ConnectTimeout=10 alghul \"/home/42piratas/.npm-global/bin/pi --version; test -d /home/42piratas/.pi/agent/extensions; test -d /home/42piratas/42labs/herdr-radar-plus; readlink -f /home/42piratas/42labs/herdr-radar-plus; /usr/bin/git -C /home/42piratas/42labs/herdr-radar-plus rev-parse HEAD\"",
+  "cwd": "/Users/42piratas/42labs/herdr-radar-plus/.worktrees/docs/adhoc-L2130-pi-model-logo-spec",
+  "result": {
+    "output": "1.0.4\n/mnt/HC_Volume_106886629/workspace/herdr-radar-plus\ne258108012cc45ac18c8b3e7bb6b5e1dab1b3b2d",
+    "exit_code": 0,
+    "error": null
+  }
+}

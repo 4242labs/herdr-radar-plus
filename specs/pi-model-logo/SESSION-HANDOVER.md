@@ -25,6 +25,8 @@
 - The specification's recorded version is `V2610081008`; its recorded last-updated timestamp is `2026-10-08T10:08:50-03:00`.
 - The specification and reviewed companions were not amended during this handover. The PR packages their existing state, session evidence and this log.
 - `.prettierignore` gained two scoped entries covering frozen Pi-specification evidence and reviewed traceability. The initial formatter run reported upstream HTML parse errors and formatting warnings in these captures; their bytes were retained rather than reformatted.
+- The initial staged `git diff --check` exited 2 on upstream whitespace in nine captured source files and prevented the first commit command from running. `.gitattributes` then disabled whitespace checking only for those nine exact capture paths; captured bytes were unchanged. The subsequent staged check and commit succeeded.
+- Handover package commit: `20c6ea4414cd63f6b0a9aaeb14b7ef3797188e1a`, subject `docs(pi): preserve specification and factual session handover (42L-2130)`; it recorded 156 changed files. A subsequent fetch/rebase reported the branch already up to date.
 
 ## Session chronology
 
@@ -181,4 +183,4 @@ Earlier lookup attempts using the incorrect owners `4242labs/alghul` and `4242la
 - Exact fresh historical-PR readbacks: `evidence/session-handover/historical-pr-readbacks.json`.
 - Handover validation commands, output and exit codes: `evidence/session-handover/handover-checks.json`.
 
-V2610081100
+V2610081102

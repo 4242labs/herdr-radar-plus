@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- **Pi's own selected model.** A standalone extension
+  (`extensions/pi-model-logo.js`) reports Pi's actual selected model to
+  Herdr, so the model mark works for Pi even though its terminal title
+  cannot reveal the selection. See README "Model mark" for installation.
+
 ## 0.42.0 — 2026-09-27
 
 First release of herdr-radar-plus, built on herdr-radar 1.3.15. Plugin id

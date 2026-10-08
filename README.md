@@ -97,6 +97,29 @@ The hub keeps one SSH link per peer and syncs every move. Each peer needs:
 Read from the pane title. Knows Claude, GPT, Gemini, DeepSeek, Qwen, Grok, GLM and Kimi.
 Add one with a regex line in `MODEL_FAMILIES`, [`lib/logos.js`](lib/logos.js).
 
+### Pi's own selected model
+
+Pi's terminal title cannot reliably reveal which model it has selected, so
+the title-based lookup above never identifies Pi. A separate, standalone
+extension, [`extensions/pi-model-logo.js`](extensions/pi-model-logo.js),
+reports Pi's actual selected model ID and a hashed session reference
+straight to Herdr; this plugin's Pi branch in `lib/state.js` resolves that
+report into the same family glyphs, independent of the title.
+
+Install once per host, in Pi's own extensions directory:
+
+```sh
+cp extensions/pi-model-logo.js ~/.pi/agent/extensions/pi-model-logo.js
+```
+
+First-time activation on a host that has never run this extension for a
+given socket/pane needs one preflight call to provision its durable
+sequence counter (`pi-model-logo-state/`, beside the global extensions
+directory) — see `provisionZeroCounterWithEvidence` in the extension file.
+Skipping it is safe: the extension silently declines to publish until
+provisioned, nothing else about Pi or Herdr changes. Reload or start a new
+Pi session afterward for the extension to take effect.
+
 ## Uninstall
 
 ```sh
